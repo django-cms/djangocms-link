@@ -21,3 +21,10 @@ If you want to enable the ajax loading:
 * Add ``'django_select2'`` to your ``INSTALLED_APPS`` settings.
 * Add ``url(r'^select2/', include('django_select2.urls')),`` to your main ``urls.py``.
 
+Translations
+------------
+
+If you want to help translate the plugin please do it on transifex:
+
+https://www.transifex.com/projects/p/django-cms/resource/djangocms-link/
+
