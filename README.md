@@ -1,5 +1,5 @@
-django CMS Link Plugin
-======================
+djangocms-link
+==============
 
 A Link plugin for django CMS.
 
