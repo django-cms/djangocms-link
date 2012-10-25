@@ -13,7 +13,7 @@ To enable this install Django-Select2 3.1.2 or above.
 
 * In your projects `virtualenv`_, run ``pip install djangocms-link``.
 * Add ``'djangocms_link'`` to your ``INSTALLED_APPS`` setting.
-* Run ``manage.py migrate cmsplugin_disqus``.
+* Run ``manage.py migrate djangocms_link``.
 
 If you want to enable the ajax loading:
 
