@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"POT-Creation-Date: 2012-10-25 10:41+0200\n"
 "PO-Revision-Date: 2009-11-10 22:37+0100\n"
 "Last-Translator: Benjamin Wohlwend <piquadrat@gmail.com>\n"
 "Language-Team: divio.ch <developers@divio.ch>\n"
@@ -67,78 +67,3 @@ msgstr ""
 #: models.py:18
 msgid "topmost frame"
 msgstr ""
-
-#~ msgid "A list of comma seperated keywords sometimes used by search engines."
-#~ msgstr ""
-#~ "A list of comma separated keywords sometimes used by search engines."
-
-#~ msgid "plugin_name"
-#~ msgstr "plugin name"
-
-#~ msgid "has url overwrite"
-#~ msgstr "has URL overwrite"
-
-#~ msgid "url overwrite"
-#~ msgstr "URL overwrite"
-
-#~ msgid "delete req."
-#~ msgstr "deletion request"
-
-#~ msgid "move req."
-#~ msgstr "move request"
-
-#~ msgid "publish req."
-#~ msgstr "publish request"
-
-#~ msgid "unpublish req."
-#~ msgstr "unpublish request"
-
-#~ msgid "req. app."
-#~ msgstr "approval required"
-
-#, fuzzy
-#~ msgid "Use latitude & longitude to fine tune the map position."
-#~ msgstr "Use latitude & longitude to fine tune the map position."
-
-#~ msgid ""
-#~ "Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by "
-#~ "you."
-#~ msgstr ""
-#~ "Page <a href=\"%(admin_url)s\">%(page)s</a> may require approval by you."
-
-#~ msgid "(requires approvement at %(moderation_level)s level)"
-#~ msgstr "(requires approval at %(moderation_level)s level)"
-
-#~ msgid "Request approvemet"
-#~ msgstr "Request approval"
-
-#~ msgid "An error occured. Please reload the page"
-#~ msgstr "An error occurred. Please reload the page"
-
-#~ msgid "No Plugin selected. Selected one on the left side"
-#~ msgstr "No Plugin selected. Select one on the left side"
-
-#, fuzzy
-#~ msgid "sidebar column"
-#~ msgstr "background color"
-
-#, fuzzy
-#~ msgid "left column"
-#~ msgstr "background color"
-
-#, fuzzy
-#~ msgid "right column"
-#~ msgstr "background color"
-
-#~ msgid "CMS - Page %s requires approvement."
-#~ msgstr "CMS - Page %s requires approval."
-
-#, fuzzy
-#~ msgid "move"
-#~ msgstr "move request"
-
-#~ msgid "fgcolor"
-#~ msgstr "foreground color"
-
-#~ msgid "Wanted language has not been translated yet."
-#~ msgstr "Requested language has not been translated yet."
