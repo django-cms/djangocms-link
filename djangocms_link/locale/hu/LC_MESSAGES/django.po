@@ -1,0 +1,439 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+#   <fazekasda@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-24 19:21+0000\n"
+"Last-Translator: fazekasda <fazekasda@gmail.com>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr ""
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "oldal"
+
+#: models.py:10
+msgid "name"
+msgstr ""
+
+#: models.py:11
+msgid "link"
+msgstr ""
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr ""
+
+#: models.py:13
+msgid "mailto"
+msgstr ""
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr ""
+
+#: models.py:14
+msgid "target"
+msgstr "cél"
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr "új ablak"
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "django CMS"
+#~ msgstr "django CMS"
+
+#~ msgid "Logout"
+#~ msgstr "Kilépés"
+
+#~ msgid "Template"
+#~ msgstr "Templát"
+
+#~ msgid "Move/add Pages"
+#~ msgstr "Oldal mozgatása/hozzáadása"
+
+#~ msgid "Delete Page"
+#~ msgstr "Oldal törlése"
+
+#~ msgid "Page"
+#~ msgstr "Oldal"
+
+#~ msgid "Admin"
+#~ msgstr "Admin"
+
+#~ msgid "Advanced options"
+#~ msgstr "További lehetőségek"
+
+#~ msgid "Title"
+#~ msgstr "Cím"
+
+#~ msgid "The default title"
+#~ msgstr "Alapértelmezett cím"
+
+#~ msgid "Language"
+#~ msgstr "Nyelv"
+
+#~ msgid "Menu Title"
+#~ msgstr "Menü Cím"
+
+#~ msgid "Page Title"
+#~ msgstr "Oldal Cím"
+
+#~ msgid "Application"
+#~ msgstr "Alkalmazás"
+
+#~ msgid "Overwrite URL"
+#~ msgstr "URL felülírása"
+
+#~ msgid "Redirect"
+#~ msgstr "Átirányítás"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "Átirányítás erre az URL-re."
+
+#~ msgid "user"
+#~ msgstr "felhasználó"
+
+#~ msgid "Please select user or group first."
+#~ msgstr "Először válasszon felhasználót vagy csoportot."
+
+#~ msgid "Add"
+#~ msgstr "Új"
+
+#~ msgid "Change"
+#~ msgstr "Módosítás"
+
+#~ msgid "Delete"
+#~ msgstr "Törlés"
+
+#~ msgid "Notify user"
+#~ msgstr "Felhasználó értesítése"
+
+#~ msgid "New password"
+#~ msgstr "Új jelszó"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Új jelszó megerősítése"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "Az email értesítéshez valós email címre van szükség."
+
+#~ msgid "Basic Settings"
+#~ msgstr "Alapvető beállítások"
+
+#~ msgid "Hidden"
+#~ msgstr "Rejtett"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "További beállítások"
+
+#~ msgid "SEO Settings"
+#~ msgstr "SEO Beállítások"
+
+#~ msgid "Database error"
+#~ msgstr "Adatbázis hiba"
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "Ennek az oldalnak csak egy fordítása létezik."
+
+#~ msgid "Are you sure?"
+#~ msgstr "Biztos benne?"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "Nincs joga az oldal publikálásához"
+
+#~ msgid "%(plugin_name)s plugin added to %(placeholder)s"
+#~ msgstr "%(plugin_name)s plugin hozzáadva a %(placeholder)s helyhez"
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "Nincs joga az oldal a szerkesztéséhez"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "A nyelv nem lehet azonos a másolat nyelvével!"
+
+#~ msgid "Plugins where moved"
+#~ msgstr "Plugin áthelyezve"
+
+#~ msgid "Page permissions"
+#~ msgstr "Oldal jogai"
+
+#~ msgid "User & Group permissions"
+#~ msgstr "Felhasználó és Csoport jogok"
+
+#~ msgid "Page permissions management"
+#~ msgstr "Oldal jogainak kezelése"
+
+#~ msgid "User details"
+#~ msgstr "Felhasználó adatai"
+
+#~ msgid "Groups"
+#~ msgstr "Csoport"
+
+#~ msgid "Password"
+#~ msgstr "Jelszó"
+
+#~ msgid "Copy permissions"
+#~ msgstr "Jogok másolása"
+
+#~ msgid "Copy moderation"
+#~ msgstr "Moderálhat?"
+
+#~ msgid "Add Another"
+#~ msgstr "Új hozzáadása"
+
+#~ msgid "language"
+#~ msgstr "nyelv"
+
+#~ msgid "position"
+#~ msgstr "pozíció"
+
+#~ msgid "creation date"
+#~ msgstr "létrehozás dátuma"
+
+#~ msgid "plugin_name"
+#~ msgstr "plugin"
+
+#~ msgid "title"
+#~ msgstr "cím"
+
+#~ msgid "path"
+#~ msgstr "útvonal"
+
+#~ msgid "everybody"
+#~ msgstr "mindenki"
+
+#~ msgid "can edit"
+#~ msgstr "szerkeszthet?"
+
+#~ msgid "group"
+#~ msgstr "csoport"
+
+#~ msgid "can publish"
+#~ msgstr "publikálhat?"
+
+#~ msgid "type"
+#~ msgstr "típus"
+
+#~ msgid "status"
+#~ msgstr "státusz"
+
+#~ msgid "has url overwrite"
+#~ msgstr "URL felülírva"
+
+#~ msgid "url overwrite"
+#~ msgstr "URL felülírás"
+
+#~ msgid "author"
+#~ msgstr "szerző"
+
+#~ msgid "login required"
+#~ msgstr "bejelentkezés szükséges"
+
+#~ msgid "publication end date"
+#~ msgstr "publikusság vége"
+
+#~ msgid "template"
+#~ msgstr "templát"
+
+#~ msgid "publication date"
+#~ msgstr "publikálás dátuma"
+
+#~ msgid "in navigation"
+#~ msgstr "navigációban szerepel"
+
+#~ msgid "application"
+#~ msgstr "alkalmazás"
+
+#~ msgid "id"
+#~ msgstr "azonosító"
+
+#~ msgid "redirect"
+#~ msgstr "átirányítás"
+
+#~ msgid "keywords"
+#~ msgstr "kulcsszavak"
+
+#~ msgid "description"
+#~ msgstr "leírás"
+
+#~ msgid "Current page"
+#~ msgstr "Aktuális oldal"
+
+#~ msgid "User"
+#~ msgstr "Felhasználó"
+
+#~ msgid "created"
+#~ msgstr "létrehozva"
+
+#~ msgid "changed"
+#~ msgstr "módosítva"
+
+#~ msgid "delete"
+#~ msgstr "törlés"
+
+#~ msgid "created by"
+#~ msgstr "létrehozva"
+
+#~ msgid "changed by"
+#~ msgstr "mádosítva"
+
+#~ msgid "is published"
+#~ msgstr "publikálva"
+
+#~ msgid "pages"
+#~ msgstr "oldalak"
+
+#~ msgid "Page was copied."
+#~ msgstr "Oldal lemásolva."
+
+#~ msgid "default"
+#~ msgstr "alapértelmezett"
+
+#~ msgid "can add"
+#~ msgstr "hozzáadhat"
+
+#~ msgid "can delete"
+#~ msgstr "törölhet"
+
+#~ msgid "User (page)"
+#~ msgstr "Felhasználó (oldal)"
+
+#~ msgid "Users (page)"
+#~ msgstr "Felhasználók (oldal)"
+
+#~ msgid "User group (page)"
+#~ msgstr "Felhasználó csoport (oldal)"
+
+#~ msgid "User groups (page)"
+#~ msgstr "Felhasználó csoportok (oldal)"
+
+#~ msgid "width"
+#~ msgstr "szélesség"
+
+#~ msgid "File"
+#~ msgstr "Fájl"
+
+#~ msgid "file"
+#~ msgstr "fájl"
+
+#~ msgid "Flash"
+#~ msgstr "Flash"
+
+#~ msgid "height"
+#~ msgstr "magasság"
+
+#~ msgid "Google Map"
+#~ msgstr "Google Térkép"
+
+#~ msgid "Plugin width (in pixels or percent)."
+#~ msgstr "Plugin szélesség (pixelben)"
+
+#~ msgid "Plugin height (in pixels)."
+#~ msgstr "Plugin magasság (pixelben)"
+
+#~ msgid "loading tweets..."
+#~ msgstr "tweetek betöltése ..."
+
+#~ msgid "background color"
+#~ msgstr "background color"
+
+#~ msgid "Login url: %(login_url)s"
+#~ msgstr "Bejeletkezési url: %(login_url)s"
+
+#~ msgid "Cancel"
+#~ msgstr "Mégsem"
+
+#~ msgid "up"
+#~ msgstr "fel"
+
+#~ msgid "down"
+#~ msgstr "le"
+
+#~ msgid "Username"
+#~ msgstr "Felhasználói név"
+
+#~ msgid "Login"
+#~ msgstr "Belépés"
+
+#~ msgid "English"
+#~ msgstr "Angol"
+
+#~ msgid "French"
+#~ msgstr "Francia"
+
+#~ msgid "German"
+#~ msgstr "Német"
+
+#~ msgid "Brazil"
+#~ msgstr "Brazil"
+
+#~ msgid "Dutch"
+#~ msgstr "Holland"
+
+#~ msgid "two columns"
+#~ msgstr "két hasáb"
+
+#~ msgid "three columns"
+#~ msgstr "három hasáb"
+
+#~ msgid "navigation examples"
+#~ msgstr "navigáció példa"
+
+#~ msgid "sidebar column"
+#~ msgstr "background color"
+
+#~ msgid "left column"
+#~ msgstr "background color"
+
+#~ msgid "right column"
+#~ msgstr "background color"
+
+#~ msgid "Test Plugin"
+#~ msgstr "Teszt Plugin"
+
+#~ msgid "Extra Context"
+#~ msgstr "Extra Tartalom"
+
+#~ msgid "Articles"
+#~ msgstr "Cikkek"
+
+#~ msgid "Sample App"
+#~ msgstr "Példa Alkalmazás"
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."

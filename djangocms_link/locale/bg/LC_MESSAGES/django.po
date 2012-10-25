@@ -1,0 +1,1388 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Boris Chervenkov <office@sentido.bg>, 2012.
+# masarliev <mitko@masarliev.net>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: bg\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr "Връзка"
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "страница"
+
+#: models.py:10
+msgid "name"
+msgstr "име"
+
+#: models.py:11
+msgid "link"
+msgstr "връзка"
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr "Връзка до страницата е с приоритет пред текстова връзка."
+
+#: models.py:13
+msgid "mailto"
+msgstr "email адрес"
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr "Email адрес има приоритет над текстова връзка."
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "Edit mode"
+#~ msgstr "Редакция"
+
+#~ msgid "django CMS"
+#~ msgstr "Django CMS"
+
+#~ msgid "Publish"
+#~ msgstr "Публикувай"
+
+#~ msgid "Request Approval"
+#~ msgstr "Одобрение на искане"
+
+#~ msgid "Logout"
+#~ msgstr "Изход"
+
+#~ msgid "Template"
+#~ msgstr "Шаблон"
+
+#~ msgid "Move/add Pages"
+#~ msgstr "Премести/добави страници"
+
+#~ msgid "Add child page"
+#~ msgstr "Добави подстраница"
+
+#~ msgid "Add sibling page"
+#~ msgstr "Добави страница на същото ниво"
+
+#~ msgid "Delete Page"
+#~ msgstr "искане за изтриване"
+
+#~ msgid "Page"
+#~ msgstr "Страница"
+
+#~ msgid "Site Administration"
+#~ msgstr "Администрация на сайта"
+
+#~ msgid "Page Settings"
+#~ msgstr "Настройки на страницата"
+
+#~ msgid "View History"
+#~ msgstr "Преглед на историята"
+
+#~ msgid "Admin"
+#~ msgstr "Администратор"
+
+#~ msgid "Advanced options"
+#~ msgstr "Разширени опции"
+
+#~ msgid "Title"
+#~ msgstr "Заглавие"
+
+#~ msgid "The default title"
+#~ msgstr "Заглавие по подразбиране"
+
+#~ msgid "Slug"
+#~ msgstr "Слъг"
+
+#~ msgid "The part of the title that is used in the URL"
+#~ msgstr "Частта от заглавието, която се използва в URL адреса"
+
+#~ msgid "Language"
+#~ msgstr "Език"
+
+#~ msgid "The current language of the content fields."
+#~ msgstr "Настоящия език на полетата със съдържанието."
+
+#~ msgid "Another page with this slug already exists"
+#~ msgstr "Друга страница със този слъг вече съществува"
+
+#~ msgid "Menu Title"
+#~ msgstr "Заглавие на менюто"
+
+#~ msgid "Overwrite what is displayed in the menu"
+#~ msgstr "Напишете показаното в менюто"
+
+#~ msgid "Page Title"
+#~ msgstr "Заглавие на страницата"
+
+#~ msgid ""
+#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
+#~ msgstr "Изписва показаното отгоре във Вашия браузър или отметки"
+
+#~ msgid "Application"
+#~ msgstr "Приложение"
+
+#~ msgid "Hook application to this page."
+#~ msgstr "Прикачи приложение на тази страница."
+
+#~ msgid "Overwrite URL"
+#~ msgstr "Напиши URL адрес"
+
+#~ msgid "Keep this field empty if standard path should be used."
+#~ msgstr ""
+#~ "Оставете това поле празно, ако трябва да бъде използван стандартен път."
+
+#~ msgid "Redirect"
+#~ msgstr "Пренасочване"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "Пренасочва към този URL адрес"
+
+#~ msgid "A description of the page sometimes used by search engines."
+#~ msgstr "Описание на страницата, което понякога използват търсачките."
+
+#~ msgid "A list of comma seperated keywords sometimes used by search engines."
+#~ msgstr ""
+#~ "Списък с думи, разделени със запетая, който понякога използват търсачките."
+
+#~ msgid "A page with this reverse URL id exists already."
+#~ msgstr "Страница с този обратен URL адрес вече съществува."
+
+#~ msgid "user"
+#~ msgstr "потребител"
+
+#~ msgid ""
+#~ "Add page permission requires also access to children, or descendants, "
+#~ "otherwise added page can't be changed by its creator."
+#~ msgstr ""
+#~ "Правата за създаване на страница изискват достъп и до подстраниците. В "
+#~ "противен случай добавената страница не може да бъде променяна от своя "
+#~ "автор."
+
+#~ msgid "Add page permission also requires edit page permission."
+#~ msgstr "Правата за добавяне изискват и права за редактиране."
+
+#~ msgid "can_view"
+#~ msgstr "може да разглежда"
+
+#~ msgid "Please select user or group first."
+#~ msgstr "Моля, първо изберете потребител или група."
+
+#~ msgid "Add"
+#~ msgstr "Добави"
+
+#~ msgid "Change"
+#~ msgstr "Промени"
+
+#~ msgid "Delete"
+#~ msgstr "Изтрий"
+
+#~ msgid "Recover (any) pages"
+#~ msgstr "Възстанови (които и да е) страници"
+
+#~ msgid "Notify user"
+#~ msgstr "Предупреди потребителя"
+
+#~ msgid ""
+#~ "Send email notification to user about username or password change. "
+#~ "Requires user email."
+#~ msgstr ""
+#~ "Изпратете имейл предупреждение на потребителя относно промяна на "
+#~ "потребителско име или парола. Изисква се имейл на потребителя."
+
+#~ msgid "New password"
+#~ msgstr "Нова парола"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Потвърждение на новата парола"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "Имейл потвърждението изисква валиден имейл адрес."
+
+#~ msgid ""
+#~ "The permission to add new pages requires the permission to change pages!"
+#~ msgstr "Правото за добавяне изисква и право за редактиране!"
+
+#~ msgid ""
+#~ "The permission to add new users requires the permission to change users!"
+#~ msgstr ""
+#~ "Правото за добавяне на нови потребители изисква и правото за тяхното "
+#~ "редактиране!"
+
+#~ msgid "To add permissions you also need to edit them!"
+#~ msgstr ""
+#~ "За да можете да добавяте права трябва да можете и да ги редактирате."
+
+#~ msgid "Basic Settings"
+#~ msgstr "Основни настройки"
+
+#~ msgid "Note: This page reloads if you change the selection. Save it first."
+#~ msgstr ""
+#~ "Забележка: страницата се презарежда ако промените значението. Запазете "
+#~ "промените първо."
+
+#~ msgid "Hidden"
+#~ msgstr "Скрито"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "Разширени настройки"
+
+#~ msgid "SEO Settings"
+#~ msgstr "SEO настройки"
+
+#~ msgid "You have no permission to change the template"
+#~ msgstr "Нямате право да променяте шаблон."
+
+#~ msgid "higher"
+#~ msgstr "по-високо"
+
+#~ msgid "Database error"
+#~ msgstr "Грешка в базата данни"
+
+#~ msgid "Page was successfully approved."
+#~ msgstr "Страницата беше одобрена успешно."
+
+#~ msgid "%(name)s object with primary key %(key)r does not exist."
+#~ msgstr "%(name)s обект с основен ключ %(key)r не съществува."
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "Съществува само един превод на тази страница."
+
+#~ msgid "Title and plugins with language %(language)s was deleted"
+#~ msgstr "Заглавието и добавките на %(language)s език бяха изтрити"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Сигурни ли сте?"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "Нямате права да публикувате тази страница"
+
+#~ msgid ""
+#~ "You do not have permission to change this page's in_navigation status"
+#~ msgstr "Нямате право да променяте статуса на навигацията на тази страница."
+
+#~ msgid "You have no permission to add a plugin"
+#~ msgstr "Нямате право да слагате добавка."
+
+#~ msgid "Language must be set to a supported language!"
+#~ msgstr "Избрания език трябва да бъде един от поддържаните!"
+
+#~ msgid "%(plugin_name)s plugin added to %(placeholder)s"
+#~ msgstr "%(plugin_name)s добавка е сложена в %(placeholder)s"
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "Нямате право да променяте тази страница"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "Езикът трябва да е различен от копирания език!"
+
+#~ msgid "You do not have permission to add plugins"
+#~ msgstr "Нямате право да слагате добавки."
+
+#~ msgid "Copied %(language)s plugins to %(placeholder)s"
+#~ msgstr "Копирани са %(language)s добавки в %(placeholder)s"
+
+#~ msgid "You have no permission to change this page"
+#~ msgstr "Нямате права да право да променяте тази страница."
+
+#~ msgid "You have no permission to edit a plugin"
+#~ msgstr "Нямате право да редактирате добавка."
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
+#~ msgstr ""
+#~ "%(plugin_name)s добавка беше редактирана в позиция %(position)s на "
+#~ "%(placeholder)s"
+
+#~ msgid "You have no permission to move a plugin"
+#~ msgstr "Нямате право да местите добавка."
+
+#~ msgid "Plugins where moved"
+#~ msgstr "Добавките бяха преместени"
+
+#~ msgid "You have no permission to remove a plugin"
+#~ msgstr "Нямате право да премахвате добавка"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin at position %(position)s in %(placeholder)s was "
+#~ "deleted."
+#~ msgstr ""
+#~ "%(plugin_name)s добавка в позиция %(position)s на %(placeholder)s беше "
+#~ "изтрита."
+
+#~ msgid "View restriction"
+#~ msgstr "Вижте забраната"
+
+#~ msgid "View restrictions"
+#~ msgstr "Вижте забраните"
+
+#~ msgid "Page permissions"
+#~ msgstr "Права за страницата"
+
+#~ msgid "User & Group permissions"
+#~ msgstr "Права на потребители и групи"
+
+#~ msgid "Page permissions management"
+#~ msgstr "Управление на правата за страницата"
+
+#~ msgid "You don't have permission to add content here."
+#~ msgstr "Нямате право да добавяте съдържание тук."
+
+#~ msgid "You don't have permission to add plugins"
+#~ msgstr "Нямате право да слагате добавки."
+
+#~ msgid "You don't have permission to delete a plugin"
+#~ msgstr "Нямате право да триете добавка."
+
+#~ msgid "User details"
+#~ msgstr "Подробности за потребител"
+
+#~ msgid "Groups"
+#~ msgstr "Групи"
+
+#~ msgid "Password"
+#~ msgstr "Парола"
+
+#~ msgid "Copy permissions"
+#~ msgstr "Копирай права"
+
+#~ msgid "Copy moderation"
+#~ msgstr "Копирай модериране"
+
+#~ msgid "Inherit the template of the nearest ancestor"
+#~ msgstr "Наследи шаблона от най-близката главна страница"
+
+#~ msgid "Select a valid site"
+#~ msgstr "Изберете валиден сайт"
+
+#~ msgid "Select a valid page"
+#~ msgstr "Изберете валидна страница"
+
+#~ msgid "Add Another"
+#~ msgstr "Добави друг"
+
+#~ msgid "language"
+#~ msgstr "език"
+
+#~ msgid "position"
+#~ msgstr "позиция"
+
+#~ msgid "creation date"
+#~ msgstr "дата на създаване"
+
+#~ msgid "slot"
+#~ msgstr "слот"
+
+#~ msgid "plugin_name"
+#~ msgstr "име на добавка"
+
+#~ msgid "title"
+#~ msgstr "заглавие"
+
+#~ msgid "path"
+#~ msgstr "път"
+
+#~ msgid "slug"
+#~ msgstr "слъг"
+
+#~ msgid "everybody"
+#~ msgstr "всеки"
+
+#~ msgid "can edit"
+#~ msgstr "може да се редактира"
+
+#~ msgid "group"
+#~ msgstr "група"
+
+#~ msgid "can publish"
+#~ msgstr "може да публикува"
+
+#~ msgid "type"
+#~ msgstr "тип"
+
+#~ msgid "can change soft-root"
+#~ msgstr "може да променя мека-основа"
+
+#~ msgid "status"
+#~ msgstr "статус"
+
+#~ msgid "navigation extenders"
+#~ msgstr "разширители на навигацията"
+
+#~ msgid "has url overwrite"
+#~ msgstr "has URL overwrite"
+
+#~ msgid "url overwrite"
+#~ msgstr "URL overwrite"
+
+#~ msgid "author"
+#~ msgstr "автор"
+
+#~ msgid "reverse url id"
+#~ msgstr "обръщане на url по id"
+
+#~ msgid "login required"
+#~ msgstr "необходимо е вписване"
+
+#~ msgid "soft root"
+#~ msgstr "мека-основа"
+
+#~ msgid "publication end date"
+#~ msgstr "крайна дата на публикацията"
+
+#~ msgid "template"
+#~ msgstr "шаблон"
+
+#~ msgid "publication date"
+#~ msgstr "дата на публикуване"
+
+#~ msgid "in navigation"
+#~ msgstr "в навигацията"
+
+#~ msgid "application"
+#~ msgstr "приложение"
+
+#~ msgid "id"
+#~ msgstr "id"
+
+#~ msgid "redirect"
+#~ msgstr "пренасочване"
+
+#~ msgid "keywords"
+#~ msgstr "ключови думи"
+
+#~ msgid "description"
+#~ msgstr "описание"
+
+#~ msgid "Current page"
+#~ msgstr "Текуща страница"
+
+#~ msgid "Page children (immediate)"
+#~ msgstr "Подстраници на текущата (непосредствени)"
+
+#~ msgid "Page and children (immediate)"
+#~ msgstr "Страница и подстраници (непосредствени)"
+
+#~ msgid "Page descendants"
+#~ msgstr "Потомци на страницата"
+
+#~ msgid "Page and descendants"
+#~ msgstr "Страница и потомци"
+
+#~ msgid "User"
+#~ msgstr "Потребител"
+
+#~ msgid "Moderate page"
+#~ msgstr "Модерирай страницата"
+
+#~ msgid "Moderate children"
+#~ msgstr "Модерирай подстраниците"
+
+#~ msgid "Moderate descendants"
+#~ msgstr "Модерирай потомците"
+
+#~ msgid "PageModerator"
+#~ msgstr "Модератор на страница"
+
+#~ msgid "created"
+#~ msgstr "създадена"
+
+#~ msgid "changed"
+#~ msgstr "променена"
+
+#~ msgid "delete req."
+#~ msgstr "искане за изтриване"
+
+#~ msgid "move req."
+#~ msgstr "искане за преместване"
+
+#~ msgid "publish req."
+#~ msgstr "искане за публикуване"
+
+#~ msgid "unpublish req."
+#~ msgstr "искане за премахване на публикация"
+
+#~ msgid "approved"
+#~ msgstr "одобрена"
+
+#~ msgid "Page moderator state"
+#~ msgstr "Статус на модератор на страницата"
+
+#~ msgid "Page moderator states"
+#~ msgstr "Статуси на модератори"
+
+#~ msgid "req. app."
+#~ msgstr "изисква се одобрение"
+
+#~ msgid "delete"
+#~ msgstr "изтрий"
+
+#~ msgid "app. par."
+#~ msgstr "app. par."
+
+#~ msgid "for logged in users only"
+#~ msgstr "достъп само за вписани потребители"
+
+#~ msgid "for anonymous users only"
+#~ msgstr "само за нерегистрирани потребители"
+
+#~ msgid "created by"
+#~ msgstr "създадена от"
+
+#~ msgid "changed by"
+#~ msgstr "променена от"
+
+#~ msgid ""
+#~ "When the page should go live. Status must be \"Published\" for page to go "
+#~ "live."
+#~ msgstr "За да се вижда страницата, статусът трябва да е \"Публикувана\""
+
+#~ msgid "When to expire the page. Leave empty to never expire."
+#~ msgstr "Кога да изтече страницата? Остави празно, за да не изтича."
+
+#~ msgid "All ancestors will not be displayed in the navigation"
+#~ msgstr "Всички прародители няма да бъдат показвани в навигацията"
+
+#~ msgid ""
+#~ "An unique identifier that is used with the page_url templatetag for "
+#~ "linking to this page"
+#~ msgstr ""
+#~ "Уникален идентификатор, използван с page_url етикета на темплейта за "
+#~ "създаване на връзка до тази страница."
+
+#~ msgid "attached menu"
+#~ msgstr "прикачено меню"
+
+#~ msgid "is published"
+#~ msgstr "публикувано"
+
+#~ msgid "The template used to render the content."
+#~ msgstr "Шаблон използван за показването на съдържанието."
+
+#~ msgid "The site the page is accessible at."
+#~ msgstr "Тази страница от сайта е достъпна на."
+
+#~ msgid "site"
+#~ msgstr "сайт"
+
+#~ msgid "moderator state"
+#~ msgstr "статус на модератор"
+
+#~ msgid "menu visibility"
+#~ msgstr "видимост на менюто"
+
+#~ msgid "limit when this page is visible in the menu"
+#~ msgstr "ограничи, когато тази страница е видима в менюто"
+
+#~ msgid "pages"
+#~ msgstr "страници"
+
+#~ msgid "Page was copied."
+#~ msgstr "Страницата беше копирана."
+
+#~ msgid "default"
+#~ msgstr "по подразбиране"
+
+#~ msgid "can add"
+#~ msgstr "може да добавя"
+
+#~ msgid "can delete"
+#~ msgstr "може да трие"
+
+#~ msgid "can change advanced settings"
+#~ msgstr "може да променя разширени настройки"
+
+#~ msgid "can change permissions"
+#~ msgstr "може да променя права"
+
+#~ msgid "on page level"
+#~ msgstr "на ниво на страницата"
+
+#~ msgid "can move"
+#~ msgstr "може да премества"
+
+#~ msgid "can moderate"
+#~ msgstr "може да модерира"
+
+#~ msgid "view restricted"
+#~ msgstr "ограничен преглед"
+
+#~ msgid "frontend view restriction"
+#~ msgstr "ограничение при разглеждане през публичния интерфейс"
+
+#~ msgid "can recover pages"
+#~ msgstr "може да възтановява страници"
+
+#~ msgid "can recover any deleted page"
+#~ msgstr "може да възстановява всяка изтрита страница"
+
+#~ msgid "If none selected, user haves granted permissions to all sites."
+#~ msgstr "Ако няма избрани, потребителят има достъп до всички сайтове."
+
+#~ msgid "sites"
+#~ msgstr "сайтове"
+
+#~ msgid "Page global permission"
+#~ msgstr "Глобални права на страницата"
+
+#~ msgid "Pages global permissions"
+#~ msgstr "Глобални права на страниците"
+
+#~ msgid "Grant on"
+#~ msgstr "Дай права"
+
+#~ msgid "Page permission"
+#~ msgstr "Права на страницата"
+
+#~ msgid "User (page)"
+#~ msgstr "Потребител (страница)"
+
+#~ msgid "Users (page)"
+#~ msgstr "Потребители (страница)"
+
+#~ msgid "User group (page)"
+#~ msgstr "Потребителска група (страница)"
+
+#~ msgid "User groups (page)"
+#~ msgstr "Потребителски групи (страница)"
+
+#~ msgid "width"
+#~ msgstr "широчина"
+
+#~ msgid "<Empty>"
+#~ msgstr "<Празно>"
+
+#~ msgid "overwrite the title in the menu"
+#~ msgstr "презаписвай заглавието в менюто"
+
+#~ msgid "Path"
+#~ msgstr "Път"
+
+#~ msgid "overwrite the title (html title tag)"
+#~ msgstr "презаписвай заглавието (HTML Title)"
+
+#~ msgid "File"
+#~ msgstr "Файл"
+
+#~ msgid "file"
+#~ msgstr "файл"
+
+#~ msgid "file missing!"
+#~ msgstr "файлът липсва!"
+
+#~ msgid "Flash"
+#~ msgstr "Флаш"
+
+#~ msgid "use swf file"
+#~ msgstr "използвай swf файл"
+
+#~ msgid "height"
+#~ msgstr "височина"
+
+#~ msgid ""
+#~ "Missing flash plugin. Please download the latest Adobe Flash Player: "
+#~ msgstr ""
+#~ "Липсваща добавка. Моля, изтеглете последната версия на Adobe Flash Player"
+
+#~ msgid "Get Adobe Flash Player"
+#~ msgstr "Изтеглете Adobe Flash Player"
+
+#~ msgid "Google Map"
+#~ msgstr "Google Карта"
+
+#~ msgid "map title"
+#~ msgstr "заглавие на картата"
+
+#~ msgid "address"
+#~ msgstr "адрес"
+
+#~ msgid "zip code"
+#~ msgstr "пощенски код"
+
+#~ msgid "city"
+#~ msgstr "град"
+
+#~ msgid "additional content"
+#~ msgstr "допълнително съдържание"
+
+#~ msgid "zoom level"
+#~ msgstr "ниво на увеличаване"
+
+#~ msgid "latitude"
+#~ msgstr "ширина"
+
+#~ msgid "Use latitude & longitude to fine tune the map position."
+#~ msgstr ""
+#~ "Използвайте latitude & longitude, за да определите позицията на картата."
+
+#~ msgid "longitude"
+#~ msgstr "дължина"
+
+#~ msgid "route planer title"
+#~ msgstr "route planer title"
+
+#~ msgid "Calculate your fastest way to here"
+#~ msgstr "Изчисли най-бързия път до тук"
+
+#~ msgid "route planer"
+#~ msgstr "route planer"
+
+#~ msgid "Map"
+#~ msgstr "Карта"
+
+#~ msgid "Your address: "
+#~ msgstr "Вашият адрес:"
+
+#~ msgid "Calculate route"
+#~ msgstr "Изчисли маршрута"
+
+#~ msgid "Inherit Plugins from Page"
+#~ msgstr "Наследяване на добавки от страница"
+
+#~ msgid "Language or Page must be filled out"
+#~ msgstr "Поле \"Език\" или \"Страница\" трябва да бъде попълнено"
+
+#~ msgid ""
+#~ "Choose a page to include its plugins into this placeholder, empty will "
+#~ "choose current page"
+#~ msgstr ""
+#~ "Изберете страница за включване на добавки на това място; ако оставите "
+#~ "празно ще бъде използвана текущата страница."
+
+#~ msgid "Optional: the language of the plugins you want"
+#~ msgstr "По избор: езикът на добавките, които искате."
+
+#~ msgid "Picture"
+#~ msgstr "Картинка"
+
+#~ msgid "center"
+#~ msgstr "център"
+
+#~ msgid "left"
+#~ msgstr "ляво"
+
+#~ msgid "right"
+#~ msgstr "дясно"
+
+#~ msgid "image"
+#~ msgstr "картинка"
+
+#~ msgid "if present image will be clickable"
+#~ msgstr "ако може да се натиска върху настоящата снимка"
+
+#~ msgid "alternate text"
+#~ msgstr "алтернативен текст"
+
+#~ msgid "textual description of the image"
+#~ msgstr "текстово описание на снимката"
+
+#~ msgid "long description"
+#~ msgstr "дълго описание"
+
+#~ msgid "additional description of the image"
+#~ msgstr "допълнително описание на снимката"
+
+#~ msgid "side"
+#~ msgstr "страна"
+
+#~ msgid "Snippet"
+#~ msgstr "Изрезка"
+
+#~ msgid "Template %(template)s does not exist."
+#~ msgstr "Шаблонът %(template)s не съществува."
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid ""
+#~ "Enter a template (i.e. \"snippets/plugin_xy.html\") which will be "
+#~ "rendered. "
+#~ msgstr ""
+#~ "Въведете шаблон (i.e. \"snippets/plugin_xy.html\") , който да бъде зает."
+
+#~ msgid "Snippets"
+#~ msgstr "Изрезки"
+
+#~ msgid "Teaser"
+#~ msgstr "Подсказка"
+
+#~ msgid "If present image will be clickable"
+#~ msgstr "Ако върху настоящата снимка се натиска"
+
+#~ msgid "If present image will be clickable."
+#~ msgstr "Ако върху снимката ще се натиска"
+
+#~ msgid "more"
+#~ msgstr "повече"
+
+#~ msgid "Text"
+#~ msgstr "Текст"
+
+#~ msgid "body"
+#~ msgstr "тяло"
+
+#~ msgid "Plugins"
+#~ msgstr "Добавки"
+
+#~ msgid "Please select a plugin type."
+#~ msgstr "Моля, изберете тип на добавката."
+
+#~ msgid "Edit selected plugin"
+#~ msgstr "Редактирайте избраната добавка"
+
+#~ msgid "Text editor does not support editing objects."
+#~ msgstr "Текстовият редактор не поддържа редактиране на обекти."
+
+#~ msgid "No object selected."
+#~ msgstr "Няма избран обект."
+
+#~ msgid "Text editor does not support inserting objects."
+#~ msgstr "Текстовият редактор не поддържа поставяне на обекти."
+
+#~ msgid "Not a plugin object"
+#~ msgstr "Не е обект на добавка"
+
+#~ msgid "Available Plugins"
+#~ msgstr "Достъпни добавки"
+
+#~ msgid "Insert plugin"
+#~ msgstr "Вмъкни добавка"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "Twitter Search"
+#~ msgstr "Търсене в Twitter"
+
+#~ msgid "twitter user"
+#~ msgstr "twitter потребител"
+
+#~ msgid "count"
+#~ msgstr "количество"
+
+#~ msgid "Number of entries to display"
+#~ msgstr "Брой елементи за показване"
+
+#~ msgid "link hint"
+#~ msgstr "подсказка на връзката"
+
+#~ msgid "If given, the hint is displayed as link to your Twitter profile."
+#~ msgstr ""
+#~ "Ако бъде предоставено, подсказката ще бъде показана като връзка към Вашия "
+#~ "Twitter профил."
+
+#~ msgid "query"
+#~ msgstr "заявка"
+
+#~ msgid ""
+#~ "Example: \"brains AND zombies AND from:umbrella AND to:nemesis\": tweets "
+#~ "from the user \"umbrella\" to the user \"nemesis\" that contain the words "
+#~ "\"brains\" and \"zombies\""
+#~ msgstr ""
+#~ "Пример: \"усмивки AND целувки AND from:снежинка AND to:капка\": изпраща "
+#~ "туит от потребител \"снежинка\" до потребител \"капка\", което съдържа "
+#~ "думите \"усмивки\" and \"целувки\""
+
+#~ msgid "we said,"
+#~ msgstr "написахме,"
+
+#~ msgid "we"
+#~ msgstr "ние"
+
+#~ msgid "we were"
+#~ msgstr "бяхме"
+
+#~ msgid "we replied to"
+#~ msgstr "отговорихме на "
+
+#~ msgid "we were checking out"
+#~ msgstr "разгледахме"
+
+#~ msgid "loading tweets..."
+#~ msgstr "зареждане на туитове..."
+
+#~ msgid "Video"
+#~ msgstr "Видео"
+
+#~ msgid "Color Settings"
+#~ msgstr "Настройки на цвят"
+
+#~ msgid "movie file"
+#~ msgstr "премести заявка"
+
+#~ msgid "use .flv file or h264 encoded video file"
+#~ msgstr ""
+#~ "използвайте видео файлове във формат .FLV или видео файл кодиран в h264 "
+#~ "формат"
+
+#~ msgid "movie url"
+#~ msgstr "премести заявка"
+
+#~ msgid ""
+#~ "vimeo or youtube video url. Example: http://www.youtube.com/watch?v=-"
+#~ "iJ7bs4mTUY"
+#~ msgstr ""
+#~ "адрес на видео във Vimeo или  YouTube, например http://www.youtube.com/"
+#~ "watch?v=-iJ7bs4mTUY"
+
+#~ msgid "preview image file"
+#~ msgstr "преглед на файл с изображение"
+
+#~ msgid "auto play"
+#~ msgstr "автоматично започване"
+
+#~ msgid "auto hide"
+#~ msgstr "скрий автоматично"
+
+#~ msgid "fullscreen"
+#~ msgstr "на цял екран"
+
+#~ msgid "loop"
+#~ msgstr "циклично"
+
+#~ msgid "background color"
+#~ msgstr "цвят на фона"
+
+#~ msgid "Hexadecimal, eg ff00cc"
+#~ msgstr "Шестнадесетично представяне, например FF00CC"
+
+#~ msgid "text color"
+#~ msgstr "цвят на текста"
+
+#~ msgid "seekbar color"
+#~ msgstr "цвят на фона"
+
+#~ msgid "seekbar bg color"
+#~ msgstr "цвят на фона"
+
+#~ msgid "loadingbar color"
+#~ msgstr "цвят на индикатора за зареждане"
+
+#~ msgid "button out color"
+#~ msgstr "цвят на бутона"
+
+#~ msgid "button over color"
+#~ msgstr "цвят на бутона при преминаване на мишката"
+
+#~ msgid "button highlight color"
+#~ msgstr "цвят на бутона при активен бутон"
+
+#~ msgid "Save"
+#~ msgstr "Запази"
+
+#~ msgid "Delete %(language)s translation"
+#~ msgstr "Изтрий %(language)s превода"
+
+#~ msgid "Save as new"
+#~ msgstr "Запази като нов"
+
+#~ msgid "Save and add another"
+#~ msgstr "Запазете и добавете нов"
+
+#~ msgid "Save and continue editing"
+#~ msgstr "Запазете и продължете да редактирате"
+
+#~ msgid ""
+#~ "Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by "
+#~ "you."
+#~ msgstr ""
+#~ "Страницата <a href=\"%(admin_url)s\">%(page)s</a> може да изисква "
+#~ "потвърждение от Вас."
+
+#~ msgid "Last changes"
+#~ msgstr "Последни промени"
+
+#~ msgid "Log in to administration <a href=\"%(login_url)s\">here</a>."
+#~ msgstr "Влезте в администрацията <a href=\"%(login_url)s\">тук</a>."
+
+#~ msgid "Username:"
+#~ msgstr "Потребител:"
+
+#~ msgid "Password:"
+#~ msgstr "Парола:"
+
+#~ msgid "Change a page"
+#~ msgstr "Редактиране на страница"
+
+#~ msgid "Home"
+#~ msgstr "Начало"
+
+#~ msgid "Approve page deletion"
+#~ msgstr "Потвърдете изтриването на страницата"
+
+#~ msgid "(requires approvement at %(moderation_level)s level)"
+#~ msgstr "(изисква потвърждение на %(moderation_level)s модераторско ниво)"
+
+#~ msgid "(you can perform actions on this page directly)"
+#~ msgstr "(можете да извършвате действия директно на тази страница)"
+
+#~ msgid "Remove delete request"
+#~ msgstr "Премахнете заявката за изтриване"
+
+#~ msgid "Approve delete"
+#~ msgstr "Потвърдете изтриването"
+
+#~ msgid "Approve"
+#~ msgstr "Потвърдете"
+
+#~ msgid "draft"
+#~ msgstr "чернова"
+
+#~ msgid "Preview"
+#~ msgstr "Преглед"
+
+#~ msgid "History"
+#~ msgstr "История"
+
+#~ msgid "View on site"
+#~ msgstr "Виж на сайта"
+
+#~ msgid "Please correct the error below."
+#~ msgid_plural "Please correct the errors below."
+#~ msgstr[0] "Моля, поправете грешката отдолу."
+#~ msgstr[1] "Моля, поправете грешките отдолу."
+
+#~ msgid "All permissions"
+#~ msgstr "Всички права"
+
+#~ msgid "Loading..."
+#~ msgstr "Зареждане..."
+
+#~ msgid "Page states"
+#~ msgstr "Статуси на страниците"
+
+#~ msgid ""
+#~ "This page must be moderated at level %(moderation_level)s, post a message "
+#~ "for moderator."
+#~ msgstr ""
+#~ "Тази страница може да бъде модерирана от модератор с ниво "
+#~ "%(moderation_level)s; Моля, свържете се с модератор с такива права."
+
+#~ msgid "Request approvemet"
+#~ msgstr "Одобрение на искане"
+
+#~ msgid "List of pages"
+#~ msgstr "Списък със страниците"
+
+#~ msgid "Successfully moved"
+#~ msgstr "Успешно преместено"
+
+#~ msgid "An error occured. Please reload the page"
+#~ msgstr "Грешка. Моля, презаредете страницата."
+
+#~ msgid "Recover deleted %(name)s"
+#~ msgstr "Възстановете изтритото %(name)s"
+
+#~ msgid "Add %(name)s"
+#~ msgstr "Добави %(name)s"
+
+#~ msgid "Pages on:"
+#~ msgstr "Страници на:"
+
+#~ msgid "Filter:"
+#~ msgstr "Филтър:"
+
+#~ msgid "on"
+#~ msgstr "включено"
+
+#~ msgid "off"
+#~ msgstr "изключено"
+
+#~ msgid "Filter"
+#~ msgstr "Филтър"
+
+#~ msgid "actions"
+#~ msgstr "действия"
+
+#~ msgid "moderate"
+#~ msgstr "модериране"
+
+#~ msgid "published"
+#~ msgstr "публикувано"
+
+#~ msgid "start"
+#~ msgstr "начало"
+
+#~ msgid "end"
+#~ msgstr "край"
+
+#~ msgid "restricted"
+#~ msgstr "ограничение"
+
+#~ msgid "last changes"
+#~ msgstr "последни промени"
+
+#~ msgid "select this page"
+#~ msgstr "избери тази страница"
+
+#~ msgid "edit this page"
+#~ msgstr "редактирай тази страница"
+
+#~ msgid "edit"
+#~ msgstr "редактирай"
+
+#~ msgid "insert above"
+#~ msgstr "вмъкни по-нагоре"
+
+#~ msgid "insert below"
+#~ msgstr "вмъкни по-надолу"
+
+#~ msgid "insert inside"
+#~ msgstr "вмъкни вътре"
+
+#~ msgid "softroot"
+#~ msgstr "мека основа"
+
+#~ msgid "home"
+#~ msgstr "начало"
+
+#~ msgid "Edit this page in %(language)s "
+#~ msgstr "Редактирайте тази страница на %(language)s език"
+
+#~ msgid "Cut"
+#~ msgstr "Отрежи"
+
+#~ msgid "cut"
+#~ msgstr "отрежи"
+
+#~ msgid "Copy"
+#~ msgstr "Копирай"
+
+#~ msgid "copy"
+#~ msgstr "копирай"
+
+#~ msgid "Add Child"
+#~ msgstr "Добави подстраница"
+
+#~ msgid "add"
+#~ msgstr "добави"
+
+#~ msgid "Approve directly"
+#~ msgstr "Директно одобри"
+
+#~ msgid "view"
+#~ msgstr "виж"
+
+#~ msgid "Unpublish"
+#~ msgstr "Не публикувай"
+
+#~ msgid "View on page"
+#~ msgstr "Вижте на страницата"
+
+#~ msgid "Action"
+#~ msgstr "Действие"
+
+#~ msgid "Created"
+#~ msgstr "Създадено"
+
+#~ msgid "Message"
+#~ msgstr "Съобщение"
+
+#~ msgid "Group"
+#~ msgstr "Група"
+
+#~ msgid "Can edit"
+#~ msgstr "Може да редактира"
+
+#~ msgid "Can add"
+#~ msgstr "Може да добавя"
+
+#~ msgid "Can delete"
+#~ msgstr "Може да трие"
+
+#~ msgid "Can publish"
+#~ msgstr "Може да публикува"
+
+#~ msgid "Can change permissions"
+#~ msgstr "Може да променя правата"
+
+#~ msgid "Can move"
+#~ msgstr "Може да мести"
+
+#~ msgid "Can view"
+#~ msgstr "Може да разглежда"
+
+#~ msgid "(global)"
+#~ msgstr "(глобално)"
+
+#~ msgid "(current)"
+#~ msgstr "(текущо)"
+
+#~ msgid "All"
+#~ msgstr "Всички"
+
+#~ msgid "Page doesn't inherit any permissions."
+#~ msgstr "Страницата не наследява права."
+
+#~ msgid "Cancel"
+#~ msgstr "Отказ"
+
+#~ msgid "An old revision of a plugin can not be saved!"
+#~ msgstr "Стара версия на добавка не може да бъде запазена!"
+
+#~ msgid "Plugin saved successfully."
+#~ msgstr "Добавката е преместена успешно."
+
+#~ msgid "Recover deleted %(verbose_name)s"
+#~ msgstr "Възстанови изтритата %(verbose_name)s"
+
+#~ msgid "Press the save button below to recover this version of the object."
+#~ msgstr ""
+#~ "Натиснете бутона за запазване, за да възстановите версията на обекта."
+
+#~ msgid "Revert %(verbose_name)s"
+#~ msgstr "Възстанови %(verbose_name)s"
+
+#~ msgid "Press the save button below to revert to this version of the object."
+#~ msgstr ""
+#~ "Натиснете бутона за запазване, за да върнете до тази версия на обекта."
+
+#~ msgid "Copy options"
+#~ msgstr "Опции за копиране"
+
+#~ msgid "Choose copy options"
+#~ msgstr "Изберете опции за копиране"
+
+#~ msgid "Generic"
+#~ msgstr "Общ"
+
+#~ msgid "Add Plugin"
+#~ msgstr "Сложи добавка"
+
+#~ msgid "From Language"
+#~ msgstr "От език"
+
+#~ msgid "Copy Plugins"
+#~ msgstr "Копирай добавки"
+
+#~ msgid "You must save the page first to add plugins."
+#~ msgstr ""
+#~ "Първо трябва да запазите страницата, за да можете да слагате добавки."
+
+#~ msgid "No Plugin selected. Selected one on the left side"
+#~ msgstr "Няма избрани добавки. Изберете една отляво."
+
+#~ msgid "No Plugins present. Add a plugin to this placeholder-slot."
+#~ msgstr "В момента няма добавки. Сложете за съответното място."
+
+#~ msgid "Available plugins"
+#~ msgstr "Достъпни добавки"
+
+#~ msgid "The selected element can not be moved to the desired location."
+#~ msgstr "Избраният елемент не може да бъде преместен на желаното място"
+
+#~ msgid "Are you sure you want to delete this plugin?"
+#~ msgstr "Наистина ли искате да изтриете тази добавка?"
+
+#~ msgid "up"
+#~ msgstr "нагоре"
+
+#~ msgid "down"
+#~ msgstr "надолу"
+
+#~ msgid "Move to placeholder"
+#~ msgstr "Премести на друго място"
+
+#~ msgid "Username"
+#~ msgstr "Потребителско име"
+
+#~ msgid "Login"
+#~ msgstr "Вписване"
+
+#~ msgid "Status"
+#~ msgstr "Статус"
+
+#~ msgid "Switch on/off"
+#~ msgstr "Включване/изключване"
+
+#~ msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"
+#~ msgstr "<span title=\"Ограничения: %(title)s\">%(icon)s</span>"
+
+#~ msgid "Unbind page moderation"
+#~ msgstr "Позволи модериране на страница"
+
+#~ msgid "Unbind children moderation"
+#~ msgstr "Позволи модериране на подстраници"
+
+#~ msgid "Unbind descendants moderation"
+#~ msgstr "Позволи модериране на потомците"
+
+#~ msgid "Page not found on %(domain)s"
+#~ msgstr "Страницата не е открита на %(domain)s"
+
+#~ msgid ""
+#~ "A template tag couldn't find the page with lookup arguments `"
+#~ "%(page_lookup)s\n"
+#~ "`. The URL of the request was: http://%(host)s%(path)s"
+#~ msgstr ""
+#~ "Не може да бъде намерена страница при търсене с `%(page_lookup)s` . URL "
+#~ "адресът на заявката е бил: http://%(host)s%(path)s"
+
+#~ msgid "sidebar column"
+#~ msgstr "background color"
+
+#~ msgid "left column"
+#~ msgstr "background color"
+
+#~ msgid "right column"
+#~ msgstr "background color"
+
+#~ msgid "CMS - your user account was created."
+#~ msgstr "CMS — Вашият потребителски профил беше създаден."
+
+#~ msgid "CMS - your user account was changed."
+#~ msgstr "CMS — Вашият потребителски профил беше променен."
+
+#~ msgid "parent first"
+#~ msgstr "първо главните страници"
+
+#~ msgid "approve"
+#~ msgstr "одобри"
+
+#~ msgid "CMS - Page %s requires approvement."
+#~ msgstr "CMS - Страницата %s изисква одобрение."
+
+#~ msgid "Invalid URL, use /my/url format."
+#~ msgstr "Невалиден  URL адрес, използвайте формат от типа на /моя/адрес"
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."

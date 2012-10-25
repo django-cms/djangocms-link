@@ -1,0 +1,997 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Ales Zabala Alava <shagi@gisa-elkartea.org>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr "Esteka"
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "orria"
+
+#: models.py:10
+msgid "name"
+msgstr "izena"
+
+#: models.py:11
+msgid "link"
+msgstr "esteka"
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr ""
+
+#: models.py:13
+msgid "mailto"
+msgstr ""
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr ""
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "Edit mode"
+#~ msgstr "Edizio modua"
+
+#~ msgid "django CMS"
+#~ msgstr "django CMS"
+
+#~ msgid "Publish"
+#~ msgstr "Argitaratu"
+
+#~ msgid "Request Approval"
+#~ msgstr "Onespena eskatu"
+
+#~ msgid "Logout"
+#~ msgstr "Irten"
+
+#~ msgid "Template"
+#~ msgstr "Txantiloia"
+
+#~ msgid "Move/add Pages"
+#~ msgstr "Orriak mugitu/gehitu"
+
+#~ msgid "Add child page"
+#~ msgstr "Orri semea gehitu"
+
+#~ msgid "Delete Page"
+#~ msgstr "Orria ezabatu"
+
+#~ msgid "Page"
+#~ msgstr "Orria"
+
+#~ msgid "Site Administration"
+#~ msgstr "Gune kudeaketa"
+
+#~ msgid "Page Settings"
+#~ msgstr "Orriaren ezarpenak"
+
+#~ msgid "View History"
+#~ msgstr "Historia ikusi"
+
+#~ msgid "Advanced options"
+#~ msgstr "Aukera aurreratuak"
+
+#~ msgid "Title"
+#~ msgstr "Izenburua"
+
+#~ msgid "The default title"
+#~ msgstr "Titulu lehenetsia"
+
+#~ msgid "Slug"
+#~ msgstr "Slug"
+
+#~ msgid "The part of the title that is used in the URL"
+#~ msgstr "URLetan erabiltzen den izenburuaren zatia"
+
+#~ msgid "Language"
+#~ msgstr "Hizkuntza"
+
+#~ msgid "The current language of the content fields."
+#~ msgstr "Edukiaren uneko hizkuntza."
+
+#~ msgid "Another page with this slug already exists"
+#~ msgstr "Badago slug hau duen beste orri bat"
+
+#~ msgid "Menu Title"
+#~ msgstr "Menuko izenburua"
+
+#~ msgid "Overwrite what is displayed in the menu"
+#~ msgstr "Menuan ikusiko dena gainidatzi"
+
+#~ msgid "Page Title"
+#~ msgstr "Orriaren izenburua"
+
+#~ msgid ""
+#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
+#~ msgstr ""
+#~ "Nabigatzailearen goikaldean edo bookmarketan ikusiko dena gainidatzi"
+
+#~ msgid "Application"
+#~ msgstr "Aplikazioa"
+
+#~ msgid "Hook application to this page."
+#~ msgstr "Orri honetan aplikazioa estekatu."
+
+#~ msgid "Overwrite URL"
+#~ msgstr "URLa gainidatzi"
+
+#~ msgid "Keep this field empty if standard path should be used."
+#~ msgstr "Mantendu eremu hau hutsik bide arruntak erabiltzeko."
+
+#~ msgid "Redirect"
+#~ msgstr "Berbideratu"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "URL honetara berbideratu."
+
+#~ msgid "A description of the page sometimes used by search engines."
+#~ msgstr "Orriaren deskribapena, bilaketa motorrentzako erabilgarria."
+
+#~ msgid "A list of comma seperated keywords sometimes used by search engines."
+#~ msgstr ""
+#~ "Bilaketa motoreak batzutan erabiltzen dituzten gako-hitzak, komaz "
+#~ "bereiztuta"
+
+#~ msgid "user"
+#~ msgstr "erabiltzailea"
+
+#~ msgid "Add page permission also requires edit page permission."
+#~ msgstr "Orria gehitzeko baimenak orria editatzeko baimea ere behar du."
+
+#~ msgid "can_view"
+#~ msgstr "Ikusi dezake"
+
+#~ msgid "Please select user or group first."
+#~ msgstr "Erabiltzaile edo taldeea hautatu mesedez."
+
+#~ msgid "Add"
+#~ msgstr "Gehitu"
+
+#~ msgid "Change"
+#~ msgstr "Aldatu"
+
+#~ msgid "Delete"
+#~ msgstr "Ezabatu"
+
+#~ msgid "Recover (any) pages"
+#~ msgstr "orriak berreskuratu (edozein)"
+
+#~ msgid "Notify user"
+#~ msgstr "Erabiltzailea ohartarazi"
+
+#~ msgid ""
+#~ "Send email notification to user about username or password change. "
+#~ "Requires user email."
+#~ msgstr ""
+#~ "Erabiltzaileari eposta bat bidali erabiltzaile izena edo pasahitza "
+#~ "aldatzean. Erabiltzaileak eposta eduki behar du"
+
+#~ msgid "New password"
+#~ msgstr "Pasahitz berria"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Pasahitz berria baieztatu"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "Eposta ohartarazpenak baliozko eposta helbidea behar du."
+
+#~ msgid ""
+#~ "The permission to add new pages requires the permission to change pages!"
+#~ msgstr "Orri berriak gehitzeko baimenak orriak aldatzeko baimena behar du!"
+
+#~ msgid ""
+#~ "The permission to add new users requires the permission to change users!"
+#~ msgstr ""
+#~ "Erabiltzaileak gehitzeko baimenak erabiltzeileak aldatzeko baimena behar "
+#~ "du!"
+
+#~ msgid "To add permissions you also need to edit them!"
+#~ msgstr "Baimenak gehitzeko baimenak editatu behar dituzu baita ere!"
+
+#~ msgid "Basic Settings"
+#~ msgstr "Oinarrizko ezarpenak"
+
+#~ msgid "Note: This page reloads if you change the selection. Save it first."
+#~ msgstr ""
+#~ "Oharra: Orria birkargatzen da aukeraketa aldatzen baduzu. Gorde "
+#~ "lehendabizi."
+
+#~ msgid "Hidden"
+#~ msgstr "Ezkutatua"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "Ezarpen aurreratuak"
+
+#~ msgid "You have no permission to change the template"
+#~ msgstr "Ez duzu txantiloia aldatzeko baimenik"
+
+#~ msgid "higher"
+#~ msgstr "altuagoa"
+
+#~ msgid "Database error"
+#~ msgstr "Datu baseko akatsa"
+
+#~ msgid "Page was successfully approved."
+#~ msgstr "Orria onartu da."
+
+#~ msgid "%(name)s object with primary key %(key)r does not exist."
+#~ msgstr "Ez da existitzen %(key)r gakodun %(name)s objecturik."
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "Orri honen itzulpen bakarra dago"
+
+#~ msgid "Title and plugins with language %(language)s was deleted"
+#~ msgstr "%(language)s hizkuntzako izenburu eta pluginak ezabatu dira"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Ziur al zaude?"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "Ez duzu orri hau argitaratzeko baimenik"
+
+#~ msgid ""
+#~ "You do not have permission to change this page's in_navigation status"
+#~ msgstr "Ez duzu orri honen nabigazio egoera aldatzeko baimenik"
+
+#~ msgid "You have no permission to add a plugin"
+#~ msgstr "Ez duzu pluginik gehitzeko baimenik"
+
+#~ msgid "Language must be set to a supported language!"
+#~ msgstr "Hizkuntza hori ez dago onartuta!"
+
+#~ msgid "%(plugin_name)s plugin added to %(placeholder)s"
+#~ msgstr "%(plugin_name)s plugina %(placeholder)s-(e)ra gehituta"
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "Ez duzu orri hau aldatzeko baimenik"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "Helburuko hizkuntza jatorrizkoaren ezberdina izan behar du!"
+
+#~ msgid "You do not have permission to add plugins"
+#~ msgstr "Ez duzu pluginak gehitzeko baimenik"
+
+#~ msgid "Copied %(language)s plugins to %(placeholder)s"
+#~ msgstr "%(language)s hizkuntzako pluginak %(placeholder)s-(e)ra kopiatuta"
+
+#~ msgid "You have no permission to change this page"
+#~ msgstr "Ez duzu orri hau aldatzeko baimenik."
+
+#~ msgid "You have no permission to edit a plugin"
+#~ msgstr "Ez duzu plugina editatzeko baimenik"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
+#~ msgstr ""
+#~ "%(plugin_name)s plugina %(position)s kokapenean editatuta %(placeholder)s-"
+#~ "(e)n"
+
+#~ msgid "You have no permission to move a plugin"
+#~ msgstr "Ez duzu pluginak mugitzeko baimenik"
+
+#~ msgid "Plugins where moved"
+#~ msgstr "Pluginak mugitu dira"
+
+#~ msgid "You have no permission to remove a plugin"
+#~ msgstr "Ez duzu pluginak ezabatzeko baimenik"
+
+#~ msgid "View restriction"
+#~ msgstr "Murriztapena ikusi"
+
+#~ msgid "View restrictions"
+#~ msgstr "Murriztapenak ikusi"
+
+#~ msgid "Page permissions"
+#~ msgstr "Orri baimenak"
+
+#~ msgid "User & Group permissions"
+#~ msgstr "Erabiltzaile eta talde baimenak"
+
+#~ msgid "Page permissions management"
+#~ msgstr "Orriaren baimenen kudeaketa"
+
+#~ msgid "You don't have permission to add content here."
+#~ msgstr "Ez duzu hemen edukia gehitzeko baimenik."
+
+#~ msgid "You don't have permission to add plugins"
+#~ msgstr "Ez duzu pluginak gehitzeko baimenik"
+
+#~ msgid "You don't have permission to delete a plugin"
+#~ msgstr "Ez duzu plugina ezabatzeko baimenik"
+
+#~ msgid "User details"
+#~ msgstr "Erabiltzailearen xehetasunak"
+
+#~ msgid "Groups"
+#~ msgstr "Taldeak"
+
+#~ msgid "Password"
+#~ msgstr "Pasahitza"
+
+#~ msgid "Select a valid site"
+#~ msgstr "Hautatu baliozko gunea"
+
+#~ msgid "Select a valid page"
+#~ msgstr "Hautatu baliozko orria"
+
+#~ msgid "Add Another"
+#~ msgstr "Beste bat gehitu"
+
+#~ msgid "language"
+#~ msgstr "hizkuntza"
+
+#~ msgid "position"
+#~ msgstr "kokapena"
+
+#~ msgid "creation date"
+#~ msgstr "sorrera data"
+
+#~ msgid "plugin_name"
+#~ msgstr "Pluginaren izena"
+
+#~ msgid "title"
+#~ msgstr "izenburua"
+
+#~ msgid "path"
+#~ msgstr "bidea"
+
+#~ msgid "everybody"
+#~ msgstr "edonork"
+
+#~ msgid "can edit"
+#~ msgstr "editatu dezake"
+
+#~ msgid "group"
+#~ msgstr "taldea"
+
+#~ msgid "can publish"
+#~ msgstr "Argitaratu dezake"
+
+#~ msgid "type"
+#~ msgstr "mota"
+
+#~ msgid "status"
+#~ msgstr "egoera"
+
+#~ msgid "author"
+#~ msgstr "egilea"
+
+#~ msgid "login required"
+#~ msgstr "Saio-hasiera beharrezkoa"
+
+#~ msgid "publication end date"
+#~ msgstr "argitalpen bukaera data"
+
+#~ msgid "template"
+#~ msgstr "txantiloia"
+
+#~ msgid "publication date"
+#~ msgstr "argitalpen data"
+
+#~ msgid "in navigation"
+#~ msgstr "nabigazioan"
+
+#~ msgid "application"
+#~ msgstr "aplikazioa"
+
+#~ msgid "id"
+#~ msgstr "id"
+
+#~ msgid "redirect"
+#~ msgstr "berbideratu"
+
+#~ msgid "description"
+#~ msgstr "deskribapena"
+
+#~ msgid "Current page"
+#~ msgstr "Uneko orria"
+
+#~ msgid "Page children (immediate)"
+#~ msgstr "Orri semeak (semeak bakarrik)"
+
+#~ msgid "Page and children (immediate)"
+#~ msgstr "Orria eta semeak (semeak bakarrik)"
+
+#~ msgid "Page descendants"
+#~ msgstr "Orriaren oinordekoak"
+
+#~ msgid "Page and descendants"
+#~ msgstr "Orria eta oinordekoak"
+
+#~ msgid "User"
+#~ msgstr "Erabiltzailea"
+
+#~ msgid "created"
+#~ msgstr "sortuta"
+
+#~ msgid "changed"
+#~ msgstr "aldatuta"
+
+#~ msgid "delete req."
+#~ msgstr "ezabatzeko esk."
+
+#~ msgid "move req."
+#~ msgstr "mugitzeko esk."
+
+#~ msgid "publish req."
+#~ msgstr "argitaratzeko esk."
+
+#~ msgid "unpublish req."
+#~ msgstr "ez-argitaratze esk."
+
+#~ msgid "approved"
+#~ msgstr "onartua"
+
+#~ msgid "delete"
+#~ msgstr "ezabatu"
+
+#~ msgid "changed by"
+#~ msgstr "nork aldatua"
+
+#~ msgid ""
+#~ "When the page should go live. Status must be \"Published\" for page to go "
+#~ "live."
+#~ msgstr ""
+#~ "Orria noiz agertuko den. Egoera \"Argitaratuta\" izan behar du orria "
+#~ "webgunean agertzeko."
+
+#~ msgid "When to expire the page. Leave empty to never expire."
+#~ msgstr "Orria noiz desagertuko den. Hutsik utzi inoiz ez desagertzeko."
+
+#~ msgid "is published"
+#~ msgstr "argitaratuta dago"
+
+#~ msgid "The template used to render the content."
+#~ msgstr "edukia ikusteko erabiliko den txantiloia"
+
+#~ msgid "The site the page is accessible at."
+#~ msgstr "Orria zein gunetan ikusiko den."
+
+#~ msgid "site"
+#~ msgstr "gunea"
+
+#~ msgid "menu visibility"
+#~ msgstr "menu ikusgarritasuna"
+
+#~ msgid "limit when this page is visible in the menu"
+#~ msgstr "orri hau menuan noiz ikusi ahalko den mugatzen du"
+
+#~ msgid "pages"
+#~ msgstr "orriak"
+
+#~ msgid "Page was copied."
+#~ msgstr "Orria kopiatu da."
+
+#~ msgid "default"
+#~ msgstr "lehenetsia"
+
+#~ msgid "can add"
+#~ msgstr "gehi dezake"
+
+#~ msgid "can delete"
+#~ msgstr "ezaba dezake"
+
+#~ msgid "can change advanced settings"
+#~ msgstr "ezarpen aurreratuak aldatu ditzake"
+
+#~ msgid "can change permissions"
+#~ msgstr "baimenak alda ditzake"
+
+#~ msgid "on page level"
+#~ msgstr "orri mailan"
+
+#~ msgid "can move"
+#~ msgstr "mugitu dezake"
+
+#~ msgid "view restricted"
+#~ msgstr "Ikusgarritasun mugatua"
+
+#~ msgid "can recover pages"
+#~ msgstr "orriak berreskuratu ditzake"
+
+#~ msgid "can recover any deleted page"
+#~ msgstr "ezabatutako edozein orri berrezkuratu dezake"
+
+#~ msgid "sites"
+#~ msgstr "guneak"
+
+#~ msgid "Page global permission"
+#~ msgstr "Orrien baimen globala"
+
+#~ msgid "Pages global permissions"
+#~ msgstr "Orrien baimen globalak"
+
+#~ msgid "Page permission"
+#~ msgstr "Orri baimena"
+
+#~ msgid "User (page)"
+#~ msgstr "Erabiltzailea (orria)"
+
+#~ msgid "Users (page)"
+#~ msgstr "Erabiltzaileak (orria)"
+
+#~ msgid "User group (page)"
+#~ msgstr "Erabiltzaile taldea (orria)"
+
+#~ msgid "User groups (page)"
+#~ msgstr "Erabiltzaile taldeak (orria)"
+
+#~ msgid "width"
+#~ msgstr "zabalera"
+
+#~ msgid "<Empty>"
+#~ msgstr "<Hutsik>"
+
+#~ msgid "overwrite the title in the menu"
+#~ msgstr "menuan izenburua gainidatzi"
+
+#~ msgid "Path"
+#~ msgstr "Bidea"
+
+#~ msgid "overwrite the title (html title tag)"
+#~ msgstr "izenburua gainidatzi (html title etiketa)"
+
+#~ msgid "File"
+#~ msgstr "Fitxategia"
+
+#~ msgid "file"
+#~ msgstr "fitxategia"
+
+#~ msgid ""
+#~ "Missing flash plugin. Please download the latest Adobe Flash Player: "
+#~ msgstr ""
+#~ "Flash plugina falta da. Mesedez eskuratu azkeneko Adobe Flash Player: "
+
+#~ msgid "Get Adobe Flash Player"
+#~ msgstr "Adobe Flash Player eskuratu"
+
+#~ msgid "map title"
+#~ msgstr "maparen izenburua"
+
+#~ msgid "address"
+#~ msgstr "helbidea"
+
+#~ msgid "zip code"
+#~ msgstr "posta-kodea"
+
+#~ msgid "city"
+#~ msgstr "hiria"
+
+#~ msgid "zoom level"
+#~ msgstr "zoom maila"
+
+#~ msgid "latitude"
+#~ msgstr "latitudea"
+
+#~ msgid "Use latitude & longitude to fine tune the map position."
+#~ msgstr "Latitude eta longitudea erabili mapan kokapen fintzeko."
+
+#~ msgid "longitude"
+#~ msgstr "longitudea"
+
+#~ msgid "Calculate your fastest way to here"
+#~ msgstr "Hona heltzeko bide azkarrena kalkulatu"
+
+#~ msgid "Map"
+#~ msgstr "Mapa"
+
+#~ msgid "Your address: "
+#~ msgstr "Zure helbidea: "
+
+#~ msgid "Calculate route"
+#~ msgstr "Ibilbidea kalkulatu"
+
+#~ msgid "Language or Page must be filled out"
+#~ msgstr "Orriaren hizkuntza zehaztu behar da"
+
+#~ msgid "Optional: the language of the plugins you want"
+#~ msgstr "Aukerazkoa: nahi dituzun pluginen hizkuntza"
+
+#~ msgid "Picture"
+#~ msgstr "Irudia"
+
+#~ msgid "center"
+#~ msgstr "zentratuta"
+
+#~ msgid "left"
+#~ msgstr "ezkerrean"
+
+#~ msgid "right"
+#~ msgstr "eskuinean"
+
+#~ msgid "image"
+#~ msgstr "irudia"
+
+#~ msgid "if present image will be clickable"
+#~ msgstr "zehazten bada irudia klikagarria izango da"
+
+#~ msgid "long description"
+#~ msgstr "deskribapen luzea"
+
+#~ msgid "additional description of the image"
+#~ msgstr "irudiaren deskribapen osagarria"
+
+#~ msgid "side"
+#~ msgstr "aldea"
+
+#~ msgid "Snippet"
+#~ msgstr "Ebakina"
+
+#~ msgid "Template %(template)s does not exist."
+#~ msgstr "%(template)s txantiloia ez da existitzen."
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid "Snippets"
+#~ msgstr "Ebakinak"
+
+#~ msgid "If present image will be clickable"
+#~ msgstr "Zehazten bada irudia klikagarria izango da"
+
+#~ msgid "If present image will be clickable."
+#~ msgstr "Zehazten bada irudia klikagarria izango da."
+
+#~ msgid "more"
+#~ msgstr "gehiago"
+
+#~ msgid "Text"
+#~ msgstr "Testua"
+
+#~ msgid "body"
+#~ msgstr "gorputza"
+
+#~ msgid "Plugins"
+#~ msgstr "Pluginak"
+
+#~ msgid "Please select a plugin type."
+#~ msgstr "Plugin mota hautatu mesedez."
+
+#~ msgid "Edit selected plugin"
+#~ msgstr "Hautatutako plugina editatu"
+
+#~ msgid "Text editor does not support editing objects."
+#~ msgstr "Testu editoreak ez du objeturik editatzeko gaitasuna."
+
+#~ msgid "No object selected."
+#~ msgstr "Ez da objekturik hautatu."
+
+#~ msgid "Text editor does not support inserting objects."
+#~ msgstr "Testu editoreak ez du objetuak txertatzeko gaitasuna."
+
+#~ msgid "Not a plugin object"
+#~ msgstr "Ez da plugin objetua"
+
+#~ msgid "Available Plugins"
+#~ msgstr "Plugin eskuragarriak"
+
+#~ msgid "Insert plugin"
+#~ msgstr "Plugina txertatu"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "Twitter Search"
+#~ msgstr "Twitter bilaketa"
+
+#~ msgid "twitter user"
+#~ msgstr "twitter erabiltzailea"
+
+#~ msgid "count"
+#~ msgstr "kopurua"
+
+#~ msgid "Number of entries to display"
+#~ msgstr "Bistaratuko diren sarrera kopurua"
+
+#~ msgid "query"
+#~ msgstr "kontsulta"
+
+#~ msgid ""
+#~ "Example: \"brains AND zombies AND from:umbrella AND to:nemesis\": tweets "
+#~ "from the user \"umbrella\" to the user \"nemesis\" that contain the words "
+#~ "\"brains\" and \"zombies\""
+#~ msgstr ""
+#~ "Adibidea: \"burmuinak AND zombiak AND from:umbrella AND to:nemesis\": "
+#~ "\"umbrella\" erabiltzaileak \"nemesis\" erabiltzaileari bidalitako eta "
+#~ "\"burmuinak\" eta \"zombiak\" hitzak dituzten tweetak"
+
+#~ msgid "loading tweets..."
+#~ msgstr "twettak kargatzen..."
+
+#~ msgid "Video"
+#~ msgstr "Bideoa"
+
+#~ msgid "Color Settings"
+#~ msgstr "Kolore ezarpenak"
+
+#~ msgid "movie file"
+#~ msgstr "bideo fitxategia"
+
+#~ msgid "use .flv file or h264 encoded video file"
+#~ msgstr "erabili .flv edo h264 kodeketa duen bideo fitxategia"
+
+#~ msgid "movie url"
+#~ msgstr "bideo url-a"
+
+#~ msgid ""
+#~ "vimeo or youtube video url. Example: http://www.youtube.com/watch?v=-"
+#~ "iJ7bs4mTUY"
+#~ msgstr ""
+#~ "vimeo edo youtubeko bideo url-a. Adibidea: http://www.youtube.com/watch?"
+#~ "v=-iJ7bs4mTUY"
+
+#~ msgid "preview image file"
+#~ msgstr "irudi fitxategia aurreikusi"
+
+#~ msgid "auto play"
+#~ msgstr "erreprodukzio automatikoa"
+
+#~ msgid "auto hide"
+#~ msgstr "automatikoki ezkutatu"
+
+#~ msgid "fullscreen"
+#~ msgstr "pantaila osoa"
+
+#~ msgid "background color"
+#~ msgstr "atzeko planoaren kolorea"
+
+#~ msgid "Hexadecimal, eg ff00cc"
+#~ msgstr "Hamaseitarra, adib. ff00cc"
+
+#~ msgid "text color"
+#~ msgstr "testuaren kolorea"
+
+#~ msgid "Save"
+#~ msgstr "Gorde"
+
+#~ msgid "Delete %(language)s translation"
+#~ msgstr "Ezabatu %(language)s itzulpena"
+
+#~ msgid "Save as new"
+#~ msgstr "Gorde berri gisa"
+
+#~ msgid "Save and add another"
+#~ msgstr "Gorde eta berria gehitu"
+
+#~ msgid "Save and continue editing"
+#~ msgstr "Gorde eta aldatzen jarraitu"
+
+#~ msgid "Last changes"
+#~ msgstr "Azken aldaketak"
+
+#~ msgid "Username:"
+#~ msgstr "Erabiltzaile-izena:"
+
+#~ msgid "Password:"
+#~ msgstr "Pasahitza:"
+
+#~ msgid "Change a page"
+#~ msgstr "Orria aldatu"
+
+#~ msgid "draft"
+#~ msgstr "zirriborroa"
+
+#~ msgid "Preview"
+#~ msgstr "Aurrebista"
+
+#~ msgid "History"
+#~ msgstr "Historia"
+
+#~ msgid "View on site"
+#~ msgstr "Gunean ikusi"
+
+#~ msgid "Please correct the error below."
+#~ msgid_plural "Please correct the errors below."
+#~ msgstr[0] "Arren beheko errorea."
+#~ msgstr[1] "Arren beheko erroreak."
+
+#~ msgid "All permissions"
+#~ msgstr "Baimen guztiak"
+
+#~ msgid "Loading..."
+#~ msgstr "Kargatzen..."
+
+#~ msgid "Request approvemet"
+#~ msgstr "Onespena eskatu"
+
+#~ msgid "Add %(name)s"
+#~ msgstr "%(name)s gehitu"
+
+#~ msgid "Filter:"
+#~ msgstr "Iragazkia:"
+
+#~ msgid "actions"
+#~ msgstr "ekintzak"
+
+#~ msgid "published"
+#~ msgstr "argitaratuta"
+
+#~ msgid "start"
+#~ msgstr "hasiera"
+
+#~ msgid "end"
+#~ msgstr "amaiera"
+
+#~ msgid "last changes"
+#~ msgstr "azken aldaketak"
+
+#~ msgid "edit this page"
+#~ msgstr "orri hau editatu"
+
+#~ msgid "edit"
+#~ msgstr "editatu"
+
+#~ msgid "insert above"
+#~ msgstr "Goian txertatu"
+
+#~ msgid "insert below"
+#~ msgstr "Behean txertatu"
+
+#~ msgid "insert inside"
+#~ msgstr "Barnean txertatu"
+
+#~ msgid "Edit this page in %(language)s "
+#~ msgstr "Orri hau %(language)s hizkuntzan editatu"
+
+#~ msgid "Cut"
+#~ msgstr "Ebaki"
+
+#~ msgid "cut"
+#~ msgstr "ebaki"
+
+#~ msgid "Copy"
+#~ msgstr "Kopiatu"
+
+#~ msgid "copy"
+#~ msgstr "kopiatu"
+
+#~ msgid "Add Child"
+#~ msgstr "Semea gehitu"
+
+#~ msgid "add"
+#~ msgstr "gehitu"
+
+#~ msgid "view"
+#~ msgstr "ikusi"
+
+#~ msgid "Unpublish"
+#~ msgstr "Ez-argitaratu"
+
+#~ msgid "View on page"
+#~ msgstr "Orrian ikusi"
+
+#~ msgid "Action"
+#~ msgstr "Ekintza"
+
+#~ msgid "Message"
+#~ msgstr "Mezua"
+
+#~ msgid "Group"
+#~ msgstr "Taldea"
+
+#~ msgid "Can edit"
+#~ msgstr "Edita dezake"
+
+#~ msgid "Can add"
+#~ msgstr "Gehi dezake"
+
+#~ msgid "Can delete"
+#~ msgstr "Ezaba dezake"
+
+#~ msgid "Can publish"
+#~ msgstr "Argitara dezake"
+
+#~ msgid "Can change permissions"
+#~ msgstr "Baimenak alda ditzake"
+
+#~ msgid "Can move"
+#~ msgstr "Mugi dezake"
+
+#~ msgid "Can view"
+#~ msgstr "Ikus dezake"
+
+#~ msgid "(global)"
+#~ msgstr "(globala)"
+
+#~ msgid "(current)"
+#~ msgstr "(unekoa)"
+
+#~ msgid "All"
+#~ msgstr "Guztiak"
+
+#~ msgid "Cancel"
+#~ msgstr "Utzi"
+
+#~ msgid "Copy Plugins"
+#~ msgstr "Pluginak kopiatu"
+
+#~ msgid "Available plugins"
+#~ msgstr "Plugin eskuragarriak"
+
+#~ msgid "Are you sure you want to delete this plugin?"
+#~ msgstr "Ziur plugin hau ezabatu nahi duzula?"
+
+#~ msgid "up"
+#~ msgstr "gora"
+
+#~ msgid "down"
+#~ msgstr "behera"
+
+#~ msgid "Username"
+#~ msgstr "Erabiltzaile-izena"
+
+#~ msgid "Login"
+#~ msgstr "Saio-hasiera"
+
+#~ msgid "Status"
+#~ msgstr "Egoera"
+
+#~ msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"
+#~ msgstr "<span title=\"Murriztapenak: %(title)s\">%(icon)s</span>"
+
+#~ msgid "Page not found on %(domain)s"
+#~ msgstr "Orria ez da %(domain)s-en topatu"
+
+#~ msgid "sidebar column"
+#~ msgstr "background color"
+
+#~ msgid "left column"
+#~ msgstr "background color"
+
+#~ msgid "right column"
+#~ msgstr "background color"
+
+#~ msgid "approve"
+#~ msgstr "onartu"
+
+#~ msgid "Invalid URL, use /my/url format."
+#~ msgstr "URL ezegokia, erabili /nire/url formatua"
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."

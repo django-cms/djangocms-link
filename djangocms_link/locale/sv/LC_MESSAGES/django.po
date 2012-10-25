@@ -1,0 +1,1366 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+#   <hannseman@gmail.com>, 2011.
+# Patrik Gärdeman <patrik.gardeman@gmail.com>, 2011.
+# Simon Hedberg <simon@in-formation.se>, 2011.
+# tapetersen <tobias.alex.petersen@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr "Länk"
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "sida"
+
+#: models.py:10
+msgid "name"
+msgstr "namn"
+
+#: models.py:11
+msgid "link"
+msgstr "länk"
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr "En länk till en sida får prioritet över en textlänk."
+
+#: models.py:13
+msgid "mailto"
+msgstr "mailto"
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr "En e-postadress får prioritet över en textlänk."
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "Edit mode"
+#~ msgstr "Redigeringsläge"
+
+#~ msgid "django CMS"
+#~ msgstr "django CMS"
+
+#~ msgid "Publish"
+#~ msgstr "Publicera"
+
+#~ msgid "Request Approval"
+#~ msgstr "Begär godkännande"
+
+#~ msgid "Logout"
+#~ msgstr "Logga ut"
+
+#~ msgid "Template"
+#~ msgstr "Mall"
+
+#~ msgid "Move/add Pages"
+#~ msgstr "Flytta/lägg till sidor"
+
+#~ msgid "Add child page"
+#~ msgstr "Lägg till undersida"
+
+#~ msgid "Add sibling page"
+#~ msgstr "Lägg till syskon-sida"
+
+#~ msgid "Delete Page"
+#~ msgstr "Radera sida"
+
+#~ msgid "Page"
+#~ msgstr "Sida"
+
+#~ msgid "Site Administration"
+#~ msgstr "Sajtadministration"
+
+#~ msgid "Page Settings"
+#~ msgstr "Sidinställningar"
+
+#~ msgid "View History"
+#~ msgstr "Visa historik"
+
+#~ msgid "Admin"
+#~ msgstr "Admin"
+
+#~ msgid "Advanced options"
+#~ msgstr "Avancerade inställningar"
+
+#~ msgid "Title"
+#~ msgstr "Namn"
+
+#~ msgid "The default title"
+#~ msgstr "Sidans namn"
+
+#~ msgid "Slug"
+#~ msgstr "URL-namn"
+
+#~ msgid "The part of the title that is used in the URL"
+#~ msgstr "Den del av namnet som används i webbadressen"
+
+#~ msgid "Language"
+#~ msgstr "Språk"
+
+#~ msgid "The current language of the content fields."
+#~ msgstr "Det aktiva språket för innehållsfälten."
+
+#~ msgid "Another page with this slug already exists"
+#~ msgstr "En annan sida med samma URL-namn finns redan"
+
+#~ msgid "Menu Title"
+#~ msgstr "Menyrubrik"
+
+#~ msgid "Overwrite what is displayed in the menu"
+#~ msgstr "Ange för att visa annan text än sidans namn i menyn"
+
+#~ msgid "Page Title"
+#~ msgstr "Sidrubrik"
+
+#~ msgid ""
+#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
+#~ msgstr "Anger vad som visas i webbläsarens topp eller i bokmärken"
+
+#~ msgid "Application"
+#~ msgstr "Applikation"
+
+#~ msgid "Hook application to this page."
+#~ msgstr "Koppla applikation till denna sida."
+
+#~ msgid "Overwrite URL"
+#~ msgstr "Ändra URL"
+
+#~ msgid "Keep this field empty if standard path should be used."
+#~ msgstr "Lämna tomt om den vanliga sökvägen ska användas."
+
+#~ msgid "Redirect"
+#~ msgstr "Omdirigera"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "Omdirigerar till denna URL"
+
+#~ msgid "A description of the page sometimes used by search engines."
+#~ msgstr "En beskrivning som ibland används av sökmotorer."
+
+#~ msgid "A list of comma seperated keywords sometimes used by search engines."
+#~ msgstr ""
+#~ "En kommaseparerad lista med sökord som ibland används av sökmotorer."
+
+#~ msgid "A page with this reverse URL id exists already."
+#~ msgstr "En sida med detta URL-id finns redan."
+
+#~ msgid "user"
+#~ msgstr "användare"
+
+#~ msgid ""
+#~ "Add page permission requires also access to children, or descendants, "
+#~ "otherwise added page can't be changed by its creator."
+#~ msgstr ""
+#~ "Tillåtelse att lägga till sida kräver också tillgång till barn eller "
+#~ "efterkommande annars kan inte tillagd sida redigeras av den som skapat "
+#~ "den."
+
+#~ msgid "Add page permission also requires edit page permission."
+#~ msgstr ""
+#~ "Tillåtelse att lägga till sida kräver tillåtelse att redigera sidor."
+
+#~ msgid "Please select user or group first."
+#~ msgstr "Ange användare eller grupp först."
+
+#~ msgid "Add"
+#~ msgstr "Lägg till"
+
+#~ msgid "Change"
+#~ msgstr "Ändra"
+
+#~ msgid "Delete"
+#~ msgstr "Radera"
+
+#~ msgid "Recover (any) pages"
+#~ msgstr "Återskapa sidor"
+
+#~ msgid "Notify user"
+#~ msgstr "Meddela användare"
+
+#~ msgid ""
+#~ "Send email notification to user about username or password change. "
+#~ "Requires user email."
+#~ msgstr ""
+#~ "Skicka e-postmeddelande till användare om användarnamn eller "
+#~ "lösenordsförändring. E-postadress på användare krävs."
+
+#~ msgid "New password"
+#~ msgstr "Nytt lösenord"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Nytt lösenord (bekräfta)"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "E-postmeddelande kräver en giltig e-postadress."
+
+#~ msgid ""
+#~ "The permission to add new pages requires the permission to change pages!"
+#~ msgstr ""
+#~ "Tillåtelse att lägga till sidor kräver tillåtelse att redigera sidor!"
+
+#~ msgid ""
+#~ "The permission to add new users requires the permission to change users!"
+#~ msgstr ""
+#~ "Tillåtelse att lägga till användare kröver tillåtelse att redigera "
+#~ "användare!"
+
+#~ msgid "To add permissions you also need to edit them!"
+#~ msgstr "För att lägga till rättigheter måste du också redigera dem."
+
+#~ msgid "Basic Settings"
+#~ msgstr "Grundinställningar"
+
+#~ msgid "Note: This page reloads if you change the selection. Save it first."
+#~ msgstr "Notera: Sidan laddas på nytt om du ändrar detta. Spara först."
+
+#~ msgid "Hidden"
+#~ msgstr "Dold"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "Avancerade inställningar"
+
+#~ msgid "SEO Settings"
+#~ msgstr "SEO-inställningar"
+
+#~ msgid "You have no permission to change the template"
+#~ msgstr "Du har ingen behörighet att ändra mallen"
+
+#~ msgid "higher"
+#~ msgstr "högre"
+
+#~ msgid "Database error"
+#~ msgstr "Databaserror"
+
+#~ msgid "Page was successfully approved."
+#~ msgstr "Sidan godkändes."
+
+#~ msgid "%(name)s object with primary key %(key)r does not exist."
+#~ msgstr "%(name)s objekt med primär nycket %(key)r existerar inte."
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "Det finns endast en språkversion av denna sida"
+
+#~ msgid "Title and plugins with language %(language)s was deleted"
+#~ msgstr "Rubrik och plugins för språket %(language)s raderades"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Är du säker?"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "Du har inte tillåtelse att publicera denna sida"
+
+#~ msgid ""
+#~ "You do not have permission to change this page's in_navigation status"
+#~ msgstr "Du har inte tillåtelse att ändra denna sidas 'i navigation'-status"
+
+#~ msgid "You have no permission to add a plugin"
+#~ msgstr "Du har ingen behörighet att lägga till en plugin"
+
+#~ msgid "Language must be set to a supported language!"
+#~ msgstr "Språket måste vara ett av de som stödjs"
+
+#~ msgid "%(plugin_name)s plugin added to %(placeholder)s"
+#~ msgstr "%(plugin_name)s plugin har lagts till %(placeholder)s"
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "Du har inte tillåtelse att redigera denna sida"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "Språket måste vara ett annat än det som kopieras!"
+
+#~ msgid "You do not have permission to add plugins"
+#~ msgstr "Du har inte behörighet att lägga till plugins"
+
+#~ msgid "Copied %(language)s plugins to %(placeholder)s"
+#~ msgstr "%(language)s plugin har kopierats till %(placeholder)s"
+
+#~ msgid "You have no permission to change this page"
+#~ msgstr "Du har ingen behörighet att ändra denna sida"
+
+#~ msgid "You have no permission to edit a plugin"
+#~ msgstr "Du har ingen behörighet att redigera plugins"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
+#~ msgstr ""
+#~ "%(plugin_name)s plugin har redigerats på plats %(position)s i "
+#~ "%(placeholder)s"
+
+#~ msgid "You have no permission to move a plugin"
+#~ msgstr "Du har ingen behörighet att flytta plugins"
+
+#~ msgid "Plugins where moved"
+#~ msgstr "Plugins har flyttats"
+
+#~ msgid "You have no permission to remove a plugin"
+#~ msgstr "Du har ingen behörighet att ta bort plugins"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin at position %(position)s in %(placeholder)s was "
+#~ "deleted."
+#~ msgstr ""
+#~ "%(plugin_name)s plugin på position %(position)s i %(placeholder)s har "
+#~ "raderats."
+
+#~ msgid "View restriction"
+#~ msgstr "Vy-restriktion"
+
+#~ msgid "View restrictions"
+#~ msgstr "Vy-restriktioner"
+
+#~ msgid "Page permissions"
+#~ msgstr "Rättigheter för sida"
+
+#~ msgid "User & Group permissions"
+#~ msgstr "Användar- och grupprättigheter"
+
+#~ msgid "Page permissions management"
+#~ msgstr "Administrera rättigheter för sida"
+
+#~ msgid "You don't have permission to add content here."
+#~ msgstr "Du har inte behörighet att lägga till innehåll här."
+
+#~ msgid "You don't have permission to add plugins"
+#~ msgstr "Du har inte behörighet att lägga till plugins"
+
+#~ msgid "You don't have permission to delete a plugin"
+#~ msgstr "Du har inte behörighet att ta bort plugins"
+
+#~ msgid "User details"
+#~ msgstr "Användardetaljer"
+
+#~ msgid "Groups"
+#~ msgstr "Grupper"
+
+#~ msgid "Password"
+#~ msgstr "Lösenord"
+
+#~ msgid "Copy permissions"
+#~ msgstr "Kopieringsrättigheter"
+
+#~ msgid "Copy moderation"
+#~ msgstr "Kopieringsbegränsningar"
+
+#~ msgid "Inherit the template of the nearest ancestor"
+#~ msgstr "Ärv mall"
+
+#~ msgid "Select a valid site"
+#~ msgstr "Välj en giltig webbplats"
+
+#~ msgid "Select a valid page"
+#~ msgstr "Välj en giltig sida"
+
+#~ msgid "Add Another"
+#~ msgstr "Lägg till en till"
+
+#~ msgid "language"
+#~ msgstr "språk"
+
+#~ msgid "position"
+#~ msgstr "position"
+
+#~ msgid "creation date"
+#~ msgstr "skapat datum"
+
+#~ msgid "slot"
+#~ msgstr "plats"
+
+#~ msgid "plugin_name"
+#~ msgstr "plugin-namn"
+
+#~ msgid "title"
+#~ msgstr "rubrik"
+
+#~ msgid "path"
+#~ msgstr "sökväg"
+
+#~ msgid "slug"
+#~ msgstr "slug"
+
+#~ msgid "everybody"
+#~ msgstr "alla"
+
+#~ msgid "can edit"
+#~ msgstr "kan redigera"
+
+#~ msgid "group"
+#~ msgstr "grupp"
+
+#~ msgid "can publish"
+#~ msgstr "kan publicera"
+
+#~ msgid "type"
+#~ msgstr "typ"
+
+#~ msgid "can change soft-root"
+#~ msgstr "kan ändra rot"
+
+#~ msgid "status"
+#~ msgstr "status"
+
+#~ msgid "navigation extenders"
+#~ msgstr "navigationsanslutningar"
+
+#~ msgid "has url overwrite"
+#~ msgstr "har ändrad url"
+
+#~ msgid "url overwrite"
+#~ msgstr "ändrad url"
+
+#~ msgid "author"
+#~ msgstr "författare"
+
+#~ msgid "reverse url id"
+#~ msgstr "omvänd url id"
+
+#~ msgid "login required"
+#~ msgstr "login krävs"
+
+#~ msgid "soft root"
+#~ msgstr "rot"
+
+#~ msgid "publication end date"
+#~ msgstr "slutdatum för publicering"
+
+#~ msgid "template"
+#~ msgstr "mall"
+
+#~ msgid "publication date"
+#~ msgstr "publiceringsdatum"
+
+#~ msgid "in navigation"
+#~ msgstr "i navigation"
+
+#~ msgid "application"
+#~ msgstr "applikation"
+
+#~ msgid "id"
+#~ msgstr "id"
+
+#~ msgid "redirect"
+#~ msgstr "omdirigera"
+
+#~ msgid "keywords"
+#~ msgstr "nyckelord"
+
+#~ msgid "description"
+#~ msgstr "beskrivning"
+
+#~ msgid "Current page"
+#~ msgstr "Denna sida"
+
+#~ msgid "Page children (immediate)"
+#~ msgstr "Sidans undernivå"
+
+#~ msgid "Page and children (immediate)"
+#~ msgstr "Sida och närmaste undernivå"
+
+#~ msgid "Page descendants"
+#~ msgstr "Sidans undernivåer"
+
+#~ msgid "Page and descendants"
+#~ msgstr "Sida och undernivåer"
+
+#~ msgid "User"
+#~ msgstr "Användare"
+
+#~ msgid "Moderate page"
+#~ msgstr "Moderera sida"
+
+#~ msgid "Moderate children"
+#~ msgstr "Moderera närmsta undernivå"
+
+#~ msgid "Moderate descendants"
+#~ msgstr "Moderera alla undernivåer"
+
+#~ msgid "PageModerator"
+#~ msgstr "Sidmoderator"
+
+#~ msgid "created"
+#~ msgstr "skapade"
+
+#~ msgid "changed"
+#~ msgstr "ändrad"
+
+#~ msgid "delete req."
+#~ msgstr "förfrågan om borttagning"
+
+#~ msgid "move req."
+#~ msgstr "flyttförfrågan"
+
+#~ msgid "publish req."
+#~ msgstr "publiceringsförfrågan"
+
+#~ msgid "unpublish req."
+#~ msgstr "förfrågan om avpublicering"
+
+#~ msgid "approved"
+#~ msgstr "godkänd"
+
+#~ msgid "Page moderator state"
+#~ msgstr "Sidmodereringsläge"
+
+#~ msgid "Page moderator states"
+#~ msgstr "Sidmodereringslägen"
+
+#~ msgid "req. app."
+#~ msgstr "behöver godkännande"
+
+#~ msgid "delete"
+#~ msgstr "radera"
+
+#~ msgid "app. par."
+#~ msgstr "godkänd, inv. överstående"
+
+#~ msgid "for logged in users only"
+#~ msgstr "endast för inloggade användare"
+
+#~ msgid "for anonymous users only"
+#~ msgstr "endast för anonyma användare"
+
+#~ msgid "created by"
+#~ msgstr "skapad av"
+
+#~ msgid "changed by"
+#~ msgstr "ändrad av"
+
+#~ msgid ""
+#~ "When the page should go live. Status must be \"Published\" for page to go "
+#~ "live."
+#~ msgstr ""
+#~ "När sidan ska gå live. Status måste vara \"Publicerad\" för att sidan ska "
+#~ "gå live."
+
+#~ msgid "When to expire the page. Leave empty to never expire."
+#~ msgstr "När sidan ska utgå. Lämna blank för att inaktivera funktionen."
+
+#~ msgid "All ancestors will not be displayed in the navigation"
+#~ msgstr "Alla ovanstående sidor kommer inte att visas i navigeringen"
+
+#~ msgid ""
+#~ "An unique identifier that is used with the page_url templatetag for "
+#~ "linking to this page"
+#~ msgstr ""
+#~ "Ett unikt id som används med mallkommandot page_url för att länka till "
+#~ "denna sida"
+
+#~ msgid "attached menu"
+#~ msgstr "bifogad meny"
+
+#~ msgid "is published"
+#~ msgstr "är publicerad"
+
+#~ msgid "The template used to render the content."
+#~ msgstr "Mallen som används för att visa innehållet."
+
+#~ msgid "The site the page is accessible at."
+#~ msgstr "Sajten som sidan är tillgänglig på."
+
+#~ msgid "site"
+#~ msgstr "sajt"
+
+#~ msgid "moderator state"
+#~ msgstr "modereringsläge"
+
+#~ msgid "menu visibility"
+#~ msgstr "menysynlighet"
+
+#~ msgid "limit when this page is visible in the menu"
+#~ msgstr "begränsa när denna sida ska vara synlig i menyn"
+
+#~ msgid "pages"
+#~ msgstr "sidor"
+
+#~ msgid "Page was copied."
+#~ msgstr "Sidan har kopierats"
+
+#~ msgid "default"
+#~ msgstr "standard"
+
+#~ msgid "can add"
+#~ msgstr "kan lägga till"
+
+#~ msgid "can delete"
+#~ msgstr "kan ta bort"
+
+#~ msgid "can change advanced settings"
+#~ msgstr "kan ändra avancerade inställningar"
+
+#~ msgid "can change permissions"
+#~ msgstr "kan ändra rättigheter"
+
+#~ msgid "on page level"
+#~ msgstr "på sidnivå"
+
+#~ msgid "can move"
+#~ msgstr "kan flytta"
+
+#~ msgid "can moderate"
+#~ msgstr "kan moderera"
+
+#~ msgid "view restricted"
+#~ msgstr "vyn är begränsad"
+
+#~ msgid "frontend view restriction"
+#~ msgstr "frontend-vy begränsning"
+
+#~ msgid "can recover pages"
+#~ msgstr "kan återskapa sidor"
+
+#~ msgid "can recover any deleted page"
+#~ msgstr "kan återskapa alla sidor"
+
+#~ msgid "If none selected, user haves granted permissions to all sites."
+#~ msgstr "Om ingen är vald har användaren rättigheter till alla sajter."
+
+#~ msgid "sites"
+#~ msgstr "sajter"
+
+#~ msgid "Page global permission"
+#~ msgstr "Global rättighet för sidan"
+
+#~ msgid "Pages global permissions"
+#~ msgstr "Globala rättigheter för sidor"
+
+#~ msgid "Grant on"
+#~ msgstr "Tillåtelse gäller"
+
+#~ msgid "Page permission"
+#~ msgstr "Sidrättighet"
+
+#~ msgid "User (page)"
+#~ msgstr "Användare (grupp)"
+
+#~ msgid "Users (page)"
+#~ msgstr "Användare (sida)"
+
+#~ msgid "User group (page)"
+#~ msgstr "Användare grupp (sida)"
+
+#~ msgid "User groups (page)"
+#~ msgstr "Användare grupper (sida)"
+
+#~ msgid "width"
+#~ msgstr "bredd"
+
+#~ msgid "overwrite the title in the menu"
+#~ msgstr "ändra rubriken i menyn"
+
+#~ msgid "Path"
+#~ msgstr "Sökväg"
+
+#~ msgid "overwrite the title (html title tag)"
+#~ msgstr "ändra sidrubriken (title-taggen i html)"
+
+#~ msgid "File"
+#~ msgstr "Fil"
+
+#~ msgid "file"
+#~ msgstr "fil"
+
+#~ msgid "file missing!"
+#~ msgstr "fil saknas!"
+
+#~ msgid "Flash"
+#~ msgstr "Flash"
+
+#~ msgid "use swf file"
+#~ msgstr "använd swf-fil"
+
+#~ msgid "height"
+#~ msgstr "höjd"
+
+#~ msgid ""
+#~ "Missing flash plugin. Please download the latest Adobe Flash Player: "
+#~ msgstr "Flash-plugin saknas. Ladda ned den senaste Adobe Flash Player:"
+
+#~ msgid "Get Adobe Flash Player"
+#~ msgstr "Hämta Adobe Flash Player"
+
+#~ msgid "Google Map"
+#~ msgstr "Google Map"
+
+#~ msgid "map title"
+#~ msgstr "karttitel"
+
+#~ msgid "address"
+#~ msgstr "adress"
+
+#~ msgid "zip code"
+#~ msgstr "postnummer"
+
+#~ msgid "city"
+#~ msgstr "stad"
+
+#~ msgid "additional content"
+#~ msgstr "ytterligare innehåll"
+
+#~ msgid "zoom level"
+#~ msgstr "zoomnivå"
+
+#~ msgid "latitude"
+#~ msgstr "latitud"
+
+#~ msgid "Use latitude & longitude to fine tune the map position."
+#~ msgstr ""
+#~ "Använd latitud och longitud för att finjustera positionen på kartan."
+
+#~ msgid "longitude"
+#~ msgstr "longitud"
+
+#~ msgid "route planer title"
+#~ msgstr "ruttplanerartitel"
+
+#~ msgid "Calculate your fastest way to here"
+#~ msgstr "Beräkna snabbaste vägen hit"
+
+#~ msgid "route planer"
+#~ msgstr "Ruttplanerare"
+
+#~ msgid "Map"
+#~ msgstr "Karta"
+
+#~ msgid "Your address: "
+#~ msgstr "Din adress:"
+
+#~ msgid "Calculate route"
+#~ msgstr "Beräkna rutt"
+
+#~ msgid "Inherit Plugins from Page"
+#~ msgstr "Ärv plugins från sida"
+
+#~ msgid "Language or Page must be filled out"
+#~ msgstr "Språk eller Sida måste vara ifylld"
+
+#~ msgid ""
+#~ "Choose a page to include its plugins into this placeholder, empty will "
+#~ "choose current page"
+#~ msgstr ""
+#~ "Välj en sida för att inkludera dess plugins till denna platshållare, "
+#~ "lämna blankt för nuvarande sida"
+
+#~ msgid "Optional: the language of the plugins you want"
+#~ msgstr "Valfritt: språk på de plugins du vill ha"
+
+#~ msgid "Picture"
+#~ msgstr "Bild"
+
+#~ msgid "left"
+#~ msgstr "vänster"
+
+#~ msgid "right"
+#~ msgstr "höger"
+
+#~ msgid "image"
+#~ msgstr "bild"
+
+#~ msgid "if present image will be clickable"
+#~ msgstr "om angiven blir bilden klickbar"
+
+#~ msgid "alternate text"
+#~ msgstr "alternativ text"
+
+#~ msgid "textual description of the image"
+#~ msgstr "beskrivning av bilden"
+
+#~ msgid "long description"
+#~ msgstr "lång beskrivning"
+
+#~ msgid "additional description of the image"
+#~ msgstr "ytterligare beskrivning av bilden"
+
+#~ msgid "side"
+#~ msgstr "sida"
+
+#~ msgid "Snippet"
+#~ msgstr "Kodstycke"
+
+#~ msgid "Template %(template)s does not exist."
+#~ msgstr "Mallen %(template)s finns inte"
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid ""
+#~ "Enter a template (i.e. \"snippets/plugin_xy.html\") which will be "
+#~ "rendered. "
+#~ msgstr ""
+#~ "Ange en mall (t.ex. \"snippets/plugin_xy.html\") som kommer att användas."
+
+#~ msgid "Snippets"
+#~ msgstr "Kodstycken"
+
+#~ msgid "Teaser"
+#~ msgstr "Locktext/Teaser"
+
+#~ msgid "If present image will be clickable"
+#~ msgstr "Värde gör bilden klickbar."
+
+#~ msgid "If present image will be clickable."
+#~ msgstr "Värde gör bilden klickbar."
+
+#~ msgid "more"
+#~ msgstr "mer"
+
+#~ msgid "Text"
+#~ msgstr "Text"
+
+#~ msgid "body"
+#~ msgstr "innehåll"
+
+#~ msgid "Plugins"
+#~ msgstr "Plugins"
+
+#~ msgid "Please select a plugin type."
+#~ msgstr "Välj ett plugin"
+
+#~ msgid "Edit selected plugin"
+#~ msgstr "Redigera valt plugin"
+
+#~ msgid "Text editor does not support editing objects."
+#~ msgstr "Textredigeraren stödjer inte redigering av objekt."
+
+#~ msgid "No object selected."
+#~ msgstr "Inget objekt valt."
+
+#~ msgid "Text editor does not support inserting objects."
+#~ msgstr "Textredigeraren stödjer inte infogning av objekt"
+
+#~ msgid "Not a plugin object"
+#~ msgstr "Inte ett plugin-objekt"
+
+#~ msgid "Available Plugins"
+#~ msgstr "Tillgängliga plugins"
+
+#~ msgid "Insert plugin"
+#~ msgstr "Lägg till plugin"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "Twitter Search"
+#~ msgstr "Twitter sök"
+
+#~ msgid "twitter user"
+#~ msgstr "twitter-användare"
+
+#~ msgid "count"
+#~ msgstr "antal"
+
+#~ msgid "Number of entries to display"
+#~ msgstr "antal inlägg att visa"
+
+#~ msgid "link hint"
+#~ msgstr "länktips"
+
+#~ msgid "If given, the hint is displayed as link to your Twitter profile."
+#~ msgstr "Länktipset visas som en länk till din Twitter-profil."
+
+#~ msgid "query"
+#~ msgstr "fråga"
+
+#~ msgid ""
+#~ "Example: \"brains AND zombies AND from:umbrella AND to:nemesis\": tweets "
+#~ "from the user \"umbrella\" to the user \"nemesis\" that contain the words "
+#~ "\"brains\" and \"zombies\""
+#~ msgstr ""
+#~ "Exempel: \"hjärnor AND zombies AND from:paraply AND to:Nemesis\": tweets "
+#~ "från användaren \"paraply\" till användaren \"Nemesis\" som innehåller "
+#~ "orden \"hjärnor\" och \"zombies\""
+
+#~ msgid "we"
+#~ msgstr "vi"
+
+#~ msgid "we were"
+#~ msgstr "vi var"
+
+#~ msgid "loading tweets..."
+#~ msgstr "laddar tweets ..."
+
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgid "Color Settings"
+#~ msgstr "Färginställningar"
+
+#~ msgid "movie file"
+#~ msgstr "film fil"
+
+#~ msgid "use .flv file or h264 encoded video file"
+#~ msgstr "använd .flv-fil eller en h264-kodad videofil"
+
+#~ msgid "movie url"
+#~ msgstr "film url"
+
+#~ msgid ""
+#~ "vimeo or youtube video url. Example: http://www.youtube.com/watch?v=-"
+#~ "iJ7bs4mTUY"
+#~ msgstr ""
+#~ "vimeo eller youtube video url. Exempel: http://www.youtube.com/watch?v=-"
+#~ "iJ7bs4mTUY"
+
+#~ msgid "preview image file"
+#~ msgstr "förhandsvisa filmfil"
+
+#~ msgid "auto play"
+#~ msgstr "spela automatiskt"
+
+#~ msgid "auto hide"
+#~ msgstr "göm automatiskt"
+
+#~ msgid "fullscreen"
+#~ msgstr "fullskärm"
+
+#~ msgid "loop"
+#~ msgstr "loopa"
+
+#~ msgid "background color"
+#~ msgstr "bakgrundsfärg"
+
+#~ msgid "Hexadecimal, eg ff00cc"
+#~ msgstr "Hexadecimal, t.ex. ff00cc"
+
+#~ msgid "text color"
+#~ msgstr "textfärg"
+
+#~ msgid "seekbar color"
+#~ msgstr "tidslinje färg"
+
+#~ msgid "seekbar bg color"
+#~ msgstr "tidslinje bg-färg"
+
+#~ msgid "loadingbar color"
+#~ msgstr "färg laddningsikon"
+
+#~ msgid "button out color"
+#~ msgstr "knappfärg utanför"
+
+#~ msgid "button over color"
+#~ msgstr "knappfärg över"
+
+#~ msgid "button highlight color"
+#~ msgstr "knappfärg aktiv"
+
+#~ msgid "Save"
+#~ msgstr "Spara"
+
+#~ msgid "Delete %(language)s translation"
+#~ msgstr "Radera översättning för %(language)s"
+
+#~ msgid "Save as new"
+#~ msgstr "Spara som ny"
+
+#~ msgid "Save and add another"
+#~ msgstr "Spara och lägg till"
+
+#~ msgid "Save and continue editing"
+#~ msgstr "Spara och fortsätt redigera"
+
+#~ msgid ""
+#~ "Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by "
+#~ "you."
+#~ msgstr ""
+#~ "Sida <a href=\"%(admin_url)s\">%(page)s</a> kan behöva godkännande av dig."
+
+#~ msgid "Last changes"
+#~ msgstr "Senaste ändringar"
+
+#~ msgid "Log in to administration <a href=\"%(login_url)s\">here</a>."
+#~ msgstr "Logga in på administrationssida <a href=\"%(login_url)s\">här</a>."
+
+#~ msgid "Username:"
+#~ msgstr "Användarnamn:"
+
+#~ msgid "Password:"
+#~ msgstr "Lösenord:"
+
+#~ msgid "Change a page"
+#~ msgstr "Ändra en sida"
+
+#~ msgid "Home"
+#~ msgstr "Hem"
+
+#~ msgid "Approve page deletion"
+#~ msgstr "Godkänn borttagning av sida"
+
+#~ msgid "(requires approvement at %(moderation_level)s level)"
+#~ msgstr "(kräver godkännande på nivå %(moderation_level)s)"
+
+#~ msgid "(you can perform actions on this page directly)"
+#~ msgstr "(du kan utföra ändringar på denna sida direkt)"
+
+#~ msgid "Remove delete request"
+#~ msgstr "Ta bort raderingsförfrågan"
+
+#~ msgid "Approve delete"
+#~ msgstr "Godkänn radering"
+
+#~ msgid "Approve"
+#~ msgstr "Godkänn"
+
+#~ msgid "draft"
+#~ msgstr "utkast"
+
+#~ msgid "Preview"
+#~ msgstr "Förhandsgranska"
+
+#~ msgid "History"
+#~ msgstr "Historik"
+
+#~ msgid "View on site"
+#~ msgstr "Visa på sajt"
+
+#~ msgid "Please correct the error below."
+#~ msgid_plural "Please correct the errors below."
+#~ msgstr[0] "Rätta till nedanstående fel."
+#~ msgstr[1] "Rätta till nedanstående fel."
+
+#~ msgid "All permissions"
+#~ msgstr "Alla rättigheter"
+
+#~ msgid "Loading..."
+#~ msgstr "Laddar..."
+
+#~ msgid "Page states"
+#~ msgstr "Sidstatus"
+
+#~ msgid ""
+#~ "This page must be moderated at level %(moderation_level)s, post a message "
+#~ "for moderator."
+#~ msgstr ""
+#~ "Denna sida måste godkännas på nivå %(moderation_level)s, skicka ett "
+#~ "meddelande till moderatorn."
+
+#~ msgid "Request approvemet"
+#~ msgstr "Efterfråga godkännande"
+
+#~ msgid "List of pages"
+#~ msgstr "Lista över sidor"
+
+#~ msgid "Successfully moved"
+#~ msgstr "Flytt genomförd"
+
+#~ msgid "An error occured. Please reload the page"
+#~ msgstr "Ett fel uppstod. Var vänlig ladda om sidan"
+
+#~ msgid "Recover deleted %(name)s"
+#~ msgstr "Återskapa borttagen %(name)s"
+
+#~ msgid "Add %(name)s"
+#~ msgstr "Lägg till %(name)s"
+
+#~ msgid "Pages on:"
+#~ msgstr "Sidor på:"
+
+#~ msgid "Filter:"
+#~ msgstr "Filter:"
+
+#~ msgid "on"
+#~ msgstr "på"
+
+#~ msgid "off"
+#~ msgstr "av"
+
+#~ msgid "Filter"
+#~ msgstr "Filter"
+
+#~ msgid "actions"
+#~ msgstr "åtgärder"
+
+#~ msgid "moderate"
+#~ msgstr "moderering"
+
+#~ msgid "published"
+#~ msgstr "publicera"
+
+#~ msgid "start"
+#~ msgstr "start"
+
+#~ msgid "end"
+#~ msgstr "slut"
+
+#~ msgid "restricted"
+#~ msgstr "begränsad"
+
+#~ msgid "last changes"
+#~ msgstr "senaste ändringar"
+
+#~ msgid "select this page"
+#~ msgstr "välj denna sida"
+
+#~ msgid "edit this page"
+#~ msgstr "redigera denna sida"
+
+#~ msgid "edit"
+#~ msgstr "redigera"
+
+#~ msgid "insert above"
+#~ msgstr "sätt in ovanför"
+
+#~ msgid "insert below"
+#~ msgstr "sätt in under"
+
+#~ msgid "insert inside"
+#~ msgstr "sätt in i"
+
+#~ msgid "softroot"
+#~ msgstr "mjuk rot"
+
+#~ msgid "home"
+#~ msgstr "hem"
+
+#~ msgid "Edit this page in %(language)s "
+#~ msgstr "Redigera denna sida på %(language)s"
+
+#~ msgid "Cut"
+#~ msgstr "Klipp"
+
+#~ msgid "cut"
+#~ msgstr "klipp"
+
+#~ msgid "Copy"
+#~ msgstr "Kopiera"
+
+#~ msgid "copy"
+#~ msgstr "kopiera"
+
+#~ msgid "Add Child"
+#~ msgstr "Lägg till undersida"
+
+#~ msgid "add"
+#~ msgstr "lägg till"
+
+#~ msgid "Approve directly"
+#~ msgstr "Godkänn direkt"
+
+#~ msgid "view"
+#~ msgstr "vy"
+
+#~ msgid "Unpublish"
+#~ msgstr "Avpublicera"
+
+#~ msgid "View on page"
+#~ msgstr "Visa på sida"
+
+#~ msgid "Action"
+#~ msgstr "Åtgärd"
+
+#~ msgid "Created"
+#~ msgstr "Skapad"
+
+#~ msgid "Message"
+#~ msgstr "Meddelande"
+
+#~ msgid "Group"
+#~ msgstr "Grupp"
+
+#~ msgid "Can edit"
+#~ msgstr "Kan redigera"
+
+#~ msgid "Can add"
+#~ msgstr "Kan lägga till"
+
+#~ msgid "Can delete"
+#~ msgstr "Kan ta bort"
+
+#~ msgid "Can publish"
+#~ msgstr "Kan publicera"
+
+#~ msgid "Can change permissions"
+#~ msgstr "Kan ändra rättigheter"
+
+#~ msgid "Can move"
+#~ msgstr "Kan flytta"
+
+#~ msgid "Can view"
+#~ msgstr "Kan visa"
+
+#~ msgid "(global)"
+#~ msgstr "(global)"
+
+#~ msgid "(current)"
+#~ msgstr "(nuvarande)"
+
+#~ msgid "All"
+#~ msgstr "Alla"
+
+#~ msgid "Page doesn't inherit any permissions."
+#~ msgstr "Sidan ärver inga rättigheter"
+
+#~ msgid "Cancel"
+#~ msgstr "Avbryt"
+
+#~ msgid "An old revision of a plugin can not be saved!"
+#~ msgstr "En gammal version av ett plugin kan inte sparas."
+
+#~ msgid "Plugin saved successfully."
+#~ msgstr "Plugin sparat."
+
+#~ msgid "Recover deleted %(verbose_name)s"
+#~ msgstr "Återskapa borttagen %(verbose_name)s"
+
+#~ msgid "Press the save button below to recover this version of the object."
+#~ msgstr "Tryck på spara-knappen för att återskapa denna version av objektet."
+
+#~ msgid "Revert %(verbose_name)s"
+#~ msgstr "Återgå till %(verbose_name)s"
+
+#~ msgid "Press the save button below to revert to this version of the object."
+#~ msgstr ""
+#~ "Tryck på spara-knappen nedan för att återgå till denna version av "
+#~ "objektet."
+
+#~ msgid "Copy options"
+#~ msgstr "Kopieringsalternativ"
+
+#~ msgid "Choose copy options"
+#~ msgstr "Välj kopieringsalternativ"
+
+#~ msgid "Generic"
+#~ msgstr "Generisk"
+
+#~ msgid "Add Plugin"
+#~ msgstr "Lägg till plugin"
+
+#~ msgid "From Language"
+#~ msgstr "Från språk"
+
+#~ msgid "Copy Plugins"
+#~ msgstr "Kopiera plugins"
+
+#~ msgid "You must save the page first to add plugins."
+#~ msgstr "Du måste spara sidan för att kunna lägga till plugins."
+
+#~ msgid "No Plugin selected. Selected one on the left side"
+#~ msgstr "Inget plugin valt. Välj ett till vänster på sidan."
+
+#~ msgid "No Plugins present. Add a plugin to this placeholder-slot."
+#~ msgstr "Inget plugin har lagts till. Lägg till ett plugin till denna plats."
+
+#~ msgid "Available plugins"
+#~ msgstr "Tillgängliga plugins"
+
+#~ msgid "The selected element can not be moved to the desired location."
+#~ msgstr "Det valda elementet kan inte flyttas till önskad plats."
+
+#~ msgid "Are you sure you want to delete this plugin?"
+#~ msgstr "Är du säker på att du vill ta bort detta plugin?"
+
+#~ msgid "up"
+#~ msgstr "upp"
+
+#~ msgid "down"
+#~ msgstr "ner"
+
+#~ msgid "Move to placeholder"
+#~ msgstr "Flytta till platshållare"
+
+#~ msgid "Username"
+#~ msgstr "Användarnamn"
+
+#~ msgid "Login"
+#~ msgstr "Inloggning"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "Switch on/off"
+#~ msgstr "Slå på / av"
+
+#~ msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"
+#~ msgstr "<span title=\"Begränsningar: %(title)s \"> %(icon)s </span>"
+
+#~ msgid "Unbind page moderation"
+#~ msgstr "Frigör från sidmoderering"
+
+#~ msgid "Unbind children moderation"
+#~ msgstr "Frigör undersidor från moderering"
+
+#~ msgid "Unbind descendants moderation"
+#~ msgstr "Frigör undernivåer från moderering"
+
+#~ msgid "Page not found on %(domain)s"
+#~ msgstr "Sidan hittades inte på %(domain)s "
+
+#~ msgid ""
+#~ "A template tag couldn't find the page with lookup arguments `"
+#~ "%(page_lookup)s\n"
+#~ "`. The URL of the request was: http://%(host)s%(path)s"
+#~ msgstr ""
+#~ "En mall-tagg kunde inte hitta sidan med uppslags-argumenten `"
+#~ "%(page_lookup)s\n"
+#~ "`. Webbadressen för begäran var: http://%(host)s%(path)s"
+
+#~ msgid "sidebar column"
+#~ msgstr "background color"
+
+#~ msgid "left column"
+#~ msgstr "background color"
+
+#~ msgid "right column"
+#~ msgstr "background color"
+
+#~ msgid "CMS - your user account was created."
+#~ msgstr "CMS - ditt användarkonto har skapats."
+
+#~ msgid "CMS - your user account was changed."
+#~ msgstr "CMS - ditt användarkonto har ändrats."
+
+#~ msgid "parent first"
+#~ msgstr "förälder först"
+
+#~ msgid "approve"
+#~ msgstr "godkänn"
+
+#~ msgid "CMS - Page %s requires approvement."
+#~ msgstr "CMS - Sida %s behöver godkännande."
+
+#~ msgid "Invalid URL, use /my/url format."
+#~ msgstr "Felaktig URL, använd följande format: /min/url."
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."

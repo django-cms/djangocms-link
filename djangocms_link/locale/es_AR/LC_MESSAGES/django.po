@@ -1,0 +1,351 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+#   <commonzenpython@gmail.com>, 2012.
+# Juan Carizza <sencillomail@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: es_AR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr ""
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "página"
+
+#: models.py:10
+msgid "name"
+msgstr ""
+
+#: models.py:11
+msgid "link"
+msgstr ""
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr ""
+
+#: models.py:13
+msgid "mailto"
+msgstr ""
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr ""
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "Page"
+#~ msgstr "Pagina"
+
+#~ msgid "Advanced options"
+#~ msgstr "Opciones avanzadas"
+
+#~ msgid "Title"
+#~ msgstr "Título"
+
+#~ msgid "The default title"
+#~ msgstr "Título por defecto"
+
+#~ msgid "Slug"
+#~ msgstr "Slug"
+
+#~ msgid "The part of the title that is used in the URL"
+#~ msgstr "La parte del título que se utilizará en la URL"
+
+#~ msgid "Language"
+#~ msgstr "Idioma"
+
+#~ msgid "The current language of the content fields."
+#~ msgstr "El idioma actual de los campos de contenidos"
+
+#~ msgid "Another page with this slug already exists"
+#~ msgstr "Una página con el mismo slug ya existe"
+
+#~ msgid "Menu Title"
+#~ msgstr "Título del menú"
+
+#~ msgid "Overwrite what is displayed in the menu"
+#~ msgstr "Sobreescribe lo que se muestra en el menú"
+
+#~ msgid "Page Title"
+#~ msgstr "Título de la página"
+
+#~ msgid ""
+#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
+#~ msgstr ""
+#~ "Sobreescribe lo que se muestra en la barra de título del navegador o en "
+#~ "los marcadores"
+
+#~ msgid "Application"
+#~ msgstr "Aplicación"
+
+#~ msgid "Hook application to this page."
+#~ msgstr "Enlaza una aplicación a esta página"
+
+#~ msgid "Overwrite URL"
+#~ msgstr "Sobreescribe la URL"
+
+#~ msgid "Keep this field empty if standard path should be used."
+#~ msgstr "Deja este campo vacío si se va a usar el camino estándard."
+
+#~ msgid "Redirect"
+#~ msgstr "Redirecciona"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "Redirecciona a esta URL."
+
+#~ msgid "A description of the page sometimes used by search engines."
+#~ msgstr ""
+#~ "La descripción de la página se utiliza habitualmente en los buscadores"
+
+#~ msgid "A list of comma seperated keywords sometimes used by search engines."
+#~ msgstr ""
+#~ "Una lista de palabras clave separadas por coma se utiliza habitualmente "
+#~ "en los buscadores"
+
+#~ msgid "A page with this reverse URL id exists already."
+#~ msgstr "Una página con una URL que se corresponde a este id ya existe"
+
+#~ msgid "user"
+#~ msgstr "usuario"
+
+#~ msgid ""
+#~ "Add page permission requires also access to children, or descendants, "
+#~ "otherwise added page can't be changed by its creator."
+#~ msgstr ""
+#~ "El permiso para añadir una página implica también el acceso a los hijos y "
+#~ "descendientes, en caso contrario la página añadida no podría ser cambiada "
+#~ "por su creador."
+
+#~ msgid "Add page permission also requires edit page permission."
+#~ msgstr ""
+#~ "El permiso para añadir una página implica también permisos de edición."
+
+#~ msgid "Please select user or group first."
+#~ msgstr "Por favor selecciona primero un usuario o un grupo."
+
+#~ msgid "Add"
+#~ msgstr "Añadir"
+
+#~ msgid "Change"
+#~ msgstr "Cambiar"
+
+#~ msgid "Delete"
+#~ msgstr "Borrar"
+
+#~ msgid "Recover (any) pages"
+#~ msgstr "Recuperar (cualquier) pagina"
+
+#~ msgid "Notify user"
+#~ msgstr "Avisiar al usuario"
+
+#~ msgid ""
+#~ "Send email notification to user about username or password change. "
+#~ "Requires user email."
+#~ msgstr ""
+#~ "Envia un aviso al usuario ante cambios del nombre de usuario o la clave. "
+#~ "Requiere el e-mail del usuario."
+
+#~ msgid "New password"
+#~ msgstr "Nueva clave"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Confimación de la nueva clave"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "La notificación por e-mail requiere una dirección de correo válida"
+
+#~ msgid ""
+#~ "The permission to add new pages requires the permission to change pages!"
+#~ msgstr ""
+#~ "¡El permiso para añadir páginas necesita del permiso para modificar "
+#~ "páginas!"
+
+#~ msgid ""
+#~ "The permission to add new users requires the permission to change users!"
+#~ msgstr ""
+#~ "¡El permiso para añadir nuevos usuarios necesita del permiso para "
+#~ "modificar usuario!"
+
+#~ msgid "To add permissions you also need to edit them!"
+#~ msgstr "Para añadir permisos también necesitas poder editarlos"
+
+#~ msgid "Basic Settings"
+#~ msgstr "Configuración básica."
+
+#~ msgid "Note: This page reloads if you change the selection. Save it first."
+#~ msgstr ""
+#~ "Nota: Esta página se recargará si cambias la selección. Guárdala primero."
+
+#~ msgid "Hidden"
+#~ msgstr "Oculto"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "Configuración avanzada"
+
+#~ msgid "SEO Settings"
+#~ msgstr "Configuración para SEO"
+
+#~ msgid "higher"
+#~ msgstr "más alto"
+
+#~ msgid "Database error"
+#~ msgstr "Error de la base de datos"
+
+#~ msgid "Page was successfully approved."
+#~ msgstr "La página ha sido aprobada."
+
+#~ msgid "%(name)s object with primary key %(key)r does not exist."
+#~ msgstr "El objeto %(name)s con clave primaria %(key)s no existe."
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "Sólo existe una traducción para esta página."
+
+#~ msgid "Title and plugins with language %(language)s was deleted"
+#~ msgstr "El título y los plugins del idioma %(language)s han sido borrados."
+
+#~ msgid "Are you sure?"
+#~ msgstr "¿Estás seguro?"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "No tienes permisos para publicar esta página"
+
+#~ msgid ""
+#~ "You do not have permission to change this page's in_navigation status"
+#~ msgstr ""
+#~ "No tienes permisos para cambiar el estado de navegación de esta página."
+
+#~ msgid "Language must be set to a supported language!"
+#~ msgstr "El idioma debe ser uno de los soportados!"
+
+#~ msgid "%(plugin_name)s plugin added to %(placeholder)s"
+#~ msgstr "El plugin %(plugin_name)s se añadió a %(placeholder)s"
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "No tienes permisos para cambiar esta página"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "El idioma debe ser distinto de idioma copiado!"
+
+#~ msgid "Copied %(language)s plugins to %(placeholder)s"
+#~ msgstr "Se copiaron los plugins %(language)s a %(placeholder)s"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
+#~ msgstr ""
+#~ "Plugin %(plugin_name)s modificado en la posición %(position)s de "
+#~ "%(placeholder)s"
+
+#~ msgid "Plugins where moved"
+#~ msgstr "Plugins movidos"
+
+#~ msgid "User details"
+#~ msgstr "Detalles del usuario"
+
+#~ msgid "Groups"
+#~ msgstr "Grupos"
+
+#~ msgid "Password"
+#~ msgstr "Contraseña"
+
+#~ msgid "Copy permissions"
+#~ msgstr "Copiar permisos"
+
+#~ msgid "Add Another"
+#~ msgstr "Seguir agregando"
+
+#~ msgid "language"
+#~ msgstr "lenguaje"
+
+#~ msgid "position"
+#~ msgstr "posición"
+
+#~ msgid "creation date"
+#~ msgstr "fecha de creación"
+
+#~ msgid "plugin_name"
+#~ msgstr "nombre del plugin"
+
+#~ msgid "title"
+#~ msgstr "título"
+
+#~ msgid "path"
+#~ msgstr "ruta"
+
+#~ msgid "everybody"
+#~ msgstr "todos"
+
+#~ msgid "group"
+#~ msgstr "grupo"
+
+#~ msgid "status"
+#~ msgstr "estatus"
+
+#~ msgid "author"
+#~ msgstr "autor"
+
+#~ msgid "template"
+#~ msgstr "plantilla"
+
+#~ msgid "User"
+#~ msgstr "Usuario"
+
+#~ msgid "background color"
+#~ msgstr "background color"
+
+#~ msgid "sidebar column"
+#~ msgstr "background color"
+
+#~ msgid "left column"
+#~ msgstr "background color"
+
+#~ msgid "right column"
+#~ msgstr "background color"
+
+#~ msgid "Invalid URL, use /my/url format."
+#~ msgstr "URL inválida, utiliza el formato /mi/url"
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."

@@ -1,0 +1,1182 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+#   <zhhqng@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-24 07:44+0000\n"
+"Last-Translator: bentengshan <zhhqng@gmail.com>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr "連結"
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "網頁"
+
+#: models.py:10
+msgid "name"
+msgstr "名稱"
+
+#: models.py:11
+msgid "link"
+msgstr "連結"
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr "連到網頁的連結優先於文字連結。"
+
+#: models.py:13
+msgid "mailto"
+msgstr "寄郵件到"
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr "電子郵件地址優先於文字連結。"
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "Edit mode"
+#~ msgstr "編輯模式"
+
+#~ msgid "Publish"
+#~ msgstr "發佈"
+
+#~ msgid "Logout"
+#~ msgstr "登出"
+
+#~ msgid "Template"
+#~ msgstr "模板"
+
+#~ msgid "Move/add Pages"
+#~ msgstr "搬移/添加頁面"
+
+#~ msgid "Add child page"
+#~ msgstr "添加子網頁"
+
+#~ msgid "Add sibling page"
+#~ msgstr "添加同級網頁"
+
+#~ msgid "Delete Page"
+#~ msgstr "刪除網頁"
+
+#~ msgid "Page"
+#~ msgstr "網頁"
+
+#~ msgid "Site Administration"
+#~ msgstr "網站管理"
+
+#~ msgid "Page Settings"
+#~ msgstr "網頁設置"
+
+#~ msgid "View History"
+#~ msgstr "查看歷史"
+
+#~ msgid "Advanced options"
+#~ msgstr "進階選項"
+
+#~ msgid "Title"
+#~ msgstr "標題"
+
+#~ msgid "The default title"
+#~ msgstr "預設標題"
+
+#~ msgid "Slug"
+#~ msgstr "簡略標題"
+
+#~ msgid "The part of the title that is used in the URL"
+#~ msgstr "在 URL 中使用的部分標題"
+
+#~ msgid "Language"
+#~ msgstr "語言"
+
+#~ msgid "The current language of the content fields."
+#~ msgstr "內容欄位目前使用的語言。"
+
+#~ msgid "Another page with this slug already exists"
+#~ msgstr "已存在有相同簡略標題的另一網頁"
+
+#~ msgid "Menu Title"
+#~ msgstr "選單標題"
+
+#~ msgid "Overwrite what is displayed in the menu"
+#~ msgstr "取代在選單中的顯示標題"
+
+#~ msgid "Page Title"
+#~ msgstr "網頁標題"
+
+#~ msgid ""
+#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
+#~ msgstr "取代在瀏覽器頂端或書籤內的顯示標題"
+
+#~ msgid "Application"
+#~ msgstr "應用套件"
+
+#~ msgid "Hook application to this page."
+#~ msgstr "將應用套件掛入此網頁"
+
+#~ msgid "Overwrite URL"
+#~ msgstr "取代 URL"
+
+#~ msgid "Keep this field empty if standard path should be used."
+#~ msgstr "如果標準路徑應該被使用，請將這一欄位保持空白。"
+
+#~ msgid "Redirect"
+#~ msgstr "重新導向"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "重新導向到這個 URL"
+
+#~ msgid "A description of the page sometimes used by search engines."
+#~ msgstr "此網頁的說明頁面，有時會被搜索引擎使用。"
+
+#~ msgid "A list of comma seperated keywords sometimes used by search engines."
+#~ msgstr "用逗號分隔的關鍵字列表，有時會被搜索引擎使用。"
+
+#~ msgid "A page with this reverse URL id exists already."
+#~ msgstr "一個有相同的反向 URL id 的網頁已經存在。"
+
+#~ msgid "user"
+#~ msgstr "用戶"
+
+#~ msgid ""
+#~ "Add page permission requires also access to children, or descendants, "
+#~ "otherwise added page can't be changed by its creator."
+#~ msgstr ""
+#~ "新增網頁的權限也需要能存取子網頁或下層網頁，否則它的建造者將無法對所新增的"
+#~ "網頁做更改。"
+
+#~ msgid "Add page permission also requires edit page permission."
+#~ msgstr "新增網頁的權限也需要有編輯網頁的權限。"
+
+#~ msgid "Please select user or group first."
+#~ msgstr "請先選擇用戶或組群。"
+
+#~ msgid "Add"
+#~ msgstr "新增"
+
+#~ msgid "Change"
+#~ msgstr "修改"
+
+#~ msgid "Delete"
+#~ msgstr "刪除"
+
+#~ msgid "Recover (any) pages"
+#~ msgstr "復原(任何)網頁"
+
+#~ msgid "Notify user"
+#~ msgstr "通知用戶"
+
+#~ msgid ""
+#~ "Send email notification to user about username or password change. "
+#~ "Requires user email."
+#~ msgstr ""
+#~ "發送電子郵件通知用戶有關的用戶名稱或密碼的變更。需要用戶的電子郵件地址。"
+
+#~ msgid "New password"
+#~ msgstr "新的密碼"
+
+#~ msgid "New password confirmation"
+#~ msgstr "新密碼確認"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "電子郵件通知需要有效的電子郵件地址。"
+
+#~ msgid ""
+#~ "The permission to add new pages requires the permission to change pages!"
+#~ msgstr "新增網頁的權限需要有修改網頁的權限！"
+
+#~ msgid ""
+#~ "The permission to add new users requires the permission to change users!"
+#~ msgstr "新增用戶的權限需要有修改用戶的權限！"
+
+#~ msgid "To add permissions you also need to edit them!"
+#~ msgstr "要增加權限，您還需要有權限編輯它們！"
+
+#~ msgid "Basic Settings"
+#~ msgstr "基本設置"
+
+#~ msgid "Note: This page reloads if you change the selection. Save it first."
+#~ msgstr "注意：如果你更改選擇，本網頁將重新載入。請先儲存。"
+
+#~ msgid "Hidden"
+#~ msgstr "隱藏"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "進階設置"
+
+#~ msgid "SEO Settings"
+#~ msgstr "搜索引擎優化(SEO)設置"
+
+#~ msgid "higher"
+#~ msgstr "更高"
+
+#~ msgid "Database error"
+#~ msgstr "資料庫錯誤"
+
+#~ msgid "Page was successfully approved."
+#~ msgstr "網頁被成功地核准。"
+
+#~ msgid "%(name)s object with primary key %(key)r does not exist."
+#~ msgstr "擁有 %(key)r 主索引鍵的 %(name)s 物件不存在。"
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "此網頁只有一種翻譯"
+
+#~ msgid "Title and plugins with language %(language)s was deleted"
+#~ msgstr "標題和插件的 %(language)s 語言被刪除了"
+
+#~ msgid "Are you sure?"
+#~ msgstr "您確定嗎？"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "你沒有權限發佈此網頁"
+
+#~ msgid ""
+#~ "You do not have permission to change this page's in_navigation status"
+#~ msgstr "你沒有權限更改此網頁的 in_navigation 狀態"
+
+#~ msgid "Language must be set to a supported language!"
+#~ msgstr "語言必須設定為一種被支持的語言！"
+
+#~ msgid "%(plugin_name)s plugin added to %(placeholder)s"
+#~ msgstr "%(plugin_name)s 插件被加到 %(placeholder)s"
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "你沒有權限更改此網頁"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "語言必須是不同的於被複製的語言！"
+
+#~ msgid "Copied %(language)s plugins to %(placeholder)s"
+#~ msgstr "複製 %(language)s 插件到 %(placeholder)s"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
+#~ msgstr "%(plugin_name)s 插件於 %(position)s 位置的 %(placeholder)s 內被編輯"
+
+#~ msgid "Plugins where moved"
+#~ msgstr "插件被移動"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin at position %(position)s in %(placeholder)s was "
+#~ "deleted."
+#~ msgstr ""
+#~ "%(plugin_name)s 插件於 %(position)s 位置的 %(placeholder)s 內被刪除。"
+
+#~ msgid "Page permissions"
+#~ msgstr "網頁的權限"
+
+#~ msgid "User & Group permissions"
+#~ msgstr "用戶和組群的權限"
+
+#~ msgid "Page permissions management"
+#~ msgstr "網頁權限管理"
+
+#~ msgid "User details"
+#~ msgstr "用戶詳細資料"
+
+#~ msgid "Groups"
+#~ msgstr "組群"
+
+#~ msgid "Password"
+#~ msgstr "密碼"
+
+#~ msgid "Copy permissions"
+#~ msgstr "複製權限"
+
+#~ msgid "Copy moderation"
+#~ msgstr "複製管制權限"
+
+#~ msgid "Inherit the template of the nearest ancestor"
+#~ msgstr "繼承最近的上層網頁模板"
+
+#~ msgid "Add Another"
+#~ msgstr "添加另一件"
+
+#~ msgid "language"
+#~ msgstr "語言"
+
+#~ msgid "position"
+#~ msgstr "位置"
+
+#~ msgid "creation date"
+#~ msgstr "創建日期"
+
+#~ msgid "slot"
+#~ msgstr "插槽"
+
+#~ msgid "plugin_name"
+#~ msgstr "插件名稱"
+
+#~ msgid "title"
+#~ msgstr "標題"
+
+#~ msgid "path"
+#~ msgstr "路徑"
+
+#~ msgid "slug"
+#~ msgstr "簡略標題"
+
+#~ msgid "everybody"
+#~ msgstr "所有人"
+
+#~ msgid "can edit"
+#~ msgstr "可以編輯"
+
+#~ msgid "group"
+#~ msgstr "組群"
+
+#~ msgid "can publish"
+#~ msgstr "可以發佈"
+
+#~ msgid "type"
+#~ msgstr "類型"
+
+#~ msgid "can change soft-root"
+#~ msgstr "可以改變軟性根目錄"
+
+#~ msgid "status"
+#~ msgstr "狀態"
+
+#~ msgid "navigation extenders"
+#~ msgstr "導航擴展"
+
+#~ msgid "has url overwrite"
+#~ msgstr "有 url 取代"
+
+#~ msgid "url overwrite"
+#~ msgstr "url 取代"
+
+#~ msgid "author"
+#~ msgstr "作者"
+
+#~ msgid "reverse url id"
+#~ msgstr "反向 url id"
+
+#~ msgid "login required"
+#~ msgstr "需要登入"
+
+#~ msgid "soft root"
+#~ msgstr "軟性根目錄"
+
+#~ msgid "publication end date"
+#~ msgstr "發佈結束日期"
+
+#~ msgid "template"
+#~ msgstr "模板"
+
+#~ msgid "publication date"
+#~ msgstr "發佈日期"
+
+#~ msgid "in navigation"
+#~ msgstr "出現在導航中"
+
+#~ msgid "application"
+#~ msgstr "應用套件"
+
+#~ msgid "id"
+#~ msgstr "id"
+
+#~ msgid "redirect"
+#~ msgstr "重新導向"
+
+#~ msgid "keywords"
+#~ msgstr "關鍵字"
+
+#~ msgid "description"
+#~ msgstr "說明"
+
+#~ msgid "Current page"
+#~ msgstr "目前網頁"
+
+#~ msgid "Page children (immediate)"
+#~ msgstr "子網頁(直接的)"
+
+#~ msgid "Page and children (immediate)"
+#~ msgstr "網頁與子網頁(直接的)"
+
+#~ msgid "Page descendants"
+#~ msgstr "下層網頁"
+
+#~ msgid "Page and descendants"
+#~ msgstr "網頁與下層網頁"
+
+#~ msgid "User"
+#~ msgstr "用戶"
+
+#~ msgid "Moderate page"
+#~ msgstr "管制網頁"
+
+#~ msgid "Moderate children"
+#~ msgstr "管制子網頁"
+
+#~ msgid "Moderate descendants"
+#~ msgstr "管制下層網頁"
+
+#~ msgid "PageModerator"
+#~ msgstr "網頁管制者"
+
+#~ msgid "created"
+#~ msgstr "創建"
+
+#~ msgid "changed"
+#~ msgstr "已變更"
+
+#~ msgid "delete req."
+#~ msgstr "刪除請求"
+
+#~ msgid "move req."
+#~ msgstr "搬移請求"
+
+#~ msgid "publish req."
+#~ msgstr "發佈請求"
+
+#~ msgid "unpublish req."
+#~ msgstr "取消發佈請求"
+
+#~ msgid "approved"
+#~ msgstr "已核准"
+
+#~ msgid "Page moderator state"
+#~ msgstr "網頁管制狀態"
+
+#~ msgid "Page moderator states"
+#~ msgstr "網頁管制狀態"
+
+#~ msgid "req. app."
+#~ msgstr "需要認可"
+
+#~ msgid "delete"
+#~ msgstr "刪除"
+
+#~ msgid "app. par."
+#~ msgstr "已認可，等待上層被認可"
+
+#~ msgid "created by"
+#~ msgstr "創建者"
+
+#~ msgid "changed by"
+#~ msgstr "修改者"
+
+#~ msgid ""
+#~ "When the page should go live. Status must be \"Published\" for page to go "
+#~ "live."
+#~ msgstr "何時此網頁要正式發表。狀態必須是\"發佈\"才會使網頁發表出去。"
+
+#~ msgid "When to expire the page. Leave empty to never expire."
+#~ msgstr "何時讓此網頁過期。若留空白則永不過期。"
+
+#~ msgid "All ancestors will not be displayed in the navigation"
+#~ msgstr "所有的上層網頁將不會顯示在導航中"
+
+#~ msgid ""
+#~ "An unique identifier that is used with the page_url templatetag for "
+#~ "linking to this page"
+#~ msgstr "一個唯一的識別碼，與 page_url 模板標籤一起用於做連結到此網頁"
+
+#~ msgid "is published"
+#~ msgstr "已被發佈"
+
+#~ msgid "The template used to render the content."
+#~ msgstr "用於呈現內容的模板。"
+
+#~ msgid "The site the page is accessible at."
+#~ msgstr "可在這個網站取用此網頁。"
+
+#~ msgid "site"
+#~ msgstr "網站"
+
+#~ msgid "moderator state"
+#~ msgstr "管制員狀態"
+
+#~ msgid "pages"
+#~ msgstr "網頁"
+
+#~ msgid "Page was copied."
+#~ msgstr "網頁已被複製。"
+
+#~ msgid "default"
+#~ msgstr "預設"
+
+#~ msgid "can add"
+#~ msgstr "可以添加"
+
+#~ msgid "can delete"
+#~ msgstr "可以刪除"
+
+#~ msgid "can change advanced settings"
+#~ msgstr "可以更改進階設置"
+
+#~ msgid "can change permissions"
+#~ msgstr "可以更改權限"
+
+#~ msgid "on page level"
+#~ msgstr "於網頁層級"
+
+#~ msgid "can move"
+#~ msgstr "可搬移"
+
+#~ msgid "can moderate"
+#~ msgstr "可管制"
+
+#~ msgid "can recover pages"
+#~ msgstr "可以復原網頁"
+
+#~ msgid "can recover any deleted page"
+#~ msgstr "可以復原任何已刪除的網頁"
+
+#~ msgid "If none selected, user haves granted permissions to all sites."
+#~ msgstr "如果沒有選任何項目，用戶則授予所有網站的權限。"
+
+#~ msgid "sites"
+#~ msgstr "網站"
+
+#~ msgid "Page global permission"
+#~ msgstr "網頁全站權限"
+
+#~ msgid "Pages global permissions"
+#~ msgstr "網頁全站權限"
+
+#~ msgid "Grant on"
+#~ msgstr "授權於"
+
+#~ msgid "Page permission"
+#~ msgstr "網頁權限"
+
+#~ msgid "User (page)"
+#~ msgstr "用戶(網頁)"
+
+#~ msgid "Users (page)"
+#~ msgstr "用戶(網頁)"
+
+#~ msgid "User group (page)"
+#~ msgstr "用戶組群(網頁)"
+
+#~ msgid "User groups (page)"
+#~ msgstr "用戶組群(網頁)"
+
+#~ msgid "width"
+#~ msgstr "寬度"
+
+#~ msgid "overwrite the title in the menu"
+#~ msgstr "取代在選單上的標題"
+
+#~ msgid "Path"
+#~ msgstr "路徑"
+
+#~ msgid "overwrite the title (html title tag)"
+#~ msgstr "取代標題(html title 標籤)"
+
+#~ msgid "File"
+#~ msgstr "檔案"
+
+#~ msgid "file"
+#~ msgstr "檔案"
+
+#~ msgid "Flash"
+#~ msgstr "Flash"
+
+#~ msgid "use swf file"
+#~ msgstr "使用 swf 檔案"
+
+#~ msgid "height"
+#~ msgstr "高度"
+
+#~ msgid "Google Map"
+#~ msgstr "谷歌地圖"
+
+#~ msgid "map title"
+#~ msgstr "地圖標題"
+
+#~ msgid "address"
+#~ msgstr "地址"
+
+#~ msgid "zip code"
+#~ msgstr "郵遞區號"
+
+#~ msgid "city"
+#~ msgstr "城市"
+
+#~ msgid "additional content"
+#~ msgstr "額外內容"
+
+#~ msgid "zoom level"
+#~ msgstr "縮放層級"
+
+#~ msgid "latitude"
+#~ msgstr "緯度"
+
+#~ msgid "Use latitude & longitude to fine tune the map position."
+#~ msgstr "使用緯度和經度微調地圖位置。"
+
+#~ msgid "longitude"
+#~ msgstr "經度"
+
+#~ msgid "route planer title"
+#~ msgstr "路線計畫標題"
+
+#~ msgid "Calculate your fastest way to here"
+#~ msgstr "計算你最快到這裡的路線"
+
+#~ msgid "route planer"
+#~ msgstr "路線計畫"
+
+#~ msgid "Map"
+#~ msgstr "地圖"
+
+#~ msgid "Calculate route"
+#~ msgstr "計算路線"
+
+#~ msgid "Inherit Plugins from Page"
+#~ msgstr "從網頁繼承插件"
+
+#~ msgid "Language or Page must be filled out"
+#~ msgstr "語言或網頁必須被填寫"
+
+#~ msgid ""
+#~ "Choose a page to include its plugins into this placeholder, empty will "
+#~ "choose current page"
+#~ msgstr "選擇一個網頁來將它的插件放入這個佔位空間，留空則會選用目前的網頁"
+
+#~ msgid "Optional: the language of the plugins you want"
+#~ msgstr "選填：你想要插件的語言"
+
+#~ msgid "Picture"
+#~ msgstr "圖片"
+
+#~ msgid "left"
+#~ msgstr "左"
+
+#~ msgid "right"
+#~ msgstr "右"
+
+#~ msgid "image"
+#~ msgstr "圖片"
+
+#~ msgid "if present image will be clickable"
+#~ msgstr "如果存在，則圖片將可點擊"
+
+#~ msgid "alternate text"
+#~ msgstr "替換文字"
+
+#~ msgid "textual description of the image"
+#~ msgstr "圖片的文字描述"
+
+#~ msgid "long description"
+#~ msgstr "詳細敘述"
+
+#~ msgid "additional description of the image"
+#~ msgstr "圖片的額外說明"
+
+#~ msgid "side"
+#~ msgstr "位置"
+
+#~ msgid "Snippet"
+#~ msgstr "原始碼片段"
+
+#~ msgid "Template %(template)s does not exist."
+#~ msgstr "模板 %(template)s 不存在。"
+
+#~ msgid "HTML"
+#~ msgstr "HEML"
+
+#~ msgid ""
+#~ "Enter a template (i.e. \"snippets/plugin_xy.html\") which will be "
+#~ "rendered. "
+#~ msgstr "輸入一個模板（即 \"snippets/plugin_xy.html\"）用來呈現頁面。"
+
+#~ msgid "Snippets"
+#~ msgstr "原始碼片段"
+
+#~ msgid "Teaser"
+#~ msgstr "逗引"
+
+#~ msgid "If present image will be clickable"
+#~ msgstr "如果存在，則圖片將可點擊"
+
+#~ msgid "If present image will be clickable."
+#~ msgstr "如果存在，則圖片將可點擊"
+
+#~ msgid "more"
+#~ msgstr "閱讀文章"
+
+#~ msgid "Text"
+#~ msgstr "文字"
+
+#~ msgid "body"
+#~ msgstr "本文"
+
+#~ msgid "Plugins"
+#~ msgstr "插件"
+
+#~ msgid "Please select a plugin type."
+#~ msgstr "請選擇一個插件類型。"
+
+#~ msgid "Edit selected plugin"
+#~ msgstr "編輯所選擇的插件"
+
+#~ msgid "Text editor does not support editing objects."
+#~ msgstr "文字編輯器不支援編輯物件。"
+
+#~ msgid "No object selected."
+#~ msgstr "沒有物件被選擇。"
+
+#~ msgid "Text editor does not support inserting objects."
+#~ msgstr "文字編輯器不支持插入物件。"
+
+#~ msgid "Not a plugin object"
+#~ msgstr "不是一個插件物件"
+
+#~ msgid "Available Plugins"
+#~ msgstr "可用插件"
+
+#~ msgid "Insert plugin"
+#~ msgstr "插入插件"
+
+#~ msgid "Twitter"
+#~ msgstr "推特(Twitter)"
+
+#~ msgid "twitter user"
+#~ msgstr "推特(twitter)用戶"
+
+#~ msgid "count"
+#~ msgstr "項目數"
+
+#~ msgid "Number of entries to display"
+#~ msgstr "要顯示的項目數量"
+
+#~ msgid "link hint"
+#~ msgstr "連結提示"
+
+#~ msgid "If given, the hint is displayed as link to your Twitter profile."
+#~ msgstr "如果填寫，該提示會顯示為一個連結到您的 Twitter 用戶資訊。"
+
+#~ msgid "Video"
+#~ msgstr "影像"
+
+#~ msgid "Color Settings"
+#~ msgstr "顏色設置"
+
+#~ msgid "movie file"
+#~ msgstr "電影檔案"
+
+#~ msgid "use .flv file or h264 encoded video file"
+#~ msgstr "使用 .flv 檔案或 h264 編碼的影像檔案"
+
+#~ msgid "movie url"
+#~ msgstr "電影網址"
+
+#~ msgid "preview image file"
+#~ msgstr "預覽圖片檔案"
+
+#~ msgid "auto play"
+#~ msgstr "自動播放"
+
+#~ msgid "auto hide"
+#~ msgstr "自動隱藏"
+
+#~ msgid "fullscreen"
+#~ msgstr "全螢幕"
+
+#~ msgid "loop"
+#~ msgstr "循環"
+
+#~ msgid "background color"
+#~ msgstr "背景顏色"
+
+#~ msgid "Hexadecimal, eg ff00cc"
+#~ msgstr "十六進制，如 ff00cc"
+
+#~ msgid "text color"
+#~ msgstr "文字顏色"
+
+#~ msgid "seekbar color"
+#~ msgstr "搜尋條桿顏色"
+
+#~ msgid "seekbar bg color"
+#~ msgstr "搜尋條桿背景顏色"
+
+#~ msgid "loadingbar color"
+#~ msgstr "載入條桿顏色"
+
+#~ msgid "button out color"
+#~ msgstr "離開按鈕顏色"
+
+#~ msgid "button over color"
+#~ msgstr "進入按鈕顏色"
+
+#~ msgid "button highlight color"
+#~ msgstr "按鈕突出顯示顏色"
+
+#~ msgid "Save"
+#~ msgstr "儲存"
+
+#~ msgid "Delete %(language)s translation"
+#~ msgstr "刪除 %(language)s 翻譯"
+
+#~ msgid "Save as new"
+#~ msgstr "另存為新檔案"
+
+#~ msgid "Save and add another"
+#~ msgstr "儲存並添加另一個"
+
+#~ msgid "Save and continue editing"
+#~ msgstr "儲存並繼續編輯"
+
+#~ msgid ""
+#~ "Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by "
+#~ "you."
+#~ msgstr "網頁<a href=\"%(admin_url)s\">%(page)s</a>可能需要你的核准。"
+
+#~ msgid "Last changes"
+#~ msgstr "最新的更改"
+
+#~ msgid "Log in to administration <a href=\"%(login_url)s\">here</a>."
+#~ msgstr "由<a href=\"%(login_url)s\">此處</a>登入到管理。"
+
+#~ msgid "Username:"
+#~ msgstr "用戶名稱："
+
+#~ msgid "Password:"
+#~ msgstr "密碼："
+
+#~ msgid "Change a page"
+#~ msgstr "修改一個網頁"
+
+#~ msgid "Home"
+#~ msgstr "首頁"
+
+#~ msgid "Approve page deletion"
+#~ msgstr "核准刪除網頁"
+
+#~ msgid "(requires approvement at %(moderation_level)s level)"
+#~ msgstr "(需要在 %(moderation_level)s 層級核准)"
+
+#~ msgid "(you can perform actions on this page directly)"
+#~ msgstr "(您可以直接在此網頁執行操作)"
+
+#~ msgid "Remove delete request"
+#~ msgstr "移除刪除請求"
+
+#~ msgid "Approve delete"
+#~ msgstr "核准刪除"
+
+#~ msgid "Approve"
+#~ msgstr "核准"
+
+#~ msgid "draft"
+#~ msgstr "草稿"
+
+#~ msgid "Preview"
+#~ msgstr "預覽"
+
+#~ msgid "History"
+#~ msgstr "歷史"
+
+#~ msgid "View on site"
+#~ msgstr "於網站上查看"
+
+#~ msgid "Please correct the error below."
+#~ msgid_plural "Please correct the errors below."
+#~ msgstr[0] "Please correct the errors below."
+
+#~ msgid "All permissions"
+#~ msgstr "所有權限"
+
+#~ msgid "Loading..."
+#~ msgstr "載入中..."
+
+#~ msgid "Page states"
+#~ msgstr "網頁狀態"
+
+#~ msgid ""
+#~ "This page must be moderated at level %(moderation_level)s, post a message "
+#~ "for moderator."
+#~ msgstr ""
+#~ "這個頁面必須在 %(moderation_level)s 層級被管制，請發送訊息給管制者。"
+
+#~ msgid "Request approvemet"
+#~ msgstr "要求核准"
+
+#~ msgid "List of pages"
+#~ msgstr "網頁列表"
+
+#~ msgid "Successfully moved"
+#~ msgstr "成功地被搬移"
+
+#~ msgid "An error occured. Please reload the page"
+#~ msgstr "發生一個錯誤。請重新載入網頁"
+
+#~ msgid "Recover deleted %(name)s"
+#~ msgstr "復原已刪除的 %(name)s"
+
+#~ msgid "Add %(name)s"
+#~ msgstr "添加 %(name)s"
+
+#~ msgid "Pages on:"
+#~ msgstr "網頁位於："
+
+#~ msgid "Filter:"
+#~ msgstr "篩選器："
+
+#~ msgid "on"
+#~ msgstr "開"
+
+#~ msgid "off"
+#~ msgstr "關"
+
+#~ msgid "Filter"
+#~ msgstr "篩選器"
+
+#~ msgid "actions"
+#~ msgstr "操作"
+
+#~ msgid "moderate"
+#~ msgstr "管制"
+
+#~ msgid "published"
+#~ msgstr "已發佈"
+
+#~ msgid "start"
+#~ msgstr "開始"
+
+#~ msgid "end"
+#~ msgstr "結束"
+
+#~ msgid "last changes"
+#~ msgstr "最新的更改"
+
+#~ msgid "select this page"
+#~ msgstr "選擇此頁"
+
+#~ msgid "edit this page"
+#~ msgstr "編輯本頁"
+
+#~ msgid "edit"
+#~ msgstr "編輯"
+
+#~ msgid "insert above"
+#~ msgstr "於上方插入"
+
+#~ msgid "insert below"
+#~ msgstr "於下方插入"
+
+#~ msgid "insert inside"
+#~ msgstr "插入裡面"
+
+#~ msgid "softroot"
+#~ msgstr "軟性根目錄"
+
+#~ msgid "home"
+#~ msgstr "首頁"
+
+#~ msgid "Edit this page in %(language)s "
+#~ msgstr "以 %(language)s 編輯本網頁"
+
+#~ msgid "Cut"
+#~ msgstr "剪切"
+
+#~ msgid "cut"
+#~ msgstr "剪切"
+
+#~ msgid "Copy"
+#~ msgstr "複製"
+
+#~ msgid "copy"
+#~ msgstr "複製"
+
+#~ msgid "Add Child"
+#~ msgstr "添加子網頁"
+
+#~ msgid "add"
+#~ msgstr "添加"
+
+#~ msgid "Approve directly"
+#~ msgstr "直接核准"
+
+#~ msgid "view"
+#~ msgstr "查看"
+
+#~ msgid "Unpublish"
+#~ msgstr "取消發佈"
+
+#~ msgid "View on page"
+#~ msgstr "在網頁查看"
+
+#~ msgid "Action"
+#~ msgstr "操作"
+
+#~ msgid "Created"
+#~ msgstr "已創建"
+
+#~ msgid "Message"
+#~ msgstr "訊息"
+
+#~ msgid "Group"
+#~ msgstr "組群"
+
+#~ msgid "Can edit"
+#~ msgstr "允許編輯"
+
+#~ msgid "Can add"
+#~ msgstr "允許添加"
+
+#~ msgid "Can delete"
+#~ msgstr "允許刪除"
+
+#~ msgid "Can publish"
+#~ msgstr "允許發佈"
+
+#~ msgid "Can change permissions"
+#~ msgstr "允許更改權限"
+
+#~ msgid "Can move"
+#~ msgstr "允許搬移"
+
+#~ msgid "(global)"
+#~ msgstr "(全站)"
+
+#~ msgid "(current)"
+#~ msgstr "(目前)"
+
+#~ msgid "All"
+#~ msgstr "全部"
+
+#~ msgid "Page doesn't inherit any permissions."
+#~ msgstr "網頁不繼承任何權限"
+
+#~ msgid "An old revision of a plugin can not be saved!"
+#~ msgstr "無法儲存插件的舊修定版！"
+
+#~ msgid "Plugin saved successfully."
+#~ msgstr "插件儲存成功。"
+
+#~ msgid "Recover deleted %(verbose_name)s"
+#~ msgstr "復原已刪除 %(verbose_name)s"
+
+#~ msgid "Press the save button below to recover this version of the object."
+#~ msgstr "按以下的儲存按鈕來復原物件的此一版本。"
+
+#~ msgid "Revert %(verbose_name)s"
+#~ msgstr "還原 %(verbose_name)s"
+
+#~ msgid "Press the save button below to revert to this version of the object."
+#~ msgstr "按以下的儲存按鈕來還原物件的此一版本。"
+
+#~ msgid "Copy options"
+#~ msgstr "複製選項"
+
+#~ msgid "Choose copy options"
+#~ msgstr "選擇複製選項"
+
+#~ msgid "Add Plugin"
+#~ msgstr "添加插件"
+
+#~ msgid "From Language"
+#~ msgstr "語言"
+
+#~ msgid "Copy Plugins"
+#~ msgstr "複製插件"
+
+#~ msgid "You must save the page first to add plugins."
+#~ msgstr "你必須先儲存網頁後才能添加插件。"
+
+#~ msgid "No Plugin selected. Selected one on the left side"
+#~ msgstr "沒有選擇任何插件。請在左側選擇一個"
+
+#~ msgid "No Plugins present. Add a plugin to this placeholder-slot."
+#~ msgstr "沒有任何插件存在。請添加插件到這個佔位空間插槽。"
+
+#~ msgid "Are you sure you want to delete this plugin?"
+#~ msgstr "你確定要刪除這個插件？"
+
+#~ msgid "up"
+#~ msgstr "上"
+
+#~ msgid "down"
+#~ msgstr "下"
+
+#~ msgid "Username"
+#~ msgstr "用戶名稱"
+
+#~ msgid "Status"
+#~ msgstr "狀態"
+
+#~ msgid "Unbind page moderation"
+#~ msgstr "取消網頁管制"
+
+#~ msgid "Unbind children moderation"
+#~ msgstr "取消子網頁管制"
+
+#~ msgid "Unbind descendants moderation"
+#~ msgstr "取消下層網頁管制"
+
+#~ msgid "sidebar column"
+#~ msgstr "搜尋條桿背景顏色"
+
+#~ msgid "left column"
+#~ msgstr "搜尋條桿背景顏色"
+
+#~ msgid "right column"
+#~ msgstr "搜尋條桿背景顏色"
+
+#~ msgid "CMS - your user account was created."
+#~ msgstr "CMS - 您的用戶帳號已被建立。"
+
+#~ msgid "CMS - your user account was changed."
+#~ msgstr "CMS - 您的用戶帳號已被更改。"
+
+#~ msgid "parent first"
+#~ msgstr "父層級優先"
+
+#~ msgid "approve"
+#~ msgstr "核准"
+
+#~ msgid "CMS - Page %s requires approvement."
+#~ msgstr "CMS - 網頁 %s 需要核准。"
+
+#~ msgid "Invalid URL, use /my/url format."
+#~ msgstr "無效的 URL，請使用類似 /my/url 的格式。"
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."

@@ -1,0 +1,1284 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+#   <klaus.dahlen@gmail.com>, 2011.
+# nanook <klaus.dahlen@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr "Linkki"
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "sivu"
+
+#: models.py:10
+msgid "name"
+msgstr "nimi"
+
+#: models.py:11
+msgid "link"
+msgstr "linkki"
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr "Linkki sivulle yliajaa tekstilinkin"
+
+#: models.py:13
+msgid "mailto"
+msgstr "Sähköpostiosoite"
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr "Sähköpostiosoite yliajaa tekstilinkin"
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "Edit mode"
+#~ msgstr "Muokkaustila"
+
+#~ msgid "django CMS"
+#~ msgstr "django CMS"
+
+#~ msgid "Publish"
+#~ msgstr "Julkaise"
+
+#~ msgid "Logout"
+#~ msgstr "Kirjaudu ulos"
+
+#~ msgid "Template"
+#~ msgstr "Asettelutiedosto"
+
+#~ msgid "Move/add Pages"
+#~ msgstr "Siirrä/lisää sivuja"
+
+#~ msgid "Add child page"
+#~ msgstr "lisää lapsisivu"
+
+#~ msgid "Add sibling page"
+#~ msgstr "Lisää sisarsivu"
+
+#~ msgid "Delete Page"
+#~ msgstr "Poista sivu"
+
+#~ msgid "Page"
+#~ msgstr "Sivu"
+
+#~ msgid "Site Administration"
+#~ msgstr "Sivuston hallinta"
+
+#~ msgid "Page Settings"
+#~ msgstr "Sivun asetukset"
+
+#~ msgid "View History"
+#~ msgstr "Näytä historia"
+
+#~ msgid "Admin"
+#~ msgstr "Ylläpitäjä"
+
+#~ msgid "Advanced options"
+#~ msgstr "Edistyneet valinnat"
+
+#~ msgid "Title"
+#~ msgstr "Otsikko"
+
+#~ msgid "The default title"
+#~ msgstr "Oletusotsikko"
+
+#~ msgid "Slug"
+#~ msgstr "Slug"
+
+#~ msgid "The part of the title that is used in the URL"
+#~ msgstr "Osa otsikosta jota käytetään URL:ssa"
+
+#~ msgid "Language"
+#~ msgstr "Kieli"
+
+#~ msgid "The current language of the content fields."
+#~ msgstr "Sisältökenttien nykyinen kieli."
+
+#~ msgid "Another page with this slug already exists"
+#~ msgstr "Toinen sivu tällä slugilla on jo olemassa"
+
+#~ msgid "Menu Title"
+#~ msgstr "Valikko-otsikko"
+
+#~ msgid "Overwrite what is displayed in the menu"
+#~ msgstr "Yliajaa valikossa näytettävän tekstin"
+
+#~ msgid "Page Title"
+#~ msgstr "Sivun otsikko"
+
+#~ msgid ""
+#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
+#~ msgstr "Yliajaa selaimen ylälaidassa ja kirjanmerkeissä näytettävän tekstin"
+
+#~ msgid "Application"
+#~ msgstr "Sovellus"
+
+#~ msgid "Hook application to this page."
+#~ msgstr "Kytke sovellus tähän sivuun."
+
+#~ msgid "Overwrite URL"
+#~ msgstr "Yliaja URL"
+
+#~ msgid "Keep this field empty if standard path should be used."
+#~ msgstr "Jätä tämä kenttä tyhjäksi jos halutaan käyttää oletuspolkua."
+
+#~ msgid "Redirect"
+#~ msgstr "Edelleenohjaus"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "Edelleenohjaa tähän URL:iin"
+
+#~ msgid "A description of the page sometimes used by search engines."
+#~ msgstr "Sivun kuvaus jota hakukoneet voivat hyödyntää."
+
+#~ msgid "A list of comma seperated keywords sometimes used by search engines."
+#~ msgstr "Pilkuin eroteltu lista joita hakukoneet voivat hyödyntää."
+
+#~ msgid "A page with this reverse URL id exists already."
+#~ msgstr "Sivu tällä käänteisellä URL tunnuksella on jo olemassa."
+
+#~ msgid "user"
+#~ msgstr "käyttäjä"
+
+#~ msgid ""
+#~ "Add page permission requires also access to children, or descendants, "
+#~ "otherwise added page can't be changed by its creator."
+#~ msgstr ""
+#~ "Sivun luontioikeus vaatii pääsyn myös sen jälkeläisiin. Muuten sivun "
+#~ "luoja ei voi muokata sitä myöhemmin."
+
+#~ msgid "Add page permission also requires edit page permission."
+#~ msgstr "Sivun luonti vaatii myös oikeuden muokata sivuja."
+
+#~ msgid "Please select user or group first."
+#~ msgstr "Valitse ensin käyttäjä tai käyttäjäryhmä."
+
+#~ msgid "Add"
+#~ msgstr "Lisää"
+
+#~ msgid "Change"
+#~ msgstr "Muokkaa"
+
+#~ msgid "Delete"
+#~ msgstr "Poista"
+
+#~ msgid "Recover (any) pages"
+#~ msgstr "Palauta sivuja"
+
+#~ msgid "Notify user"
+#~ msgstr "Huomauta käyttäjää"
+
+#~ msgid ""
+#~ "Send email notification to user about username or password change. "
+#~ "Requires user email."
+#~ msgstr ""
+#~ "Lähetä sähköpostia käyttäjälle käyttäjänimen tai salasanan vaihtumisesta. "
+#~ "Vaatii käyttäjän sähköpostiosoitteen."
+
+#~ msgid "New password"
+#~ msgstr "Uusi salasana"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Uuden salasanan vahvistus"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "Sähköpostitiedote vaatii kelvollisen sähköpostiosoitteen."
+
+#~ msgid ""
+#~ "The permission to add new pages requires the permission to change pages!"
+#~ msgstr "Oikeus luoda sivuja vaatii oikeuden muokata sivuja!"
+
+#~ msgid ""
+#~ "The permission to add new users requires the permission to change users!"
+#~ msgstr "Oikeus luoda käyttäjiä vaatii oikeuden muokata käyttäjä!"
+
+#~ msgid "To add permissions you also need to edit them!"
+#~ msgstr "Luodaksesi käyttöoikeuksia sinun täytyy myös muokata niitä!"
+
+#~ msgid "Basic Settings"
+#~ msgstr "Perusasetukset"
+
+#~ msgid "Note: This page reloads if you change the selection. Save it first."
+#~ msgstr ""
+#~ "Huomautus: Tämä sivu uudelleenladataan mikäli muokkaat valintaa. Tallenna "
+#~ "ensin."
+
+#~ msgid "Hidden"
+#~ msgstr "Piilotettu"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "Edistyneet asetukset"
+
+#~ msgid "SEO Settings"
+#~ msgstr "Hakukoneiden optimointiasetukset (SEO)"
+
+#~ msgid "You have no permission to change the template"
+#~ msgstr "Oikeutesi eivät riitä mallipohjan muuttamiseen"
+
+#~ msgid "higher"
+#~ msgstr "korkeammalle"
+
+#~ msgid "Database error"
+#~ msgstr "Tietokantavirhe"
+
+#~ msgid "Page was successfully approved."
+#~ msgstr "Sivu hyväksytty."
+
+#~ msgid "%(name)s object with primary key %(key)r does not exist."
+#~ msgstr "Olio %(name)s perusavaimella %(key)r ei ole olemassa"
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "Tälle sivulle on vain yksi käännös"
+
+#~ msgid "Title and plugins with language %(language)s was deleted"
+#~ msgstr "Otsikko ja liitännäiset kielelle %(language)s poistettu"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Oletko varma?"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "Sinulla ei ole oikeutta julkaista tätä sivua"
+
+#~ msgid ""
+#~ "You do not have permission to change this page's in_navigation status"
+#~ msgstr "Sinulla ei ole oikeutta vaihtaa tämän sivun valikkonäkyvyyttä"
+
+#~ msgid "You have no permission to add a plugin"
+#~ msgstr "Oikeutesi eivät riitä liitännäisen lisäämiseen"
+
+#~ msgid "Language must be set to a supported language!"
+#~ msgstr "Kielen tulee olla tuettu!"
+
+#~ msgid "%(plugin_name)s plugin added to %(placeholder)s"
+#~ msgstr ""
+#~ "Liitännäinen %(plugin_name)s lisätty sisältöpaikkaan  %(placeholder)s."
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "Sinulla ei ole oikeutta muokata tätä sivua"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "Kopioidun kielen tulee poiketa lähdekielestä!"
+
+#~ msgid "You do not have permission to add plugins"
+#~ msgstr "Oikeutesi eivät riitä liitännäisten lisäämiseen"
+
+#~ msgid "Copied %(language)s plugins to %(placeholder)s"
+#~ msgstr ""
+#~ "Kopioutu lähteen %(language)s liitännäiset sisältöpaikkaan "
+#~ "%(placeholder)s."
+
+#~ msgid "You have no permission to change this page"
+#~ msgstr "Oikeutesi eivät riitä tämän sivun muokkaamiseen"
+
+#~ msgid "You have no permission to edit a plugin"
+#~ msgstr "Oikeutesi eivät riitä liitännäisen muokkaamiseen"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
+#~ msgstr ""
+#~ "Liitännäistä %(plugin_name)s muokattu kohdassa %(position)s "
+#~ "sisältöpaikassa %(placeholder)s."
+
+#~ msgid "You have no permission to move a plugin"
+#~ msgstr "Oikeutesi eivät riitä liitännäisen siirtämiseen"
+
+#~ msgid "Plugins where moved"
+#~ msgstr "Liitännäisiä siirrettiin"
+
+#~ msgid "You have no permission to remove a plugin"
+#~ msgstr "Oikeutesi eivät riitä liitännäisen poistamiseen"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin at position %(position)s in %(placeholder)s was "
+#~ "deleted."
+#~ msgstr ""
+#~ "Liitännäinen %(plugin_name)s poistettu kohdasta %(position)s "
+#~ "sisältöpaikasta %(placeholder)s."
+
+#~ msgid "Page permissions"
+#~ msgstr "Sivun oikeudet"
+
+#~ msgid "User & Group permissions"
+#~ msgstr "Käyttäjä- & ryhmäoikeudet"
+
+#~ msgid "Page permissions management"
+#~ msgstr "Sivun oikeuksien hallinta"
+
+#~ msgid "You don't have permission to add content here."
+#~ msgstr "Oikeutesi eivät riitä sisällön lisäämiseen tähän."
+
+#~ msgid "You don't have permission to add plugins"
+#~ msgstr "Oikeutesi eivät riitä liitännäisten lisäämiseen"
+
+#~ msgid "You don't have permission to delete a plugin"
+#~ msgstr "Oikeutesi eivät riitä liitännäisen poistamiseen"
+
+#~ msgid "User details"
+#~ msgstr "Käyttäjätiedot"
+
+#~ msgid "Groups"
+#~ msgstr "Ryhmät"
+
+#~ msgid "Password"
+#~ msgstr "Salasana"
+
+#~ msgid "Copy permissions"
+#~ msgstr "Kopioi oikeudet"
+
+#~ msgid "Copy moderation"
+#~ msgstr "Kopioi valvonta"
+
+#~ msgid "Inherit the template of the nearest ancestor"
+#~ msgstr "Peri lähimmän vanhemman asettelu"
+
+#~ msgid "Select a valid site"
+#~ msgstr "Valitse kelvollinen sivusto"
+
+#~ msgid "Select a valid page"
+#~ msgstr "Valitse kelvollinen sivu"
+
+#~ msgid "Add Another"
+#~ msgstr "Lisää uusi"
+
+#~ msgid "language"
+#~ msgstr "kieli"
+
+#~ msgid "position"
+#~ msgstr "Sijainti"
+
+#~ msgid "creation date"
+#~ msgstr "Luontipäiväys"
+
+#~ msgid "slot"
+#~ msgstr "lovi"
+
+#~ msgid "plugin_name"
+#~ msgstr "liitännäisen nimi"
+
+#~ msgid "title"
+#~ msgstr "otsikko"
+
+#~ msgid "path"
+#~ msgstr "polku"
+
+#~ msgid "slug"
+#~ msgstr "slug"
+
+#~ msgid "everybody"
+#~ msgstr "kaikki"
+
+#~ msgid "can edit"
+#~ msgstr "voi muokata"
+
+#~ msgid "group"
+#~ msgstr "ryhmä"
+
+#~ msgid "can publish"
+#~ msgstr "voi julkaista"
+
+#~ msgid "type"
+#~ msgstr "tyyppi"
+
+#~ msgid "can change soft-root"
+#~ msgstr "voi muuttaa soft-roottia"
+
+#~ msgid "status"
+#~ msgstr "tila"
+
+#~ msgid "navigation extenders"
+#~ msgstr "navigaation laajentajat"
+
+#~ msgid "has url overwrite"
+#~ msgstr "omaa URL-ylikirjoituksen"
+
+#~ msgid "url overwrite"
+#~ msgstr "URL-ylikirjoitus"
+
+#~ msgid "author"
+#~ msgstr "luoja"
+
+#~ msgid "reverse url id"
+#~ msgstr "käänteinen URL-tunniste"
+
+#~ msgid "login required"
+#~ msgstr "Sisäänkirjautuminen vaadittu"
+
+#~ msgid "soft root"
+#~ msgstr "Softroot"
+
+#~ msgid "publication end date"
+#~ msgstr "julkaisun loppupäiväys"
+
+#~ msgid "template"
+#~ msgstr "asettelu"
+
+#~ msgid "publication date"
+#~ msgstr "julkaisupäiväys"
+
+#~ msgid "in navigation"
+#~ msgstr "navigaatiossa"
+
+#~ msgid "application"
+#~ msgstr "sovellus"
+
+#~ msgid "id"
+#~ msgstr "id"
+
+#~ msgid "redirect"
+#~ msgstr "edelleenohjaus"
+
+#~ msgid "keywords"
+#~ msgstr "avainsanat"
+
+#~ msgid "description"
+#~ msgstr "kuvaus"
+
+#~ msgid "Current page"
+#~ msgstr "Nykyinen sivu"
+
+#~ msgid "Page children (immediate)"
+#~ msgstr "Sivun lapset"
+
+#~ msgid "Page and children (immediate)"
+#~ msgstr "Sivu ja lapset"
+
+#~ msgid "Page descendants"
+#~ msgstr "Sivun jälkeläiset"
+
+#~ msgid "Page and descendants"
+#~ msgstr "Sivu ja jälkeläiset"
+
+#~ msgid "User"
+#~ msgstr "Käyttäjä"
+
+#~ msgid "Moderate page"
+#~ msgstr "Moderoi sivua"
+
+#~ msgid "Moderate children"
+#~ msgstr "Moderoi sivun lapsia"
+
+#~ msgid "Moderate descendants"
+#~ msgstr "Moderoi sivun jälkeläisiä"
+
+#~ msgid "PageModerator"
+#~ msgstr "Sivumoderaattori"
+
+#~ msgid "created"
+#~ msgstr "luotu"
+
+#~ msgid "changed"
+#~ msgstr "muokattu"
+
+#~ msgid "delete req."
+#~ msgstr "poistopyyntö"
+
+#~ msgid "move req."
+#~ msgstr "siirtopyyntö"
+
+#~ msgid "publish req."
+#~ msgstr "julkaisupyyntö"
+
+#~ msgid "unpublish req."
+#~ msgstr "piilotuspyyntö"
+
+#~ msgid "approved"
+#~ msgstr "hyväksytty"
+
+#~ msgid "Page moderator state"
+#~ msgstr "Sivun moderointitila"
+
+#~ msgid "Page moderator states"
+#~ msgstr "Sivun moderointitilat"
+
+#~ msgid "req. app."
+#~ msgstr "Hyväksyntäpyyntö"
+
+#~ msgid "delete"
+#~ msgstr "poista"
+
+#~ msgid "app. par."
+#~ msgstr "Hyväksy äitisivu"
+
+#~ msgid "for logged in users only"
+#~ msgstr "ja kirjautuneet käyttäjät vain"
+
+#~ msgid "created by"
+#~ msgstr "luoja"
+
+#~ msgid "changed by"
+#~ msgstr "muokkaaja"
+
+#~ msgid ""
+#~ "When the page should go live. Status must be \"Published\" for page to go "
+#~ "live."
+#~ msgstr ""
+#~ "Milloin sivun tulisi tulla näkyviin. Sivun tilan tulee olla \"julkaistu\" "
+#~ "jotta se tulee näkyviin. "
+
+#~ msgid "When to expire the page. Leave empty to never expire."
+#~ msgstr "Milloin sivu erääntyy. Jätä tyhjäksi jos et halua sivun erääntyvän."
+
+#~ msgid "All ancestors will not be displayed in the navigation"
+#~ msgstr "Kaikkia vanhempia ei näytetä navigaatiossa"
+
+#~ msgid ""
+#~ "An unique identifier that is used with the page_url templatetag for "
+#~ "linking to this page"
+#~ msgstr ""
+#~ "Yksilöllinen tunniste jota voidaan käyttää page_url templatetagin kanssa "
+#~ "tämän sivun linkittämiseksi asettelutiedostoissa. "
+
+#~ msgid "attached menu"
+#~ msgstr "liitetty valikko"
+
+#~ msgid "is published"
+#~ msgstr "julkaistu"
+
+#~ msgid "The template used to render the content."
+#~ msgstr "Asettelu jota käytetään sisällön tulostukseen ruudulle."
+
+#~ msgid "The site the page is accessible at."
+#~ msgstr "Sivusto jolla sivu on."
+
+#~ msgid "site"
+#~ msgstr "sivusto"
+
+#~ msgid "moderator state"
+#~ msgstr "moderointitila"
+
+#~ msgid "menu visibility"
+#~ msgstr "näytä valikossa"
+
+#~ msgid "limit when this page is visible in the menu"
+#~ msgstr "rajoita tämän sivun näkyvyyttä valikossa"
+
+#~ msgid "pages"
+#~ msgstr "sivut"
+
+#~ msgid "Page was copied."
+#~ msgstr "Sivu kopioitiin."
+
+#~ msgid "default"
+#~ msgstr "oletus"
+
+#~ msgid "can add"
+#~ msgstr "voi lisätä"
+
+#~ msgid "can delete"
+#~ msgstr "voi poistaa"
+
+#~ msgid "can change advanced settings"
+#~ msgstr "voi muokata edistyneitä asetuksia"
+
+#~ msgid "can change permissions"
+#~ msgstr "voi muokata käyttöoikeuksia"
+
+#~ msgid "on page level"
+#~ msgstr "sivutasolla"
+
+#~ msgid "can move"
+#~ msgstr "voi liikuttaa"
+
+#~ msgid "can moderate"
+#~ msgstr "voi moderoida"
+
+#~ msgid "can recover pages"
+#~ msgstr "voi palauttaa sivuja"
+
+#~ msgid "can recover any deleted page"
+#~ msgstr "voi palauttaa minkä tahansa poistetun sivun"
+
+#~ msgid "If none selected, user haves granted permissions to all sites."
+#~ msgstr ""
+#~ "jos mitään ei ole valittu käyttäjälle myönnetään oikeudet kaikkiin "
+#~ "sivustoihin"
+
+#~ msgid "sites"
+#~ msgstr "sivustot"
+
+#~ msgid "Page global permission"
+#~ msgstr "Sivun globaali käyttöoikeus"
+
+#~ msgid "Pages global permissions"
+#~ msgstr "Sivujen globaalit käyttöoikeudet"
+
+#~ msgid "Grant on"
+#~ msgstr "Myönnä oikeus"
+
+#~ msgid "Page permission"
+#~ msgstr "Sivun käyttöoikeus"
+
+#~ msgid "User (page)"
+#~ msgstr "Käyttäjä (sivu)"
+
+#~ msgid "Users (page)"
+#~ msgstr "Käyttäjät (sivu)"
+
+#~ msgid "User group (page)"
+#~ msgstr "Käyttäjäryhmä (sivu)"
+
+#~ msgid "User groups (page)"
+#~ msgstr "Käyttäjäryhmät (sivu)"
+
+#~ msgid "width"
+#~ msgstr "leveys"
+
+#~ msgid "overwrite the title in the menu"
+#~ msgstr "yliaja otsikko valikossa"
+
+#~ msgid "Path"
+#~ msgstr "Polku"
+
+#~ msgid "overwrite the title (html title tag)"
+#~ msgstr "Yliaja otsikko (HTML title)"
+
+#~ msgid "File"
+#~ msgstr "Tiedosto"
+
+#~ msgid "file"
+#~ msgstr "tiedosto"
+
+#~ msgid "file missing!"
+#~ msgstr "tiedosto puuttuu!"
+
+#~ msgid "Flash"
+#~ msgstr "Flash"
+
+#~ msgid "use swf file"
+#~ msgstr "käytä .swf tiedostoa (Flash)"
+
+#~ msgid "height"
+#~ msgstr "korkeus"
+
+#~ msgid ""
+#~ "Missing flash plugin. Please download the latest Adobe Flash Player: "
+#~ msgstr "Flash puuttuu. Lataa uusin Adobe Flash Player:"
+
+#~ msgid "Get Adobe Flash Player"
+#~ msgstr "Lataa Adobe Flash Player"
+
+#~ msgid "Google Map"
+#~ msgstr "Google Map"
+
+#~ msgid "map title"
+#~ msgstr "kartan otsikko"
+
+#~ msgid "address"
+#~ msgstr "osoite"
+
+#~ msgid "zip code"
+#~ msgstr "postinumero"
+
+#~ msgid "city"
+#~ msgstr "kaupunki"
+
+#~ msgid "additional content"
+#~ msgstr "lisäsisältö"
+
+#~ msgid "zoom level"
+#~ msgstr "zoomaustaso"
+
+#~ msgid "latitude"
+#~ msgstr "leveysaste"
+
+#~ msgid "Use latitude & longitude to fine tune the map position."
+#~ msgstr "Käytä leveys- ja pituusasteita määrittääksesi kartan sijainnin"
+
+#~ msgid "longitude"
+#~ msgstr "pituusaste"
+
+#~ msgid "route planer title"
+#~ msgstr "Reittisuunnittelun otsikko"
+
+#~ msgid "Calculate your fastest way to here"
+#~ msgstr "Laske nopein reitti tänne"
+
+#~ msgid "route planer"
+#~ msgstr "Reittisuunnittelu"
+
+#~ msgid "Map"
+#~ msgstr "Kartta"
+
+#~ msgid "Your address: "
+#~ msgstr "Osoitteesi: "
+
+#~ msgid "Calculate route"
+#~ msgstr "Laske reitti"
+
+#~ msgid "Inherit Plugins from Page"
+#~ msgstr "Peri liitännäiset sivulta"
+
+#~ msgid "Language or Page must be filled out"
+#~ msgstr "Kieli tai sivu pitää olla täytettynä"
+
+#~ msgid ""
+#~ "Choose a page to include its plugins into this placeholder, empty will "
+#~ "choose current page"
+#~ msgstr ""
+#~ "Valitse sivu jolta sisällytetään liitännäiset tähän sisältökenttään, "
+#~ "tyhjä valitsee nykyisen sivun"
+
+#~ msgid "Optional: the language of the plugins you want"
+#~ msgstr "Valinnainen: haluttujen liitännäisten kieli"
+
+#~ msgid "Picture"
+#~ msgstr "Kuva"
+
+#~ msgid "left"
+#~ msgstr "vasen"
+
+#~ msgid "right"
+#~ msgstr "oikea"
+
+#~ msgid "image"
+#~ msgstr "kuva"
+
+#~ msgid "if present image will be clickable"
+#~ msgstr "verkko-osoite johon kuva klikkaaminen vie"
+
+#~ msgid "alternate text"
+#~ msgstr "vaihtoehtoinen teksti"
+
+#~ msgid "textual description of the image"
+#~ msgstr "kuvaus kuvasta"
+
+#~ msgid "long description"
+#~ msgstr "pitkä kuvaus"
+
+#~ msgid "additional description of the image"
+#~ msgstr "laajempi kuvaus kuvasta"
+
+#~ msgid "side"
+#~ msgstr "sivu"
+
+#~ msgid "Snippet"
+#~ msgstr "Snippet"
+
+#~ msgid "Template %(template)s does not exist."
+#~ msgstr "Asettelutiedostoa %(template)s ei ole olemassa."
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid ""
+#~ "Enter a template (i.e. \"snippets/plugin_xy.html\") which will be "
+#~ "rendered. "
+#~ msgstr ""
+#~ "Syötä asettelutiedosto (esim. \"snippets/plugin_xy.html\") joka "
+#~ "tulostetaan ruudulle."
+
+#~ msgid "Snippets"
+#~ msgstr "Snippet"
+
+#~ msgid "Teaser"
+#~ msgstr "Tiiseri"
+
+#~ msgid "If present image will be clickable"
+#~ msgstr "verkko-osoite johon kuva klikkaaminen vie"
+
+#~ msgid "If present image will be clickable."
+#~ msgstr "verkko-osoite johon kuva klikkaaminen vie"
+
+#~ msgid "more"
+#~ msgstr "lisää"
+
+#~ msgid "Text"
+#~ msgstr "Teksti"
+
+#~ msgid "body"
+#~ msgstr "vartalo"
+
+#~ msgid "Plugins"
+#~ msgstr "Laajennukset"
+
+#~ msgid "Please select a plugin type."
+#~ msgstr "Ole hyvä ja valitse laajennuksen tyyppi"
+
+#~ msgid "Edit selected plugin"
+#~ msgstr "Muokkaa valittua laajennusta"
+
+#~ msgid "Text editor does not support editing objects."
+#~ msgstr "Tekstieditori ei tue objektien muokkausta."
+
+#~ msgid "No object selected."
+#~ msgstr "Mitään ei ole valittu."
+
+#~ msgid "Text editor does not support inserting objects."
+#~ msgstr "Tekstieditori ei tue objektien syöttöä."
+
+#~ msgid "Not a plugin object"
+#~ msgstr "Ei ole liitännäinen"
+
+#~ msgid "Available Plugins"
+#~ msgstr "Saatavilla olevat laajennukset"
+
+#~ msgid "Insert plugin"
+#~ msgstr "Lisää laajennus"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "Twitter Search"
+#~ msgstr "Twitter-haku"
+
+#~ msgid "twitter user"
+#~ msgstr "twitter-käyttäjä"
+
+#~ msgid "count"
+#~ msgstr "lukumäärä"
+
+#~ msgid "Number of entries to display"
+#~ msgstr "Näytettävien kohteiden määrä"
+
+#~ msgid "link hint"
+#~ msgstr "Linkkivihje"
+
+#~ msgid "If given, the hint is displayed as link to your Twitter profile."
+#~ msgstr "Jos täytetty vinkki näytetään linkkinä Twitter-tiliisi"
+
+#~ msgid "query"
+#~ msgstr "kysely"
+
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgid "Color Settings"
+#~ msgstr "Väriasetukset"
+
+#~ msgid "movie file"
+#~ msgstr "videotiedosto"
+
+#~ msgid "use .flv file or h264 encoded video file"
+#~ msgstr "käytä .flv tai H264 enkoodattuja videotiedostoja."
+
+#~ msgid "movie url"
+#~ msgstr "videon osoite"
+
+#~ msgid "preview image file"
+#~ msgstr "esikatselukuva"
+
+#~ msgid "auto play"
+#~ msgstr "automaattinen toisto"
+
+#~ msgid "auto hide"
+#~ msgstr "automaattinen piilotus"
+
+#~ msgid "fullscreen"
+#~ msgstr "kokoruutu"
+
+#~ msgid "loop"
+#~ msgstr "silmukka"
+
+#~ msgid "background color"
+#~ msgstr "taustaväri"
+
+#~ msgid "Hexadecimal, eg ff00cc"
+#~ msgstr "Hexadesimaali, esim. ff00cc"
+
+#~ msgid "text color"
+#~ msgstr "tekstin väri"
+
+#~ msgid "seekbar color"
+#~ msgstr "Hakupalkin väri"
+
+#~ msgid "seekbar bg color"
+#~ msgstr "hakupalkin taustaväri"
+
+#~ msgid "loadingbar color"
+#~ msgstr "latauspalkin väri"
+
+#~ msgid "button out color"
+#~ msgstr "napin mouseout väri"
+
+#~ msgid "button over color"
+#~ msgstr "napin mousover väri"
+
+#~ msgid "button highlight color"
+#~ msgstr "napin korostusväri"
+
+#~ msgid "Save"
+#~ msgstr "Tallenna"
+
+#~ msgid "Delete %(language)s translation"
+#~ msgstr "Poista %(language)s käännös"
+
+#~ msgid "Save as new"
+#~ msgstr "Tallenna nimellä"
+
+#~ msgid "Save and add another"
+#~ msgstr "Tallenna ja lisää uusi"
+
+#~ msgid "Save and continue editing"
+#~ msgstr "Tallenna ja jatka muokkausta"
+
+#~ msgid ""
+#~ "Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by "
+#~ "you."
+#~ msgstr ""
+#~ "Sivu <a href=\"%(admin_url)s\">%(page)s</a> saattaa vaatia sinulta "
+#~ "hyväksyntää."
+
+#~ msgid "Last changes"
+#~ msgstr "Viime muutokset"
+
+#~ msgid "Log in to administration <a href=\"%(login_url)s\">here</a>."
+#~ msgstr "<a href=\"%(login_url)s\">Kirjaudu</a> hallintapaneeliin."
+
+#~ msgid "Username:"
+#~ msgstr "Käyttäjänimi:"
+
+#~ msgid "Password:"
+#~ msgstr "Salasana:"
+
+#~ msgid "Change a page"
+#~ msgstr "Muuta sivua"
+
+#~ msgid "Home"
+#~ msgstr "Koti"
+
+#~ msgid "Approve page deletion"
+#~ msgstr "Hyväksy sivun poisto"
+
+#~ msgid "(requires approvement at %(moderation_level)s level)"
+#~ msgstr "(vaatii hyväksynnän moderointitasolla %(moderation_level)s)"
+
+#~ msgid "(you can perform actions on this page directly)"
+#~ msgstr "(voit suorittaa toimintoja suoraan tällä sivulla)"
+
+#~ msgid "Remove delete request"
+#~ msgstr "Hylkää poistopyyntö"
+
+#~ msgid "Approve delete"
+#~ msgstr "Hyväksy poisto"
+
+#~ msgid "Approve"
+#~ msgstr "Hyväksy"
+
+#~ msgid "draft"
+#~ msgstr "vedos"
+
+#~ msgid "Preview"
+#~ msgstr "Esikatselu"
+
+#~ msgid "History"
+#~ msgstr "Historia"
+
+#~ msgid "View on site"
+#~ msgstr "Näytä sivustolla"
+
+#~ msgid "Please correct the error below."
+#~ msgid_plural "Please correct the errors below."
+#~ msgstr[0] "Korjaa allaoleva virhe."
+#~ msgstr[1] "Korjaa allaolevat virheet."
+
+#~ msgid "All permissions"
+#~ msgstr "Kaikki oikeudet"
+
+#~ msgid "Loading..."
+#~ msgstr "Ladataan…"
+
+#~ msgid "Page states"
+#~ msgstr "Sivun tilat"
+
+#~ msgid ""
+#~ "This page must be moderated at level %(moderation_level)s, post a message "
+#~ "for moderator."
+#~ msgstr ""
+#~ "Tätä sivua täytyy moderoida tasolla %(moderation_level)s, lähetä viesti "
+#~ "moderaattorille."
+
+#~ msgid "Request approvemet"
+#~ msgstr "Hyväksy pyyntö"
+
+#~ msgid "List of pages"
+#~ msgstr "Sivulistaus"
+
+#~ msgid "Successfully moved"
+#~ msgstr "Siirretty onnistuneesti"
+
+#~ msgid "An error occured. Please reload the page"
+#~ msgstr "Virhe tapahtui. Ole hyvä ja lataa sivu uudestaan."
+
+#~ msgid "Recover deleted %(name)s"
+#~ msgstr "Palauta poistetut %(name)s"
+
+#~ msgid "Add %(name)s"
+#~ msgstr "Lisää %(name)s"
+
+#~ msgid "Pages on:"
+#~ msgstr "Sivut:"
+
+#~ msgid "Filter:"
+#~ msgstr "Rajaus:"
+
+#~ msgid "on"
+#~ msgstr "päällä"
+
+#~ msgid "off"
+#~ msgstr "pois"
+
+#~ msgid "Filter"
+#~ msgstr "Rajaus"
+
+#~ msgid "actions"
+#~ msgstr "Toiminnot"
+
+#~ msgid "moderate"
+#~ msgstr "moderoi"
+
+#~ msgid "published"
+#~ msgstr "julkaistu"
+
+#~ msgid "start"
+#~ msgstr "alku"
+
+#~ msgid "end"
+#~ msgstr "loppu"
+
+#~ msgid "last changes"
+#~ msgstr "viime muutokset"
+
+#~ msgid "select this page"
+#~ msgstr "valitse tämä sivu"
+
+#~ msgid "edit this page"
+#~ msgstr "muokkaa tätä sivua"
+
+#~ msgid "edit"
+#~ msgstr "muokkaa"
+
+#~ msgid "insert above"
+#~ msgstr "lisää ylle"
+
+#~ msgid "insert below"
+#~ msgstr "lisää alle"
+
+#~ msgid "insert inside"
+#~ msgstr "lisää sisälle"
+
+#~ msgid "softroot"
+#~ msgstr "softroot"
+
+#~ msgid "home"
+#~ msgstr "koti"
+
+#~ msgid "Edit this page in %(language)s "
+#~ msgstr "Muokkaa sivua kielellä %(language)s "
+
+#~ msgid "Cut"
+#~ msgstr "Leikkaa"
+
+#~ msgid "cut"
+#~ msgstr "leikkaa"
+
+#~ msgid "Copy"
+#~ msgstr "Kopioi"
+
+#~ msgid "copy"
+#~ msgstr "kopioi"
+
+#~ msgid "Add Child"
+#~ msgstr "Lisää lapsi"
+
+#~ msgid "add"
+#~ msgstr "lisää"
+
+#~ msgid "Approve directly"
+#~ msgstr "Hyväksy suoraan"
+
+#~ msgid "view"
+#~ msgstr "näkymä"
+
+#~ msgid "Unpublish"
+#~ msgstr "Piilota"
+
+#~ msgid "View on page"
+#~ msgstr "Näytä sivulla"
+
+#~ msgid "Action"
+#~ msgstr "Toiminta"
+
+#~ msgid "Created"
+#~ msgstr "Luotu"
+
+#~ msgid "Message"
+#~ msgstr "Viesti"
+
+#~ msgid "Group"
+#~ msgstr "Ryhmä"
+
+#~ msgid "Can edit"
+#~ msgstr "Voi muokata"
+
+#~ msgid "Can add"
+#~ msgstr "Voi lisätä"
+
+#~ msgid "Can delete"
+#~ msgstr "Voi poistaa"
+
+#~ msgid "Can publish"
+#~ msgstr "Voi julkaista"
+
+#~ msgid "Can change permissions"
+#~ msgstr "Voi muuttaa oikeuksia"
+
+#~ msgid "Can move"
+#~ msgstr "Voi siirtää"
+
+#~ msgid "(global)"
+#~ msgstr "(globaali)"
+
+#~ msgid "(current)"
+#~ msgstr "(nykyinen)"
+
+#~ msgid "All"
+#~ msgstr "Kaikki"
+
+#~ msgid "Page doesn't inherit any permissions."
+#~ msgstr "Sivu ei peri mitään käyttöoikeuksia."
+
+#~ msgid "An old revision of a plugin can not be saved!"
+#~ msgstr "Liitännäisen vanhaa versiota ei voi tallentaa!"
+
+#~ msgid "Plugin saved successfully."
+#~ msgstr "Liitännäinen tallennettu onnistuneesti."
+
+#~ msgid "Recover deleted %(verbose_name)s"
+#~ msgstr "Palauta poistetut %(verbose_name)s"
+
+#~ msgid "Press the save button below to recover this version of the object."
+#~ msgstr "Paina allaolevaa tallennusnappia tuodaksesi takaisin tämän version."
+
+#~ msgid "Revert %(verbose_name)s"
+#~ msgstr "Palauta %(verbose_name)s"
+
+#~ msgid "Press the save button below to revert to this version of the object."
+#~ msgstr "Paina allaolevaa tallennusnappia palauttaaksesi tämän version."
+
+#~ msgid "Copy options"
+#~ msgstr "Kopioi valinnat"
+
+#~ msgid "Choose copy options"
+#~ msgstr "Valitse kopioi asetukset"
+
+#~ msgid "Generic"
+#~ msgstr "Yleinen"
+
+#~ msgid "Add Plugin"
+#~ msgstr "Lisää liitännäinen"
+
+#~ msgid "From Language"
+#~ msgstr "Kielestä"
+
+#~ msgid "Copy Plugins"
+#~ msgstr "Kopioi liitännäiset"
+
+#~ msgid "You must save the page first to add plugins."
+#~ msgstr "Lisätäksesi liitännäisiä sinun tulee tallentaa sivu ensin."
+
+#~ msgid "No Plugin selected. Selected one on the left side"
+#~ msgstr "Yhtään liitäännäistä ei ole valittuna. Valitse vasemmalta laidalta."
+
+#~ msgid "No Plugins present. Add a plugin to this placeholder-slot."
+#~ msgstr ""
+#~ "Yhtään liitännäistä ei ole asetettu. Lisää liitännäinen tähän "
+#~ "sisältökenttään."
+
+#~ msgid "Are you sure you want to delete this plugin?"
+#~ msgstr "Haluatko varmasti poistaa tämän liitännäisen?"
+
+#~ msgid "up"
+#~ msgstr "ylös"
+
+#~ msgid "down"
+#~ msgstr "alas"
+
+#~ msgid "Username"
+#~ msgstr "Käyttäjänimi"
+
+#~ msgid "Status"
+#~ msgstr "Tila"
+
+#~ msgid "Unbind page moderation"
+#~ msgstr "Pura sivun moderointi"
+
+#~ msgid "Unbind children moderation"
+#~ msgstr "Pura lasten moderointi"
+
+#~ msgid "Unbind descendants moderation"
+#~ msgstr "Pura jälkeläisten moderointi"
+
+#~ msgid "sidebar column"
+#~ msgstr "hakupalkin taustaväri"
+
+#~ msgid "left column"
+#~ msgstr "hakupalkin taustaväri"
+
+#~ msgid "right column"
+#~ msgstr "hakupalkin taustaväri"
+
+#~ msgid "CMS - your user account was created."
+#~ msgstr "CMS - käyttäjätilisi on luotu."
+
+#~ msgid "CMS - your user account was changed."
+#~ msgstr "CMS - käyttäjätiliäsi on muokattu."
+
+#~ msgid "parent first"
+#~ msgstr "vanhempi ensin"
+
+#~ msgid "approve"
+#~ msgstr "hyväksy"
+
+#~ msgid "CMS - Page %s requires approvement."
+#~ msgstr "CMS - Sivu %s vaatii hyväksynnän."
+
+#~ msgid "Invalid URL, use /my/url format."
+#~ msgstr "Epäkelpo URL. Ole hyvä ja käytä muotoa /minun/url/"
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."

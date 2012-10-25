@@ -1,0 +1,1458 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# babu <marco.badan@gmail.com>, 2011.
+# Denis Darii <sinednx@gmail.com>, 2011.
+# Iacopo Spalletti <i.spalletti@nephila.it>, 2011.
+# karim79 <karim@gorjux.net>, 2011.
+# Marco Barberis <mbarberis@gmail.com>, 2011.
+#   <sbrentegani@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr "Link"
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "pagina"
+
+#: models.py:10
+msgid "name"
+msgstr "nome"
+
+#: models.py:11
+msgid "link"
+msgstr "link"
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr "Un link a una pagina ha priorità rispetto a un link testuale."
+
+#: models.py:13
+msgid "mailto"
+msgstr "mailto"
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr "Un indirizzo email ha priorità rispetto a un link testuale."
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "Edit mode"
+#~ msgstr "Modalità modifica"
+
+#~ msgid "django CMS"
+#~ msgstr "django CMS"
+
+#~ msgid "Publish"
+#~ msgstr "Pubblica"
+
+#~ msgid "Request Approval"
+#~ msgstr "Approvazione richiesta"
+
+#~ msgid "Logout"
+#~ msgstr "Logout"
+
+#~ msgid "Template"
+#~ msgstr "Template"
+
+#~ msgid "Move/add Pages"
+#~ msgstr "Sposta/aggiungi pagine"
+
+#~ msgid "Add child page"
+#~ msgstr "Aggiungi pagina figlio"
+
+#~ msgid "Add sibling page"
+#~ msgstr "aggiungi una pagina fratello"
+
+#~ msgid "Delete Page"
+#~ msgstr "richiesta di eliminazione"
+
+#~ msgid "Page"
+#~ msgstr "Pagina"
+
+#~ msgid "Site Administration"
+#~ msgstr "Amministrazione sito"
+
+#~ msgid "Page Settings"
+#~ msgstr "Impostazioni pagina"
+
+#~ msgid "View History"
+#~ msgstr "Visualizza cronologia"
+
+#~ msgid "Admin"
+#~ msgstr "Amministratore"
+
+#~ msgid "Advanced options"
+#~ msgstr "Opzioni avanzate"
+
+#~ msgid "Title"
+#~ msgstr "Titolo"
+
+#~ msgid "The default title"
+#~ msgstr "Titolo predefinito"
+
+#~ msgid "Slug"
+#~ msgstr "Slug"
+
+#~ msgid "The part of the title that is used in the URL"
+#~ msgstr "La parte del titolo che viene utilizzata nell'URL"
+
+#~ msgid "Language"
+#~ msgstr "Lingua"
+
+#~ msgid "The current language of the content fields."
+#~ msgstr "La lingua corrente dei campi contenuto."
+
+#~ msgid "Another page with this slug already exists"
+#~ msgstr "Esiste già un'altra pagina che utilizza questo slug"
+
+#~ msgid "Menu Title"
+#~ msgstr "Titolo menu"
+
+#~ msgid "Overwrite what is displayed in the menu"
+#~ msgstr "Sovrascrive ciò che viene visualizzato nel menu"
+
+#~ msgid "Page Title"
+#~ msgstr "Titolo pagina"
+
+#~ msgid ""
+#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
+#~ msgstr ""
+#~ "Sovrascrive ciò che viene visualizzato nella parte superiore del browser "
+#~ "o nei Preferiti"
+
+#~ msgid "Application"
+#~ msgstr "Applicazione"
+
+#~ msgid "Hook application to this page."
+#~ msgstr "Aggancia l'applicazione a questa pagina."
+
+#~ msgid "Overwrite URL"
+#~ msgstr "Sovrascrive l'URL"
+
+#~ msgid "Keep this field empty if standard path should be used."
+#~ msgstr "Lascia questo campo vuoto per utilizzare il percorso standard."
+
+#~ msgid "Redirect"
+#~ msgstr "Redirect"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "Reindirizza a questo URL."
+
+#~ msgid "A description of the page sometimes used by search engines."
+#~ msgstr "Una descrizione della pagina, talvolta usata dai motori di ricerca."
+
+#~ msgid "A list of comma seperated keywords sometimes used by search engines."
+#~ msgstr ""
+#~ "Una lista di parole chiave separate da virgola, talvolta usata dai motori "
+#~ "di ricerca."
+
+#~ msgid "A page with this reverse URL id exists already."
+#~ msgstr "Una pagina con questo id URL esiste già."
+
+#~ msgid "user"
+#~ msgstr "utente"
+
+#~ msgid ""
+#~ "Add page permission requires also access to children, or descendants, "
+#~ "otherwise added page can't be changed by its creator."
+#~ msgstr ""
+#~ "Il permesso \"Aggiungi pagina\" richiede anche l'accesso ai figli o "
+#~ "discendenti, altrimenti la pagina aggiunta non potrà essere cambiata dal "
+#~ "suo creatore."
+
+#~ msgid "Add page permission also requires edit page permission."
+#~ msgstr ""
+#~ "Il permesso \"Aggiungi pagina\" richiede anche il permesso \"Modificare "
+#~ "pagina\"."
+
+#~ msgid "can_view"
+#~ msgstr "can_view"
+
+#~ msgid "Please select user or group first."
+#~ msgstr "Sei pregato di selezionare un utente o un gruppo."
+
+#~ msgid "Add"
+#~ msgstr "Aggiungi"
+
+#~ msgid "Change"
+#~ msgstr "Cambia"
+
+#~ msgid "Delete"
+#~ msgstr "Elimina"
+
+#~ msgid "Recover (any) pages"
+#~ msgstr "Recupera (qualsiasi) pagina"
+
+#~ msgid "Notify user"
+#~ msgstr "Notifica utente"
+
+#~ msgid ""
+#~ "Send email notification to user about username or password change. "
+#~ "Requires user email."
+#~ msgstr ""
+#~ "Invia all'utente una email di notifica per il cambio del nome utente o "
+#~ "della \n"
+#~ "password. Richiede l'email dell'utente."
+
+#~ msgid "New password"
+#~ msgstr "Nuova password"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Conferma nuova password"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "La funziona di notifica email richieda un indirizzo email valido."
+
+#~ msgid ""
+#~ "The permission to add new pages requires the permission to change pages!"
+#~ msgstr ""
+#~ "Il permesso per aggiungere nuove pagine richiede l'autorizzazione a "
+#~ "modificare le pagine!"
+
+#~ msgid ""
+#~ "The permission to add new users requires the permission to change users!"
+#~ msgstr ""
+#~ "Il permesso per aggiungere nuovi utenti richiede l'autorizzazione a "
+#~ "modificare gli utenti!"
+
+#~ msgid "To add permissions you also need to edit them!"
+#~ msgstr "Per aggiungere le autorizzazioni è necessario poterle modificare!"
+
+#~ msgid "Basic Settings"
+#~ msgstr "Impostazioni base"
+
+#~ msgid "Note: This page reloads if you change the selection. Save it first."
+#~ msgstr ""
+#~ "Nota: questa pagina viene ricaricata se viene cambiata la selezione. "
+#~ "Salva la pagina prima."
+
+#~ msgid "Hidden"
+#~ msgstr "Nascosto"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "Impostazioni avanzate"
+
+#~ msgid "SEO Settings"
+#~ msgstr "Impostazioni SEO"
+
+#~ msgid "You have no permission to change the template"
+#~ msgstr "Non hai le autorizzazioni per modificare il template"
+
+#~ msgid "higher"
+#~ msgstr "superiore"
+
+#~ msgid "Database error"
+#~ msgstr "Errore del database"
+
+#~ msgid "Page was successfully approved."
+#~ msgstr "La pagina è stata approvata con successo."
+
+#~ msgid "%(name)s object with primary key %(key)r does not exist."
+#~ msgstr "L'oggetto %(name)s con chiave primaria %(key)r non esiste."
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "Esiste solo una traduzione per questa pagina"
+
+#~ msgid "Title and plugins with language %(language)s was deleted"
+#~ msgstr "Il titolo e i plugin con lingua %(language)s sono stati eliminati"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Sei sicuro?"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "Non hai il permesso per pubblicare questa pagina"
+
+#~ msgid ""
+#~ "You do not have permission to change this page's in_navigation status"
+#~ msgstr ""
+#~ "Non disponi dell'autorizzazione per modificare lo status di in_navigation "
+#~ "per questa pagina"
+
+#~ msgid "You have no permission to add a plugin"
+#~ msgstr "Non hai le autorizzazioni per aggiungere plugin"
+
+#~ msgid "Language must be set to a supported language!"
+#~ msgstr "La lingua deve essere scelta tra le lingue supportate!"
+
+#~ msgid "%(plugin_name)s plugin added to %(placeholder)s"
+#~ msgstr "Plugin %(plugin_name)s aggiunto a %(placeholder)s "
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "Non disponi dell'autorizzazione per modificare questa pagina"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "La lingua deve essere diversa da quella duplicata!"
+
+#~ msgid "You do not have permission to add plugins"
+#~ msgstr "Non hai le autorizzazioni per aggiungere plugin"
+
+#~ msgid "Copied %(language)s plugins to %(placeholder)s"
+#~ msgstr "Plugin %(language)s copiato in %(placeholder)s"
+
+#~ msgid "You have no permission to change this page"
+#~ msgstr "Non hai le autorizzazioni per modificare questa pagina"
+
+#~ msgid "You have no permission to edit a plugin"
+#~ msgstr "Non hai le autorizzazioni per modificare un plugin"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
+#~ msgstr ""
+#~ "Il plugin %(plugin_name)s è stato modificato nella posizione %(position)s "
+#~ "in %(placeholder)s "
+
+#~ msgid "You have no permission to move a plugin"
+#~ msgstr "Non hai le autorizzazioni per spostare un plugin"
+
+#~ msgid "Plugins where moved"
+#~ msgstr "I plugin sono stati spostati"
+
+#~ msgid "You have no permission to remove a plugin"
+#~ msgstr "Non hai le autorizzazioni per eliminare un plugin"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin at position %(position)s in %(placeholder)s was "
+#~ "deleted."
+#~ msgstr ""
+#~ "Il plugin %(plugin_name)s nella posizione %(position)s in %(placeholder)s "
+#~ "è stato eliminato."
+
+#~ msgid "View restriction"
+#~ msgstr "Restrizione di visualizzazione"
+
+#~ msgid "View restrictions"
+#~ msgstr "Restrizioni di visualizzazione"
+
+#~ msgid "Page permissions"
+#~ msgstr "Pagina autorizzazioni"
+
+#~ msgid "User & Group permissions"
+#~ msgstr "Autorizzazioni utenti e gruppi"
+
+#~ msgid "Page permissions management"
+#~ msgstr "Pagina di gestione delle autorizzazioni"
+
+#~ msgid "You don't have permission to add content here."
+#~ msgstr "Non hai le autorizzazioni per aggiungere contenuti qui."
+
+#~ msgid "You don't have permission to add plugins"
+#~ msgstr "Non hai le autorizzazioni per aggiungere un plugin"
+
+#~ msgid "You don't have permission to delete a plugin"
+#~ msgstr "Non hai le autorizzazioni per rimuovere un plugin"
+
+#~ msgid "User details"
+#~ msgstr "Dettagli utente"
+
+#~ msgid "Groups"
+#~ msgstr "Gruppi"
+
+#~ msgid "Password"
+#~ msgstr "Password"
+
+#~ msgid "Copy permissions"
+#~ msgstr "Copia le autorizzazioni"
+
+#~ msgid "Copy moderation"
+#~ msgstr "Copia moderazione"
+
+#~ msgid "Inherit the template of the nearest ancestor"
+#~ msgstr "Eredita il modello dell'antenato più vicino"
+
+#~ msgid "Select a valid site"
+#~ msgstr "Seleziona un sito valido"
+
+#~ msgid "Select a valid page"
+#~ msgstr "Seleziona una pagina valida"
+
+#~ msgid "Add Another"
+#~ msgstr "Aggiungi un altro"
+
+#~ msgid "language"
+#~ msgstr "lingua"
+
+#~ msgid "position"
+#~ msgstr "posizione"
+
+#~ msgid "creation date"
+#~ msgstr "data di creazione"
+
+#~ msgid "slot"
+#~ msgstr "slot"
+
+#~ msgid "plugin_name"
+#~ msgstr "nome plugin"
+
+#~ msgid "title"
+#~ msgstr "titolo"
+
+#~ msgid "path"
+#~ msgstr "percorso"
+
+#~ msgid "slug"
+#~ msgstr "slug"
+
+#~ msgid "everybody"
+#~ msgstr "tutti"
+
+#~ msgid "can edit"
+#~ msgstr "può modificare"
+
+#~ msgid "group"
+#~ msgstr "gruppo"
+
+#~ msgid "can publish"
+#~ msgstr "può pubblicare"
+
+#~ msgid "type"
+#~ msgstr "tipo"
+
+#~ msgid "can change soft-root"
+#~ msgstr "può cambiare la soft-root"
+
+#~ msgid "status"
+#~ msgstr "stato"
+
+#~ msgid "navigation extenders"
+#~ msgstr "estensori di navigazione"
+
+#~ msgid "has url overwrite"
+#~ msgstr "può sovrascrivere l'URL"
+
+#~ msgid "url overwrite"
+#~ msgstr "sovrascrive l'URL "
+
+#~ msgid "author"
+#~ msgstr "autore"
+
+#~ msgid "reverse url id"
+#~ msgstr "id url inverso"
+
+#~ msgid "login required"
+#~ msgstr "è richiesto il login"
+
+#~ msgid "soft root"
+#~ msgstr "soft root"
+
+#~ msgid "publication end date"
+#~ msgstr "data fine pubblicazione"
+
+#~ msgid "template"
+#~ msgstr "template"
+
+#~ msgid "publication date"
+#~ msgstr "data di pubblicazione"
+
+#~ msgid "in navigation"
+#~ msgstr "in navigazione"
+
+#~ msgid "application"
+#~ msgstr "applicazione"
+
+#~ msgid "id"
+#~ msgstr "id"
+
+#~ msgid "redirect"
+#~ msgstr "redirect"
+
+#~ msgid "keywords"
+#~ msgstr "parole chiave"
+
+#~ msgid "description"
+#~ msgstr "descrizione"
+
+#~ msgid "Current page"
+#~ msgstr "Pagina corrente"
+
+#~ msgid "Page children (immediate)"
+#~ msgstr "Pagina figlio (immediato)"
+
+#~ msgid "Page and children (immediate)"
+#~ msgstr "Pagina e figli (immediati)"
+
+#~ msgid "Page descendants"
+#~ msgstr "Pagina discendente"
+
+#~ msgid "Page and descendants"
+#~ msgstr "Pagina e discendenti"
+
+#~ msgid "User"
+#~ msgstr "Utente"
+
+#~ msgid "Moderate page"
+#~ msgstr "Modera pagina"
+
+#~ msgid "Moderate children"
+#~ msgstr "Modera figli"
+
+#~ msgid "Moderate descendants"
+#~ msgstr "Modera discendenti"
+
+#~ msgid "PageModerator"
+#~ msgstr "Moderatore"
+
+#~ msgid "created"
+#~ msgstr "creato"
+
+#~ msgid "changed"
+#~ msgstr "modificato"
+
+#~ msgid "delete req."
+#~ msgstr "richiesta di eliminazione"
+
+#~ msgid "move req."
+#~ msgstr "richiesta di spostamento"
+
+#~ msgid "publish req."
+#~ msgstr "richiesta di pubblicazione"
+
+#~ msgid "unpublish req."
+#~ msgstr "richiesta di sospensione"
+
+#~ msgid "approved"
+#~ msgstr "approvato"
+
+#~ msgid "Page moderator state"
+#~ msgstr "stato di moderazione"
+
+#~ msgid "Page moderator states"
+#~ msgstr "stati di moderazione"
+
+#~ msgid "req. app."
+#~ msgstr "richiesta di approvazione"
+
+#~ msgid "delete"
+#~ msgstr "elimina"
+
+#~ msgid "app. par."
+#~ msgstr "app. par."
+
+#~ msgid "for logged in users only"
+#~ msgstr "solo per utenti che hanno eseguito il login"
+
+#~ msgid "for anonymous users only"
+#~ msgstr "solo per utenti anonimi"
+
+#~ msgid "created by"
+#~ msgstr "creato da"
+
+#~ msgid "changed by"
+#~ msgstr "modificato da"
+
+#~ msgid ""
+#~ "When the page should go live. Status must be \"Published\" for page to go "
+#~ "live."
+#~ msgstr ""
+#~ "Quando la pagina dovrebbe andare online. Lo stato della pagina deve "
+#~ "essere \\ \"Pubblicato \" per far si che la pagina possa andare online."
+
+#~ msgid "When to expire the page. Leave empty to never expire."
+#~ msgstr ""
+#~ "Quando far scadere la pagina. Lascia vuoto per non farla mai scadere."
+
+#~ msgid "All ancestors will not be displayed in the navigation"
+#~ msgstr ""
+#~ "Tutti gli antenati non verranno visualizzati nella barra di navigazione"
+
+#~ msgid ""
+#~ "An unique identifier that is used with the page_url templatetag for "
+#~ "linking to this page"
+#~ msgstr ""
+#~ "Un identificativo univoco che viene utilizzato con il templatetag "
+#~ "page_url per riferirsi a questa pagina"
+
+#~ msgid "attached menu"
+#~ msgstr "menu allegato"
+
+#~ msgid "is published"
+#~ msgstr "è pubblicato"
+
+#~ msgid "The template used to render the content."
+#~ msgstr "Il template utilizzato per il rendering del contenuto."
+
+#~ msgid "The site the page is accessible at."
+#~ msgstr "Il sito da cui la pagina è accessibile."
+
+#~ msgid "site"
+#~ msgstr "sito"
+
+#~ msgid "moderator state"
+#~ msgstr "stato del moderatore"
+
+#~ msgid "menu visibility"
+#~ msgstr "visibilità menu"
+
+#~ msgid "limit when this page is visible in the menu"
+#~ msgstr "limita visibilità della pagina nel menu"
+
+#~ msgid "pages"
+#~ msgstr "pagine"
+
+#~ msgid "Page was copied."
+#~ msgstr "La pagina è stata copiata."
+
+#~ msgid "default"
+#~ msgstr "predefinito"
+
+#~ msgid "can add"
+#~ msgstr "può aggiungere"
+
+#~ msgid "can delete"
+#~ msgstr "può eliminare"
+
+#~ msgid "can change advanced settings"
+#~ msgstr "può modificare le impostazioni avanzate"
+
+#~ msgid "can change permissions"
+#~ msgstr "può cambiare i permessi"
+
+#~ msgid "on page level"
+#~ msgstr "il livello di pagina"
+
+#~ msgid "can move"
+#~ msgstr "può spostare"
+
+#~ msgid "can moderate"
+#~ msgstr "può moderare"
+
+#~ msgid "view restricted"
+#~ msgstr "vista limitata"
+
+#~ msgid "frontend view restriction"
+#~ msgstr "Restrizione visualizzazione frontend"
+
+#~ msgid "can recover pages"
+#~ msgstr "può recuperare le pagine"
+
+#~ msgid "can recover any deleted page"
+#~ msgstr "può recuperare qualsiasi pagina cancellata"
+
+#~ msgid "If none selected, user haves granted permissions to all sites."
+#~ msgstr "Se non selezionato, l'utente ha i permessi estesi a tutti i siti."
+
+#~ msgid "sites"
+#~ msgstr "siti"
+
+#~ msgid "Page global permission"
+#~ msgstr "Permesso globale per la pagina"
+
+#~ msgid "Pages global permissions"
+#~ msgstr "Permessi globali per le pagine"
+
+#~ msgid "Grant on"
+#~ msgstr "Concesso su"
+
+#~ msgid "Page permission"
+#~ msgstr "Permesso della pagina"
+
+#~ msgid "User (page)"
+#~ msgstr "Utente (pagina)"
+
+#~ msgid "Users (page)"
+#~ msgstr "Utenti (pagina)"
+
+#~ msgid "User group (page)"
+#~ msgstr "Gruppo utenti (pagina)"
+
+#~ msgid "User groups (page)"
+#~ msgstr "Gruppi utenti (pagina)"
+
+#~ msgid "width"
+#~ msgstr "larghezza"
+
+#~ msgid "<Empty>"
+#~ msgstr "<Vuoto>"
+
+#~ msgid "overwrite the title in the menu"
+#~ msgstr "sovrascrivere il titolo nel menu"
+
+#~ msgid "Path"
+#~ msgstr "Percorso"
+
+#~ msgid "overwrite the title (html title tag)"
+#~ msgstr "sovrascrivere il titolo (tag html title)"
+
+#~ msgid "File"
+#~ msgstr "File"
+
+#~ msgid "file"
+#~ msgstr "file"
+
+#~ msgid "file missing!"
+#~ msgstr "file mancante!"
+
+#~ msgid "Flash"
+#~ msgstr "Flash"
+
+#~ msgid "use swf file"
+#~ msgstr "usa il file swf"
+
+#~ msgid "height"
+#~ msgstr "altezza"
+
+#~ msgid ""
+#~ "Missing flash plugin. Please download the latest Adobe Flash Player: "
+#~ msgstr ""
+#~ "Manca il plugin flash. Scarica l'ultima versione di Adobe Flash Player: "
+
+#~ msgid "Get Adobe Flash Player"
+#~ msgstr "Scarica Adobe Flash Player"
+
+#~ msgid "Google Map"
+#~ msgstr "Google Map"
+
+#~ msgid "map title"
+#~ msgstr "titolo mappa"
+
+#~ msgid "address"
+#~ msgstr "indirizzo"
+
+#~ msgid "zip code"
+#~ msgstr "codice postale"
+
+#~ msgid "city"
+#~ msgstr "città"
+
+#~ msgid "additional content"
+#~ msgstr "contenuti aggiuntivi"
+
+#~ msgid "zoom level"
+#~ msgstr "livello di zoom"
+
+#~ msgid "latitude"
+#~ msgstr "latitudine"
+
+#~ msgid "Use latitude & longitude to fine tune the map position."
+#~ msgstr ""
+#~ "Usa latitudine e longitudine per perfezionare la posizione sulla mappa."
+
+#~ msgid "longitude"
+#~ msgstr "longitudine"
+
+#~ msgid "route planer title"
+#~ msgstr "titolo del route planer"
+
+#~ msgid "Calculate your fastest way to here"
+#~ msgstr "Calcola il percorso più veloce fino a qui"
+
+#~ msgid "route planer"
+#~ msgstr "route planer"
+
+#~ msgid "Map"
+#~ msgstr "Mappa"
+
+#~ msgid "Your address: "
+#~ msgstr "Il tuo indirizzo:"
+
+#~ msgid "Calculate route"
+#~ msgstr "Calcola il percorso"
+
+#~ msgid "Inherit Plugins from Page"
+#~ msgstr "Eredita i plugin dalla pagina"
+
+#~ msgid "Language or Page must be filled out"
+#~ msgstr "La lingua o la pagina devono essere compilate"
+
+#~ msgid ""
+#~ "Choose a page to include its plugins into this placeholder, empty will "
+#~ "choose current page"
+#~ msgstr ""
+#~ "Scegli una pagina in cui includere i suoi plugin in questo segnaposto, se "
+#~ "vuoto verrà scelta la pagina corrente"
+
+#~ msgid "Optional: the language of the plugins you want"
+#~ msgstr "Opzionale: la lingua dei plugin che desideri"
+
+#~ msgid "Picture"
+#~ msgstr "Immagine"
+
+#~ msgid "center"
+#~ msgstr "centro"
+
+#~ msgid "left"
+#~ msgstr "sinistra"
+
+#~ msgid "right"
+#~ msgstr "destra"
+
+#~ msgid "image"
+#~ msgstr "immagine"
+
+#~ msgid "if present image will be clickable"
+#~ msgstr "se presente, l’immagine sarà cliccabile"
+
+#~ msgid "alternate text"
+#~ msgstr "testo alternativo"
+
+#~ msgid "textual description of the image"
+#~ msgstr "descrizione testuale dell’immagine"
+
+#~ msgid "long description"
+#~ msgstr "descrizione estesa"
+
+#~ msgid "additional description of the image"
+#~ msgstr "descrizione aggiuntiva dell’immagine"
+
+#~ msgid "side"
+#~ msgstr "lato"
+
+#~ msgid "Snippet"
+#~ msgstr "Snippet"
+
+#~ msgid "Template %(template)s does not exist."
+#~ msgstr "Il template %(template)s non esiste."
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid ""
+#~ "Enter a template (i.e. \"snippets/plugin_xy.html\") which will be "
+#~ "rendered. "
+#~ msgstr ""
+#~ "Inserire il template (es. \"snippets/plugin_xy.html\") che verrà "
+#~ "visualizzato. "
+
+#~ msgid "Snippets"
+#~ msgstr "Frammento"
+
+#~ msgid "Teaser"
+#~ msgstr "Teaser"
+
+#~ msgid "If present image will be clickable"
+#~ msgstr "Se presente, l’immagine sarà cliccabile"
+
+#~ msgid "If present image will be clickable."
+#~ msgstr "Se presente, l’immagine sarà cliccabile."
+
+#~ msgid "more"
+#~ msgstr "approfondisci"
+
+#~ msgid "Text"
+#~ msgstr "Testo"
+
+#~ msgid "body"
+#~ msgstr "corpo"
+
+#~ msgid "Plugins"
+#~ msgstr "Plugin"
+
+#~ msgid "Please select a plugin type."
+#~ msgstr "Seleziona un tipo plugin."
+
+#~ msgid "Edit selected plugin"
+#~ msgstr "Modifica il plugin selezionato"
+
+#~ msgid "Text editor does not support editing objects."
+#~ msgstr "L’editor di testo non supporta la modifica di oggetti."
+
+#~ msgid "No object selected."
+#~ msgstr "Nessun oggetto selezionato."
+
+#~ msgid "Text editor does not support inserting objects."
+#~ msgstr "L'editor di testo non supporta l'inserimento di oggetti."
+
+#~ msgid "Not a plugin object"
+#~ msgstr "Non è un plugin"
+
+#~ msgid "Available Plugins"
+#~ msgstr "Plugin disponibili"
+
+#~ msgid "Insert plugin"
+#~ msgstr "Inserisci un plugin"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "Twitter Search"
+#~ msgstr "Ricerca Twitter"
+
+#~ msgid "twitter user"
+#~ msgstr "utente twitter"
+
+#~ msgid "count"
+#~ msgstr "conta"
+
+#~ msgid "Number of entries to display"
+#~ msgstr "Numero di elementi da visualizzare"
+
+#~ msgid "link hint"
+#~ msgstr "link suggerimento"
+
+#~ msgid "If given, the hint is displayed as link to your Twitter profile."
+#~ msgstr ""
+#~ "Se presente, il suggerimento viene visualizzato come collegamento verso "
+#~ "il tuo profilo Twitter."
+
+#~ msgid "query"
+#~ msgstr "query"
+
+#~ msgid ""
+#~ "Example: \"brains AND zombies AND from:umbrella AND to:nemesis\": tweets "
+#~ "from the user \"umbrella\" to the user \"nemesis\" that contain the words "
+#~ "\"brains\" and \"zombies\""
+#~ msgstr ""
+#~ "Esempio: \"cervelli AND zombie AND from:ombrello AND to:nemici\": tweet "
+#~ "dall'utente \"ombrello\" all'utente \"nemici\" contenente le parole "
+#~ "\"cervelli\" e \"zombie\""
+
+#~ msgid "we said,"
+#~ msgstr "abbiamo detto,"
+
+#~ msgid "we"
+#~ msgstr "noi"
+
+#~ msgid "we were"
+#~ msgstr "siamo stati"
+
+#~ msgid "we replied to"
+#~ msgstr "abbiamo risposto a"
+
+#~ msgid "we were checking out"
+#~ msgstr "stavamo verificando"
+
+#~ msgid "loading tweets..."
+#~ msgstr "carico i tweet..."
+
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgid "Color Settings"
+#~ msgstr "Impostazioni colore"
+
+#~ msgid "movie file"
+#~ msgstr "file video"
+
+#~ msgid "use .flv file or h264 encoded video file"
+#~ msgstr "Usa file un file video .flv o codificato h264"
+
+#~ msgid "movie url"
+#~ msgstr "indirizzo video"
+
+#~ msgid ""
+#~ "vimeo or youtube video url. Example: http://www.youtube.com/watch?v=-"
+#~ "iJ7bs4mTUY"
+#~ msgstr ""
+#~ "url video di vimeo o youtube. Esempio: http://www.youtube.com/watch?v=-"
+#~ "iJ7bs4mTUY"
+
+#~ msgid "preview image file"
+#~ msgstr "anteprima immagine"
+
+#~ msgid "auto play"
+#~ msgstr "riproduci automaticamente"
+
+#~ msgid "auto hide"
+#~ msgstr "nascondi automaticamente"
+
+#~ msgid "fullscreen"
+#~ msgstr "schermo intero"
+
+#~ msgid "loop"
+#~ msgstr "ciclo"
+
+#~ msgid "background color"
+#~ msgstr "colore di sfondo"
+
+#~ msgid "Hexadecimal, eg ff00cc"
+#~ msgstr "Esadecimale, ad esempio: ff00cc"
+
+#~ msgid "text color"
+#~ msgstr "colore testo"
+
+#~ msgid "seekbar color"
+#~ msgstr "colore barra avanzamento"
+
+#~ msgid "seekbar bg color"
+#~ msgstr "colore sfondo barra avanzamento"
+
+#~ msgid "loadingbar color"
+#~ msgstr "colore della barra di loading"
+
+#~ msgid "button out color"
+#~ msgstr "colore pulsante out"
+
+#~ msgid "button over color"
+#~ msgstr "colore pulsante over"
+
+#~ msgid "button highlight color"
+#~ msgstr "colore pulsante highlight"
+
+#~ msgid "Save"
+#~ msgstr "Salva"
+
+#~ msgid "Delete %(language)s translation"
+#~ msgstr "Elimina traduzione %(language)s"
+
+#~ msgid "Save as new"
+#~ msgstr "Salva come nuovo"
+
+#~ msgid "Save and add another"
+#~ msgstr "Salva e aggiungi un altro"
+
+#~ msgid "Save and continue editing"
+#~ msgstr "Salva e continua le modifiche"
+
+#~ msgid ""
+#~ "Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by "
+#~ "you."
+#~ msgstr ""
+#~ "La pagina <a href=\"%(admin_url)s\">%(page)s</a> può richiedere la tua "
+#~ "approvazione."
+
+#~ msgid "Last changes"
+#~ msgstr "Ultime modifiche"
+
+#~ msgid "Log in to administration <a href=\"%(login_url)s\">here</a>."
+#~ msgstr ""
+#~ "Accedi alla pagina d'amministrazione da <a href=\"%(login_url)s\">qui</a>."
+
+#~ msgid "Login url: %(login_url)s"
+#~ msgstr "URL login: %(login_url)s"
+
+#~ msgid "Username:"
+#~ msgstr "Nome utente:"
+
+#~ msgid "Password:"
+#~ msgstr "Password:"
+
+#~ msgid "Change a page"
+#~ msgstr "Modifica una pagina"
+
+#~ msgid "Home"
+#~ msgstr "Home"
+
+#~ msgid "Approve page deletion"
+#~ msgstr "Approva eliminazione pagina"
+
+#~ msgid "(requires approvement at %(moderation_level)s level)"
+#~ msgstr "(richiede approvazione al livello %(moderation_level)s)"
+
+#~ msgid "(you can perform actions on this page directly)"
+#~ msgstr "(puoi effettuare direttamente operazioni su questa pagina)"
+
+#~ msgid "Remove delete request"
+#~ msgstr "Rimuovi richiesta di eliminazione"
+
+#~ msgid "Approve delete"
+#~ msgstr "Approva eliminazione"
+
+#~ msgid "Approve"
+#~ msgstr "Approva"
+
+#~ msgid "draft"
+#~ msgstr "bozza"
+
+#~ msgid "Preview"
+#~ msgstr "Anteprima"
+
+#~ msgid "History"
+#~ msgstr "Cronologia"
+
+#~ msgid "View on site"
+#~ msgstr "Vedi sul sito"
+
+#~ msgid "Please correct the error below."
+#~ msgid_plural "Please correct the errors below."
+#~ msgstr[0] "Per favore correggi l'errore sottostante."
+#~ msgstr[1] "Per favore correggi gli errori sottostanti."
+
+#~ msgid "All permissions"
+#~ msgstr "Tutti i permessi"
+
+#~ msgid "Loading..."
+#~ msgstr "Caricamento in corso..."
+
+#~ msgid "Page states"
+#~ msgstr "Stati pagina"
+
+#~ msgid ""
+#~ "This page must be moderated at level %(moderation_level)s, post a message "
+#~ "for moderator."
+#~ msgstr ""
+#~ "Questa pagina deve essere moderata al livello %(moderation_level)s, manda "
+#~ "un messaggio al moderatore."
+
+#~ msgid "Request approvemet"
+#~ msgstr "Richiedi approvazione"
+
+#~ msgid "List of pages"
+#~ msgstr "Elenco pagine"
+
+#~ msgid "Successfully moved"
+#~ msgstr "Spostato con successo"
+
+#~ msgid "An error occured. Please reload the page"
+#~ msgstr "Si è verificato un errore. Sei pregato di ricaricare la pagina"
+
+#~ msgid "Recover deleted %(name)s"
+#~ msgstr "Recupera %(name)s eliminato"
+
+#~ msgid "Add %(name)s"
+#~ msgstr "Aggiungi %(name)s"
+
+#~ msgid "Pages on:"
+#~ msgstr "Pagina su:"
+
+#~ msgid "Filter:"
+#~ msgstr "Filtro:"
+
+#~ msgid "on"
+#~ msgstr "on"
+
+#~ msgid "off"
+#~ msgstr "off"
+
+#~ msgid "Filter"
+#~ msgstr "Filtro"
+
+#~ msgid "actions"
+#~ msgstr "azioni"
+
+#~ msgid "moderate"
+#~ msgstr "modera"
+
+#~ msgid "published"
+#~ msgstr "pubblicato"
+
+#~ msgid "start"
+#~ msgstr "inizio"
+
+#~ msgid "end"
+#~ msgstr "fine"
+
+#~ msgid "restricted"
+#~ msgstr "limitato"
+
+#~ msgid "last changes"
+#~ msgstr "ultime modifiche"
+
+#~ msgid "select this page"
+#~ msgstr "seleziona questa pagina"
+
+#~ msgid "edit this page"
+#~ msgstr "modifica questa pagina"
+
+#~ msgid "edit"
+#~ msgstr "modifica"
+
+#~ msgid "insert above"
+#~ msgstr "inserisci prima"
+
+#~ msgid "insert below"
+#~ msgstr "inserisci dopo"
+
+#~ msgid "insert inside"
+#~ msgstr "inserisci all'interno"
+
+#~ msgid "softroot"
+#~ msgstr "softroot"
+
+#~ msgid "home"
+#~ msgstr "home"
+
+#~ msgid "Edit this page in %(language)s "
+#~ msgstr "Modifica questa pagina in %(language)s"
+
+#~ msgid "Cut"
+#~ msgstr "Taglia"
+
+#~ msgid "cut"
+#~ msgstr "taglia"
+
+#~ msgid "Copy"
+#~ msgstr "Copia"
+
+#~ msgid "copy"
+#~ msgstr "copia"
+
+#~ msgid "Add Child"
+#~ msgstr "Aggiungi figlio"
+
+#~ msgid "add"
+#~ msgstr "aggiungi"
+
+#~ msgid "Approve directly"
+#~ msgstr "Approva direttamente"
+
+#~ msgid "view"
+#~ msgstr "vedi"
+
+#~ msgid "Unpublish"
+#~ msgstr "Sospendi la pubblicazione"
+
+#~ msgid "View on page"
+#~ msgstr "Visualizza sulla pagina"
+
+#~ msgid "Action"
+#~ msgstr "Azione"
+
+#~ msgid "Created"
+#~ msgstr "Creato"
+
+#~ msgid "Message"
+#~ msgstr "Messaggio"
+
+#~ msgid "Group"
+#~ msgstr "Gruppo"
+
+#~ msgid "Can edit"
+#~ msgstr "Può apportare modifiche"
+
+#~ msgid "Can add"
+#~ msgstr "Può aggiungere"
+
+#~ msgid "Can delete"
+#~ msgstr "Può eliminare"
+
+#~ msgid "Can publish"
+#~ msgstr "Può pubblicare"
+
+#~ msgid "Can change permissions"
+#~ msgstr "Può cambiare i permessi"
+
+#~ msgid "Can move"
+#~ msgstr "Può spostare"
+
+#~ msgid "Can view"
+#~ msgstr "Può visualizzare"
+
+#~ msgid "(global)"
+#~ msgstr "(globale)"
+
+#~ msgid "(current)"
+#~ msgstr "(corrente)"
+
+#~ msgid "All"
+#~ msgstr "Tutti"
+
+#~ msgid "Page doesn't inherit any permissions."
+#~ msgstr "La pagina non eredita permessi."
+
+#~ msgid "Cancel"
+#~ msgstr "Annulla"
+
+#~ msgid "An old revision of a plugin can not be saved!"
+#~ msgstr "Una versione precedente di un plugin non può essere salvata!"
+
+#~ msgid "Plugin saved successfully."
+#~ msgstr "Plugin salvato con successo."
+
+#~ msgid "Recover deleted %(verbose_name)s"
+#~ msgstr "Recupera %(verbose_name)s cancellata"
+
+#~ msgid "Press the save button below to recover this version of the object."
+#~ msgstr ""
+#~ "Premi il pulsante 'salva' sottostante per recuperare questa versione "
+#~ "dell'oggetto."
+
+#~ msgid "Revert %(verbose_name)s"
+#~ msgstr "Ripristina %(verbose_name)s"
+
+#~ msgid "Press the save button below to revert to this version of the object."
+#~ msgstr ""
+#~ "Premi il pulsante 'salva' sottostante per ripristinare questa versione "
+#~ "dell'oggetto."
+
+#~ msgid "Copy options"
+#~ msgstr "Copia opzioni"
+
+#~ msgid "Choose copy options"
+#~ msgstr "Seleziona opzioni di copia"
+
+#~ msgid "Generic"
+#~ msgstr "Generico"
+
+#~ msgid "Add Plugin"
+#~ msgstr "Aggiungi plugin"
+
+#~ msgid "From Language"
+#~ msgstr "Dalla lingua"
+
+#~ msgid "Copy Plugins"
+#~ msgstr "Copia plugin"
+
+#~ msgid "You must save the page first to add plugins."
+#~ msgstr "Devi salvare la pagina prima di aggiungere plugin"
+
+#~ msgid "No Plugin selected. Selected one on the left side"
+#~ msgstr "Nessun plugin selezionato. Seleziona un plugin sulla sinistra"
+
+#~ msgid "No Plugins present. Add a plugin to this placeholder-slot."
+#~ msgstr "Non è presente un plugin. Aggiungi un plugin in questo placeholder."
+
+#~ msgid "Available plugins"
+#~ msgstr "Plugin disponibili"
+
+#~ msgid "The selected element can not be moved to the desired location."
+#~ msgstr ""
+#~ "L'elemento selezionato non può essere spostato nella posizione desiderata."
+
+#~ msgid "Are you sure you want to delete this plugin?"
+#~ msgstr "Sei sicuro di voler eliminare questo plugin?"
+
+#~ msgid "up"
+#~ msgstr "su"
+
+#~ msgid "down"
+#~ msgstr "giù"
+
+#~ msgid "Move to placeholder"
+#~ msgstr "Sposta nel placeholder"
+
+#~ msgid "Username"
+#~ msgstr "Nome utente"
+
+#~ msgid "Login"
+#~ msgstr "Accedi"
+
+#~ msgid "Status"
+#~ msgstr "Stato"
+
+#~ msgid "Switch on/off"
+#~ msgstr "Commuta on/off"
+
+#~ msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"
+#~ msgstr "<span title=\"Restrizioni: %(title)s \">%(icon)s</span>"
+
+#~ msgid "Unbind page moderation"
+#~ msgstr "Slega moderazione pagina"
+
+#~ msgid "Unbind children moderation"
+#~ msgstr "Slega moderazione figli"
+
+#~ msgid "Unbind descendants moderation"
+#~ msgstr "Slega moderazione discendenti"
+
+#~ msgid "Page not found on %(domain)s"
+#~ msgstr "Pagina non trovata su %(domain)s"
+
+#~ msgid ""
+#~ "A template tag couldn't find the page with lookup arguments `"
+#~ "%(page_lookup)s\n"
+#~ "`. The URL of the request was: http://%(host)s%(path)s"
+#~ msgstr ""
+#~ "Un template tag non può trovare la pagina con argomenti di lookup `"
+#~ "%(page_lookup)s `. \n"
+#~ "L'URL della richiesta era: http://%(host)s%(path)s"
+
+#~ msgid "English"
+#~ msgstr "Inglese"
+
+#~ msgid "French"
+#~ msgstr "Francese"
+
+#~ msgid "German"
+#~ msgstr "Tedesco"
+
+#~ msgid "Brazil"
+#~ msgstr "Brasiliano"
+
+#~ msgid "Dutch"
+#~ msgstr "Olandese"
+
+#~ msgid "two columns"
+#~ msgstr "due colonne"
+
+#~ msgid "three columns"
+#~ msgstr "tre colonne"
+
+#~ msgid "navigation examples"
+#~ msgstr "Esempio navigazione"
+
+#~ msgid "sidebar column"
+#~ msgstr "colore di sfondo"
+
+#~ msgid "left column"
+#~ msgstr "colonna a sinistra"
+
+#~ msgid "right column"
+#~ msgstr "colonna a destra"
+
+#~ msgid "Articles"
+#~ msgstr "Articoli"
+
+#~ msgid "Sample App"
+#~ msgstr "App d'esempio"
+
+#~ msgid "sample root page"
+#~ msgstr "Pagina root d'esempio"
+
+#~ msgid "sample settings page"
+#~ msgstr "Pagina impostazioni d'esempio"
+
+#~ msgid "sample account page"
+#~ msgstr "Pagina account d'esempio"
+
+#~ msgid "sample my profile page"
+#~ msgstr "Pagina profilo d'esempio"
+
+#~ msgid "Static Menu"
+#~ msgstr "Menu statico"
+
+#~ msgid "Static Menu2"
+#~ msgstr "Menu2 statico"
+
+#~ msgid "CMS - your user account was created."
+#~ msgstr "CMS - Il tuo account utente è stato creato."
+
+#~ msgid "CMS - your user account was changed."
+#~ msgstr "CMS - Il tuo account utente è stato modificato."
+
+#~ msgid "parent first"
+#~ msgstr "prima il genitore"
+
+#~ msgid "approve"
+#~ msgstr "approva"
+
+#~ msgid "CMS - Page %s requires approvement."
+#~ msgstr "CMS - La pagina %s richiede l'approvazione."
+
+#~ msgid "Invalid URL, use /my/url format."
+#~ msgstr "URL non valido, utilizza il formato /my/url."
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."

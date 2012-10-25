@@ -1,0 +1,1385 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# simonv <vidmar.simon@gmail.com>, 2011.
+#   <vidmar.simon@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: sl_SI\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n"
+"%100==4 ? 2 : 3);\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr "Povezava"
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "stran"
+
+#: models.py:10
+msgid "name"
+msgstr "ime"
+
+#: models.py:11
+msgid "link"
+msgstr "povezava"
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr "Povezava na stran ima prednost pred povezavo besedila."
+
+#: models.py:13
+msgid "mailto"
+msgstr "pošlji"
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr "E-poštni naslov ima prednost pred tekstualno povezavo."
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "Edit mode"
+#~ msgstr "Način urejanja"
+
+#~ msgid "django CMS"
+#~ msgstr "django CMS"
+
+#~ msgid "Publish"
+#~ msgstr "Objavi"
+
+#~ msgid "Request Approval"
+#~ msgstr "Odobritev zahtevka"
+
+#~ msgid "Logout"
+#~ msgstr "Odjavi"
+
+#~ msgid "Template"
+#~ msgstr "Predloga"
+
+#~ msgid "Move/add Pages"
+#~ msgstr "Premakni/dodaj strani"
+
+#~ msgid "Add child page"
+#~ msgstr "dodaj stran kot otroka"
+
+#~ msgid "Add sibling page"
+#~ msgstr "dodaj stran kot brata/sestro"
+
+#~ msgid "Delete Page"
+#~ msgstr "Zbriši stran"
+
+#~ msgid "Page"
+#~ msgstr "Stran"
+
+#~ msgid "Site Administration"
+#~ msgstr "Skrbništvo strani"
+
+#~ msgid "Page Settings"
+#~ msgstr "Nastavitve strani"
+
+#~ msgid "View History"
+#~ msgstr "Preglej zgodovino"
+
+#~ msgid "Admin"
+#~ msgstr "Administrator"
+
+#~ msgid "Advanced options"
+#~ msgstr "Napredne nastavitve"
+
+#~ msgid "Title"
+#~ msgstr "Naslov"
+
+#~ msgid "The default title"
+#~ msgstr "Privzeti naslov"
+
+#~ msgid "Slug"
+#~ msgstr "Kratek opis"
+
+#~ msgid "The part of the title that is used in the URL"
+#~ msgstr "Del naslova, ki se uporabi v URL-ju"
+
+#~ msgid "Language"
+#~ msgstr "Jezik"
+
+#~ msgid "The current language of the content fields."
+#~ msgstr "Trenutni jezik polj z vsebino"
+
+#~ msgid "Another page with this slug already exists"
+#~ msgstr "Stran s takim kratkim opisom že obstaja"
+
+#~ msgid "Menu Title"
+#~ msgstr "Naslov menija"
+
+#~ msgid "Overwrite what is displayed in the menu"
+#~ msgstr "Prepiši besedilo, ki je prikazano v meniju"
+
+#~ msgid "Page Title"
+#~ msgstr "Naslov strani"
+
+#~ msgid ""
+#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
+#~ msgstr ""
+#~ "Prepiši besedilo, ki je prikazano na vrhu brskalnika ali v zaznamkih"
+
+#~ msgid "Application"
+#~ msgstr "Aplikacija"
+
+#~ msgid "Hook application to this page."
+#~ msgstr "Pripni aplikacijo tej strani."
+
+#~ msgid "Overwrite URL"
+#~ msgstr "Prepiši URL"
+
+#~ msgid "Keep this field empty if standard path should be used."
+#~ msgstr "Če želite ohraniti običajno pot, pustite to polje prazno"
+
+#~ msgid "Redirect"
+#~ msgstr "Preusmeri"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "Preusmeri na ta URL."
+
+#~ msgid "A description of the page sometimes used by search engines."
+#~ msgstr "Opis strani, ki ga včasih uporabljajo iskalniki."
+
+#~ msgid "A list of comma seperated keywords sometimes used by search engines."
+#~ msgstr "Seznam ključnih besed, ki ga včasih uporabljajo iskalniki."
+
+#~ msgid "A page with this reverse URL id exists already."
+#~ msgstr "Stran, ki uporablja ta vzvratni URL, že obstaja."
+
+#~ msgid "user"
+#~ msgstr "Uporabnik"
+
+#~ msgid ""
+#~ "Add page permission requires also access to children, or descendants, "
+#~ "otherwise added page can't be changed by its creator."
+#~ msgstr ""
+#~ "Pravica \"dodaj stran\" zahteva tudi dostop do otrok, ali potomcev, sicer "
+#~ "dodana strani ne more spremeniti njen ustvarjalec."
+
+#~ msgid "Add page permission also requires edit page permission."
+#~ msgstr "Pogoj za pravico \"dodaj stran\" je pravica \"urejaj stran\"."
+
+#~ msgid "can_view"
+#~ msgstr "lahko_vidi"
+
+#~ msgid "Please select user or group first."
+#~ msgstr "Prosim,najprej izberite uporabnika ali skupino."
+
+#~ msgid "Add"
+#~ msgstr "Dodaj"
+
+#~ msgid "Change"
+#~ msgstr "Spremeni"
+
+#~ msgid "Delete"
+#~ msgstr "Izbriši"
+
+#~ msgid "Recover (any) pages"
+#~ msgstr "Povrni (vse) strani"
+
+#~ msgid "Notify user"
+#~ msgstr "Obvesti uporabnika"
+
+#~ msgid ""
+#~ "Send email notification to user about username or password change. "
+#~ "Requires user email."
+#~ msgstr ""
+#~ "Uporabniku pošlji obvestilo o spremembi uporabniškega imena ali gesla. "
+#~ "Obvezena je uporabnikova e-pošta."
+
+#~ msgid "New password"
+#~ msgstr "Novo geslo"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Potrditev novega gesla"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "Za obvestilo po e-pošti je potreben vrljaven e-poštni naslov."
+
+#~ msgid ""
+#~ "The permission to add new pages requires the permission to change pages!"
+#~ msgstr ""
+#~ "Pogoj za pravico \"dodaj novo stran\" je pravica \"spreminjaj strani\"!"
+
+#~ msgid ""
+#~ "The permission to add new users requires the permission to change users!"
+#~ msgstr ""
+#~ "Pogoj za pravico \"dodaj novega uporabnika\" je pravica \"spreminjaj "
+#~ "uporabnike\"!"
+
+#~ msgid "To add permissions you also need to edit them!"
+#~ msgstr "Pogoj za pravico \"dodaj pravice\" je pravica \"urejaj pravice\"!"
+
+#~ msgid "Basic Settings"
+#~ msgstr "Osnovne nastvaitve"
+
+#~ msgid "Note: This page reloads if you change the selection. Save it first."
+#~ msgstr ""
+#~ "Opomba: Če spremenite izbiro, se bo ta stran ponovno naložila. Najprej jo "
+#~ "shranite."
+
+#~ msgid "Hidden"
+#~ msgstr "Skrit"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "Napredne nastavitve"
+
+#~ msgid "SEO Settings"
+#~ msgstr "Nastavitve SEO"
+
+#~ msgid "You have no permission to change the template"
+#~ msgstr "Nimate pravice spreminjati predloge"
+
+#~ msgid "higher"
+#~ msgstr "višji"
+
+#~ msgid "Database error"
+#~ msgstr "Napaka podatkovne baze"
+
+#~ msgid "Page was successfully approved."
+#~ msgstr "Stran uspešno odobrena."
+
+#~ msgid "%(name)s object with primary key %(key)r does not exist."
+#~ msgstr "predmet %(name)s s primarnim ključem %(key)r ne obstaja."
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "Za to stran obstaja samo en prevod"
+
+#~ msgid "Title and plugins with language %(language)s was deleted"
+#~ msgstr "Naslov in vtičniki z jezikom %(language)s so bili pobrisani"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Ali ste prepričani?"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "Nimate pravice za objavo te strani"
+
+#~ msgid ""
+#~ "You do not have permission to change this page's in_navigation status"
+#~ msgstr "Nimate dovoljenja za spreminjanje strani v statusu in_navigation"
+
+#~ msgid "You have no permission to add a plugin"
+#~ msgstr "Nimate pravice dodati vtičnika"
+
+#~ msgid "Language must be set to a supported language!"
+#~ msgstr "Jezik mora biti nastavljen na podprt jezik!"
+
+#~ msgid "%(plugin_name)s plugin added to %(placeholder)s"
+#~ msgstr " %(plugin_name)s vtičnik dodan %(placeholder)s"
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "Nimate pravice za spreminjanje te strani"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "Jezik se mora razlikovati od kopiranega jezika!"
+
+#~ msgid "You do not have permission to add plugins"
+#~ msgstr "Nimate pravice dodati vtičnika"
+
+#~ msgid "Copied %(language)s plugins to %(placeholder)s"
+#~ msgstr "Vtičniki za %(language)s kopirani na %(placeholder)s"
+
+#~ msgid "You have no permission to change this page"
+#~ msgstr "Nimate pravic, potrebnih za spreminjanje strani"
+
+#~ msgid "You have no permission to edit a plugin"
+#~ msgstr "NImate pravice urejati vtičnika"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin edited at position %(position)s in %(placeholder)s"
+#~ msgstr ""
+#~ "Vtičnik %(plugin_name)s urejan na mestu %(position)s na %(placeholder)s "
+
+#~ msgid "You have no permission to move a plugin"
+#~ msgstr "Nimate pravice poremikati vtičnika"
+
+#~ msgid "Plugins where moved"
+#~ msgstr "Vtičniki so bili preseljeni"
+
+#~ msgid "You have no permission to remove a plugin"
+#~ msgstr "Nimate pravice za odstranjevanje vtičnika"
+
+#~ msgid ""
+#~ "%(plugin_name)s plugin at position %(position)s in %(placeholder)s was "
+#~ "deleted."
+#~ msgstr ""
+#~ "Vtičnik %(plugin_name)s na mestu %(position)s na %(placeholder)s je bil "
+#~ "izbrisan."
+
+#~ msgid "View restriction"
+#~ msgstr "Poglej omejitev"
+
+#~ msgid "View restrictions"
+#~ msgstr "Poglej omejitve"
+
+#~ msgid "Page permissions"
+#~ msgstr "Dovoljenja na strani"
+
+#~ msgid "User & Group permissions"
+#~ msgstr "Dovoljenja za uporabnike in skupine"
+
+#~ msgid "Page permissions management"
+#~ msgstr "Upravljanje pravic na strani"
+
+#~ msgid "You don't have permission to add content here."
+#~ msgstr "Na tem mestu nimate pravic za dodajanje vsebine"
+
+#~ msgid "You don't have permission to add plugins"
+#~ msgstr "Nimate pravic za dodajanje vtičnika"
+
+#~ msgid "You don't have permission to delete a plugin"
+#~ msgstr "Nimate pravic za brisanje vtičnika"
+
+#~ msgid "User details"
+#~ msgstr "Podrobnosti uporabnika"
+
+#~ msgid "Groups"
+#~ msgstr "Skupine"
+
+#~ msgid "Password"
+#~ msgstr "Geslo"
+
+#~ msgid "Copy permissions"
+#~ msgstr "Prekopiraj dovoljenaja"
+
+#~ msgid "Copy moderation"
+#~ msgstr "Kopiraj moderiranje"
+
+#~ msgid "Inherit the template of the nearest ancestor"
+#~ msgstr "Deduj predlogo najbližjega prednika"
+
+#~ msgid "Select a valid site"
+#~ msgstr "Izberite veljavno spletno stran"
+
+#~ msgid "Select a valid page"
+#~ msgstr "Izberite veljavno stran"
+
+#~ msgid "Add Another"
+#~ msgstr "Dodaj še enega"
+
+#~ msgid "language"
+#~ msgstr "jezik"
+
+#~ msgid "position"
+#~ msgstr "pozicija"
+
+#~ msgid "creation date"
+#~ msgstr "datum izdelave"
+
+#~ msgid "slot"
+#~ msgstr "slot"
+
+#~ msgid "plugin_name"
+#~ msgstr "ime_vtičnika"
+
+#~ msgid "title"
+#~ msgstr "naslov"
+
+#~ msgid "path"
+#~ msgstr "pot"
+
+#~ msgid "slug"
+#~ msgstr "kratek opis"
+
+#~ msgid "everybody"
+#~ msgstr "vsi"
+
+#~ msgid "can edit"
+#~ msgstr "lahko ureja"
+
+#~ msgid "group"
+#~ msgstr "skupina"
+
+#~ msgid "can publish"
+#~ msgstr "lahko objavlja"
+
+#~ msgid "type"
+#~ msgstr "tip"
+
+#~ msgid "can change soft-root"
+#~ msgstr "lahko spremeni \"soft-root'"
+
+#~ msgid "status"
+#~ msgstr "status"
+
+#~ msgid "navigation extenders"
+#~ msgstr "razširitve navigacijae"
+
+#~ msgid "has url overwrite"
+#~ msgstr "ima prepisani url"
+
+#~ msgid "url overwrite"
+#~ msgstr "prepisani url"
+
+#~ msgid "author"
+#~ msgstr "avtor"
+
+#~ msgid "reverse url id"
+#~ msgstr "oznaka obratnega url-ja"
+
+#~ msgid "login required"
+#~ msgstr "potrebna je prijava"
+
+#~ msgid "soft root"
+#~ msgstr "'soft root'"
+
+#~ msgid "publication end date"
+#~ msgstr "končni datum objave"
+
+#~ msgid "template"
+#~ msgstr "predloga"
+
+#~ msgid "publication date"
+#~ msgstr "datum objave"
+
+#~ msgid "in navigation"
+#~ msgstr "v navigaciji"
+
+#~ msgid "application"
+#~ msgstr "aplikacija"
+
+#~ msgid "id"
+#~ msgstr "oznaka"
+
+#~ msgid "redirect"
+#~ msgstr "preusmeri"
+
+#~ msgid "keywords"
+#~ msgstr "ključne besede"
+
+#~ msgid "description"
+#~ msgstr "opis"
+
+#~ msgid "Current page"
+#~ msgstr "Trenutna stran"
+
+#~ msgid "Page children (immediate)"
+#~ msgstr "(Neposredni) nasledniki strani"
+
+#~ msgid "Page and children (immediate)"
+#~ msgstr "Stran in (neposredni) nasledniki"
+
+#~ msgid "Page descendants"
+#~ msgstr "Potomci strani"
+
+#~ msgid "Page and descendants"
+#~ msgstr "Stran in njeni potomci"
+
+#~ msgid "User"
+#~ msgstr "Uporabnik"
+
+#~ msgid "Moderate page"
+#~ msgstr "Moderiraj stran"
+
+#~ msgid "Moderate children"
+#~ msgstr "Moderiraj otroke"
+
+#~ msgid "Moderate descendants"
+#~ msgstr "Moderiraj potomce"
+
+#~ msgid "PageModerator"
+#~ msgstr "ModeratorStrani"
+
+#~ msgid "created"
+#~ msgstr "izdelano"
+
+#~ msgid "changed"
+#~ msgstr "spremenjeno"
+
+#~ msgid "delete req."
+#~ msgstr "zahtevek za brisanje"
+
+#~ msgid "move req."
+#~ msgstr "zahtevek za premik"
+
+#~ msgid "publish req."
+#~ msgstr "zahtevek za objavo"
+
+#~ msgid "unpublish req."
+#~ msgstr "zahtevek za umik objave"
+
+#~ msgid "approved"
+#~ msgstr "odobreno"
+
+#~ msgid "Page moderator state"
+#~ msgstr "Stanje moderatorja strani"
+
+#~ msgid "Page moderator states"
+#~ msgstr "Stanja moderatorja strani"
+
+#~ msgid "req. app."
+#~ msgstr "odobritev zahteve"
+
+#~ msgid "delete"
+#~ msgstr "izbriši"
+
+#~ msgid "app. par."
+#~ msgstr "!app. par."
+
+#~ msgid "for logged in users only"
+#~ msgstr "Samo za prijavljene uporabnike"
+
+#~ msgid "for anonymous users only"
+#~ msgstr "Samo za anonimne uporabnike"
+
+#~ msgid "created by"
+#~ msgstr "izdelal"
+
+#~ msgid "changed by"
+#~ msgstr "spremenil"
+
+#~ msgid ""
+#~ "When the page should go live. Status must be \"Published\" for page to go "
+#~ "live."
+#~ msgstr ""
+#~ "Kdaj naj gre stran v objavo. Stran mora imeti status \"Objavljeno\"."
+
+#~ msgid "When to expire the page. Leave empty to never expire."
+#~ msgstr "Kdaj stran zastara. Prazno - ne zastara nikoli."
+
+#~ msgid "All ancestors will not be displayed in the navigation"
+#~ msgstr "Nasledniki ne bodo prikazani pri navigaciji"
+
+#~ msgid ""
+#~ "An unique identifier that is used with the page_url templatetag for "
+#~ "linking to this page"
+#~ msgstr ""
+#~ "Za povezovanje na to stran je potrebna enolična identifikacijska oznaae, "
+#~ "ki se uporablja pri page_url templatetag "
+
+#~ msgid "attached menu"
+#~ msgstr "Povezani meni"
+
+#~ msgid "is published"
+#~ msgstr "je objavljeno"
+
+#~ msgid "The template used to render the content."
+#~ msgstr "Predloga za prikaz vsebine"
+
+#~ msgid "The site the page is accessible at."
+#~ msgstr "Spletna stran je na voljo na spletišču:"
+
+#~ msgid "site"
+#~ msgstr "spletno mesto"
+
+#~ msgid "moderator state"
+#~ msgstr "Stanje moderatorja"
+
+#~ msgid "menu visibility"
+#~ msgstr "Vidnost menija"
+
+#~ msgid "limit when this page is visible in the menu"
+#~ msgstr "Omeji kdaj bo ta stran prkazana v meniju"
+
+#~ msgid "pages"
+#~ msgstr "strani"
+
+#~ msgid "Page was copied."
+#~ msgstr "Stran je bila kopirana."
+
+#~ msgid "default"
+#~ msgstr "privzeto"
+
+#~ msgid "can add"
+#~ msgstr "sme dodati"
+
+#~ msgid "can delete"
+#~ msgstr "sme izbrisati"
+
+#~ msgid "can change advanced settings"
+#~ msgstr "lahko spremnija napredne nastavitve"
+
+#~ msgid "can change permissions"
+#~ msgstr "lahko spreminja dovoljenja"
+
+#~ msgid "on page level"
+#~ msgstr "na nivoju strani"
+
+#~ msgid "can move"
+#~ msgstr "lahko premika"
+
+#~ msgid "can moderate"
+#~ msgstr "lahko moderira"
+
+#~ msgid "view restricted"
+#~ msgstr "omejeni pogled"
+
+#~ msgid "frontend view restriction"
+#~ msgstr "omejitve pogleda prikazovalnika"
+
+#~ msgid "can recover pages"
+#~ msgstr "lahko povrne"
+
+#~ msgid "can recover any deleted page"
+#~ msgstr "lahko povrne vsako izbrisano stram"
+
+#~ msgid "If none selected, user haves granted permissions to all sites."
+#~ msgstr "Če ni izbrano nič, ima uporabnik pravico do vseh spletišč"
+
+#~ msgid "sites"
+#~ msgstr "spletišča"
+
+#~ msgid "Page global permission"
+#~ msgstr "Globalne pravice strani"
+
+#~ msgid "Pages global permissions"
+#~ msgstr "Globalne pravice za vse strani"
+
+#~ msgid "Grant on"
+#~ msgstr "Dovoli na"
+
+#~ msgid "Page permission"
+#~ msgstr "Dovoljenja na strani"
+
+#~ msgid "User (page)"
+#~ msgstr "Uporabnik (stran)"
+
+#~ msgid "Users (page)"
+#~ msgstr "Uporabniki (stran)"
+
+#~ msgid "User group (page)"
+#~ msgstr "Skupina uporabnikov (stran)"
+
+#~ msgid "User groups (page)"
+#~ msgstr "Skupine uporabnikov (stran)"
+
+#~ msgid "width"
+#~ msgstr "širina"
+
+#~ msgid "<Empty>"
+#~ msgstr "<Prazno>"
+
+#~ msgid "overwrite the title in the menu"
+#~ msgstr "prepiši naslov na meniju"
+
+#~ msgid "Path"
+#~ msgstr "Pot"
+
+#~ msgid "overwrite the title (html title tag)"
+#~ msgstr "Prepiši naslov (html tag \"title\")"
+
+#~ msgid "File"
+#~ msgstr "Datoteka"
+
+#~ msgid "file"
+#~ msgstr "datoteka"
+
+#~ msgid "file missing!"
+#~ msgstr "manjka datoteka!"
+
+#~ msgid "Flash"
+#~ msgstr "Flash"
+
+#~ msgid "use swf file"
+#~ msgstr "uporabi datoteko swf"
+
+#~ msgid "height"
+#~ msgstr "višina"
+
+#~ msgid ""
+#~ "Missing flash plugin. Please download the latest Adobe Flash Player: "
+#~ msgstr ""
+#~ "Manjka vtičnik flash. Prosimo namestite najnovejši Adobe Flash Player:"
+
+#~ msgid "Get Adobe Flash Player"
+#~ msgstr "Prenesi Adobe Flas Player"
+
+#~ msgid "Google Map"
+#~ msgstr "Google Map"
+
+#~ msgid "map title"
+#~ msgstr "Naslov zemljevida"
+
+#~ msgid "address"
+#~ msgstr "naslov"
+
+#~ msgid "zip code"
+#~ msgstr "poštna številka"
+
+#~ msgid "city"
+#~ msgstr "mesto"
+
+#~ msgid "additional content"
+#~ msgstr "dodatne vsebine"
+
+#~ msgid "zoom level"
+#~ msgstr "nivo povečave"
+
+#~ msgid "latitude"
+#~ msgstr "zemeljska širina"
+
+#~ msgid "Use latitude & longitude to fine tune the map position."
+#~ msgstr "uporabi zemeljsko širino in dolžino"
+
+#~ msgid "longitude"
+#~ msgstr "zemeljska dolžina"
+
+#~ msgid "route planer title"
+#~ msgstr "naslov načrtovalca poti"
+
+#~ msgid "Calculate your fastest way to here"
+#~ msgstr "Izračunavašo najhitrejšo pot do te lokacije"
+
+#~ msgid "route planer"
+#~ msgstr "načrtovalec poti"
+
+#~ msgid "Map"
+#~ msgstr "Zemljevid"
+
+#~ msgid "Your address: "
+#~ msgstr "Vaš naslov:"
+
+#~ msgid "Calculate route"
+#~ msgstr "Izračunaj pot"
+
+#~ msgid "Inherit Plugins from Page"
+#~ msgstr "Podeduj vtičnike s strani"
+
+#~ msgid "Language or Page must be filled out"
+#~ msgstr "Jezik ali stran mora biti izpolnjnjena"
+
+#~ msgid ""
+#~ "Choose a page to include its plugins into this placeholder, empty will "
+#~ "choose current page"
+#~ msgstr ""
+#~ "Izberite stran za vključitev njenega vtičnika na to rezervirano mest, če "
+#~ "pustite prazno, bo to trenutna stran"
+
+#~ msgid "Optional: the language of the plugins you want"
+#~ msgstr "Neobvezno:kateri jezik vtičnikov želite"
+
+#~ msgid "Picture"
+#~ msgstr "Slika"
+
+#~ msgid "center"
+#~ msgstr "sredina"
+
+#~ msgid "left"
+#~ msgstr "levo"
+
+#~ msgid "right"
+#~ msgstr "desno"
+
+#~ msgid "image"
+#~ msgstr "slika"
+
+#~ msgid "if present image will be clickable"
+#~ msgstr "če bo sedanja slika klikabilna"
+
+#~ msgid "alternate text"
+#~ msgstr "nadomestno besedilo"
+
+#~ msgid "textual description of the image"
+#~ msgstr "besedilni opis slike"
+
+#~ msgid "long description"
+#~ msgstr "dolgi opis"
+
+#~ msgid "additional description of the image"
+#~ msgstr "dodatni opis slike"
+
+#~ msgid "side"
+#~ msgstr "stran"
+
+#~ msgid "Snippet"
+#~ msgstr "Izrezek"
+
+#~ msgid "Template %(template)s does not exist."
+#~ msgstr "Predloga %(template)s ne obstaja."
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid ""
+#~ "Enter a template (i.e. \"snippets/plugin_xy.html\") which will be "
+#~ "rendered. "
+#~ msgstr ""
+#~ "Vpišite predlogo (npr. \"snippets/ plugin_xy.html\"), ki bodo prikazana."
+
+#~ msgid "Snippets"
+#~ msgstr "Izrezki"
+
+#~ msgid "Teaser"
+#~ msgstr "Spodbujevalnik"
+
+#~ msgid "If present image will be clickable"
+#~ msgstr "če bo sedanja slika klikabilna"
+
+#~ msgid "If present image will be clickable."
+#~ msgstr "če bo sedanja slika klikabilna"
+
+#~ msgid "more"
+#~ msgstr "več"
+
+#~ msgid "Text"
+#~ msgstr "Besedilo"
+
+#~ msgid "body"
+#~ msgstr "telo"
+
+#~ msgid "Plugins"
+#~ msgstr "Vtičnik"
+
+#~ msgid "Please select a plugin type."
+#~ msgstr "Prosim izberite tip vtičnika."
+
+#~ msgid "Edit selected plugin"
+#~ msgstr "Uredi izbrani vtičnik"
+
+#~ msgid "Text editor does not support editing objects."
+#~ msgstr "Urejevalnik besedila ne omogoča urejanja predmetov."
+
+#~ msgid "No object selected."
+#~ msgstr "Predmet ni izbran."
+
+#~ msgid "Text editor does not support inserting objects."
+#~ msgstr "Urejevalnik besedila ne omogoča vstavljanja predmetov."
+
+#~ msgid "Not a plugin object"
+#~ msgstr "Ni predmet vtičnika"
+
+#~ msgid "Available Plugins"
+#~ msgstr "razpoložljivi vtičniki"
+
+#~ msgid "Insert plugin"
+#~ msgstr "Vstavi vtičnik"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "Twitter Search"
+#~ msgstr "Iskanje po Twitterju"
+
+#~ msgid "twitter user"
+#~ msgstr "Uporabnik Tweeterja"
+
+#~ msgid "count"
+#~ msgstr "število"
+
+#~ msgid "Number of entries to display"
+#~ msgstr "Število vnosov, ki bo prikazano"
+
+#~ msgid "link hint"
+#~ msgstr "namig pri povezavi"
+
+#~ msgid "If given, the hint is displayed as link to your Twitter profile."
+#~ msgstr "Če je podan, bo namig prikazan pri povezavi na vaš Tweeter profil."
+
+#~ msgid "query"
+#~ msgstr "povpraševanje"
+
+#~ msgid ""
+#~ "Example: \"brains AND zombies AND from:umbrella AND to:nemesis\": tweets "
+#~ "from the user \"umbrella\" to the user \"nemesis\" that contain the words "
+#~ "\"brains\" and \"zombies\""
+#~ msgstr ""
+#~ "Primer: \"brains AND zombies AND from:umbrella AND to:nemesis\": tweet-i "
+#~ "uporabnika \"umbrella\" za uporabnika \"nemesis\" ki vsebujejo besede "
+#~ "\"brains\" in \"zombies\""
+
+#~ msgid "we said,"
+#~ msgstr "reksli smo, "
+
+#~ msgid "we"
+#~ msgstr "mi"
+
+#~ msgid "we were"
+#~ msgstr "bili smo"
+
+#~ msgid "we replied to"
+#~ msgstr "odgovorili smo na "
+
+#~ msgid "we were checking out"
+#~ msgstr "pregledovali smo"
+
+#~ msgid "loading tweets..."
+#~ msgstr "nalagam twwete"
+
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgid "Color Settings"
+#~ msgstr "Nastavitev barv"
+
+#~ msgid "movie file"
+#~ msgstr "datoteka s filmom"
+
+#~ msgid "use .flv file or h264 encoded video file"
+#~ msgstr "uporabite .flv datoteko ali s h264 kodirano video datoteko"
+
+#~ msgid "movie url"
+#~ msgstr "url filma"
+
+#~ msgid ""
+#~ "vimeo or youtube video url. Example: http://www.youtube.com/watch?v=-"
+#~ "iJ7bs4mTUY"
+#~ msgstr ""
+#~ "URL videa na Vimeo ali YouTube. Primer: http://www.youtube.com/watch?v=-"
+#~ "iJ7bs4mTUY"
+
+#~ msgid "preview image file"
+#~ msgstr "predogled datoteke s sliko"
+
+#~ msgid "auto play"
+#~ msgstr "samodejno poženi"
+
+#~ msgid "auto hide"
+#~ msgstr "samodejno skrij"
+
+#~ msgid "fullscreen"
+#~ msgstr "celozaslonsko"
+
+#~ msgid "loop"
+#~ msgstr "zanka"
+
+#~ msgid "background color"
+#~ msgstr "barva ozadja"
+
+#~ msgid "Hexadecimal, eg ff00cc"
+#~ msgstr "Šestnajstiško, npr. ff00cc"
+
+#~ msgid "text color"
+#~ msgstr "barva besedila"
+
+#~ msgid "seekbar color"
+#~ msgstr "barva iskalnega traku"
+
+#~ msgid "seekbar bg color"
+#~ msgstr "ozadje iskalnega traku"
+
+#~ msgid "loadingbar color"
+#~ msgstr "barva traku za nalaganje"
+
+#~ msgid "button out color"
+#~ msgstr "barva gumba zunaj"
+
+#~ msgid "button over color"
+#~ msgstr "barva gumba preko"
+
+#~ msgid "button highlight color"
+#~ msgstr "barva osvetljenega gumba"
+
+#~ msgid "Save"
+#~ msgstr "Shrani"
+
+#~ msgid "Delete %(language)s translation"
+#~ msgstr "Izbriši %(language)s prevod"
+
+#~ msgid "Save as new"
+#~ msgstr "Shrani kot novega"
+
+#~ msgid "Save and add another"
+#~ msgstr "Shrani in dodaj novega"
+
+#~ msgid "Save and continue editing"
+#~ msgstr "Shrani in nadaljuj urejanje"
+
+#~ msgid ""
+#~ "Page <a href=\"%(admin_url)s\">%(page)s</a> may require approvement by "
+#~ "you."
+#~ msgstr ""
+#~ "Stran <a href=\"%(admin_url)s\">%(page)s je</a> lahko zahteva vašo "
+#~ "odobritev."
+
+#~ msgid "Last changes"
+#~ msgstr "Zadnje spremembe"
+
+#~ msgid "Log in to administration <a href=\"%(login_url)s\">here</a>."
+#~ msgstr "Tukaj se prijavite v upravljanje <a href=\"%(login_url)s\"></a> ."
+
+#~ msgid "Username:"
+#~ msgstr "Uporabnik:"
+
+#~ msgid "Password:"
+#~ msgstr "Geslo:"
+
+#~ msgid "Change a page"
+#~ msgstr "Spremeni stran"
+
+#~ msgid "Home"
+#~ msgstr "Domov"
+
+#~ msgid "Approve page deletion"
+#~ msgstr "Odobri brisanje strani"
+
+#~ msgid "(requires approvement at %(moderation_level)s level)"
+#~ msgstr "(Zahteva odobritev na %(moderation_level)s ravni)"
+
+#~ msgid "(you can perform actions on this page directly)"
+#~ msgstr "(na tej strani lahko neposredno opravljate dejanja)"
+
+#~ msgid "Remove delete request"
+#~ msgstr "Odstrani zahtevek za brisanje"
+
+#~ msgid "Approve delete"
+#~ msgstr "Odobri brisanje"
+
+#~ msgid "Approve"
+#~ msgstr "Odobri"
+
+#~ msgid "draft"
+#~ msgstr "osnutek"
+
+#~ msgid "Preview"
+#~ msgstr "Predogled"
+
+#~ msgid "History"
+#~ msgstr "Zgodovina"
+
+#~ msgid "View on site"
+#~ msgstr "Poglej na spletišču"
+
+#~ msgid "Please correct the error below."
+#~ msgid_plural "Please correct the errors below."
+#~ msgstr[0] "Popravite spodnjo napako"
+#~ msgstr[1] "Popravite spodnji napaki"
+#~ msgstr[2] "Popravite spodnje napake"
+#~ msgstr[3] "Popravite spodnje napake"
+
+#~ msgid "All permissions"
+#~ msgstr "Vse pravice"
+
+#~ msgid "Loading..."
+#~ msgstr "Nalagam..."
+
+#~ msgid "Page states"
+#~ msgstr "Statusi strani"
+
+#~ msgid ""
+#~ "This page must be moderated at level %(moderation_level)s, post a message "
+#~ "for moderator."
+#~ msgstr ""
+#~ "Ta stran mora biti moderirana na ravni %(moderation_level)s, pošljite "
+#~ "sporočilo moderatorju."
+
+#~ msgid "Request approvemet"
+#~ msgstr "Zahtevajte odobritev"
+
+#~ msgid "List of pages"
+#~ msgstr "Seznam strani"
+
+#~ msgid "Successfully moved"
+#~ msgstr "Uspešno prestavljen"
+
+#~ msgid "An error occured. Please reload the page"
+#~ msgstr "Napaka. Prosim, ponovno naložite stran."
+
+#~ msgid "Recover deleted %(name)s"
+#~ msgstr "Obnovi izbrisane %(name)s "
+
+#~ msgid "Add %(name)s"
+#~ msgstr "Dodajte %(name)s "
+
+#~ msgid "Pages on:"
+#~ msgstr "Strani na:"
+
+#~ msgid "Filter:"
+#~ msgstr "Filter:"
+
+#~ msgid "on"
+#~ msgstr "vključi"
+
+#~ msgid "off"
+#~ msgstr "izključi"
+
+#~ msgid "Filter"
+#~ msgstr "Filter"
+
+#~ msgid "actions"
+#~ msgstr "dejanja"
+
+#~ msgid "moderate"
+#~ msgstr "moderiraj"
+
+#~ msgid "published"
+#~ msgstr "objavljen"
+
+#~ msgid "start"
+#~ msgstr "začetek"
+
+#~ msgid "end"
+#~ msgstr "konec"
+
+#~ msgid "restricted"
+#~ msgstr "omejen"
+
+#~ msgid "last changes"
+#~ msgstr "zadnje spremembe"
+
+#~ msgid "select this page"
+#~ msgstr "izberi to stran"
+
+#~ msgid "edit this page"
+#~ msgstr "uredi to stran"
+
+#~ msgid "edit"
+#~ msgstr "uredi"
+
+#~ msgid "insert above"
+#~ msgstr "vstavi zgoraj"
+
+#~ msgid "insert below"
+#~ msgstr "vstavi spodaj"
+
+#~ msgid "insert inside"
+#~ msgstr "vstavi znotraj"
+
+#~ msgid "softroot"
+#~ msgstr "'softroot'"
+
+#~ msgid "home"
+#~ msgstr "domov"
+
+#~ msgid "Edit this page in %(language)s "
+#~ msgstr "Uredi to stran v %(language)s "
+
+#~ msgid "Cut"
+#~ msgstr "Izreži"
+
+#~ msgid "cut"
+#~ msgstr "izreži"
+
+#~ msgid "Copy"
+#~ msgstr "Kopiraj"
+
+#~ msgid "copy"
+#~ msgstr "kopiraj"
+
+#~ msgid "Add Child"
+#~ msgstr "Dodaj otroka"
+
+#~ msgid "add"
+#~ msgstr "dodaj"
+
+#~ msgid "Approve directly"
+#~ msgstr "Neposredno odobri"
+
+#~ msgid "view"
+#~ msgstr "poglej"
+
+#~ msgid "Unpublish"
+#~ msgstr "Umakni objavo"
+
+#~ msgid "View on page"
+#~ msgstr "Poglej na strani"
+
+#~ msgid "Action"
+#~ msgstr "Dejanje"
+
+#~ msgid "Created"
+#~ msgstr "Ustvarjeno"
+
+#~ msgid "Message"
+#~ msgstr "Sporočilo"
+
+#~ msgid "Group"
+#~ msgstr "Skupina"
+
+#~ msgid "Can edit"
+#~ msgstr "Lahko ureja"
+
+#~ msgid "Can add"
+#~ msgstr "Lahko dodaja"
+
+#~ msgid "Can delete"
+#~ msgstr "Lahko briše"
+
+#~ msgid "Can publish"
+#~ msgstr "Lahko objavi"
+
+#~ msgid "Can change permissions"
+#~ msgstr "Lahko spreminja pravice"
+
+#~ msgid "Can move"
+#~ msgstr "Lahko premika"
+
+#~ msgid "Can view"
+#~ msgstr "Lahko vidi"
+
+#~ msgid "(global)"
+#~ msgstr "(Globalno)"
+
+#~ msgid "(current)"
+#~ msgstr "(Trenutno)"
+
+#~ msgid "All"
+#~ msgstr "Vse"
+
+#~ msgid "Page doesn't inherit any permissions."
+#~ msgstr "Stran ne deduje pravic."
+
+#~ msgid "Cancel"
+#~ msgstr "Prekliči"
+
+#~ msgid "An old revision of a plugin can not be saved!"
+#~ msgstr "Stara različica vtičnika ne more biti shranjena!"
+
+#~ msgid "Plugin saved successfully."
+#~ msgstr "Vtičnik uspešno shranjen."
+
+#~ msgid "Recover deleted %(verbose_name)s"
+#~ msgstr "Obnoviizbrisane %(verbose_name)s "
+
+#~ msgid "Press the save button below to recover this version of the object."
+#~ msgstr ""
+#~ "Pritisnite spodnji gumb za shranjevanje, če želite obnoviti to različico "
+#~ "predmeta."
+
+#~ msgid "Revert %(verbose_name)s"
+#~ msgstr "Povrni %(verbose_name)s "
+
+#~ msgid "Press the save button below to revert to this version of the object."
+#~ msgstr ""
+#~ "Pritisnite spodnji gumb za shranjevanje, če želite povrniti na to "
+#~ "različica predmeta."
+
+#~ msgid "Copy options"
+#~ msgstr "Možnosti kopiranja"
+
+#~ msgid "Choose copy options"
+#~ msgstr "Izberi možnosti kopiranja"
+
+#~ msgid "Generic"
+#~ msgstr "Generično"
+
+#~ msgid "Add Plugin"
+#~ msgstr "Dodaj vtičnik"
+
+#~ msgid "From Language"
+#~ msgstr "Iz jezika"
+
+#~ msgid "Copy Plugins"
+#~ msgstr "Kopiraj vtičnik"
+
+#~ msgid "You must save the page first to add plugins."
+#~ msgstr "Preden dodate vtičnik, morate stran shraniti."
+
+#~ msgid "No Plugin selected. Selected one on the left side"
+#~ msgstr "Vtičnik ni izbran. Izberite enega na levi strani."
+
+#~ msgid "No Plugins present. Add a plugin to this placeholder-slot."
+#~ msgstr "Vtičnika ni. Dodajte vtičnik na za to predvideno mesto."
+
+#~ msgid "Available plugins"
+#~ msgstr "Razpoložljivi vtičniki"
+
+#~ msgid "The selected element can not be moved to the desired location."
+#~ msgstr "Izbranega elementa ne morete premakniti na izbrano mesto."
+
+#~ msgid "Are you sure you want to delete this plugin?"
+#~ msgstr "Ali resnično želite zbrisati ta vtičnik?"
+
+#~ msgid "up"
+#~ msgstr "gor"
+
+#~ msgid "down"
+#~ msgstr "dol"
+
+#~ msgid "Move to placeholder"
+#~ msgstr "Premakni na oznako"
+
+#~ msgid "Username"
+#~ msgstr "Uporabniško ime"
+
+#~ msgid "Login"
+#~ msgstr "Prijava"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "Switch on/off"
+#~ msgstr "Vklopi/Izklopi"
+
+#~ msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"
+#~ msgstr "<span title=\"Omejitve: %(title)s\">%(icon)s</span>"
+
+#~ msgid "Unbind page moderation"
+#~ msgstr "Loči moderiranje od strani"
+
+#~ msgid "Unbind children moderation"
+#~ msgstr "Loči moderiranje otrok"
+
+#~ msgid "Unbind descendants moderation"
+#~ msgstr "Loči moderiranje naslednikov"
+
+#~ msgid "Page not found on %(domain)s"
+#~ msgstr "Strani ni mogoče najti v %(domain)s "
+
+#~ msgid ""
+#~ "A template tag couldn't find the page with lookup arguments `"
+#~ "%(page_lookup)s\n"
+#~ "`. The URL of the request was: http://%(host)s%(path)s"
+#~ msgstr ""
+#~ "Oznaka predloge ni našla strani z iskalnimi pogoji `%(page_lookup)s \n"
+#~ "`. URL zahtevka: http://%(host)s%(path)s"
+
+#~ msgid "sidebar column"
+#~ msgstr "background color"
+
+#~ msgid "left column"
+#~ msgstr "background color"
+
+#~ msgid "right column"
+#~ msgstr "background color"
+
+#~ msgid "CMS - your user account was created."
+#~ msgstr "CMS - vaš uporabniški račun je ustvarjen."
+
+#~ msgid "CMS - your user account was changed."
+#~ msgstr "CMS - vaš uporabniški račun je spremenjen."
+
+#~ msgid "parent first"
+#~ msgstr "najpre starš"
+
+#~ msgid "approve"
+#~ msgstr "odobri"
+
+#~ msgid "CMS - Page %s requires approvement."
+#~ msgstr "CMS - Stran %s zahteva odobritev."
+
+#~ msgid "Invalid URL, use /my/url format."
+#~ msgstr "Napačen URL, uporabi obliko /moj/url"
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."

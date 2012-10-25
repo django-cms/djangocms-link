@@ -1,0 +1,963 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 09:51+0200\n"
+"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: divio.ch <developers@divio.ch>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr "Odkaz"
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "stránka"
+
+#: models.py:10
+msgid "name"
+msgstr "jméno"
+
+#: models.py:11
+msgid "link"
+msgstr "odkaz"
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr ""
+
+#: models.py:13
+msgid "mailto"
+msgstr "mailto"
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr ""
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""
+
+#~ msgid "Edit mode"
+#~ msgstr "Režim úprav"
+
+#~ msgid "Publish"
+#~ msgstr "Publikovat"
+
+#~ msgid "Logout"
+#~ msgstr "Odhlásit"
+
+#~ msgid "Template"
+#~ msgstr "Šablona"
+
+#~ msgid "Move/add Pages"
+#~ msgstr "Přesun/přidání stránek"
+
+#~ msgid "Add child page"
+#~ msgstr "Přidat potomka"
+
+#~ msgid "Add sibling page"
+#~ msgstr "Přidat stránku ve stejné hloubce"
+
+#~ msgid "Delete Page"
+#~ msgstr "Smazat stránku"
+
+#~ msgid "Page"
+#~ msgstr "Stránka"
+
+#~ msgid "Site Administration"
+#~ msgstr "Správa"
+
+#~ msgid "Page Settings"
+#~ msgstr "Nastavení stránky"
+
+#~ msgid "View History"
+#~ msgstr "Zobrazit historii"
+
+#~ msgid "Advanced options"
+#~ msgstr "Pokročilé nastavení"
+
+#~ msgid "Title"
+#~ msgstr "Název"
+
+#~ msgid "The default title"
+#~ msgstr "Předvolený název"
+
+#~ msgid "Slug"
+#~ msgstr "Identifikátor"
+
+#~ msgid "The part of the title that is used in the URL"
+#~ msgstr "Část názvu, která je použita v URL"
+
+#~ msgid "Language"
+#~ msgstr "Jazyk"
+
+#~ msgid "The current language of the content fields."
+#~ msgstr "Aktuální jazyk políček s obsahem"
+
+#~ msgid "Another page with this slug already exists"
+#~ msgstr "Už existuje jiná stránka s tímto identifikátorem"
+
+#~ msgid "Menu Title"
+#~ msgstr "Název menu"
+
+#~ msgid "Overwrite what is displayed in the menu"
+#~ msgstr "Přepsat to, co se zobrazuje v menu"
+
+#~ msgid "Page Title"
+#~ msgstr "Název stránky"
+
+#~ msgid ""
+#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
+#~ msgstr ""
+#~ "Přepsat to, co se zobrazuje v horní části vašeho prohlížeče nebo v "
+#~ "záložkách"
+
+#~ msgid "Application"
+#~ msgstr "Aplikace"
+
+#~ msgid "Hook application to this page."
+#~ msgstr "Připojit aplikaci k této stránce."
+
+#~ msgid "Overwrite URL"
+#~ msgstr "Přepsat URL"
+
+#~ msgid "Keep this field empty if standard path should be used."
+#~ msgstr ""
+#~ "Ponechejte toto políčko prázdné, pokud se má použít standardní cesta."
+
+#~ msgid "Redirect"
+#~ msgstr "Přesměrování"
+
+#~ msgid "Redirects to this URL."
+#~ msgstr "Přesměruje se na tuto URL."
+
+#~ msgid "A description of the page sometimes used by search engines."
+#~ msgstr "Popis stránky, který mohou indexovat vyhledávače."
+
+#~ msgid "A list of comma seperated keywords sometimes used by search engines."
+#~ msgstr ""
+#~ "Seznam klíčových slov oddělených čárkou, které mohou indexovat "
+#~ "vyhledávače."
+
+#~ msgid "A page with this reverse URL id exists already."
+#~ msgstr "Stránka s takovu hodnotou reverse URL id již existuje."
+
+#~ msgid "user"
+#~ msgstr "uživatel"
+
+#~ msgid ""
+#~ "Add page permission requires also access to children, or descendants, "
+#~ "otherwise added page can't be changed by its creator."
+#~ msgstr ""
+#~ "Právo na přidání stránky vyžaduje také přístup k \"vnořeným\" stránkám, "
+#~ "jinak tyto stránky nebude moci editovat jejich autor."
+
+#~ msgid "Add page permission also requires edit page permission."
+#~ msgstr "Právo na přidání stránky vyžaduje také právo na editaci stránky."
+
+#~ msgid "Please select user or group first."
+#~ msgstr "Zvolte nejdřív uživatele nebo skupinu, prosím."
+
+#~ msgid "Add"
+#~ msgstr "Přidat"
+
+#~ msgid "Change"
+#~ msgstr "Změnit"
+
+#~ msgid "Delete"
+#~ msgstr "Odstranit"
+
+#~ msgid "Recover (any) pages"
+#~ msgstr "Obnovit (nějaké) stránky"
+
+#~ msgid "Notify user"
+#~ msgstr "Informovat uživatele"
+
+#~ msgid ""
+#~ "Send email notification to user about username or password change. "
+#~ "Requires user email."
+#~ msgstr ""
+#~ "Posílat uživateli informační email o změně uživatelského jména nebo "
+#~ "hesla. Vyžaduje uživatelův email."
+
+#~ msgid "New password"
+#~ msgstr "Nové heslo"
+
+#~ msgid "New password confirmation"
+#~ msgstr "Potvrzení nového hesla"
+
+#~ msgid "Email notification requires valid email address."
+#~ msgstr "Emailová notifikace vyžaduje platnou emailovou adresu."
+
+#~ msgid ""
+#~ "The permission to add new pages requires the permission to change pages!"
+#~ msgstr "Právo na přidávání nových stránek vyžaduje právo na změnu stránek!"
+
+#~ msgid ""
+#~ "The permission to add new users requires the permission to change users!"
+#~ msgstr ""
+#~ "Právo na přidávání nových uživatelů vyžaduje právo na změnu uživatelů!"
+
+#~ msgid "To add permissions you also need to edit them!"
+#~ msgstr "Přidávání přístupových práv vyžaduje také právo na jejich změnu"
+
+#~ msgid "Basic Settings"
+#~ msgstr "Základní nastavení"
+
+#~ msgid "Note: This page reloads if you change the selection. Save it first."
+#~ msgstr ""
+#~ "Upozornění: Při změně výběru se stránka se znovu načte. Provedené změny "
+#~ "nejprve uložte."
+
+#~ msgid "Hidden"
+#~ msgstr "Skryté"
+
+#~ msgid "Advanced Settings"
+#~ msgstr "Rozšířené možnosti"
+
+#~ msgid "SEO Settings"
+#~ msgstr "SEO nastavení"
+
+#~ msgid "higher"
+#~ msgstr "výš"
+
+#~ msgid "Database error"
+#~ msgstr "Databázová chyba"
+
+#~ msgid "Page was successfully approved."
+#~ msgstr "Stránka byla úspěšně schválena."
+
+#~ msgid "There only exists one translation for this page"
+#~ msgstr "Tato stránka existuje pouze v jedné jazykové variantě"
+
+#~ msgid "Are you sure?"
+#~ msgstr "Jste si jist?"
+
+#~ msgid "You do not have permission to publish this page"
+#~ msgstr "Nemáte oprávnění k publikování této stránky"
+
+#~ msgid ""
+#~ "You do not have permission to change this page's in_navigation status"
+#~ msgstr "Nemáte oprávnění měnit tuto vlastno dané stránky."
+
+#~ msgid "Language must be set to a supported language!"
+#~ msgstr "Zadaný jazyk není podporovaný, zvolte jiný."
+
+#~ msgid "You do not have permission to change this page"
+#~ msgstr "Nemáte oprávnění měnit tuto stránku"
+
+#~ msgid "Language must be different than the copied language!"
+#~ msgstr "Jazyk kopie se musí lišit od jazyka původní stránky"
+
+#~ msgid "Plugins where moved"
+#~ msgstr "Typy obsahu byly přesunuty"
+
+#~ msgid "Page permissions"
+#~ msgstr "Práva stránky"
+
+#~ msgid "User & Group permissions"
+#~ msgstr "Práva uživatele/skupiny"
+
+#~ msgid "Page permissions management"
+#~ msgstr "Správa práv stránky"
+
+#~ msgid "User details"
+#~ msgstr "Detaily uživatele"
+
+#~ msgid "Groups"
+#~ msgstr "Skupiny"
+
+#~ msgid "Password"
+#~ msgstr "Heslo"
+
+#~ msgid "Copy permissions"
+#~ msgstr "Zkopírovat oprávnění"
+
+#~ msgid "Inherit the template of the nearest ancestor"
+#~ msgstr "Podědit šablonu nejbližšího předka"
+
+#~ msgid "Add Another"
+#~ msgstr "Přidat další"
+
+#~ msgid "language"
+#~ msgstr "jazyk"
+
+#~ msgid "position"
+#~ msgstr "pozice"
+
+#~ msgid "creation date"
+#~ msgstr "datum vytvoření"
+
+#~ msgid "slot"
+#~ msgstr "pozice"
+
+#~ msgid "plugin_name"
+#~ msgstr "nazev_typu_obsahu"
+
+#~ msgid "title"
+#~ msgstr "popisek"
+
+#~ msgid "path"
+#~ msgstr "cesta"
+
+#~ msgid "slug"
+#~ msgstr "podoba URL"
+
+#~ msgid "everybody"
+#~ msgstr "všichni"
+
+#~ msgid "can edit"
+#~ msgstr "smí upravovat"
+
+#~ msgid "group"
+#~ msgstr "skupina"
+
+#~ msgid "can publish"
+#~ msgstr "smí publikovat"
+
+#~ msgid "type"
+#~ msgstr "typ"
+
+#~ msgid "status"
+#~ msgstr "status"
+
+#~ msgid "has url overwrite"
+#~ msgstr "má předefinovanou url"
+
+#~ msgid "url overwrite"
+#~ msgstr "předefinovaná url"
+
+#~ msgid "author"
+#~ msgstr "autor"
+
+#~ msgid "login required"
+#~ msgstr "vyžaduje přihlášení"
+
+#~ msgid "publication end date"
+#~ msgstr "publikováno do"
+
+#~ msgid "template"
+#~ msgstr "šablona"
+
+#~ msgid "publication date"
+#~ msgstr "datum publikace"
+
+#~ msgid "in navigation"
+#~ msgstr "v navigaci"
+
+#~ msgid "application"
+#~ msgstr "aplikace"
+
+#~ msgid "id"
+#~ msgstr "id"
+
+#~ msgid "redirect"
+#~ msgstr "přesměrování"
+
+#~ msgid "keywords"
+#~ msgstr "klíčová slova (keywords)"
+
+#~ msgid "description"
+#~ msgstr "popis (description)"
+
+#~ msgid "Current page"
+#~ msgstr "Aktuální stránka"
+
+#~ msgid "Page children (immediate)"
+#~ msgstr "Přímí potomci stránky"
+
+#~ msgid "Page and children (immediate)"
+#~ msgstr "Tato stránka + přímí potomci"
+
+#~ msgid "Page descendants"
+#~ msgstr "Všichni potomci stránky"
+
+#~ msgid "Page and descendants"
+#~ msgstr "Tato stránka ₊ všichni potomci"
+
+#~ msgid "User"
+#~ msgstr "Uživatel"
+
+#~ msgid "Moderate page"
+#~ msgstr "Správa stránky"
+
+#~ msgid "Moderate children"
+#~ msgstr "Správa potomků stránky"
+
+#~ msgid "PageModerator"
+#~ msgstr "Správce"
+
+#~ msgid "created"
+#~ msgstr "vytvořeno"
+
+#~ msgid "changed"
+#~ msgstr "změněno"
+
+#~ msgid "delete req."
+#~ msgstr "požad. smazání"
+
+#~ msgid "move req."
+#~ msgstr "požad. přesunu"
+
+#~ msgid "publish req."
+#~ msgstr "požad. publikace"
+
+#~ msgid "unpublish req."
+#~ msgstr "požad. depublikace"
+
+#~ msgid "delete"
+#~ msgstr "smazat"
+
+#~ msgid "created by"
+#~ msgstr "vytvořil"
+
+#~ msgid "changed by"
+#~ msgstr "změnil"
+
+#~ msgid "When to expire the page. Leave empty to never expire."
+#~ msgstr "Doba vypršení stránky. Prázdné pole = neomezená platnost"
+
+#~ msgid "All ancestors will not be displayed in the navigation"
+#~ msgstr "Potomci nebudou zobrazeni v navigaci"
+
+#~ msgid "is published"
+#~ msgstr "publikováno"
+
+#~ msgid "The template used to render the content."
+#~ msgstr "Šablona pro vykreslení obsahu"
+
+#~ msgid "pages"
+#~ msgstr "stránky"
+
+#~ msgid "Page was copied."
+#~ msgstr "Stránka byla zkopírována."
+
+#~ msgid "default"
+#~ msgstr "výchozí"
+
+#~ msgid "can add"
+#~ msgstr "smí přidávat"
+
+#~ msgid "can delete"
+#~ msgstr "smí mazat"
+
+#~ msgid "can change advanced settings"
+#~ msgstr "smí měnit Rozšířené možnosti"
+
+#~ msgid "can change permissions"
+#~ msgstr "smí měnit oprávnění"
+
+#~ msgid "on page level"
+#~ msgstr "na úrovni stránky"
+
+#~ msgid "can move"
+#~ msgstr "smí přesunovat"
+
+#~ msgid "can moderate"
+#~ msgstr "správa"
+
+#~ msgid "can recover pages"
+#~ msgstr "obnova stránky"
+
+#~ msgid "can recover any deleted page"
+#~ msgstr "obnova smazané stránky"
+
+#~ msgid "Page global permission"
+#~ msgstr "Globální oprávnění stránky"
+
+#~ msgid "Pages global permissions"
+#~ msgstr "Globální oprávnění stránek"
+
+#~ msgid "Grant on"
+#~ msgstr "Platné pro"
+
+#~ msgid "Page permission"
+#~ msgstr "Práva stránky"
+
+#~ msgid "User (page)"
+#~ msgstr "Uživatel (stránka)"
+
+#~ msgid "Users (page)"
+#~ msgstr "Uživatelé (stránka)"
+
+#~ msgid "User group (page)"
+#~ msgstr "Skupina uživatel (stránka)"
+
+#~ msgid "User groups (page)"
+#~ msgstr "Skupiny uživatel (stránka)"
+
+#~ msgid "width"
+#~ msgstr "šírka"
+
+#~ msgid "overwrite the title in the menu"
+#~ msgstr "vlastní popisek v menu"
+
+#~ msgid "Path"
+#~ msgstr "Cesta"
+
+#~ msgid "File"
+#~ msgstr "Soubor"
+
+#~ msgid "file"
+#~ msgstr "soubor"
+
+#~ msgid "Flash"
+#~ msgstr "Flash"
+
+#~ msgid "use swf file"
+#~ msgstr "použít swf soubor"
+
+#~ msgid "height"
+#~ msgstr "výška"
+
+#~ msgid "Google Map"
+#~ msgstr "Google mapa"
+
+#~ msgid "map title"
+#~ msgstr "popisek mapy"
+
+#~ msgid "address"
+#~ msgstr "adresa"
+
+#~ msgid "zip code"
+#~ msgstr "PSČ"
+
+#~ msgid "city"
+#~ msgstr "město"
+
+#~ msgid "additional content"
+#~ msgstr "další obsah"
+
+#~ msgid "zoom level"
+#~ msgstr "úroveň přiblížení"
+
+#~ msgid "latitude"
+#~ msgstr "zeměpisná šířka"
+
+#~ msgid "longitude"
+#~ msgstr "zeměpisná délka"
+
+#~ msgid "Calculate your fastest way to here"
+#~ msgstr "Spočítat nejrychlejší cestu"
+
+#~ msgid "route planer"
+#~ msgstr "plánovač cesty"
+
+#~ msgid "Map"
+#~ msgstr "Mapa"
+
+#~ msgid "Calculate route"
+#~ msgstr "Spočítat cestu"
+
+#~ msgid "Inherit Plugins from Page"
+#~ msgstr "Podědit typy obsahu ze stránky"
+
+#~ msgid "Picture"
+#~ msgstr "Obrázek"
+
+#~ msgid "left"
+#~ msgstr "levá strana"
+
+#~ msgid "right"
+#~ msgstr "pravá strana"
+
+#~ msgid "image"
+#~ msgstr "obrázek"
+
+#~ msgid "alternate text"
+#~ msgstr "alternativní text"
+
+#~ msgid "textual description of the image"
+#~ msgstr "textový popisek obrázku"
+
+#~ msgid "long description"
+#~ msgstr "dlouhý popis"
+
+#~ msgid "additional description of the image"
+#~ msgstr "dodatečný popis obrázku"
+
+#~ msgid "side"
+#~ msgstr "strana"
+
+#~ msgid "Snippet"
+#~ msgstr "Snippet"
+
+#~ msgid "Template %(template)s does not exist."
+#~ msgstr "Šalona %(template)s neexistuje."
+
+#~ msgid "HTML"
+#~ msgstr "HTML"
+
+#~ msgid "Snippets"
+#~ msgstr "Snippety"
+
+#~ msgid "more"
+#~ msgstr "více"
+
+#~ msgid "Text"
+#~ msgstr "Text"
+
+#~ msgid "body"
+#~ msgstr "tělo"
+
+#~ msgid "Plugins"
+#~ msgstr "Typy obsahu"
+
+#~ msgid "Please select a plugin type."
+#~ msgstr "Prosím zvolte typ obsahu"
+
+#~ msgid "Edit selected plugin"
+#~ msgstr "Upravit zvolený typ obsahu"
+
+#~ msgid "Text editor does not support editing objects."
+#~ msgstr "Textový editor nepodporuje editaci objektů"
+
+#~ msgid "No object selected."
+#~ msgstr "Nebyl zvolen žádný objekt."
+
+#~ msgid "Text editor does not support inserting objects."
+#~ msgstr "Textový editor nepodporuje vkládání objektů."
+
+#~ msgid "Available Plugins"
+#~ msgstr "Dostupné typy obsahu"
+
+#~ msgid "Insert plugin"
+#~ msgstr "Vložit typ obsahu"
+
+#~ msgid "Twitter"
+#~ msgstr "Twitter"
+
+#~ msgid "twitter user"
+#~ msgstr "Twitter: uživatelské jméno"
+
+#~ msgid "count"
+#~ msgstr "počet"
+
+#~ msgid "Number of entries to display"
+#~ msgstr "Počet položek ku zobrazení"
+
+#~ msgid "Video"
+#~ msgstr "Video"
+
+#~ msgid "Color Settings"
+#~ msgstr "Nastavení barev"
+
+#~ msgid "movie file"
+#~ msgstr "video soubor"
+
+#~ msgid "movie url"
+#~ msgstr "URL videa"
+
+#~ msgid "preview image file"
+#~ msgstr "náhled obrázku"
+
+#~ msgid "auto play"
+#~ msgstr "automatické přehrávání"
+
+#~ msgid "auto hide"
+#~ msgstr "automatické skrývání"
+
+#~ msgid "fullscreen"
+#~ msgstr "Celoobrazovkový režim"
+
+#~ msgid "loop"
+#~ msgstr "nekonečná smyčka"
+
+#~ msgid "background color"
+#~ msgstr "barva pozadí"
+
+#~ msgid "text color"
+#~ msgstr "barva textu"
+
+#~ msgid "Save"
+#~ msgstr "Uložit"
+
+#~ msgid "Delete %(language)s translation"
+#~ msgstr "Smazat překlad v jazyce: %(language)s"
+
+#~ msgid "Save as new"
+#~ msgstr "Uložit jako novou"
+
+#~ msgid "Save and add another"
+#~ msgstr "Uložit a přidat další"
+
+#~ msgid "Save and continue editing"
+#~ msgstr "Uložit a pokračovat v editaci"
+
+#~ msgid "Last changes"
+#~ msgstr "Poslední změny"
+
+#~ msgid "Log in to administration <a href=\"%(login_url)s\">here</a>."
+#~ msgstr "<a href=\"%(login_url)s\">Přihlášení do zázemí</a>"
+
+#~ msgid "Username:"
+#~ msgstr "Uživatelské jméno:"
+
+#~ msgid "Password:"
+#~ msgstr "Heslo:"
+
+#~ msgid "Change a page"
+#~ msgstr "Změnit"
+
+#~ msgid "Home"
+#~ msgstr "Domů"
+
+#~ msgid "draft"
+#~ msgstr "náčrt"
+
+#~ msgid "Preview"
+#~ msgstr "Náhled"
+
+#~ msgid "History"
+#~ msgstr "Historie"
+
+#~ msgid "View on site"
+#~ msgstr "Zobrazit"
+
+#~ msgid "All permissions"
+#~ msgstr "Všechna oprávnění"
+
+#~ msgid "Loading..."
+#~ msgstr "Načítání..."
+
+#~ msgid "List of pages"
+#~ msgstr "Seznam stránek"
+
+#~ msgid "Successfully moved"
+#~ msgstr "Úspěšně přesunuto"
+
+#~ msgid "An error occured. Please reload the page"
+#~ msgstr "Nastala chyba. Prosím obnovte stránku"
+
+#~ msgid "Recover deleted %(name)s"
+#~ msgstr "Obnovit smazané: %(name)s"
+
+#~ msgid "Add %(name)s"
+#~ msgstr "Přidat %(name)s"
+
+#~ msgid "Pages on:"
+#~ msgstr "Stránky na:"
+
+#~ msgid "Filter:"
+#~ msgstr "Filtr:"
+
+#~ msgid "on"
+#~ msgstr "zap."
+
+#~ msgid "off"
+#~ msgstr "vyp."
+
+#~ msgid "Filter"
+#~ msgstr "Filtr"
+
+#~ msgid "actions"
+#~ msgstr "akce"
+
+#~ msgid "published"
+#~ msgstr "publikováno"
+
+#~ msgid "start"
+#~ msgstr "od"
+
+#~ msgid "end"
+#~ msgstr "do"
+
+#~ msgid "last changes"
+#~ msgstr "poslední změny"
+
+#~ msgid "select this page"
+#~ msgstr "vybrat tuto stránku"
+
+#~ msgid "edit this page"
+#~ msgstr "upravit tuto stránku"
+
+#~ msgid "edit"
+#~ msgstr "upravit"
+
+#~ msgid "insert above"
+#~ msgstr "vložit nad"
+
+#~ msgid "insert below"
+#~ msgstr "vložit pod"
+
+#~ msgid "insert inside"
+#~ msgstr "vložit do"
+
+#~ msgid "home"
+#~ msgstr "domů"
+
+#~ msgid "Edit this page in %(language)s "
+#~ msgstr "Upravit stránku v jazyce:  %(language)s"
+
+#~ msgid "Cut"
+#~ msgstr "Vyjmout"
+
+#~ msgid "cut"
+#~ msgstr "vyjmout"
+
+#~ msgid "Copy"
+#~ msgstr "Kopírovat"
+
+#~ msgid "copy"
+#~ msgstr "kopírovat"
+
+#~ msgid "Add Child"
+#~ msgstr "Přidat potomka"
+
+#~ msgid "add"
+#~ msgstr "přidání"
+
+#~ msgid "view"
+#~ msgstr "zobrazit"
+
+#~ msgid "Unpublish"
+#~ msgstr "Depublikovat"
+
+#~ msgid "View on page"
+#~ msgstr "Zobrazit"
+
+#~ msgid "Action"
+#~ msgstr "Akce"
+
+#~ msgid "Created"
+#~ msgstr "Vytvořeno"
+
+#~ msgid "Message"
+#~ msgstr "Vzkaz"
+
+#~ msgid "Group"
+#~ msgstr "Skupina"
+
+#~ msgid "Can edit"
+#~ msgstr "Smí upravovat"
+
+#~ msgid "Can add"
+#~ msgstr "Smí přidávat"
+
+#~ msgid "Can delete"
+#~ msgstr "Smí mazat"
+
+#~ msgid "Can publish"
+#~ msgstr "Smí publikovat"
+
+#~ msgid "Can change permissions"
+#~ msgstr "Smí měnit oprávnění"
+
+#~ msgid "Can move"
+#~ msgstr "Smí přesouvat"
+
+#~ msgid "(global)"
+#~ msgstr "(globální)"
+
+#~ msgid "(current)"
+#~ msgstr "(aktuální)"
+
+#~ msgid "All"
+#~ msgstr "Vše"
+
+#~ msgid "Page doesn't inherit any permissions."
+#~ msgstr "Stránka nemá žádná další kritéria"
+
+#~ msgid "An old revision of a plugin can not be saved!"
+#~ msgstr "Stará verze typu obsahu nemůže být uložena!"
+
+#~ msgid "Plugin saved successfully."
+#~ msgstr "Typ obsahu byl úspěšně uložen"
+
+#~ msgid "Recover deleted %(verbose_name)s"
+#~ msgstr "Obnovit smazané %(verbose_name)s"
+
+#~ msgid "Press the save button below to recover this version of the object."
+#~ msgstr "Použijte tlačítko 'uložit' pro obnovu této verze objektu."
+
+#~ msgid "Copy options"
+#~ msgstr "Kopírovat volby"
+
+#~ msgid "Choose copy options"
+#~ msgstr "Zvolte volby pro zkopírování"
+
+#~ msgid "Add Plugin"
+#~ msgstr "Přidat typ obsahu"
+
+#~ msgid "From Language"
+#~ msgstr "Z jazyka"
+
+#~ msgid "Copy Plugins"
+#~ msgstr "Kopírovat typ obsahu"
+
+#~ msgid "You must save the page first to add plugins."
+#~ msgstr "Pro přidání typu obsahu je potřebné nejprve uložit stránku."
+
+#~ msgid "No Plugin selected. Selected one on the left side"
+#~ msgstr "Není zvolen žádný typ obsahu. Vyberte z nabídky na levé straně."
+
+#~ msgid "No Plugins present. Add a plugin to this placeholder-slot."
+#~ msgstr ""
+#~ "Není dostupný žádný typ obsahu. Přidejte typ obsahu do placeholderu (TODO)"
+
+#~ msgid "Are you sure you want to delete this plugin?"
+#~ msgstr "Určitě chcete smazat tento typ obsahu"
+
+#~ msgid "up"
+#~ msgstr "nahoře"
+
+#~ msgid "down"
+#~ msgstr "dole"
+
+#~ msgid "Username"
+#~ msgstr "Uživatelské jmeno"
+
+#~ msgid "Status"
+#~ msgstr "Status"
+
+#~ msgid "sidebar column"
+#~ msgstr "barva pozadí"
+
+#~ msgid "left column"
+#~ msgstr "barva pozadí"
+
+#~ msgid "right column"
+#~ msgstr "barva pozadí"
+
+#~ msgid "Invalid URL, use /my/url format."
+#~ msgstr "Neplatná URL, použijte formát /moje/url/adresa."
+
+#~ msgid "move"
+#~ msgstr "move request"
+
+#~ msgid "fgcolor"
+#~ msgstr "foreground color"
+
+#~ msgid "Wanted language has not been translated yet."
+#~ msgstr "Requested language has not been translated yet."
