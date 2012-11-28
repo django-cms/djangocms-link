@@ -4,5 +4,7 @@
 .project
 .pydevproject
 .settings
+djangocms_link.egg-info
+dist
 build
 env*
