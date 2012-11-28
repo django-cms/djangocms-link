@@ -5,7 +5,7 @@ from djangocms_link import __version__
 
 
 INSTALL_REQUIRES = [
-    'django-cms>=2.3',
+    #'Django-Select2',
 ]
 
 CLASSIFIERS = [
