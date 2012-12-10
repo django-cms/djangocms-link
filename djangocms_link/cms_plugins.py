@@ -12,6 +12,7 @@ class LinkPlugin(CMSPluginBase):
     name = _("Link")
     render_template = "cms/plugins/link.html"
     text_enabled = True
+    allow_children = True
 
     def render(self, context, instance, placeholder):
         if instance.mailto:

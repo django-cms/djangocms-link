@@ -1,1 +1,1 @@
-<span class="plugin_link"><a href="{{ link }}"{% if target %} target="{{ target }}"{% endif %}>{{ name }}</a></span>
+{% if not instance.child_plugin_instances %}<span class="plugin_link">{% endif %}<a href="{{ link }}"{% if target %} target="{{ target }}"{% endif %}>{% for plugin in instance.child_plugin_instances %}{% render_plugin plugin %}{% empty %}{{ name }}{% endfor %}</a>{% if instance.child_plugin_instances %}</span>{% endif %}

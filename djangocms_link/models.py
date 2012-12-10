@@ -6,7 +6,6 @@ class Link(CMSPlugin):
     """
     A link to an other page or to an external website
     """
-
     name = models.CharField(_("name"), max_length=256)
     url = models.URLField(_("link"), blank=True, null=True)
     page_link = models.ForeignKey(Page, verbose_name=_("page"), blank=True, null=True, help_text=_("A link to a page has priority over a text link."))

@@ -21,6 +21,13 @@ If you want to enable the ajax loading:
 * Add ``'django_select2'`` to your ``INSTALLED_APPS`` settings.
 * Add ``url(r'^select2/', include('django_select2.urls')),`` to your main ``urls.py``.
 
+
+Children
+--------
+
+This plugin supports child plugins. If you add an other plugin as a child it will take this content
+instead of the link name as the content of the link.
+
 Translations
 ------------
 

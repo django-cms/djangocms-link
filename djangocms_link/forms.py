@@ -3,8 +3,6 @@ from django.utils.translation import ugettext_lazy as _
 from models import Link
 from cms.models import Page
 
-
-
 class LinkForm(ModelForm):
     try:
         from cms.forms.fields import PageSearchField
