@@ -5,11 +5,11 @@ from cms.models import Page
 
 class LinkForm(ModelForm):
     try:
-        from cms.forms.fields import PageSearchField
-        page_link = PageSearchField(label=_("page"), queryset=Page.objects.drafts(), required=False, search_fields=['title_set__name'])
-    except:
-        from django import forms
-        page_link = forms.ModelChoiceField(label=_("page"), queryset=Page.objects.drafts(), required=False)
+        from .fields import PageSearchField
+        page_link = PageSearchField(label=_("page"), queryset=Page.objects.drafts(), required=False)
+    except ImportError:
+        from cms.forms.fields import PageSelectFormField
+        page_link = PageSelectFormField (label=_("page"), queryset=Page.objects.drafts(), required=False)
 
     def for_site(self, site):
         # override the page_link fields queryset to containt just pages for
