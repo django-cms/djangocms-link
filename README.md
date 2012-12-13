@@ -17,7 +17,7 @@ To enable this install Django-Select2 3.1.2 or above.
 
 If you want to enable the ajax loading:
 
-* In your projects `virtualenv`_, run ``pip install Django-Select2``.
+* In your projects `virtualenv`_, run ``pip install https://github.com/stefanfoulis/django-select2/archive/3.1.5a1.dev1.tar.gz#egg=Django-Select2-3.1.5a1.dev1``.
 * Add ``'django_select2'`` to your ``INSTALLED_APPS`` settings.
 * Add ``url(r'^select2/', include('django_select2.urls')),`` to your main ``urls.py``.
 
