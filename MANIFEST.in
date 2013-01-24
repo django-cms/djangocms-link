@@ -2,4 +2,4 @@ include LICENSE.txt
 include README.md
 recursive-include djangocms_link/locale *
 recursive-include djangocms_link/templates *
-recursive-exclude * *.pyc
+recursive-exclude *.pyc
