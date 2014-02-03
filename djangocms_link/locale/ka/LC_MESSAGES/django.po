@@ -1,21 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# André Bouatchidzé <a@anbz.net>, 2012.
+# André Bouatchidzé <a@anbz.net>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-25 10:41+0200\n"
-"PO-Revision-Date: 2012-09-19 14:44+0000\n"
+"PO-Revision-Date: 2013-11-19 16:12+0000\n"
 "Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
-"Language-Team: divio.ch <developers@divio.ch>\n"
-"Language: ka\n"
+"Language-Team: Georgian (http://www.transifex.com/projects/p/django-cms/language/ka/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ka\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Country: SWITZERLAND\n"
 "X-Poedit-Language: English\n"
@@ -43,7 +43,7 @@ msgstr ""
 
 #: models.py:13
 msgid "mailto"
-msgstr ""
+msgstr "ელ. ფოსტის მისამართი"
 
 #: models.py:13
 msgid "An email adress has priority over a text link."
@@ -55,160 +55,16 @@ msgstr ""
 
 #: models.py:15
 msgid "same window"
-msgstr ""
+msgstr "იგივე ფანჯარა"
 
 #: models.py:16
 msgid "new window"
-msgstr ""
+msgstr "ახალი ფანჯარა"
 
 #: models.py:17
 msgid "parent window"
-msgstr ""
+msgstr "მშობელი ფანჯარა"
 
 #: models.py:18
 msgid "topmost frame"
 msgstr ""
-
-#~ msgid "Title"
-#~ msgstr "სათაური"
-
-#~ msgid "Language"
-#~ msgstr "ენა"
-
-#~ msgid "Page Title"
-#~ msgstr "გვერდის სათაური"
-
-#~ msgid "Redirect"
-#~ msgstr "გადამისამართება"
-
-#~ msgid "user"
-#~ msgstr "მომხმარებელი"
-
-#~ msgid "Add"
-#~ msgstr "დამატება"
-
-#~ msgid "New password"
-#~ msgstr "ახალი პაროლი"
-
-#~ msgid "Groups"
-#~ msgstr "ჯგუფები"
-
-#~ msgid "Password"
-#~ msgstr "პაროლი"
-
-#~ msgid "language"
-#~ msgstr "ენა"
-
-#~ msgid "title"
-#~ msgstr "სათაური"
-
-#~ msgid "everybody"
-#~ msgstr "ყველა"
-
-#~ msgid "group"
-#~ msgstr "ჯგუფი"
-
-#~ msgid "status"
-#~ msgstr "სტატუსი"
-
-#~ msgid "author"
-#~ msgstr "ავტორი"
-
-#~ msgid "redirect"
-#~ msgstr "გადამისამართება"
-
-#~ msgid "site"
-#~ msgstr "საიტი"
-
-#~ msgid "sites"
-#~ msgstr "საიტები"
-
-#~ msgid "User (page)"
-#~ msgstr "მომხმარებელი (გვერდი)"
-
-#~ msgid "Users (page)"
-#~ msgstr "მომხმარებლები (გვერდი)"
-
-#~ msgid "width"
-#~ msgstr "სიგანე"
-
-#~ msgid "overwrite the title in the menu"
-#~ msgstr "გადამისამართება"
-
-#~ msgid "File"
-#~ msgstr "ფაილი"
-
-#~ msgid "file"
-#~ msgstr "ფაილი"
-
-#~ msgid "Map"
-#~ msgstr "რუკა"
-
-#~ msgid "Picture"
-#~ msgstr "სურათი"
-
-#~ msgid "image"
-#~ msgstr "გამოსახულება"
-
-#~ msgid "more"
-#~ msgstr "მეტი"
-
-#~ msgid "Text"
-#~ msgstr "ტექსტი"
-
-#~ msgid "we"
-#~ msgstr "ჩვენ"
-
-#~ msgid "we were"
-#~ msgstr "ჩვენ ვიყავით"
-
-#~ msgid "background color"
-#~ msgstr "background color"
-
-#~ msgid "text color"
-#~ msgstr "ტექსტის ფერი"
-
-#~ msgid "Save"
-#~ msgstr "შენახვა"
-
-#~ msgid "Last changes"
-#~ msgstr "ბოლო ცვლილებები"
-
-#~ msgid "Password:"
-#~ msgstr "პაროლი:"
-
-#~ msgid "List of pages"
-#~ msgstr "გვერდების სია"
-
-#~ msgid "edit this page"
-#~ msgstr "ამ გვერდის რედაქტირება"
-
-#~ msgid "edit"
-#~ msgstr "რედაქტირება"
-
-#~ msgid "Group"
-#~ msgstr "ჯგუფი"
-
-#~ msgid "All"
-#~ msgstr "ყველა"
-
-#~ msgid "From Language"
-#~ msgstr "ენიდან"
-
-#~ msgid "sidebar column"
-#~ msgstr "background color"
-
-#~ msgid "left column"
-#~ msgstr "background color"
-
-#~ msgid "right column"
-#~ msgstr "background color"
-
-#~ msgid "move"
-#~ msgstr "move request"
-
-#~ msgid "fgcolor"
-#~ msgstr "foreground color"
-
-#~ msgid "Wanted language has not been translated yet."
-#~ msgstr "Requested language has not been translated yet."

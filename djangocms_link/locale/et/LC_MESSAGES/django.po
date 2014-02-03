@@ -1,20 +1,21 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
+# Martin Pajuste <martinpajuste@gmail.com>, 2012
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-25 10:41+0200\n"
-"PO-Revision-Date: 2012-09-19 14:44+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
-"Language-Team: divio.ch <developers@divio.ch>\n"
-"Language: et\n"
+"PO-Revision-Date: 2013-11-19 16:12+0000\n"
+"Last-Translator: Martin Pajuste <martinpajuste@gmail.com>\n"
+"Language-Team: Estonian (http://www.transifex.com/projects/p/django-cms/language/et/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: et\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Country: SWITZERLAND\n"
 "X-Poedit-Language: English\n"
@@ -22,7 +23,7 @@ msgstr ""
 
 #: cms_plugins.py:12
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: forms.py:11 forms.py:14 models.py:12
 msgid "page"
@@ -30,11 +31,11 @@ msgstr "lehekülg"
 
 #: models.py:10
 msgid "name"
-msgstr ""
+msgstr "nimi"
 
 #: models.py:11
 msgid "link"
-msgstr ""
+msgstr "link"
 
 #: models.py:12
 msgid "A link to a page has priority over a text link."
@@ -42,7 +43,7 @@ msgstr ""
 
 #: models.py:13
 msgid "mailto"
-msgstr ""
+msgstr "e-posti aadress"
 
 #: models.py:13
 msgid "An email adress has priority over a text link."
@@ -54,11 +55,11 @@ msgstr ""
 
 #: models.py:15
 msgid "same window"
-msgstr ""
+msgstr "sama aken"
 
 #: models.py:16
 msgid "new window"
-msgstr ""
+msgstr "uus aken"
 
 #: models.py:17
 msgid "parent window"
@@ -67,176 +68,3 @@ msgstr ""
 #: models.py:18
 msgid "topmost frame"
 msgstr ""
-
-#~ msgid "Advanced options"
-#~ msgstr "Täpsemad valikud"
-
-#~ msgid "Title"
-#~ msgstr "Pealkiri"
-
-#~ msgid "The default title"
-#~ msgstr "Vaikimisi pealkiri"
-
-#~ msgid "Slug"
-#~ msgstr "Aadressi komponent"
-
-#~ msgid "The part of the title that is used in the URL"
-#~ msgstr "Osa pealkirjast, mida kasutatakse internetiaadressi koostamiseks"
-
-#~ msgid "Language"
-#~ msgstr "Keel"
-
-#~ msgid "The current language of the content fields."
-#~ msgstr "Sisu väljade aktiivne keel."
-
-#~ msgid "Another page with this slug already exists"
-#~ msgstr "Selle aadressi komponendiga lehekülg on juba olemas"
-
-#~ msgid "Menu Title"
-#~ msgstr "Pealkiri menüüs"
-
-#~ msgid "Overwrite what is displayed in the menu"
-#~ msgstr "Kirjuta üle menüüs kuvatav"
-
-#~ msgid "Page Title"
-#~ msgstr "Lehekülje pealkiri"
-
-#~ msgid ""
-#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
-#~ msgstr "Kirjuta üle veebilehitseja ülaosas või järjehoidjas kuvatav"
-
-#~ msgid "Application"
-#~ msgstr "Rakendus"
-
-#~ msgid "Hook application to this page."
-#~ msgstr "Haagi rakendus selle lehekülje külge."
-
-#~ msgid "Overwrite URL"
-#~ msgstr "Kirjuta üle internetiaadress"
-
-#~ msgid "Keep this field empty if standard path should be used."
-#~ msgstr "Hoia see väli tühjana, et kasutada standardset rada."
-
-#~ msgid "Redirect"
-#~ msgstr "Ümbersuunamine"
-
-#~ msgid "Redirects to this URL."
-#~ msgstr "Suuna ümber sellele internetiaadressile."
-
-#~ msgid "A description of the page sometimes used by search engines."
-#~ msgstr "Lehekülje kirjeldus mida mõnikord kasutavad otsingumootorid."
-
-#~ msgid "A list of comma seperated keywords sometimes used by search engines."
-#~ msgstr ""
-#~ "Komade eraldatud nimekiri märksõnadest mida mõnikord kasutavad "
-#~ "otsingumootorid."
-
-#~ msgid "A page with this reverse URL id exists already."
-#~ msgstr "Sellise pööratud identifikaatoriga lehekülg on juba olemas."
-
-#~ msgid "user"
-#~ msgstr "kasutaja"
-
-#~ msgid ""
-#~ "Add page permission requires also access to children, or descendants, "
-#~ "otherwise added page can't be changed by its creator."
-#~ msgstr ""
-#~ "Õigus lehekülge lisada nõuab ka ligipääsu alamlehekülgede, vastasel juhul "
-#~ "ei saa lehekülje looja lisatud lehekülge muuta."
-
-#~ msgid "Add page permission also requires edit page permission."
-#~ msgstr "Õigus lehekülge lisada nõuab ka lehekülje muutmise õigust."
-
-#~ msgid "Please select user or group first."
-#~ msgstr "Palun vali kasutaja või kasutajate grupp."
-
-#~ msgid "Add"
-#~ msgstr "Lisa"
-
-#~ msgid "Change"
-#~ msgstr "Muuda"
-
-#~ msgid "Delete"
-#~ msgstr "Kustuta"
-
-#~ msgid "Recover (any) pages"
-#~ msgstr "Taasta leheküljed."
-
-#~ msgid "Notify user"
-#~ msgstr "Teavita kasutajat"
-
-#~ msgid ""
-#~ "Send email notification to user about username or password change. "
-#~ "Requires user email."
-#~ msgstr ""
-#~ "Saada kasutajale märguanne kasutajanime või parooli muutusest. Vajab "
-#~ "kasutaja e-posti aadressi. "
-
-#~ msgid "New password"
-#~ msgstr "Uus parool"
-
-#~ msgid "New password confirmation"
-#~ msgstr "Uue parooli kinnitus"
-
-#~ msgid "Email notification requires valid email address."
-#~ msgstr "E-posti teel teavitamine nõuab kehtivat e-posti aadressi."
-
-#~ msgid ""
-#~ "The permission to add new pages requires the permission to change pages!"
-#~ msgstr "Õigus lisada uusi lehekülgi nõuab õigust lehekülgi muuta!"
-
-#~ msgid ""
-#~ "The permission to add new users requires the permission to change users!"
-#~ msgstr "Õigus lisada uusi kasutajaid nõuab õigust kasutajaid muuta!"
-
-#~ msgid "To add permissions you also need to edit them!"
-#~ msgstr "Õiguste lisamiseks pead sa neid ka muutma!"
-
-#~ msgid "Basic Settings"
-#~ msgstr "Põhiseadistused"
-
-#~ msgid "Note: This page reloads if you change the selection. Save it first."
-#~ msgstr ""
-#~ "Tähelepanu: Valiku muutmisel lehekülg laeb ennast uuesti. Salvesta ennem."
-
-#~ msgid "Hidden"
-#~ msgstr "Peidetud"
-
-#~ msgid "Advanced Settings"
-#~ msgstr "Muud seadistused"
-
-#~ msgid "SEO Settings"
-#~ msgstr "Otsingumootoritele suunatud seadistused"
-
-#~ msgid "higher"
-#~ msgstr "kõrgem"
-
-#~ msgid "Database error"
-#~ msgstr "Andmebaasi viga"
-
-#~ msgid "Page was successfully approved."
-#~ msgstr "Leheküljele heakskiit antud."
-
-#~ msgid "%(name)s object with primary key %(key)r does not exist."
-#~ msgstr "Objekti %(name)s primaarvõtmega %(key)r ei ole olemas."
-
-#~ msgid "There only exists one translation for this page"
-#~ msgstr "Sellel leheküljel on ainult üks tõlge."
-
-#~ msgid "Title and plugins with language %(language)s was deleted"
-#~ msgstr "Pealkiri ja pluginad %(language)s keeles kustutatud"
-
-#~ msgid "Are you sure?"
-#~ msgstr "Kas oled kindel?"
-
-#~ msgid "Invalid URL, use /my/url format."
-#~ msgstr "Vigane internetiaadress, kasuta formaati /minu/url ."
-
-#~ msgid "move"
-#~ msgstr "move request"
-
-#~ msgid "fgcolor"
-#~ msgstr "foreground color"
-
-#~ msgid "Wanted language has not been translated yet."
-#~ msgstr "Requested language has not been translated yet."

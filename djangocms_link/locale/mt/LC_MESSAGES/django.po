@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 10:41+0200\n"
+"PO-Revision-Date: 2013-12-11 14:24+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: Maltese (http://www.transifex.com/projects/p/django-cms/language/mt/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: mt\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n==0 || ( n%100>1 && n%100<11) ? 1 : (n%100>10 && n%100<20 ) ? 2 : 3);\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr ""
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr ""
+
+#: models.py:10
+msgid "name"
+msgstr ""
+
+#: models.py:11
+msgid "link"
+msgstr ""
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr ""
+
+#: models.py:13
+msgid "mailto"
+msgstr ""
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr ""
+
+#: models.py:14
+msgid "target"
+msgstr ""
+
+#: models.py:15
+msgid "same window"
+msgstr ""
+
+#: models.py:16
+msgid "new window"
+msgstr ""
+
+#: models.py:17
+msgid "parent window"
+msgstr ""
+
+#: models.py:18
+msgid "topmost frame"
+msgstr ""

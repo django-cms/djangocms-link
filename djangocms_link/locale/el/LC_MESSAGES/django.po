@@ -1,21 +1,23 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# Kostas Papadimitriou <vinilios@gmail.com>, 2011.
+# Christos <christos@eplanconsultants.com>, 2013
+# Kostas Papadimitriou <vinilios@gmail.com>, 2011
+# xouskarle <xouskarle@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-25 10:41+0200\n"
-"PO-Revision-Date: 2012-09-19 14:44+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
-"Language-Team: divio.ch <developers@divio.ch>\n"
-"Language: el\n"
+"PO-Revision-Date: 2013-11-19 16:12+0000\n"
+"Last-Translator: xouskarle <xouskarle@gmail.com>\n"
+"Language-Team: Greek (http://www.transifex.com/projects/p/django-cms/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: el\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-Country: SWITZERLAND\n"
 "X-Poedit-Language: English\n"
@@ -23,7 +25,7 @@ msgstr ""
 
 #: cms_plugins.py:12
 msgid "Link"
-msgstr "Δεσμός"
+msgstr "Σύνδεσμος"
 
 #: forms.py:11 forms.py:14 models.py:12
 msgid "page"
@@ -35,344 +37,36 @@ msgstr "όνομα"
 
 #: models.py:11
 msgid "link"
-msgstr ""
+msgstr "σύνδεσμος"
 
 #: models.py:12
 msgid "A link to a page has priority over a text link."
-msgstr ""
+msgstr "Ένας σύνδεσμος σε σελίδα έχει προτεραιότητα έναντι ενός σύνδεσμου σε κειμένο."
 
 #: models.py:13
 msgid "mailto"
-msgstr "δεσμός αποστολής email"
+msgstr "διεύθυνση ηλεκτρονικής αλληλογραφίας"
 
 #: models.py:13
 msgid "An email adress has priority over a text link."
-msgstr ""
+msgstr "Μια διεύθυνση ηλεκτρονικής αλληλογραφίας έχει προτεραιότητα έναντι ενός συνδέσμου σε κείμενο"
 
 #: models.py:14
 msgid "target"
-msgstr ""
+msgstr "στόχος"
 
 #: models.py:15
 msgid "same window"
-msgstr ""
+msgstr "ίδιο παράθυρο"
 
 #: models.py:16
 msgid "new window"
-msgstr ""
+msgstr "νέο παράθυρο"
 
 #: models.py:17
 msgid "parent window"
-msgstr ""
+msgstr "αρχικό παράθυρο"
 
 #: models.py:18
 msgid "topmost frame"
-msgstr ""
-
-#~ msgid "Advanced options"
-#~ msgstr "Προχωρημένες επιλογές"
-
-#~ msgid "Title"
-#~ msgstr "Τίτλος"
-
-#~ msgid "The default title"
-#~ msgstr "Προεπιλεγμένος τίτλος"
-
-#~ msgid "Slug"
-#~ msgstr "Slug"
-
-#~ msgid "The part of the title that is used in the URL"
-#~ msgstr "Μέρος του τίτλου που χρησιμοποιείται στο URL"
-
-#~ msgid "Language"
-#~ msgstr "Γλώσσα"
-
-#~ msgid "The current language of the content fields."
-#~ msgstr "Η επιλεγμένη γλώσσα των πεδίων περιεχομένου"
-
-#~ msgid "Another page with this slug already exists"
-#~ msgstr "Υπάρχει ήδη σελίδα με αυτό το slug"
-
-#~ msgid "Menu Title"
-#~ msgstr "Τίτλος Μενού"
-
-#~ msgid "Overwrite what is displayed in the menu"
-#~ msgstr "Αντικατάσταση στην εμφάνιση του μενού"
-
-#~ msgid "Page Title"
-#~ msgstr "Τίτλος Σελίδας"
-
-#~ msgid ""
-#~ "Overwrites what is displayed at the top of your browser or in bookmarks"
-#~ msgstr ""
-#~ "Αντικαθιστά αυτό που εμφανίζεται στο επάνω μέρος του browser σας ή στους "
-#~ "σελιδοδείκτες"
-
-#~ msgid "Application"
-#~ msgstr "Εφαρμογή"
-
-#~ msgid "Hook application to this page."
-#~ msgstr "Σύνδεση εφαρμογής σε αυτή τη σελίδα."
-
-#~ msgid "Overwrite URL"
-#~ msgstr "Αντικατάστησε το URL"
-
-#~ msgid "Keep this field empty if standard path should be used."
-#~ msgstr ""
-#~ "Αφήστε αυτό το πεδίο κενό, για να χρησιμοποιηθεί το πρότυπο μονοπάτι "
-#~ "(path)."
-
-#~ msgid "Redirect"
-#~ msgstr "Ανακατεύθυνση"
-
-#~ msgid "Redirects to this URL."
-#~ msgstr "Ανακατεύθυνση στο ακόλουθο URL."
-
-#~ msgid "A description of the page sometimes used by search engines."
-#~ msgstr ""
-#~ "Μια περιγραφή της σελίδας που μερικές φορές χρησιμοποιείται από τις "
-#~ "μηχανές αναζήτησης."
-
-#~ msgid "A list of comma seperated keywords sometimes used by search engines."
-#~ msgstr ""
-#~ "Μια λίστα με \"λέξεις κλειδιά\" που χρησιμοποιούνται μερικές φορές από "
-#~ "τις μηχανές αναζήτησης."
-
-#~ msgid "user"
-#~ msgstr "χρήστης"
-
-#~ msgid "Please select user or group first."
-#~ msgstr "Παρακαλώ επιλέξτε πρώτα το χρήστη ή την ομάδα χρηστών."
-
-#~ msgid "Add"
-#~ msgstr "Προσθήκη"
-
-#~ msgid "Change"
-#~ msgstr "Αλλαγή"
-
-#~ msgid "Delete"
-#~ msgstr "Διαγραφή"
-
-#~ msgid "Notify user"
-#~ msgstr "Ειδοποίησε το χρήστη"
-
-#~ msgid "New password"
-#~ msgstr "Νέος κωδικός πρόσβασης"
-
-#~ msgid "New password confirmation"
-#~ msgstr "Επιβεβαίωση νέου κωδικού πρόσβασης"
-
-#~ msgid "Email notification requires valid email address."
-#~ msgstr ""
-#~ "Η ειδοποίηση μέσω ηλεκτρονικού ταχυδρομείου απαιτεί έγκυρη διεύθυνση "
-#~ "ηλεκτρονικού ταχυδρομείου."
-
-#~ msgid "Basic Settings"
-#~ msgstr "Βασικές ρυθμίσεις."
-
-#~ msgid "Hidden"
-#~ msgstr "Κρυφό"
-
-#~ msgid "Advanced Settings"
-#~ msgstr "Προχωρημένες Ρυθμίσεις"
-
-#~ msgid "SEO Settings"
-#~ msgstr "Ρυθμίσεις Βελτιστοποίησης Μηχανών Αναζήτησης (SEO)"
-
-#~ msgid "Database error"
-#~ msgstr "Σφάλμα στη βάση δεδομένων"
-
-#~ msgid "Page was successfully approved."
-#~ msgstr "Η σελίδα εγκρίθηκε επιτυχώς."
-
-#~ msgid "Are you sure?"
-#~ msgstr "Είσαι σίγουρος?"
-
-#~ msgid "You do not have permission to publish this page"
-#~ msgstr "Δεν έχεις δικαίωμα δημοσίευσης αυτής της σελίδας"
-
-#~ msgid "You do not have permission to change this page"
-#~ msgstr "Δεν έχεις δικαίωμα αλλαγής αυτής της σελίδας"
-
-#~ msgid "Page permissions"
-#~ msgstr "Άδειες σελίδας"
-
-#~ msgid "User & Group permissions"
-#~ msgstr "Άδειες Χρηστών και Ομάδων"
-
-#~ msgid "User details"
-#~ msgstr "Λεπτομέρειες Χρήστη"
-
-#~ msgid "Groups"
-#~ msgstr "Ομάδες"
-
-#~ msgid "Password"
-#~ msgstr "Κωδικός πρόσβασης"
-
-#~ msgid "Copy permissions"
-#~ msgstr "Αντιγραφή αδειών"
-
-#~ msgid "Add Another"
-#~ msgstr "Προσθήκη και άλλου"
-
-#~ msgid "language"
-#~ msgstr "γλώσσα"
-
-#~ msgid "position"
-#~ msgstr "θέση"
-
-#~ msgid "slug"
-#~ msgstr "slug"
-
-#~ msgid "everybody"
-#~ msgstr "όλοι"
-
-#~ msgid "id"
-#~ msgstr "id"
-
-#~ msgid "default"
-#~ msgstr "Εξ' Ορισμού"
-
-#~ msgid "width"
-#~ msgstr "πλάτος"
-
-#~ msgid "File"
-#~ msgstr "Αρχείο"
-
-#~ msgid "file"
-#~ msgstr "αρχείο"
-
-#~ msgid "height"
-#~ msgstr "ύψος"
-
-#~ msgid "Google Map"
-#~ msgstr "Χάρτης Google"
-
-#~ msgid "map title"
-#~ msgstr "τίτλος χάρτη"
-
-#~ msgid "address"
-#~ msgstr "διεύθυνση"
-
-#~ msgid "zip code"
-#~ msgstr "ταχυδρομικός κώδικας"
-
-#~ msgid "city"
-#~ msgstr "πόλη"
-
-#~ msgid "latitude"
-#~ msgstr "γεωγραφικό πλάτος"
-
-#~ msgid "longitude"
-#~ msgstr "γεωγραφικό μήκος"
-
-#~ msgid "Map"
-#~ msgstr "Χάρτης"
-
-#~ msgid "Calculate route"
-#~ msgstr "Υπολογισμός διαδρομής"
-
-#~ msgid "Picture"
-#~ msgstr "Εικόνα"
-
-#~ msgid "left"
-#~ msgstr "αριστερά"
-
-#~ msgid "right"
-#~ msgstr "δεξιά"
-
-#~ msgid "image"
-#~ msgstr "εικόνα"
-
-#~ msgid "if present image will be clickable"
-#~ msgstr "αν υπάρχει, θα επιτρέπεται το κλικ στην εικόνα"
-
-#~ msgid "textual description of the image"
-#~ msgstr "περιγραφή εικόνας"
-
-#~ msgid "fullscreen"
-#~ msgstr "πλήρης οθόνη"
-
-#~ msgid "Save"
-#~ msgstr "Αποθήκευση"
-
-#~ msgid "Save as new"
-#~ msgstr "Αποθήκευση ως νέο"
-
-#~ msgid "Save and add another"
-#~ msgstr "Αποθήκευση και προσθήκη νέου"
-
-#~ msgid "Save and continue editing"
-#~ msgstr "Αποθήκευση και παραμονή σε κατάσταση επεξεργασίας"
-
-#~ msgid "Last changes"
-#~ msgstr "Τελευταίες αλλαγές"
-
-#~ msgid "Username:"
-#~ msgstr "Όνομα χρήστη:"
-
-#~ msgid "Password:"
-#~ msgstr "Κωδικός πρόσβασης:"
-
-#~ msgid "Home"
-#~ msgstr "Αρχική σελίδα"
-
-#~ msgid "Preview"
-#~ msgstr "Προεπισκόπιση"
-
-#~ msgid "Cut"
-#~ msgstr "Αποκοπή"
-
-#~ msgid "cut"
-#~ msgstr "αποκοπή"
-
-#~ msgid "Copy"
-#~ msgstr "Αντιγραφή"
-
-#~ msgid "copy"
-#~ msgstr "αντιγραφή"
-
-#~ msgid "add"
-#~ msgstr "προσθήκη"
-
-#~ msgid "Message"
-#~ msgstr "Μήνυμα"
-
-#~ msgid "Group"
-#~ msgstr "Ομάδα"
-
-#~ msgid "All"
-#~ msgstr "Όλα"
-
-#~ msgid "Are you sure you want to delete this plugin?"
-#~ msgstr "Είσαι σίγουρος πως θέλεις να διαγράψεις αυτό το πρόσθετο?"
-
-#~ msgid "English"
-#~ msgstr "Αγγλικά"
-
-#~ msgid "French"
-#~ msgstr "Γαλλικά"
-
-#~ msgid "German"
-#~ msgstr "Γερμανικά"
-
-#~ msgid "Brazil"
-#~ msgstr "Βραζιλία"
-
-#~ msgid "two columns"
-#~ msgstr "δύο στήλες"
-
-#~ msgid "three columns"
-#~ msgstr "τρεις στήλες"
-
-#~ msgid "Invalid URL, use /my/url format."
-#~ msgstr "Λάθος μορφή URL. Χρησιμοποιήστε τη μορφή /my/url."
-
-#~ msgid "move"
-#~ msgstr "move request"
-
-#~ msgid "fgcolor"
-#~ msgstr "foreground color"
-
-#~ msgid "Wanted language has not been translated yet."
-#~ msgstr "Requested language has not been translated yet."
+msgstr "ανώτατο πλαίσιο"

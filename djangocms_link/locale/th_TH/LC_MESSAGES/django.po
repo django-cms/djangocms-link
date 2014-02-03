@@ -1,21 +1,20 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# 
 # Translators:
-# AriesAnywhere Anywhere <ariesanywhere@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-25 10:41+0200\n"
-"PO-Revision-Date: 2012-09-19 14:44+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
-"Language-Team: divio.ch <developers@divio.ch>\n"
-"Language: th_TH\n"
+"PO-Revision-Date: 2012-10-25 08:22+0000\n"
+"Last-Translator: Benjamin Wohlwend <piquadrat@gmail.com>\n"
+"Language-Team: Thai (Thailand) (http://www.transifex.com/projects/p/django-cms/language/th_TH/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: th_TH\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Poedit-Country: SWITZERLAND\n"
 "X-Poedit-Language: English\n"
@@ -68,42 +67,3 @@ msgstr ""
 #: models.py:18
 msgid "topmost frame"
 msgstr ""
-
-#~ msgid "Advanced options"
-#~ msgstr "ตัวเลือกขั้นสูง"
-
-#~ msgid "Language"
-#~ msgstr "ภาษา"
-
-#~ msgid "Add"
-#~ msgstr "เพิ่ม"
-
-#~ msgid "Change"
-#~ msgstr "เปลี่ยน"
-
-#~ msgid "Delete"
-#~ msgstr "ลบ"
-
-#~ msgid "Notify user"
-#~ msgstr "แจ้งเตือนผู้ใช้งาน"
-
-#~ msgid "New password"
-#~ msgstr "รหัสผ่านใหม่"
-
-#~ msgid "New password confirmation"
-#~ msgstr "ยืนยันรหัสผ่านใหม่"
-
-#~ msgid "Basic Settings"
-#~ msgstr "ตั้งค่าพื้นฐาน"
-
-#~ msgid "Advanced Settings"
-#~ msgstr "ตั้งค่าขั้นสูง"
-
-#~ msgid "move"
-#~ msgstr "move request"
-
-#~ msgid "fgcolor"
-#~ msgstr "foreground color"
-
-#~ msgid "Wanted language has not been translated yet."
-#~ msgstr "Requested language has not been translated yet."

@@ -1,0 +1,69 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# 
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: django-cms\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-10-25 10:41+0200\n"
+"PO-Revision-Date: 2013-11-19 16:12+0000\n"
+"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/django-cms/language/ko_KR/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ko_KR\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-Country: SWITZERLAND\n"
+"X-Poedit-Language: English\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: cms_plugins.py:12
+msgid "Link"
+msgstr "연결"
+
+#: forms.py:11 forms.py:14 models.py:12
+msgid "page"
+msgstr "페이지"
+
+#: models.py:10
+msgid "name"
+msgstr "이름"
+
+#: models.py:11
+msgid "link"
+msgstr "연결"
+
+#: models.py:12
+msgid "A link to a page has priority over a text link."
+msgstr "텍스트 링크보다 페이지 링크가 우선 됨"
+
+#: models.py:13
+msgid "mailto"
+msgstr "이메일 주소"
+
+#: models.py:13
+msgid "An email adress has priority over a text link."
+msgstr "텍스트 링크보다  이메일 주소가 우선 됨"
+
+#: models.py:14
+msgid "target"
+msgstr "타겟"
+
+#: models.py:15
+msgid "same window"
+msgstr "같은 창"
+
+#: models.py:16
+msgid "new window"
+msgstr "새 창"
+
+#: models.py:17
+msgid "parent window"
+msgstr "부모 창"
+
+#: models.py:18
+msgid "topmost frame"
+msgstr "가장 위 프레임"
