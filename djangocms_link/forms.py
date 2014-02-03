@@ -13,6 +13,7 @@ class LinkForm(ModelForm):
     def for_site(self, site):
         # override the page_link fields queryset to containt just pages for
         # current site
+        from cms.models import Page
         self.fields['page_link'].queryset = Page.objects.drafts().on_site(site)
 
     class Meta:
