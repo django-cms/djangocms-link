@@ -1332,7 +1332,7 @@ msgstr ""
 #~ msgid "Status"
 #~ msgstr "status"
 
-#~ msgid "Switch on/off"
+#~ msgid "ButtonList on/off"
 #~ msgstr "Ligar/Desligar"
 
 #~ msgid "Unbind page moderation"

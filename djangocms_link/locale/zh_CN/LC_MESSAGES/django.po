@@ -1292,7 +1292,7 @@ msgstr ""
 #~ msgid "Status"
 #~ msgstr "状态"
 
-#~ msgid "Switch on/off"
+#~ msgid "ButtonList on/off"
 #~ msgstr "开关"
 
 #~ msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"

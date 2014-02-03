@@ -1353,7 +1353,7 @@ msgstr "верхний фрейм"
 #~ msgid "Status"
 #~ msgstr "Статус"
 
-#~ msgid "Switch on/off"
+#~ msgid "ButtonList on/off"
 #~ msgstr "Включить/Выключить"
 
 #~ msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"

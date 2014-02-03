@@ -1325,7 +1325,7 @@ msgstr ""
 #~ msgid "Status"
 #~ msgstr "Статус"
 
-#~ msgid "Switch on/off"
+#~ msgid "ButtonList on/off"
 #~ msgstr "Включване/изключване"
 
 #~ msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"

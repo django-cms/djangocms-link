@@ -1381,7 +1381,7 @@ msgstr "bovenste venster"
 #~ msgid "Status"
 #~ msgstr "Status"
 
-#~ msgid "Switch on/off"
+#~ msgid "ButtonList on/off"
 #~ msgstr "Schakel in/uit"
 
 #~ msgid "<span title=\"Restrictions: %(title)s\">%(icon)s</span>"

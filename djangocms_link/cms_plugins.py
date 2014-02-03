@@ -7,6 +7,7 @@ from djangocms_link.forms import LinkForm
 from models import Link
 
 class LinkPlugin(CMSPluginBase):
+
     model = Link
     form = LinkForm
     name = _("Link")
