@@ -1,6 +1,6 @@
 from django.forms.models import ModelForm
 from django.utils.translation import ugettext_lazy as _
-from models import Link
+from djangocms_link.models import Link
 
 class LinkForm(ModelForm):
     try:
