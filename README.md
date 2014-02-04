@@ -7,7 +7,7 @@ A Link plugin for django CMS.
 Installation
 ------------
 
-This plugin requires `django CMS` 2.4 or higher to be properly installed and
+This plugin requires `django CMS` 3.0 or higher to be properly installed and
 configured. If you have many pages it supports ajax loading for selecting a page.
 To enable this install Django-Select2 3.1.2 or above.
 
