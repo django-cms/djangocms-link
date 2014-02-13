@@ -26,15 +26,15 @@ msgstr ""
 
 #: forms.py:11 forms.py:14 models.py:12
 msgid "page"
-msgstr ""
+msgstr "side"
 
 #: models.py:10
 msgid "name"
-msgstr ""
+msgstr "navn"
 
 #: models.py:11
 msgid "link"
-msgstr ""
+msgstr "link"
 
 #: models.py:12
 msgid "A link to a page has priority over a text link."

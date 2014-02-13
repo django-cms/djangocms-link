@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-10-25 10:41+0200\n"
-"PO-Revision-Date: 2013-12-11 14:07+0000\n"
+"PO-Revision-Date: 2014-02-06 13:31+0000\n"
 "Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
 "Language-Team: Lithuanian (http://www.transifex.com/projects/p/django-cms/language/lt/)\n"
 "MIME-Version: 1.0\n"
@@ -22,19 +22,19 @@ msgstr ""
 
 #: cms_plugins.py:12
 msgid "Link"
-msgstr ""
+msgstr "Nuoroda"
 
 #: forms.py:11 forms.py:14 models.py:12
 msgid "page"
-msgstr ""
+msgstr "puslapis"
 
 #: models.py:10
 msgid "name"
-msgstr ""
+msgstr "pavadinimas"
 
 #: models.py:11
 msgid "link"
-msgstr ""
+msgstr "nuoroda"
 
 #: models.py:12
 msgid "A link to a page has priority over a text link."
@@ -42,7 +42,7 @@ msgstr ""
 
 #: models.py:13
 msgid "mailto"
-msgstr ""
+msgstr "el. pašto adresas"
 
 #: models.py:13
 msgid "An email adress has priority over a text link."
@@ -54,11 +54,11 @@ msgstr ""
 
 #: models.py:15
 msgid "same window"
-msgstr ""
+msgstr "tas pats langas"
 
 #: models.py:16
 msgid "new window"
-msgstr ""
+msgstr "naujas langas"
 
 #: models.py:17
 msgid "parent window"
