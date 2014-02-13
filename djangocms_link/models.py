@@ -21,3 +21,4 @@ class Link(CMSPlugin):
         return self.name
 
     search_fields = ('name',)
+
