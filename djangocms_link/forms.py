@@ -11,7 +11,7 @@ class LinkForm(ModelForm):
         page_link = PageSearchField(queryset=Page.objects.drafts(), label=_("page"), required=False)
     except ImportError:
         from cms.forms.fields import PageSelectFormField
-        page_link = PageSelectFormField(queryset=Page.objects.filter(title_set__published=True), label=_("page"), required=False)
+        page_link = PageSelectFormField(queryset=Page.objects.drafts(), label=_("page"), required=False)
 
     def for_site(self, site):
         # override the page_link fields queryset to containt just pages for
