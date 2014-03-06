@@ -42,7 +42,7 @@ msgstr ""
 
 #: models.py:13
 msgid "mailto"
-msgstr ""
+msgstr "mail til"
 
 #: models.py:13
 msgid "An email adress has priority over a text link."
