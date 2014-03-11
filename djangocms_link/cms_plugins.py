@@ -6,6 +6,7 @@ from cms.plugin_base import CMSPluginBase
 from djangocms_link.forms import LinkForm
 from djangocms_link.models import Link
 
+
 class LinkPlugin(CMSPluginBase):
 
     model = Link
@@ -27,6 +28,7 @@ class LinkPlugin(CMSPluginBase):
         context.update({
             'name': instance.name,
             'link': link,
+            'anchor': instance.anchor,
             'target':instance.target,
             'placeholder': placeholder,
             'object': instance
