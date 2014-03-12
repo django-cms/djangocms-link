@@ -20,6 +20,19 @@ class Link(CMSPlugin):
         ("_top", _("topmost frame")),
     )))
 
+    def link(self):
+        if self.phone:
+            link = u"tel://%s" % self.phone
+        elif self.mailto:
+            link = u"mailto:%s" % self.mailto
+        elif self.url:
+            link = self.url
+        elif self.page_link:
+            link = self.page_link.get_absolute_url()
+        else:
+            link = ""
+        return link
+
     def __unicode__(self):
         return self.name
 

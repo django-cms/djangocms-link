@@ -16,16 +16,7 @@ class LinkPlugin(CMSPluginBase):
     allow_children = True
 
     def render(self, context, instance, placeholder):
-        if instance.phone:
-            link = u"tel://%s" % instance.phone
-        elif instance.mailto:
-            link = u"mailto:%s" % instance.mailto
-        elif instance.url:
-            link = instance.url
-        elif instance.page_link:
-            link = instance.page_link.get_absolute_url()
-        else:
-            link = ""
+        link = instance.link()
         context.update({
             'name': instance.name,
             'link': link,
