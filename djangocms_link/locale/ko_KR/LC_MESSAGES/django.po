@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-25 10:41+0200\n"
-"PO-Revision-Date: 2014-03-04 08:32+0000\n"
+"POT-Creation-Date: 2014-03-12 11:05+0100\n"
+"PO-Revision-Date: 2014-03-12 10:05+0000\n"
 "Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
 "Language-Team: Korean (Korea) (http://www.transifex.com/projects/p/django-cms/language/ko_KR/)\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: cms_plugins.py:12
+#: cms_plugins.py:13
 msgid "Link"
 msgstr "연결"
 
@@ -49,21 +49,29 @@ msgid "An email adress has priority over a text link."
 msgstr "텍스트 링크보다  이메일 주소가 우선 됨"
 
 #: models.py:14
+msgid "Phone"
+msgstr ""
+
+#: models.py:15
+msgid "A phone number has priority over a mailto link."
+msgstr ""
+
+#: models.py:16
 msgid "target"
 msgstr "타겟"
 
-#: models.py:15
+#: models.py:17
 msgid "same window"
 msgstr "같은 창"
 
-#: models.py:16
+#: models.py:18
 msgid "new window"
 msgstr "새 창"
 
-#: models.py:17
+#: models.py:19
 msgid "parent window"
 msgstr "부모 창"
 
-#: models.py:18
+#: models.py:20
 msgid "topmost frame"
 msgstr "가장 위 프레임"

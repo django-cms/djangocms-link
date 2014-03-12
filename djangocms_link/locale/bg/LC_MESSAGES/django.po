@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-10-25 10:41+0200\n"
-"PO-Revision-Date: 2014-03-04 08:32+0000\n"
+"POT-Creation-Date: 2014-03-12 11:05+0100\n"
+"PO-Revision-Date: 2014-03-12 10:05+0000\n"
 "Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/projects/p/django-cms/language/bg/)\n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,7 @@ msgstr ""
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: cms_plugins.py:12
+#: cms_plugins.py:13
 msgid "Link"
 msgstr "Връзка"
 
@@ -51,21 +51,29 @@ msgid "An email adress has priority over a text link."
 msgstr "Email адрес има приоритет над текстова връзка."
 
 #: models.py:14
+msgid "Phone"
+msgstr ""
+
+#: models.py:15
+msgid "A phone number has priority over a mailto link."
+msgstr ""
+
+#: models.py:16
 msgid "target"
 msgstr "цел"
 
-#: models.py:15
+#: models.py:17
 msgid "same window"
 msgstr "същия прозорец"
 
-#: models.py:16
+#: models.py:18
 msgid "new window"
 msgstr "нов прозорец"
 
-#: models.py:17
+#: models.py:19
 msgid "parent window"
 msgstr ""
 
-#: models.py:18
+#: models.py:20
 msgid "topmost frame"
 msgstr ""
