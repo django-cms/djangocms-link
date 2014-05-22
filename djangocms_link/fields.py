@@ -1,5 +1,5 @@
 from django.conf import settings
-if 'django_select2' in settings.INSTALLED_APPS:
+if 'django_select2' in settings.INSTALLED_APPS and getattr(settings, "DJANGOCMS_LINK_ENABLE_SELECT2", False):
     try:
 
         from django_select2.fields import AutoModelSelect2Field
