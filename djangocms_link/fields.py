@@ -1,4 +1,8 @@
 from django.conf import settings
+# to enable django_select2:
+# - the app must be in the installed apps
+# - the setting DJANGOCMS_LINK_ENABLE_SELECT2 must be set to True
+
 if 'django_select2' in settings.INSTALLED_APPS and getattr(settings, "DJANGOCMS_LINK_ENABLE_SELECT2", False):
     try:
 
