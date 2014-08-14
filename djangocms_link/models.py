@@ -10,6 +10,7 @@ class Link(CMSPlugin):
     name = models.CharField(_("name"), max_length=256)
     url = models.URLField(_("link"), blank=True, null=True)
     page_link = models.ForeignKey(Page, verbose_name=_("page"), blank=True, null=True, help_text=_("A link to a page has priority over a text link."), on_delete=models.SET_NULL)
+    anchor = models.CharField(_("anchor"), max_length=128, blank=True, help_text=_("This applies only to page and text links."))
     mailto = models.EmailField(_("mailto"), blank=True, null=True, help_text=_("An email adress has priority over a text link."))
     phone = models.CharField(_('Phone'), blank=True, null=True, max_length=40,
                              help_text=_('A phone number has priority over a mailto link.'))
@@ -31,6 +32,8 @@ class Link(CMSPlugin):
             link = self.page_link.get_absolute_url()
         else:
             link = ""
+        if (self.url or self.page_link) and self.anchor:
+            link += '#' + self.anchor
         return link
 
     def __unicode__(self):
