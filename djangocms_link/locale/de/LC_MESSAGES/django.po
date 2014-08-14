@@ -4,14 +4,14 @@
 # 
 # Translators:
 # Jonas Obrist <me@ojii.ch>, 2011
-# bikeshedder <michael.jung@terreon.de>, 2013
-# Patrick Lauber <patrick.lauber@divio.ch>, 2012
+# Michael P. Jung <michael.jung@terreon.de>, 2013
+# Patrick Lauber <patrick.lauber@divio.ch>, 2012,2014
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-12 11:05+0100\n"
-"PO-Revision-Date: 2014-03-12 10:05+0000\n"
+"PO-Revision-Date: 2014-03-18 08:30+0000\n"
 "Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
 "Language-Team: German (http://www.transifex.com/projects/p/django-cms/language/de/)\n"
 "MIME-Version: 1.0\n"
@@ -53,11 +53,11 @@ msgstr "Eine E-Mail-Adresse hat Priorität vor einem Textlink."
 
 #: models.py:14
 msgid "Phone"
-msgstr ""
+msgstr "Telefon"
 
 #: models.py:15
 msgid "A phone number has priority over a mailto link."
-msgstr ""
+msgstr "Eine Telefonnummer hat eine höhere Priorität als ein Email Link."
 
 #: models.py:16
 msgid "target"

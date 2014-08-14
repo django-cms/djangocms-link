@@ -7,14 +7,15 @@
 # Dimmus <dmitri.chudinov@gmail.com>, 2011
 # Gleb Chipiga <gleb.chipiga@gmail.com>, 2011
 # koodjo <koodjo@mail.ru>, 2012
+# Oleg Rybkin <okfish@yandex.ru>, 2014
 # andrey_shipilov <tezro.gb@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-12 11:05+0100\n"
-"PO-Revision-Date: 2014-03-12 10:05+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"PO-Revision-Date: 2014-03-12 14:01+0000\n"
+"Last-Translator: Oleg Rybkin <okfish@yandex.ru>\n"
 "Language-Team: Russian (http://www.transifex.com/projects/p/django-cms/language/ru/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,11 +56,11 @@ msgstr "Email имеет приоритет над текстовой ссылк
 
 #: models.py:14
 msgid "Phone"
-msgstr ""
+msgstr "Телефон"
 
 #: models.py:15
 msgid "A phone number has priority over a mailto link."
-msgstr ""
+msgstr "Номера телефона имеет приоритет над почтовой ссылкой."
 
 #: models.py:16
 msgid "target"

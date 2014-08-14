@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# bursoftbfc1681230474f25 <bursoft@gmail.com>, 2013
+# Ahmet Çakır <bursoft@gmail.com>, 2013
 # Yasin YILMAZ <yasinyilmaz301@gmail.com>, 2013
 msgid ""
 msgstr ""

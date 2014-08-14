@@ -3,14 +3,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# rafa.trevisan <rafa.trevisan@gmail.com>, 2013
+# Rafael Duarte Trevisan <rafa.trevisan@gmail.com>, 2013
+# Rodrigo <rprior@infranology.com.br>, 2014
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-12 11:05+0100\n"
-"PO-Revision-Date: 2014-03-12 10:05+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"PO-Revision-Date: 2014-04-26 00:40+0000\n"
+"Last-Translator: Rodrigo <rprior@infranology.com.br>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/projects/p/django-cms/language/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,11 +52,11 @@ msgstr "Um endereço de e-mail tem prioridade sobre um link de texto."
 
 #: models.py:14
 msgid "Phone"
-msgstr ""
+msgstr "Telefone"
 
 #: models.py:15
 msgid "A phone number has priority over a mailto link."
-msgstr ""
+msgstr "O número de telefone tem prioridade sobre o link mailto."
 
 #: models.py:16
 msgid "target"

@@ -6,7 +6,7 @@
 # Daigo Sakamoto <superdaigo@gmail.com>, 2011
 # Jonas Obrist <me@ojii.ch>, 2011
 # Jonas Obrist <ojiidotch@gmail.com>, 2012
-# whosaysni <whosaysni@gmail.com>, 2013
+# Yasushi Masuda <whosaysni@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"

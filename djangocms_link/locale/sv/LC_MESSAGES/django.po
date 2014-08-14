@@ -4,7 +4,7 @@
 # 
 # Translators:
 # hannseman <hannseman@gmail.com>, 2011
-# Jakob Hedman <jakob.hedman@gmail.com>, 2014
+# jakob.hedman <jakob.hedman@gmail.com>, 2014
 # Patrik Gärdeman <patrik.gardeman@gmail.com>, 2011
 # Simon Hedberg <simon@in-formation.se>, 2011
 # tapetersen <tobias.alex.petersen@gmail.com>, 2011

@@ -3,7 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# trostik <trostik@gmail.com>, 2013
+# Alex Trost <trostik@gmail.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"

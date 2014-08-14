@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 # 
 # Translators:
-# nanook <klaus.dahlen@gmail.com>, 2011
-# nanook <klaus.dahlen@gmail.com>, 2011
+# Klaus Dahlén <klaus.dahlen@gmail.com>, 2011
+# Klaus Dahlén <klaus.dahlen@gmail.com>, 2014
+# Klaus Dahlén <klaus.dahlen@gmail.com>, 2011
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-12 11:05+0100\n"
-"PO-Revision-Date: 2014-03-12 10:05+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"PO-Revision-Date: 2014-06-03 18:52+0000\n"
+"Last-Translator: Klaus Dahlén <klaus.dahlen@gmail.com>\n"
 "Language-Team: Finnish (http://www.transifex.com/projects/p/django-cms/language/fi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,28 +53,28 @@ msgstr "Sähköpostiosoite yliajaa tekstilinkin"
 
 #: models.py:14
 msgid "Phone"
-msgstr ""
+msgstr "Puhelin"
 
 #: models.py:15
 msgid "A phone number has priority over a mailto link."
-msgstr ""
+msgstr "Puhelinnumero yliajaa sähköpostilinkin."
 
 #: models.py:16
 msgid "target"
-msgstr ""
+msgstr "kohde"
 
 #: models.py:17
 msgid "same window"
-msgstr ""
+msgstr "sama ikkuna"
 
 #: models.py:18
 msgid "new window"
-msgstr ""
+msgstr "uusi ikkuna"
 
 #: models.py:19
 msgid "parent window"
-msgstr ""
+msgstr "isäntäikkuna"
 
 #: models.py:20
 msgid "topmost frame"
-msgstr ""
+msgstr "ylin kehys"

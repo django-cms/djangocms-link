@@ -4,14 +4,15 @@
 # 
 # Translators:
 # Alireza Savand <alireza.savand@gmail.com>, 2012
-# matinm <moosaei.matin@aol.com>, 2013
+# hamitreza <hamitreza@gmail.com>, 2014
+# Matin M. <moosaei.matin@aol.com>, 2013
 msgid ""
 msgstr ""
 "Project-Id-Version: django-cms\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-03-12 11:05+0100\n"
-"PO-Revision-Date: 2014-03-12 10:05+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
+"PO-Revision-Date: 2014-05-29 20:11+0000\n"
+"Last-Translator: hamitreza <hamitreza@gmail.com>\n"
 "Language-Team: Persian (http://www.transifex.com/projects/p/django-cms/language/fa/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,11 +53,11 @@ msgstr "آدرس ایمیل به پیوند متنی به صفحه اولویت 
 
 #: models.py:14
 msgid "Phone"
-msgstr ""
+msgstr "تلفن"
 
 #: models.py:15
 msgid "A phone number has priority over a mailto link."
-msgstr ""
+msgstr "شماره تلفن از یک لینک ارسال ایمیل اولویت بیشتری دارد."
 
 #: models.py:16
 msgid "target"
