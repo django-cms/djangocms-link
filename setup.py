@@ -30,7 +30,7 @@ setup(
     author='Divio AG',
     author_email='info@divio.ch',
     url='https://github.com/divio/djangocms-link',
-    packages=['djangocms_link', 'djangocms_link.migrations'],
+    packages=['djangocms_link', 'djangocms_link.migrations', 'djangocms_link.migrations_django'],
     install_requires=INSTALL_REQUIRES,
     license='LICENSE.txt',
     platforms=['OS Independent'],
