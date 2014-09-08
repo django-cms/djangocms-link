@@ -1,11 +1,15 @@
 from django.conf import settings
-if 'django_select2' in settings.INSTALLED_APPS:
+# to enable django_select2:
+# - the app must be in the installed apps
+# - the setting DJANGOCMS_LINK_ENABLE_SELECT2 must be set to True
+
+if 'django_select2' in settings.INSTALLED_APPS and getattr(settings, "DJANGOCMS_LINK_ENABLE_SELECT2", False):
     try:
 
         from django_select2.fields import AutoModelSelect2Field
 
         class PageSearchField(AutoModelSelect2Field):
-            empty_values = []
+            empty_value = []
             search_fields = ['title_set__title__icontains', 'title_set__menu_title__icontains', 'title_set__slug__icontains']
 
             def security_check(self, request, *args, **kwargs):
