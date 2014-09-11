@@ -8,6 +8,10 @@ if 'django_select2' in settings.INSTALLED_APPS:
             empty_values = []
             search_fields = ['title_set__title__icontains', 'title_set__menu_title__icontains', 'title_set__slug__icontains']
 
+            def get_queryset(self):
+                queryset = super(PageSearchField, self).get_queryset()
+                return queryset.distinct()
+
             def security_check(self, request, *args, **kwargs):
                 user = request.user
                 if user and not user.is_anonymous() and user.is_staff:

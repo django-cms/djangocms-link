@@ -1,8 +1,10 @@
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
 from django.conf import settings
+
 from cms.plugin_pool import plugin_pool
 from cms.plugin_base import CMSPluginBase
+
 from djangocms_link.forms import LinkForm
 from djangocms_link.models import Link
 
