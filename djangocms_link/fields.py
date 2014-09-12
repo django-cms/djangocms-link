@@ -1,5 +1,4 @@
 from django.conf import settings
-from django.core import validators
 
 
 if 'django_select2' in settings.INSTALLED_APPS:
