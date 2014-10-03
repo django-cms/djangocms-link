@@ -1,8 +1,11 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
+
 from cms.models import CMSPlugin, Page
+from cms.utils.compat.dj import python_2_unicode_compatible
 
 
+@python_2_unicode_compatible
 class Link(CMSPlugin):
     """
     A link to an other page or to an external website
@@ -43,7 +46,7 @@ class Link(CMSPlugin):
             link += '#' + self.anchor
         return link
 
-    def __unicode__(self):
+    def __str__(self):
         return self.name
 
     search_fields = ('name',)
