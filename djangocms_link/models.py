@@ -21,7 +21,7 @@ class Link(CMSPlugin):
         on_delete=models.SET_NULL
     )
     anchor = models.CharField(_("anchor"), max_length=128, blank=True, help_text=_("This applies only to page and text links."))
-    mailto = models.EmailField(_("mailto"), blank=True, null=True, help_text=_("An email adress has priority over a text link."))
+    mailto = models.EmailField(_("mailto"), blank=True, null=True, help_text=_("An email address has priority over a text link."))
     phone = models.CharField(_('Phone'), blank=True, null=True, max_length=40,
                              help_text=_('A phone number has priority over a mailto link.'))
     target = models.CharField(_("target"), blank=True, max_length=100, choices=((
