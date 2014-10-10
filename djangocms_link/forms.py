@@ -1,3 +1,4 @@
+from django.forms import ValidationError
 from django.forms.models import ModelForm
 from django.utils.translation import ugettext_lazy as _
 from djangocms_link.models import Link
@@ -33,3 +34,14 @@ class LinkForm(ModelForm):
         media._js = ['cms/js/libs/jquery.min.js'] + media._js
         return media
     media = property(_get_media)
+
+    def clean(self):
+        cleaned_data = super(LinkForm, self).clean()
+        url = cleaned_data.get("url")
+        page_link = cleaned_data.get("page_link")
+        mailto = cleaned_data.get("mailto")
+        phone = cleaned_data.get("phone")
+        if not any([url, page_link, mailto, phone]):
+            raise ValidationError(_("At least one link is required."))
+        return cleaned_data
+
