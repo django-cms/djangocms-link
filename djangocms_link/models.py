@@ -42,7 +42,7 @@ class Link(CMSPlugin):
             link = self.page_link.get_absolute_url()
         else:
             link = ""
-        if (self.url or self.page_link) and self.anchor:
+        if (self.url or self.page_link or not link) and self.anchor:
             link += '#' + self.anchor
         return link
 
