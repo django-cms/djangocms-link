@@ -4,10 +4,6 @@ from setuptools import setup
 from djangocms_link import __version__
 
 
-INSTALL_REQUIRES = [
-    #'Django-Select2',
-]
-
 CLASSIFIERS = [
     'Development Status :: 5 - Production/Stable',
     'Environment :: Web Environment',
@@ -31,7 +27,13 @@ setup(
     author_email='info@divio.ch',
     url='https://github.com/divio/djangocms-link',
     packages=['djangocms_link', 'djangocms_link.migrations', 'djangocms_link.migrations_django'],
-    install_requires=INSTALL_REQUIRES,
+    install_requires=[],
+    extras_require={
+        ":python_version=='3.3'": ['django-select2-py3'],
+        ":python_version=='3.4'": ['django-select2-py3'],
+        ":python_version=='2.6'": ['django-select2'],
+        ":python_version=='2.7'": ['django-select2'],
+    },
     license='LICENSE.txt',
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
