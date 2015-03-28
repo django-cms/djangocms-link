@@ -2,7 +2,6 @@ from django.forms import ValidationError
 from django.forms.models import ModelForm
 from django.utils.translation import ugettext_lazy as _
 from djangocms_link.models import Link
-from cms.models import Page
 from django.forms.widgets import Media
 
 
