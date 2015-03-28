@@ -4,8 +4,8 @@ from django.conf import settings
 if 'django_select2' in settings.INSTALLED_APPS:
     from django_select2.fields import AutoModelSelect2Field
 
-
     class PageSearchField(AutoModelSelect2Field):
+        site = None
         search_fields = [
             'title_set__title__icontains',
             'title_set__menu_title__icontains',
@@ -13,8 +13,11 @@ if 'django_select2' in settings.INSTALLED_APPS:
         ]
 
         def get_queryset(self):
-            queryset = super(PageSearchField, self).get_queryset()
-            return queryset.distinct()
+            from cms.models import Page
+            if self.site:
+                return Page.objects.drafts().on_site(self.site)
+            else:
+                return Page.objects.drafts()
 
         def security_check(self, request, *args, **kwargs):
             user = request.user
