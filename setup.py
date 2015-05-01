@@ -17,6 +17,8 @@ CLASSIFIERS = [
     'Topic :: Internet :: WWW/HTTP :: Dynamic Content :: Message Boards',
     'Programming Language :: Python :: 2.6',
     'Programming Language :: Python :: 2.7',
+    'Programming Language :: Python :: 3.3',
+    'Programming Language :: Python :: 3.4',
 ]
 
 setup(
@@ -27,13 +29,7 @@ setup(
     author_email='info@divio.ch',
     url='https://github.com/divio/djangocms-link',
     packages=['djangocms_link', 'djangocms_link.migrations', 'djangocms_link.migrations_django'],
-    install_requires=[],
-    extras_require={
-        ":python_version=='3.3'": ['django-select2-py3'],
-        ":python_version=='3.4'": ['django-select2-py3'],
-        ":python_version=='2.6'": ['django-select2'],
-        ":python_version=='2.7'": ['django-select2'],
-    },
+    install_requires=['django-select2>=4.3'],
     license='LICENSE.txt',
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
