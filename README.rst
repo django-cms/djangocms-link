@@ -1,9 +1,16 @@
-|PyPI Version| |Build Status| |Coverage Status|
-
-
-==============
+##############
 djangocms-link
-==============
+##############
+
+.. image:: https://img.shields.io/pypi/v/djangocms-link.svg
+    :target: https://pypi.python.org/pypi/djangocms-link/
+.. image:: https://img.shields.io/pypi/dm/djangocms-link.svg
+    :target: https://pypi.python.org/pypi/djangocms-link/
+.. image:: https://img.shields.io/badge/wheel-yes-green.svg
+    :target: https://pypi.python.org/pypi/djangocms-link/
+.. image:: https://img.shields.io/pypi/l/djangocms-link.svg
+    :target: https://pypi.python.org/pypi/djangocms-link/
+
 
 A Link plugin for django CMS.
 
@@ -42,5 +49,5 @@ Translations
 
 If you want to help translate the plugin please do it on transifex:
 
-https://www.transifex.com/projects/p/django-cms/resource/djangocms-link/
+https://www.transifex.com/projects/p/djangocms-link/resource/djangocms-link/
 
