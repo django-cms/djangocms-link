@@ -21,6 +21,10 @@ CLASSIFIERS = [
     'Programming Language :: Python :: 3.4',
 ]
 
+def read(fname):
+    readme_file = os.path.join(os.path.dirname(__file__), fname)
+    return os.popen('[ -x "$(which pandoc 2>/dev/null)" ] && pandoc -t rst {0} || cat {0}'.format(readme_file)).read()
+
 setup(
     name='djangocms-link',
     version=__version__,
@@ -33,7 +37,7 @@ setup(
     license='LICENSE.txt',
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
-    long_description=open('README.md').read(),
+    long_description=read('README.md'),
     include_package_data=True,
     zip_safe=False
 )
