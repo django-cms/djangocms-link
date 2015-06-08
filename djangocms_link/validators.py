@@ -38,7 +38,8 @@ class IntranetURLValidator(URLValidator):
     def __init__(self, intranet_host_re=None, **kwargs):
         super(IntranetURLValidator, self).__init__(**kwargs)
         if intranet_host_re:
-            self.host_re = '(' + self.hostname_re + self.domain_re + self.tld_re + '|' + intranet_host_re + '|localhost)'
+            self.host_re = ('(' + self.hostname_re + self.domain_re + 
+                self.tld_re + '|' + intranet_host_re + '|localhost)')
             self.regex = re.compile(
                 r'^(?:[a-z0-9\.\-]*)://'
                 r'(?:\S+(?::\S*)?@)?'
