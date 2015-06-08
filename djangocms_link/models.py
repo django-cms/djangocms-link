@@ -2,11 +2,14 @@
 
 from __future__ import unicode_literals
 
+from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin, Page
 from cms.utils.compat.dj import python_2_unicode_compatible
+
+from .validators import IntranetURLValidator
 
 
 @python_2_unicode_compatible
@@ -22,8 +25,13 @@ class Link(CMSPlugin):
         ("_top", _("topmost frame")),
     )
 
+    url_validators = [IntranetURLValidator(intranet_host_re=getattr(
+        settings, "DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN", None)), ]
+
     name = models.CharField(_("name"), max_length=256)
-    url = models.URLField(_("link"), blank=True, null=True)
+    # Re: max_length, see: http://stackoverflow.com/questions/417142/
+    url = models.CharField(_("link"), blank=True, null=True,
+        validators=url_validators, max_length=2048)
     page_link = models.ForeignKey(
         Page,
         verbose_name=_("page"),
