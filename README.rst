@@ -45,12 +45,17 @@ To support environments where non-standard URLs would otherwise work, this
 project supports the defining of an additional RegEx pattern for validating the
 host-portion of the URL.
 
-For example:
+For example: ::
 
-    RFC1123 Pattern
-        DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,-]{1,15}'
-    NetBios Pattern
-        DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,!@#$%^()\\-\'{}.~]{1,15}'
+    RFC1123 Pattern:
+    DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,-]{1,15}'
+
+    NetBios Pattern:
+    DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,!@#$%^()\\-\'{}.~]{1,15}'
+
+Either of these might accept a URL such as: ::
+
+    http://SEARCHHOST/?q=some+search+string
 
 If left undefined, the normal Django URLValidator will be used.
 
