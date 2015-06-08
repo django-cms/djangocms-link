@@ -38,6 +38,23 @@ If you want to enable the ajax loading:
 * Add :code:`url(r'^select2/, include('django_select2.urls')),` to your main ``urls.py``.
 
 
+Settings
+~~~~~~~~
+
+To support environments where non-standard URLs would otherwise work, this
+project supports the defining of an additional RegEx pattern for validating the
+host-portion of the URL.
+
+For example:
+
+    RFC1123 Pattern
+        DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,-]{1,15}'
+    NetBios Pattern
+        DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,!@#$%^()\\-\'{}.~]{1,15}'
+
+If left undefined, the normal Django URLValidator will be used.
+
+
 Children
 ~~~~~~~~
 
