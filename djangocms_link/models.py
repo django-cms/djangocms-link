@@ -41,7 +41,7 @@ class Link(CMSPlugin):
         on_delete=models.SET_NULL
     )
     anchor = models.CharField(_("anchor"), max_length=128, blank=True,
-        help_text=_("This applies only to page and text links."))
+        help_text=_('This applies only to page and text links. Do <em>not</em> include a preceding "#" symbol.'))
     mailto = models.EmailField(_("mailto"), blank=True, null=True,
         help_text=_("An email address has priority over a text link."))
     phone = models.CharField(_('Phone'), blank=True, null=True, max_length=40,

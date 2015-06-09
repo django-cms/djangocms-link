@@ -45,7 +45,7 @@ class LinkForm(ModelForm):
         page_link = cleaned_data.get("page_link")
         mailto = cleaned_data.get("mailto")
         phone = cleaned_data.get("phone")
-        if not any([url, page_link, mailto, phone]):
+        anchor = cleaned_data.get("anchor")
+        if not any([url, page_link, mailto, phone, anchor]):
             raise ValidationError(_("At least one link is required."))
         return cleaned_data
-
