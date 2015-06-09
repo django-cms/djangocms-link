@@ -4,12 +4,9 @@ from __future__ import unicode_literals
 
 import re
 
-from django.conf import settings
 from django.core.validators import URLValidator
-from django.utils.deconstruct import deconstructible
 
 
-@deconstructible
 class IntranetURLValidator(URLValidator):
     """
     This is essentially the normal, Django URL Validator, but allows for
@@ -38,7 +35,7 @@ class IntranetURLValidator(URLValidator):
     def __init__(self, intranet_host_re=None, **kwargs):
         super(IntranetURLValidator, self).__init__(**kwargs)
         if intranet_host_re:
-            self.host_re = ('(' + self.hostname_re + self.domain_re + 
+            self.host_re = ('(' + self.hostname_re + self.domain_re +
                 self.tld_re + '|' + intranet_host_re + '|localhost)')
             self.regex = re.compile(
                 r'^(?:[a-z0-9\.\-]*)://'
