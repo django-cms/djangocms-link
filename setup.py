@@ -28,7 +28,7 @@ setup(
     author='Divio AG',
     author_email='info@divio.ch',
     url='https://github.com/divio/djangocms-link',
-    packages=['djangocms_link', 'djangocms_link.migrations', 'djangocms_link.migrations_django'],
+    packages=['djangocms_link', 'djangocms_link.migrations', 'djangocms_link.south_migrations'],
     install_requires=['django-select2>=4.3'],
     license='LICENSE.txt',
     platforms=['OS Independent'],
