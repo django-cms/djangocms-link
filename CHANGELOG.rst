@@ -6,6 +6,7 @@ XXXX-XX-XX
 Version 1.7
 
 * Move migrations to standard location
+* Move to djangocms-helper for tests
 
 ----------
 2015-06-09
