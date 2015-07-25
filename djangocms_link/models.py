@@ -31,7 +31,7 @@ class Link(CMSPlugin):
     name = models.CharField(_("name"), max_length=256)
     # Re: max_length, see: http://stackoverflow.com/questions/417142/
     url = models.CharField(_("link"), blank=True, null=True,
-        validators=url_validators, max_length=2048)
+                           validators=url_validators, max_length=2048)
     page_link = models.ForeignKey(
         Page,
         verbose_name=_("page"),
@@ -41,13 +41,14 @@ class Link(CMSPlugin):
         on_delete=models.SET_NULL
     )
     anchor = models.CharField(_("anchor"), max_length=128, blank=True,
-        help_text=_('This applies only to page and text links. Do <em>not</em> include a preceding "#" symbol.'))
+                              help_text=_('This applies only to page and text links.'
+                                          'Do <em>not</em> include a preceding "#" symbol.'))
     mailto = models.EmailField(_("mailto"), blank=True, null=True,
-        help_text=_("An email address has priority over a text link."))
+                               help_text=_("An email address has priority over a text link."))
     phone = models.CharField(_('Phone'), blank=True, null=True, max_length=40,
-        help_text=_('A phone number has priority over a mailto link.'))
+                             help_text=_('A phone number has priority over a mailto link.'))
     target = models.CharField(_("target"), blank=True, max_length=100,
-        choices=TARGET_CHOICES)
+                              choices=TARGET_CHOICES)
 
     def link(self):
         if self.phone:
