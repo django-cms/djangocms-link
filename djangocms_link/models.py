@@ -72,7 +72,7 @@ class Link(CMSPlugin):
 
     def link(self):
         if self.phone:
-            link = u"tel://%s" % self.phone
+            link = u"tel:%s" % self.phone
         elif self.mailto:
             link = u"mailto:%s" % self.mailto
         elif self.url:
