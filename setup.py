@@ -33,7 +33,7 @@ setup(
     license='LICENSE.txt',
     platforms=['OS Independent'],
     classifiers=CLASSIFIERS,
-    long_description=open('README.rst').read(),
+    long_description=open("README.rst", 'r', encoding="utf-8").read(),
     include_package_data=True,
     zip_safe=False
 )
