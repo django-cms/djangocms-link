@@ -47,7 +47,7 @@ host-portion of the URL.
 
 For example: ::
 
-    # RFC1123 Pattern:
+    # RFC1123 Pattern:
     DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,-]{1,15}'
 
     # NetBios Pattern:
