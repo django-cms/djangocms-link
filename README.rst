@@ -35,7 +35,7 @@ If you want to enable the ajax loading:
 
 * In your projects :code:`virtualenv`, run :code:`pip install Django-Select2`.
 * Add :code:`'django_select2` to your :code:`INSTALLED_APPS` settings.
-* Add :code:`url(r'^select2/, include('django_select2.urls')),` to your main ``urls.py``.
+* Add :code:`url(r'^select2/', include('django_select2.urls')),` to your main ``urls.py``.
 
 
 Settings
