@@ -1,5 +1,13 @@
 
 ----------
+XXXX-XX-XX
+----------
+
+Version 1.7
+
+* Move migrations to standard location
+
+----------
 2015-06-09
 ----------
 
