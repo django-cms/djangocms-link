@@ -1,17 +1,11 @@
 # -*- coding: utf-8 -*-
 from cms.api import create_page, add_plugin
-from cms.plugin_rendering import render_placeholder
-from django.template import RequestContext
+from cms.plugin_rendering import render_placeholder, PluginContext
 from django.utils.encoding import force_text
 from djangocms_helper.base_test import BaseTestCase
 
 
 class LinkTestCase(BaseTestCase):
-
-    def get_context(self, page, context_vars={}):
-        request = self.get_request(page, 'en')
-        context_vars['request'] = request
-        return RequestContext(request, context_vars)
 
     def test_link(self):
 
@@ -45,9 +39,10 @@ class LinkTestCase(BaseTestCase):
     def test_render(self):
 
         page = create_page(title='hellp', template='page.html', language='en')
-        context = self.get_context(page)
+        request = self.get_request(page, 'en')
 
         plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', url='http://example.com', name='some text')
+        context = PluginContext({'request': request}, plugin, page.placeholders.get(slot='content'))
         output = render_placeholder(page.placeholders.get(slot='content'), context, editable=False)
         self.assertEqual(output, '<a href="http://example.com">some text</a>')
         plugin.delete()
