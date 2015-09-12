@@ -1,3 +1,2 @@
 django-cms>=2.3
 Django-Select2>=3.1.2
-transifex-client
