@@ -3,9 +3,9 @@ import unittest
 import django
 from django.utils.six import StringIO
 from django.core.management import call_command
+from django.utils.encoding import force_text
 from cms.api import create_page, add_plugin
 from cms.plugin_rendering import render_placeholder, PluginContext
-from django.utils.encoding import force_text
 from djangocms_helper.base_test import BaseTestCase
 
 
