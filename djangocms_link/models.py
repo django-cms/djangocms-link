@@ -45,7 +45,7 @@ class Link(CMSPlugin):
                                           ' Do <em>not</em> include a preceding "#" symbol.'))
     # Explicitly set a max_length so that we don't end up with different
     # schemata on Django 1.7 vs. 1.8.
-    mailto = models.EmailField(_("mailto"), max_length=75, blank=True, null=True,
+    mailto = models.EmailField(_("email address"), max_length=75, blank=True, null=True,
                                help_text=_("An email address has priority over a text link."))
     phone = models.CharField(_('Phone'), blank=True, null=True, max_length=40,
                              help_text=_('A phone number has priority over a mailto link.'))
