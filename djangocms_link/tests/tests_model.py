@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
-import unittest
 import django
 from django.utils.six import StringIO
 from django.core.management import call_command
 from django.utils.encoding import force_text
+# Need the copy of unittest2 bundled with Django for @skipIf on Python 2.6.
+from django.utils import unittest
 from cms.api import create_page, add_plugin
 from cms.plugin_rendering import render_placeholder, PluginContext
 from djangocms_helper.base_test import BaseTestCase
