@@ -24,7 +24,7 @@ configured. If you have many pages it supports ajax loading for selecting a page
 To enable this install Django-Select2 3.4 or above.
 
 * In your projects :code:`virtualenv`, run :code:`pip install djangocms-link`.
-* Add :code:`djangocms_link'` to your :code:`INSTALLED_APPS` setting.
+* Add :code:`'djangocms_link'` to your :code:`INSTALLED_APPS` setting.
 * Run ``manage.py migrate djangocms_link``.
 
 .. warning:: If upgrading for versions prior to 1.7, remove `djangocms_link` from
