@@ -1,7 +1,12 @@
 # -*- coding: utf-8 -*-
+import django
+from django.core.management import call_command
+from django.utils.encoding import force_text
+from django.utils.six import StringIO
+# Need the copy of unittest2 bundled with Django for @skipIf on Python 2.6.
+from django.utils import unittest
 from cms.api import create_page, add_plugin
 from cms.plugin_rendering import render_placeholder, PluginContext
-from django.utils.encoding import force_text
 from djangocms_helper.base_test import BaseTestCase
 
 
@@ -51,3 +56,17 @@ class LinkTestCase(BaseTestCase):
         add_plugin(page.placeholders.get(slot='content'), 'TextPlugin', 'en', body='text body', target=plugin)
         output = render_placeholder(page.placeholders.get(slot='content'), context, editable=False)
         self.assertEqual(output, '<span class="plugin_link"><a href="http://example.com">text body</a></span>')
+
+    @unittest.skipIf(django.VERSION[:2] < (1, 7), u'Skipping Django 1.7 test.')
+    def test_makemigrations(self):
+        '''
+        Fail if there are schema changes with no migrations.
+        '''
+        app_name = 'djangocms_link'
+        out = StringIO()
+        call_command('makemigrations', dry_run=True, noinput=True, stdout=out)
+        output = out.getvalue()
+        self.assertNotIn(app_name, output, (
+            u"`makemigrations` thinks there are schema changes without"
+            u" migrations."
+        ))
