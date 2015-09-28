@@ -23,7 +23,7 @@ class LinkTestCase(BaseTestCase):
         self.assertEqual(plugin.link(), 'http://example.com#some-h1')
 
         plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', url='http://example.com', phone='555-123-555')
-        self.assertEqual(plugin.link(), 'tel://555-123-555')
+        self.assertEqual(plugin.link(), 'tel:555-123-555')
 
         plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', url='http://example.com', mailto='hello@example.com')
         self.assertEqual(plugin.link(), 'mailto:hello@example.com')
