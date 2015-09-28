@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+from __future__ import absolute_import, print_function, unicode_literals
+
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
 from django.conf import settings
@@ -13,8 +16,8 @@ class LinkPlugin(CMSPluginBase):
 
     model = Link
     form = LinkForm
-    name = _("Link")
-    render_template = "cms/plugins/link.html"
+    name = _('Link')
+    render_template = 'cms/plugins/link.html'
     text_enabled = True
     allow_children = True
 
@@ -48,6 +51,6 @@ class LinkPlugin(CMSPluginBase):
         return Form
 
     def icon_src(self, instance):
-        return settings.STATIC_URL + u"cms/img/icons/plugins/link.png"
+        return settings.STATIC_URL + 'cms/img/icons/plugins/link.png'
 
 plugin_pool.register_plugin(LinkPlugin)
