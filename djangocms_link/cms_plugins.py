@@ -51,6 +51,6 @@ class LinkPlugin(CMSPluginBase):
         return Form
 
     def icon_src(self, instance):
-        return settings.STATIC_URL + 'cms/img/icons/plugins/link.png'
+        return '{0}cms/img/icons/plugins/link.png'.format(settings.STATIC_URL)
 
 plugin_pool.register_plugin(LinkPlugin)
