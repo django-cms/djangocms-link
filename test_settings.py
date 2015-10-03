@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
-from distutils.version import LooseVersion
-import sys
 from tempfile import mkdtemp
-import django
 
 gettext = lambda s: s
 
@@ -51,4 +48,3 @@ def run():
 
 if __name__ == '__main__':
     run()
-
