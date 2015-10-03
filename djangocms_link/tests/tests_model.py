@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from __future__ import absolute_import, print_function, unicode_literals
+
 import django
 from django.core.management import call_command
 from django.utils.encoding import force_text
@@ -57,16 +59,16 @@ class LinkTestCase(BaseTestCase):
         output = render_placeholder(page.placeholders.get(slot='content'), context, editable=False)
         self.assertEqual(output, '<span class="plugin_link"><a href="http://example.com">text body</a></span>')
 
-    @unittest.skipIf(django.VERSION[:2] < (1, 7), u'Skipping Django 1.7 test.')
+    @unittest.skipIf(django.VERSION[:2] < (1, 7), 'Skipping Django 1.7 test.')
     def test_makemigrations(self):
-        '''
+        """
         Fail if there are schema changes with no migrations.
-        '''
+        """
         app_name = 'djangocms_link'
         out = StringIO()
         call_command('makemigrations', dry_run=True, noinput=True, stdout=out)
         output = out.getvalue()
         self.assertNotIn(app_name, output, (
-            u"`makemigrations` thinks there are schema changes without"
-            u" migrations."
+            '`makemigrations` thinks there are schema changes without'
+            ' migrations.'
         ))

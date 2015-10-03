@@ -49,6 +49,6 @@ def run():
     from djangocms_helper import runner
     runner.cms('djangocms_link')
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     run()
 
