@@ -7,6 +7,9 @@ Version 1.7
 
 * Move migrations to standard location
 * Move to djangocms-helper for tests
+* PEP-8 / isort code style
+* Fix tel field
+* Change mailto field length
 
 ----------
 2015-06-09
