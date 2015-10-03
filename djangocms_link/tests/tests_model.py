@@ -2,13 +2,13 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 import django
+from cms.api import add_plugin, create_page
+from cms.plugin_rendering import PluginContext, render_placeholder
 from django.core.management import call_command
-from django.utils.encoding import force_text
-from django.utils.six import StringIO
 # Need the copy of unittest2 bundled with Django for @skipIf on Python 2.6.
 from django.utils import unittest
-from cms.api import create_page, add_plugin
-from cms.plugin_rendering import render_placeholder, PluginContext
+from django.utils.encoding import force_text
+from django.utils.six import StringIO
 from djangocms_helper.base_test import BaseTestCase
 
 
