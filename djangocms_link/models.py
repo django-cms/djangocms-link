@@ -11,7 +11,7 @@ from .validators import IntranetURLValidator
 
 
 @python_2_unicode_compatible
-class Link(CMSPlugin):
+class AbstractLink(CMSPlugin):
     """
     A link to an other page or to an external website
     """
@@ -22,6 +22,9 @@ class Link(CMSPlugin):
         ('_parent', _('parent window')),
         ('_top', _('topmost frame')),
     )
+
+    # Used by django-cms search
+    search_fields = ('name', )
 
     url_validators = [IntranetURLValidator(intranet_host_re=getattr(
         settings, 'DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN', None)), ]
@@ -50,6 +53,12 @@ class Link(CMSPlugin):
     target = models.CharField(_('target'), blank=True, max_length=100,
                               choices=TARGET_CHOICES)
 
+    class Meta:
+        abstract = True
+
+    def __str__(self):
+        return self.name
+
     def link(self):
         if self.phone:
             link = 'tel:%s' % self.phone
@@ -65,7 +74,8 @@ class Link(CMSPlugin):
             link += '#%s' % self.anchor
         return link
 
-    def __str__(self):
-        return self.name
 
-    search_fields = ('name', )
+class Link(AbstractLink):
+
+    class Meta:
+        abstract = False
