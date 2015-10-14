@@ -11,3 +11,4 @@ env*
 .tox
 .coverage
 .eggs
+.idea

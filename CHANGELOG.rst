@@ -1,6 +1,14 @@
 
 ----------
-XXXX-XX-XX
+2015-10-14
+----------
+
+Version 1.7.1
+
+* Pin Django Select2 to >=4.3,<5.0 to preserve Django 1.6 compatibility
+
+----------
+2015-10-12
 ----------
 
 Version 1.7
