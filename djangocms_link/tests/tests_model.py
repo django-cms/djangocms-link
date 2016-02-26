@@ -5,12 +5,16 @@ import django
 from cms.api import add_plugin, create_page
 from cms.plugin_rendering import PluginContext, render_placeholder
 from django.core.management import call_command
-# Need the copy of unittest2 bundled with Django for @skipIf on Python 2.6.
-from django.utils import unittest
 from django.utils.encoding import force_text
 from django.utils.six import StringIO
 from djangocms_helper.base_test import BaseTestCase
 
+# Need the copy of unittest2 bundled with Django for @skipIf on Python 2.6.
+try:
+    from django.utils import unittest
+except ImportError:
+    import unittest
+    
 
 class LinkTestCase(BaseTestCase):
 
