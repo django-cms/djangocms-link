@@ -8,12 +8,14 @@ env:
   matrix:
     - TOXENV=pep8
     - TOXENV=isort
+    - TOXENV=py35-django19-cms32
     - TOXENV=py35-django18-cms32
     - TOXENV=py35-django18-cms31
     - TOXENV=py34-django18-cms32
     - TOXENV=py34-django18-cms31
     - TOXENV=py33-django18-cms32
     - TOXENV=py33-django18-cms31
+    - TOXENV=py27-django19-cms32
     - TOXENV=py27-django18-cms32
     - TOXENV=py27-django18-cms31
     - TOXENV=py34-django17-cms32
