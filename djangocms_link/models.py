@@ -29,11 +29,12 @@ class AbstractLink(CMSPlugin):
     url_validators = [IntranetURLValidator(intranet_host_re=getattr(
         settings, 'DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN', None)), ]
 
-    # Set cmsplugin_ptr and remove related_name to avoid field name clashes
-    # with any other plugin that has a field called "file".
+    # Add an app namespace to related_name to avoid field name clashes
+    # with any other plugins that have a field with the same name as the
+    # lowercase of the class name of this model.
     # https://github.com/divio/django-cms/issues/5030
     cmsplugin_ptr = models.OneToOneField(
-        CMSPlugin, related_name='+', parent_link=True)
+        CMSPlugin, related_name='%(app_label)s_%(class)s', parent_link=True)
 
     name = models.CharField(_('name'), max_length=256)
     # Re: max_length, see: http://stackoverflow.com/questions/417142/
