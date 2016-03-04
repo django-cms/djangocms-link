@@ -1,3 +1,11 @@
+----------
+2015-03-04
+----------
+
+Version 1.7.2
+
+* fix field name clashes with in Django 1.9
+
 
 ----------
 2015-10-14
