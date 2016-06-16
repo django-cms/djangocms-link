@@ -2,42 +2,32 @@
 
 language: python
 
+python: 3.5
+
 sudo: false
 
 env:
   matrix:
     - TOXENV=pep8
     - TOXENV=isort
-    - TOXENV=py35-django19-cms32
-    - TOXENV=py35-django18-cms32
-    - TOXENV=py35-django18-cms31
-    - TOXENV=py34-django18-cms32
-    - TOXENV=py34-django18-cms31
-    - TOXENV=py33-django18-cms32
-    - TOXENV=py33-django18-cms31
-    - TOXENV=py27-django19-cms32
-    - TOXENV=py27-django18-cms32
-    - TOXENV=py27-django18-cms31
-    - TOXENV=py34-django17-cms32
-    - TOXENV=py34-django17-cms31
-    - TOXENV=py34-django17-cms30
-    - TOXENV=py34-django16-cms32
-    - TOXENV=py34-django16-cms31
-    - TOXENV=py34-django16-cms30
-    - TOXENV=py33-django17-cms32
-    - TOXENV=py33-django17-cms31
-    - TOXENV=py33-django17-cms30
-    - TOXENV=py33-django16-cms32
-    - TOXENV=py33-django16-cms31
-    - TOXENV=py33-django16-cms30
-    - TOXENV=py27-django17-cms32
-    - TOXENV=py27-django17-cms31
-    - TOXENV=py27-django17-cms30
-    - TOXENV=py27-django16-cms32
-    - TOXENV=py27-django16-cms31
-    - TOXENV=py27-django16-cms30
-    - TOXENV=py26-django16-cms31
-    - TOXENV=py26-django16-cms30
+    - TOXENV=py35-dj19-cms33
+    - TOXENV=py35-dj19-cms32
+    - TOXENV=py34-dj19-cms33
+    - TOXENV=py34-dj19-cms32
+    - TOXENV=py27-dj19-cms33
+    - TOXENV=py27-dj19-cms32
+    - TOXENV=py35-dj18-cms33
+    - TOXENV=py35-dj18-cms32
+    - TOXENV=py35-dj18-cms31
+    - TOXENV=py34-dj18-cms33
+    - TOXENV=py34-dj18-cms32
+    - TOXENV=py34-dj18-cms31
+    - TOXENV=py33-dj18-cms33
+    - TOXENV=py33-dj18-cms32
+    - TOXENV=py33-dj18-cms31
+    - TOXENV=py27-dj18-cms33
+    - TOXENV=py27-dj18-cms32
+    - TOXENV=py27-dj18-cms31
 
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install:
