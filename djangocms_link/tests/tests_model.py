@@ -14,7 +14,7 @@ try:
     from django.utils import unittest
 except ImportError:
     import unittest
-    
+
 
 class LinkTestCase(BaseTestCase):
 
@@ -55,13 +55,13 @@ class LinkTestCase(BaseTestCase):
         plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', url='http://example.com', name='some text')
         context = PluginContext({'request': request}, plugin, page.placeholders.get(slot='content'))
         output = render_placeholder(page.placeholders.get(slot='content'), context, editable=False)
-        self.assertEqual(output, '<a href="http://example.com">some text</a>')
+        self.assertEqual(output, '<a href="http://example.com">some text</a>\n')
         plugin.delete()
 
         plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', url='http://example.com')
         add_plugin(page.placeholders.get(slot='content'), 'TextPlugin', 'en', body='text body', target=plugin)
         output = render_placeholder(page.placeholders.get(slot='content'), context, editable=False)
-        self.assertEqual(output, '<span class="plugin_link"><a href="http://example.com">text body</a></span>')
+        self.assertEqual(output, '<span class="plugin_link"><a href="http://example.com">text body</a></span>\n')
 
     @unittest.skipIf(django.VERSION[:2] < (1, 7), 'Skipping Django 1.7 test.')
     def test_makemigrations(self):

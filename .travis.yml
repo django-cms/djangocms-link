@@ -8,7 +8,7 @@ sudo: false
 
 env:
   matrix:
-    - TOXENV=pep8
+    - TOXENV=flake8
     - TOXENV=isort
     - TOXENV=py35-dj19-cms33
     - TOXENV=py35-dj19-cms32
