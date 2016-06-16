@@ -3,12 +3,12 @@ from __future__ import absolute_import, print_function, unicode_literals
 
 from django.conf import settings
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 from django.utils.functional import cached_property
 from django.utils.html import mark_safe, conditional_escape
 from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin, Page
-from cms.utils.compat.dj import python_2_unicode_compatible
 
 from djangocms_attributes_field.fields import AttributesField
 
@@ -70,29 +70,15 @@ class AbstractLink(CMSPlugin):
         'href',
         'target',
     ]
+
     attributes = AttributesField(
         _('link tag attributes'), excluded_keys=EXCLUDED_KEYS,
         help_text=_('Optional. Link HTML tag attributes'),
     )
 
-    @cached_property
-    def _excluded_keys(self):
-        return [key.lower() for key in self.EXCLUDED_KEYS]
-
+    @property
     def attributes_str(self):
-        """
-        Emits self.attributes as a String for adding to an HTML element.
-        """
-        # Notice that we are explicitly ignoring keys in `EXCLUDED_KEYS` here
-        # too. The `excluded_keys` attribute on the AttributesField above is
-        # used to prevent *new* keys from being created that are in
-        # `EXCLUDED_KEYS`. The check here is to also omit *existing* keys that
-        # may already exist in the database.
-        attrs = []
-        for key, val in self.attributes.items():
-            if key.lower() not in self._excluded_keys:
-                attrs.append('{key}="{value}"'.format(key=key, value=conditional_escape(val)))
-        return mark_safe(" ".join(attrs))
+        return AttributesField.to_str(self, 'attributes')
 
     class Meta:
         abstract = True
