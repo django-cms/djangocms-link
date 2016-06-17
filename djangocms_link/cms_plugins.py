@@ -25,7 +25,7 @@ class LinkPlugin(CMSPluginBase):
                 'name', 'url', 'page_link', 'anchor', 'mailto', 'phone', 'target',
             ),
         }),
-        ('Advanced options', {
+        ('Advanced', {
             'classes': ('collapse', ),
             'fields': ('attributes', ),
         }),
