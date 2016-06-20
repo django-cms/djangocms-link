@@ -74,10 +74,6 @@ class AbstractLink(CMSPlugin):
         help_text=_('Optional. Link HTML tag attributes'),
     )
 
-    @property
-    def attributes_str(self):
-        return AttributesField.to_str(self, 'attributes')
-
     class Meta:
         abstract = True
 
