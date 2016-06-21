@@ -5,12 +5,12 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: django-cms\n"
+"Project-Id-Version: django CMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-12 11:05+0100\n"
-"PO-Revision-Date: 2014-03-12 10:05+0000\n"
-"Last-Translator: Patrick Lauber <patrick.lauber@divio.ch>\n"
-"Language-Team: Hindi (http://www.transifex.com/projects/p/django-cms/language/hi/)\n"
+"POT-Creation-Date: 2015-09-17 09:23-0400\n"
+"PO-Revision-Date: 2015-09-28 05:13+0000\n"
+"Last-Translator: yakky <i.spalletti@nephila.it>\n"
+"Language-Team: Hindi (http://www.transifex.com/divio/django-cms/language/hi/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -20,58 +20,98 @@ msgstr ""
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: cms_plugins.py:13
+#: cms_plugins.py:16
 msgid "Link"
 msgstr " लिंक"
 
-#: forms.py:11 forms.py:14 models.py:12
-msgid "page"
+#: forms.py:11 forms.py:14
+msgid "Page"
 msgstr "पृष्ठ"
 
-#: models.py:10
-msgid "name"
-msgstr "नाम"
-
-#: models.py:11
-msgid "link"
-msgstr "जोड़ना"
-
-#: models.py:12
-msgid "A link to a page has priority over a text link."
-msgstr "एक पृष्ठ पर एक लिंक एक पाठ लिंक पर प्राथमिकता है."
-
-#: models.py:13
-msgid "mailto"
-msgstr "mailto"
-
-#: models.py:13
-msgid "An email adress has priority over a text link."
-msgstr "एक ईमेल पता एक पाठ लिंक पर प्राथमिकता है."
-
-#: models.py:14
-msgid "Phone"
+#: forms.py:50
+msgid "At least one link is required."
 msgstr ""
 
-#: models.py:15
-msgid "A phone number has priority over a mailto link."
-msgstr ""
-
-#: models.py:16
-msgid "target"
-msgstr ""
-
-#: models.py:17
+#: models.py:22
 msgid "same window"
 msgstr ""
 
-#: models.py:18
+#: models.py:23
 msgid "new window"
 msgstr ""
 
-#: models.py:19
+#: models.py:24
 msgid "parent window"
 msgstr ""
 
-#: models.py:20
+#: models.py:25
 msgid "topmost frame"
 msgstr ""
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:33
+msgid "name"
+msgstr "नाम"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:37
+msgid "link"
+msgstr "जोड़ना"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema
+#. change".
+#: models.py:44
+msgid "page"
+msgstr "पृष्ठ"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema
+#. change".
+#: models.py:50
+msgid "A link to a page has priority over a text link."
+msgstr "एक पृष्ठ पर एक लिंक एक पाठ लिंक पर प्राथमिकता है."
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:55
+msgid "anchor"
+msgstr ""
+
+#: models.py:56
+msgid ""
+"This applies only to page and text links. Do <em>not</em> include a "
+"preceding \"#\" symbol."
+msgstr ""
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:62
+msgid "email address"
+msgstr "mailto"
+
+#: models.py:63
+#| msgid "An email adress has priority over a text link."
+msgid "An email address has priority over a text link."
+msgstr "एक ईमेल पता एक पाठ लिंक पर प्राथमिकता है."
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:66
+msgid "Phone"
+msgstr ""
+
+#: models.py:67
+msgid "A phone number has priority over a mailto link."
+msgstr ""
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:70
+msgid "target"
+msgstr ""
+
+#~ msgid "mailto"
+#~ msgstr "email address"

@@ -5,16 +5,16 @@
 # Translators:
 # Christos Topouzis <christos@eplanconsultants.com>, 2013
 # Kostas Papadimitriou <vinilios@gmail.com>, 2011
-# dotoree <vdotoree@yahoo.gr>, 2014
+# George Giannoulopoulos <vdotoree@yahoo.gr>, 2014
 # xouskarle <xouskarle@gmail.com>, 2013
 msgid ""
 msgstr ""
-"Project-Id-Version: django-cms\n"
+"Project-Id-Version: django CMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-12 11:05+0100\n"
-"PO-Revision-Date: 2014-08-15 08:50+0000\n"
-"Last-Translator: dotoree <vdotoree@yahoo.gr>\n"
-"Language-Team: Greek (http://www.transifex.com/projects/p/django-cms/language/el/)\n"
+"POT-Creation-Date: 2015-09-17 09:23-0400\n"
+"PO-Revision-Date: 2015-09-28 05:13+0000\n"
+"Last-Translator: yakky <i.spalletti@nephila.it>\n"
+"Language-Team: Greek (http://www.transifex.com/divio/django-cms/language/el/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,58 +24,98 @@ msgstr ""
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: cms_plugins.py:13
+#: cms_plugins.py:16
 msgid "Link"
 msgstr "Σύνδεσμος"
 
-#: forms.py:11 forms.py:14 models.py:12
-msgid "page"
-msgstr "σελίδα"
+#: forms.py:11 forms.py:14
+msgid "Page"
+msgstr "Σελίδα"
 
-#: models.py:10
-msgid "name"
-msgstr "όνομα"
+#: forms.py:50
+msgid "At least one link is required."
+msgstr ""
 
-#: models.py:11
-msgid "link"
-msgstr "σύνδεσμος"
-
-#: models.py:12
-msgid "A link to a page has priority over a text link."
-msgstr "Ένας σύνδεσμος σε σελίδα έχει προτεραιότητα έναντι ενός σύνδεσμου σε κειμένο."
-
-#: models.py:13
-msgid "mailto"
-msgstr "διεύθυνση ηλεκτρονικής αλληλογραφίας"
-
-#: models.py:13
-msgid "An email adress has priority over a text link."
-msgstr "Μια διεύθυνση ηλεκτρονικής αλληλογραφίας έχει προτεραιότητα έναντι ενός συνδέσμου σε κείμενο"
-
-#: models.py:14
-msgid "Phone"
-msgstr "Tηλέφωνο"
-
-#: models.py:15
-msgid "A phone number has priority over a mailto link."
-msgstr "Ένας αριθμός τηλεφώνου έχει προτεραιότητα έναντι ενός συνδέσμου mailto."
-
-#: models.py:16
-msgid "target"
-msgstr "στόχος"
-
-#: models.py:17
+#: models.py:22
 msgid "same window"
 msgstr "ίδιο παράθυρο"
 
-#: models.py:18
+#: models.py:23
 msgid "new window"
 msgstr "νέο παράθυρο"
 
-#: models.py:19
+#: models.py:24
 msgid "parent window"
 msgstr "αρχικό παράθυρο"
 
-#: models.py:20
+#: models.py:25
 msgid "topmost frame"
 msgstr "ανώτατο πλαίσιο"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:33
+msgid "name"
+msgstr "όνομα"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:37
+msgid "link"
+msgstr "σύνδεσμος"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema
+#. change".
+#: models.py:44
+msgid "page"
+msgstr "σελίδα"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema
+#. change".
+#: models.py:50
+msgid "A link to a page has priority over a text link."
+msgstr "Ένας σύνδεσμος σε σελίδα έχει προτεραιότητα έναντι ενός σύνδεσμου σε κειμένο."
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:55
+msgid "anchor"
+msgstr ""
+
+#: models.py:56
+msgid ""
+"This applies only to page and text links. Do <em>not</em> include a "
+"preceding \"#\" symbol."
+msgstr ""
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:62
+msgid "email address"
+msgstr "διεύθυνση ηλεκτρονικής αλληλογραφίας"
+
+#: models.py:63
+#| msgid "An email adress has priority over a text link."
+msgid "An email address has priority over a text link."
+msgstr "Μια διεύθυνση ηλεκτρονικής αλληλογραφίας έχει προτεραιότητα έναντι ενός συνδέσμου σε κείμενο"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:66
+msgid "Phone"
+msgstr "Tηλέφωνο"
+
+#: models.py:67
+msgid "A phone number has priority over a mailto link."
+msgstr "Ένας αριθμός τηλεφώνου έχει προτεραιότητα έναντι ενός συνδέσμου mailto."
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:70
+msgid "target"
+msgstr "στόχος"
+
+#~ msgid "mailto"
+#~ msgstr "email address"

@@ -4,16 +4,19 @@
 # 
 # Translators:
 # angularcircle, 2012
+# Piotr Wojcik <pwwpww@gmail.com>, 2016
+# Rafał Łopatka <rafal.lopatka@outlook.com>, 2015
 # Robert Weglarek <weglarek.robert@gmail.com>, 2014
+# Robert Weglarek <weglarek.robert@gmail.com>, 2015
 # sebastian1 <sebastian@kalinowski.eu>, 2012
 msgid ""
 msgstr ""
-"Project-Id-Version: django-cms\n"
+"Project-Id-Version: django CMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-03-12 11:05+0100\n"
-"PO-Revision-Date: 2014-08-15 08:50+0000\n"
-"Last-Translator: Robert Weglarek <weglarek.robert@gmail.com>\n"
-"Language-Team: Polish (http://www.transifex.com/projects/p/django-cms/language/pl/)\n"
+"POT-Creation-Date: 2015-09-17 09:23-0400\n"
+"PO-Revision-Date: 2016-04-08 14:10+0000\n"
+"Last-Translator: Piotr Wojcik <pwwpww@gmail.com>\n"
+"Language-Team: Polish (http://www.transifex.com/divio/django-cms/language/pl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -23,58 +26,98 @@ msgstr ""
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: cms_plugins.py:13
+#: cms_plugins.py:16
 msgid "Link"
 msgstr "Odnośnik"
 
-#: forms.py:11 forms.py:14 models.py:12
-msgid "page"
-msgstr "stronę"
+#: forms.py:11 forms.py:14
+msgid "Page"
+msgstr "Strona"
 
-#: models.py:10
-msgid "name"
-msgstr "nazwa"
+#: forms.py:50
+msgid "At least one link is required."
+msgstr "Wymagany jest co najmniej 1 odnośnik."
 
-#: models.py:11
-msgid "link"
-msgstr "odnośnik"
-
-#: models.py:12
-msgid "A link to a page has priority over a text link."
-msgstr "Odnośnik do strony ma priorytet w stosunku do odnośnika tekstowego."
-
-#: models.py:13
-msgid "mailto"
-msgstr "wyślij do"
-
-#: models.py:13
-msgid "An email adress has priority over a text link."
-msgstr "Adres email ma priorytet w odniesieniu do odnośnika tekstowego"
-
-#: models.py:14
-msgid "Phone"
-msgstr "Telefon"
-
-#: models.py:15
-msgid "A phone number has priority over a mailto link."
-msgstr ""
-
-#: models.py:16
-msgid "target"
-msgstr "cel"
-
-#: models.py:17
+#: models.py:22
 msgid "same window"
 msgstr "w tym samym oknie"
 
-#: models.py:18
+#: models.py:23
 msgid "new window"
 msgstr "nowe okno"
 
-#: models.py:19
+#: models.py:24
 msgid "parent window"
 msgstr "w oknie rodzica"
 
-#: models.py:20
+#: models.py:25
 msgid "topmost frame"
-msgstr ""
+msgstr "ramka pływająca"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:33
+msgid "name"
+msgstr "nazwa"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:37
+msgid "link"
+msgstr "odnośnik"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema
+#. change".
+#: models.py:44
+msgid "page"
+msgstr "stronę"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema
+#. change".
+#: models.py:50
+msgid "A link to a page has priority over a text link."
+msgstr "Odnośnik do strony ma priorytet w stosunku do odnośnika tekstowego."
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:55
+msgid "anchor"
+msgstr "kotwica"
+
+#: models.py:56
+msgid ""
+"This applies only to page and text links. Do <em>not</em> include a "
+"preceding \"#\" symbol."
+msgstr "To dotyczy jedynie odnośników do stron i odnośników tekstowych. <em>Nie</em> umieszczaj poprzedzającego symbolu \"#\"."
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:62
+msgid "email address"
+msgstr "wyślij do"
+
+#: models.py:63
+#| msgid "An email adress has priority over a text link."
+msgid "An email address has priority over a text link."
+msgstr "Adres email ma priorytet w odniesieniu do odnośnika tekstowego"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:66
+msgid "Phone"
+msgstr "Telefon"
+
+#: models.py:67
+msgid "A phone number has priority over a mailto link."
+msgstr "Numer telefonu ma priorytet nad linkiem do maila"
+
+#. Translators: Don't translate this in the 'en' locale, since that will
+#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
+#: models.py:70
+msgid "target"
+msgstr "cel"
+
+#~ msgid "mailto"
+#~ msgstr "email address"
