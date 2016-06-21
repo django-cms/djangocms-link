@@ -6,6 +6,8 @@ from django.forms.models import ModelForm
 from django.forms.widgets import Media
 from django.utils.translation import ugettext_lazy as _
 
+from djangocms_attributes_field.widgets import AttributesWidget
+
 from djangocms_link.models import Link
 
 
@@ -31,6 +33,11 @@ class LinkForm(ModelForm):
     class Meta:
         model = Link
         exclude = ('page', 'position', 'placeholder', 'language', 'plugin_type')
+
+    def __init__(self, *args, **kwargs):
+        super(LinkForm, self).__init__(*args, **kwargs)
+        self.fields['attributes'].widget = AttributesWidget(
+            val_attrs={'style': 'width:500px!important'})
 
     def _get_media(self):
         """

@@ -2,10 +2,13 @@
 from __future__ import absolute_import, print_function, unicode_literals
 
 from cms.models import CMSPlugin, Page
-from cms.utils.compat.dj import python_2_unicode_compatible
+
 from django.conf import settings
 from django.db import models
+from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
+
+from djangocms_attributes_field.fields import AttributesField
 
 from .validators import IntranetURLValidator
 
@@ -59,6 +62,17 @@ class AbstractLink(CMSPlugin):
                              help_text=_('A phone number has priority over a mailto link.'))
     target = models.CharField(_('target'), blank=True, max_length=100,
                               choices=TARGET_CHOICES)
+
+    # These attributes are already managed by other fields
+    EXCLUDED_KEYS = [
+        'href',
+        'target',
+    ]
+
+    attributes = AttributesField(
+        _('link tag attributes'), excluded_keys=EXCLUDED_KEYS,
+        help_text=_('Optional. Link HTML tag attributes'),
+    )
 
     class Meta:
         abstract = True

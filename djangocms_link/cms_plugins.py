@@ -19,6 +19,17 @@ class LinkPlugin(CMSPluginBase):
     render_template = 'cms/plugins/link.html'
     text_enabled = True
     allow_children = True
+    fieldsets = (
+        (None, {
+            'fields': (
+                'name', 'url', 'page_link', 'anchor', 'mailto', 'phone', 'target',
+            ),
+        }),
+        ('Advanced', {
+            'classes': ('collapse', ),
+            'fields': ('attributes', ),
+        }),
+    )
 
     def render(self, context, instance, placeholder):
         link = instance.link()
