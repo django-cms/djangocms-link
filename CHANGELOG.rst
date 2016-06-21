@@ -1,4 +1,13 @@
 ----------
+2016-06-20
+----------
+
+Version 1.8.0
+
+* Adds support for arbitrary HTML attributes on link tag
+
+
+----------
 2015-03-04
 ----------
 
