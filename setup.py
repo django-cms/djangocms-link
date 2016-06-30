@@ -33,7 +33,7 @@ setup(
     packages=['djangocms_link', 'djangocms_link.migrations', 'djangocms_link.south_migrations'],
     install_requires=[
         'django-select2>=4.3,<5.0',
-        'djangocms-attributes-field>=0.0.2',
+        'djangocms-attributes-field>=0.1.0',
     ],
     license='LICENSE.txt',
     platforms=['OS Independent'],
