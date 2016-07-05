@@ -1,11 +1,12 @@
 
 ----------
-2016-06-29
+2016-07-05
 ----------
 
 Version 1.8.1
 
 * Pinned to djangocms-attributes-field v0.1.0
+* Let attributes field be optional
 
 
 ----------
