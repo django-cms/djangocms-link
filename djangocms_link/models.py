@@ -70,7 +70,7 @@ class AbstractLink(CMSPlugin):
     ]
 
     attributes = AttributesField(
-        _('link tag attributes'), excluded_keys=EXCLUDED_KEYS,
+        _('link tag attributes'), excluded_keys=EXCLUDED_KEYS, blank=True,
         help_text=_('Optional. Link HTML tag attributes'),
     )
 
