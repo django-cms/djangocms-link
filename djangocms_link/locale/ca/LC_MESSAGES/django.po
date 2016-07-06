@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django CMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-17 09:23-0400\n"
-"PO-Revision-Date: 2015-10-07 10:57+0000\n"
-"Last-Translator: Roger Pons <rogerpons@gmail.com>\n"
+"POT-Creation-Date: 2016-07-05 21:32-0400\n"
+"PO-Revision-Date: 2016-06-30 12:59+0000\n"
+"Last-Translator: Martin Koistinen <mkoistinen@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/divio/django-cms/language/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -21,98 +21,88 @@ msgstr ""
 "X-Poedit-Language: English\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: cms_plugins.py:16
+#: cms_plugins.py:18
 msgid "Link"
 msgstr "Enllaç"
 
-#: forms.py:11 forms.py:14
+#: forms.py:17 forms.py:20
 msgid "Page"
 msgstr "Pàgina"
 
-#: forms.py:50
+#: forms.py:61
 msgid "At least one link is required."
 msgstr "Es requereix com a mínim un enllaç."
 
-#: models.py:22
+#: models.py:23
 msgid "same window"
 msgstr "mateixa finestra"
 
-#: models.py:23
+#: models.py:24
 msgid "new window"
 msgstr "nova finestra"
 
-#: models.py:24
+#: models.py:25
 msgid "parent window"
 msgstr "finestra pare"
 
-#: models.py:25
+#: models.py:26
 msgid "topmost frame"
 msgstr "marc superior"
 
-#. Translators: Don't translate this in the 'en' locale, since that will
-#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
-#: models.py:33
+#: models.py:42
 msgid "name"
 msgstr "nom"
 
-#. Translators: Don't translate this in the 'en' locale, since that will
-#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
-#: models.py:37
+#: models.py:44
 msgid "link"
 msgstr "enllaç"
 
-#. Translators: Don't translate this in the 'en' locale, since that will
-#. cause Django 1.7 `makemigrations` to detect a spurious "schema
-#. change".
-#: models.py:44
+#: models.py:48
 msgid "page"
 msgstr "pàgina"
 
-#. Translators: Don't translate this in the 'en' locale, since that will
-#. cause Django 1.7 `makemigrations` to detect a spurious "schema
-#. change".
-#: models.py:50
+#: models.py:51
 msgid "A link to a page has priority over a text link."
 msgstr "Un enllaç a una pàgina té prioritat sobre un enllaç de text."
 
-#. Translators: Don't translate this in the 'en' locale, since that will
-#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
-#: models.py:55
+#: models.py:54
 msgid "anchor"
 msgstr "àncora"
 
-#: models.py:56
+#: models.py:55
 msgid ""
 "This applies only to page and text links. Do <em>not</em> include a "
 "preceding \"#\" symbol."
 msgstr "S'aplica només a enllaços de pàgina i text. <em>No</em> inclogueu un símbol \"#\" com a prefix."
 
-#. Translators: Don't translate this in the 'en' locale, since that will
-#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
-#: models.py:62
+#: models.py:59
 msgid "email address"
 msgstr "mailto"
 
-#: models.py:63
+#: models.py:60
 #| msgid "An email adress has priority over a text link."
 msgid "An email address has priority over a text link."
 msgstr "Una adreça de correu electrònic té prioritat sobre un enllaç de text."
 
-#. Translators: Don't translate this in the 'en' locale, since that will
-#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
-#: models.py:66
+#: models.py:61
 msgid "Phone"
 msgstr "Telèfon"
 
-#: models.py:67
+#: models.py:62
 msgid "A phone number has priority over a mailto link."
 msgstr "Un número de telèfon té prioritat sobre un enllaç a email."
 
-#. Translators: Don't translate this in the 'en' locale, since that will
-#. cause Django 1.7 `makemigrations` to detect a spurious "schema change".
-#: models.py:70
+#: models.py:63
 msgid "target"
 msgstr "objectiu"
+
+#: models.py:73
+msgid "link tag attributes"
+msgstr ""
+
+#: models.py:74
+msgid "Optional. Link HTML tag attributes"
+msgstr ""
 
 #~ msgid "mailto"
 #~ msgstr "email address"
