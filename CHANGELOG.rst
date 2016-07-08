@@ -1,3 +1,10 @@
+----------
+Unreleased
+----------
+
+Version 1.8.2
+
+* Fixed styling issues with attributes field
 
 ----------
 2016-07-05
