@@ -36,8 +36,7 @@ class LinkForm(ModelForm):
 
     def __init__(self, *args, **kwargs):
         super(LinkForm, self).__init__(*args, **kwargs)
-        self.fields['attributes'].widget = AttributesWidget(
-            val_attrs={'style': 'width:500px!important'})
+        self.fields['attributes'].widget = AttributesWidget()
 
     def _get_media(self):
         """
