@@ -5,6 +5,7 @@ Unreleased
 Version 1.8.2
 
 * Fixed styling issues with attributes field
+* Pinned djangocms_attributes_field to v0.1.1+
 
 ----------
 2016-07-05
