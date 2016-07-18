@@ -2,3 +2,4 @@
 tox>=1.8
 djangocms-helper>=0.7
 djangocms-text-ckeditor
+html5lib>0.99999,<0.99999999
