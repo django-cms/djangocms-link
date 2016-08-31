@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: django CMS\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-05 21:32-0400\n"
+"POT-Creation-Date: 2016-08-30 20:15-0400\n"
 "PO-Revision-Date: 2016-07-01 00:28+0000\n"
 "Last-Translator: Pouya Abbassi\n"
 "Language-Team: Persian (http://www.transifex.com/divio/django-cms/language/fa/)\n"
@@ -33,7 +33,7 @@ msgstr "پیوند"
 msgid "Page"
 msgstr "صفحه"
 
-#: forms.py:61
+#: forms.py:60
 msgid "At least one link is required."
 msgstr "‌حداقل یک لینک مورد نیاز است."
 
