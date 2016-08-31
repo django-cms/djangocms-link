@@ -1,4 +1,13 @@
 ----------
+unreleased
+----------
+
+Version 1.8.3
+
+* Added native Aldryn support
+
+
+----------
 2016-07-18
 ----------
 
@@ -7,6 +16,7 @@ Version 1.8.2
 * Fixed styling issues with attributes field
 * Pinned djangocms_attributes_field to v0.1.1+
 * Fixed a regression where unnecessary whitespace was added to rendered html
+
 
 ----------
 2016-07-05
