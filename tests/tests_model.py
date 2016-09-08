@@ -34,13 +34,13 @@ class LinkTestCase(BaseTestCase):
         plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', url='http://example.com', mailto='hello@example.com')
         self.assertEqual(plugin.link(), 'mailto:hello@example.com')
 
-        plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', url='http://example.com', page_link=page)
+        plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', url='http://example.com', internal_link=page)
         self.assertEqual(plugin.link(), 'http://example.com')
 
-        plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', page_link=page)
+        plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', internal_link=page)
         self.assertEqual(plugin.link(), '/en/')
 
-        plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', page_link=page, anchor='some-h1')
+        plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', internal_link=page, anchor='some-h1')
         self.assertEqual(plugin.link(), '/en/#some-h1')
 
         plugin = add_plugin(page.placeholders.get(slot='content'), 'LinkPlugin', 'en', name='some text')

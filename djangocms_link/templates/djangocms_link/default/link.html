@@ -1,0 +1,13 @@
+{% load cms_tags %}
+
+<a href="{{ link }}"
+    {% if target %} target="{{ instance.target }}"{% endif %}
+    {{ instance.attributes_str }}
+>
+    {% for plugin in instance.child_plugin_instances %}
+        {% render_plugin plugin %}
+    {% empty %}
+        {{ instance.name }}
+    {% endfor %}
+</a>
+<br />

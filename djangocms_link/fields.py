@@ -28,7 +28,11 @@ if 'django_select2' in settings.INSTALLED_APPS:
             return False
 
     class UserSearchField(AutoModelSelect2Field):
-        search_fields = ['username__icontains', 'firstname__icontains', 'lastname__icontains']
+        search_fields = [
+            'username__icontains',
+            'firstname__icontains',
+            'lastname__icontains'
+        ]
 
         def security_check(self, request, *args, **kwargs):
             user = request.user

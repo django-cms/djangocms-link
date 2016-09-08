@@ -1,1 +1,0 @@
-{% load cms_tags %}{% if object.child_plugin_instances %}<span class="plugin_link">{% endif %}<a href="{{ link }}"{% if target %} target="{{ target }}"{% endif %} {{ object.attributes_str }}>{% for plugin in object.child_plugin_instances %}{% render_plugin plugin %}{% empty %}{{ name }}{% endfor %}</a>{% if object.child_plugin_instances %}</span>{% endif %}
