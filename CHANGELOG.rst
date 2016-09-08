@@ -3,6 +3,17 @@ Changelog
 =========
 
 
+1.9.0 (unreleased)
+==================
+
+* Added additional settings
+* Cleaned up file structure
+* Removed Django < 1.8 support
+* Adapted ``README.txt``
+* Adapted fields
+* Updated translations
+
+
 1.8.3 (unreleased)
 ==================
 

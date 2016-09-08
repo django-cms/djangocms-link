@@ -12,10 +12,16 @@ from .models import Link
 class LinkForm(ModelForm):
     try:
         from djangocms_link.fields import PageSearchField
-        internal_link = PageSearchField(label=_('Page'), required=False)
+        internal_link = PageSearchField(
+            label=_('Page'),
+            required=False,
+        )
     except ImportError:
         from cms.forms.fields import PageSelectFormField
-        internal_link = PageSelectFormField(label=_('Page'), required=False)
+        internal_link = PageSelectFormField(
+            label=_('Page'),
+            required=False,
+        )
 
     def for_site(self, site):
         # override the internal_link fields queryset to contains just pages for

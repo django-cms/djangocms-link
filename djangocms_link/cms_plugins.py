@@ -24,13 +24,18 @@ class LinkPlugin(CMSPluginBase):
                 ('external_link', 'internal_link'),
             )
         }),
+        (_('Link settings'), {
+            'classes': ('collapse',),
+            'fields': (
+                ('mailto', 'phone'),
+                ('anchor', 'target'),
+            )
+        }),
         (_('Advanced settings'), {
             'classes': ('collapse',),
             'fields': (
                 'template',
-                ('target', 'link_type'),
-                ('anchor', 'styles'),
-                ('mailto', 'phone'),
+                ('styles', 'link_type'),
                 'attributes',
             )
         }),

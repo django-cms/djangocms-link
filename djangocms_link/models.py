@@ -28,21 +28,16 @@ def get_templates():
     )
     return choices
 
-TYPE_CHOICES = (
-    ('anchor', '<a>'),
-    ('button', '<button>'),
-) + getattr(
+TYPE_CHOICES = getattr(
     settings,
     'DJANGOCMS_LINK_TYPES',
-    ()
+    (('', '---------'),)
 )
 
 STYLE_CHOICES = getattr(
     settings,
     'DJANGOCMS_LINK_STYLES',
-    (
-        ('', _('<not configured>')),
-    )
+    (('', '---------'),)
 )
 
 HOSTNAME = getattr(
@@ -131,7 +126,6 @@ class AbstractLink(CMSPlugin):
     link_type = models.CharField(
         verbose_name=_('Link type'),
         choices=TYPE_CHOICES,
-        default=TYPE_CHOICES[0][0],
         blank=True,
         max_length=255,
     )
