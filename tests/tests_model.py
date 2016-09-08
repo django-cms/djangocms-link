@@ -1,19 +1,15 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 import django
-from cms.api import add_plugin, create_page
-from cms.plugin_rendering import PluginContext, render_placeholder
+
 from django.core.management import call_command
+from django.utils import unittest
 from django.utils.encoding import force_text
 from django.utils.six import StringIO
-from djangocms_helper.base_test import BaseTestCase
 
-# Need the copy of unittest2 bundled with Django for @skipIf on Python 2.6.
-try:
-    from django.utils import unittest
-except ImportError:
-    import unittest
+from cms.api import add_plugin, create_page
+from cms.plugin_rendering import PluginContext, render_placeholder
+
+from djangocms_helper.base_test import BaseTestCase
 
 
 class LinkTestCase(BaseTestCase):
@@ -69,7 +65,6 @@ class LinkTestCase(BaseTestCase):
         # when rendered, it counts as a space in html, which leads to incorrect rendering
         self.assertEqual(output, '<span class="plugin_link"><a href="http://example.com" >text body</a></span>')
 
-    @unittest.skipIf(django.VERSION[:2] < (1, 7), 'Skipping Django 1.7 test.')
     def test_makemigrations(self):
         """
         Fail if there are schema changes with no migrations.

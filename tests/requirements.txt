@@ -1,2 +1,6 @@
-django-cms>=2.3
-Django-Select2>=3.1.2
+# requirements from setup.py
+Django-Select2
+# other requirements
+djangocms-helper>=0.9.2,<0.10
+tox
+coverage

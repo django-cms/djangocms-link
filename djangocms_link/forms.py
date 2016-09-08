@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 from django.forms import ValidationError
 from django.forms.models import ModelForm
 from django.forms.widgets import Media
@@ -38,13 +36,24 @@ class LinkForm(ModelForm):
         super(LinkForm, self).__init__(*args, **kwargs)
         self.fields['attributes'].widget = AttributesWidget()
 
-    def _get_media(self):
-        """
-        Provide a description of all media required to render the widgets on this form
-        """
-        media = Media()
-        for field in self.fields.values():
-            media = media + field.widget.media
-        media._js = ['cms/js/libs/jquery.min.js'] + media._js
-        return media
-    media = property(_get_media)
+    def clean(self):
+        cleaned_data = super(LinkForm, self).clean()
+        external_link = cleaned_data.get('external_link')
+        internal_link = cleaned_data.get('internal_link')
+        mailto = cleaned_data.get('mailto')
+        phone = cleaned_data.get('phone')
+        anchor = cleaned_data.get('anchor')
+        if not any([external_link, internal_link, mailto, phone, anchor]):
+            raise ValidationError(_('At least one link is required.'))
+        return cleaned_data
+
+    # def _get_media(self):
+    #     """
+    #     Provide a description of all media required to render the widgets on this form
+    #     """
+    #     media = Media()
+    #     for field in self.fields.values():
+    #         media = media + field.widget.media
+    #     media._js = ['cms/js/libs/jquery.min.js'] + media._js
+    #     return media
+    # media = property(_get_media)

@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
+from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
+from django.contrib.sites.models import Site
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from django.conf import settings
-from django.contrib.sites.models import Site
-from django.utils.translation import ugettext_lazy as _
 
 from .forms import LinkForm
 from .models import Link
@@ -15,7 +14,6 @@ class LinkPlugin(CMSPluginBase):
     model = Link
     form = LinkForm
     name = _('Link')
-    render_template = 'cms/plugins/link.html'
     text_enabled = True
     allow_children = True
 
@@ -43,7 +41,7 @@ class LinkPlugin(CMSPluginBase):
         return 'djangocms_link/{}/link.html'.format(instance.template)
 
     def render(self, context, instance, placeholder):
-        context['link'] = instance.link()
+        context['link'] = instance.get_link()
         return super(LinkPlugin, self).render(context, instance, placeholder)
 
     def get_form(self, request, obj=None, **kwargs):

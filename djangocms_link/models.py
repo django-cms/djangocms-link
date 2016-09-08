@@ -1,13 +1,15 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
-from cms.models import CMSPlugin, Page
-
+"""
+Enables the user to add a "Link" plugin that displays a link
+using the HTML <a> tag.
+"""
+from django.db import models
 from django.conf import settings
 from django.core.exceptions import ValidationError
-from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import ugettext, ugettext_lazy as _
+
+from cms.models import CMSPlugin, Page
 
 from djangocms_attributes_field.fields import AttributesField
 
@@ -43,6 +45,12 @@ STYLE_CHOICES = getattr(
     )
 )
 
+HOSTNAME = getattr(
+    settings,
+    'DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN',
+    None
+)
+
 TARGET_CHOICES = (
     ('_blank', _('Open in new window')),
     ('_self', _('Open in same window')),
@@ -50,17 +58,12 @@ TARGET_CHOICES = (
     ('_top', _('Delegate to top')),
 )
 
-
 @python_2_unicode_compatible
 class AbstractLink(CMSPlugin):
-    """
-    A link to an other page or to an external website
-    """
-    # Used by django-cms search
+    # used by django CMS search
     search_fields = ('name', )
 
-    url_validators = [IntranetURLValidator(intranet_host_re=getattr(
-        settings, 'DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN', None)), ]
+    url_validators = [IntranetURLValidator(intranet_host_re=HOSTNAME),]
 
     template = models.CharField(
         verbose_name=_('Template'),
@@ -73,7 +76,7 @@ class AbstractLink(CMSPlugin):
         blank=True,
         max_length=255,
     )
-    # Re: max_length, see: http://stackoverflow.com/questions/417142/
+    # re: max_length, see: http://stackoverflow.com/questions/417142/
     external_link = models.URLField(
         verbose_name=_('External link'),
         blank=True,
@@ -152,26 +155,18 @@ class AbstractLink(CMSPlugin):
         abstract = True
 
     def __str__(self):
-        return self.name
+        return self.name or str(self.pk)
 
-    def clean(self):
-        if not self.external_link or self.internal_link:
-            raise ValidationError(_('Error'))
-        # cleaned_data = super(LinkForm, self).clean()
-        # url = cleaned_data.get('url')
-        # internal_link = cleaned_data.get('internal_link')
-        # mailto = cleaned_data.get('mailto')
-        # phone = cleaned_data.get('phone')
-        # anchor = cleaned_data.get('anchor')
-        # if not any([url, internal_link, mailto, phone, anchor]):
-        #     raise ValidationError(_('At least one link is required.'))
-        # return cleaned_data
+    def get_short_description(self):
+        if self.name:
+            return '{} ({})'.format(self.name, self.get_link())
+        return self.get_link()
 
-    def link(self):
+    def get_link(self):
         if self.phone:
-            link = 'tel:%s' % self.phone
+            link = 'tel:{}'.format(self.phone.replace(' ', ''))
         elif self.mailto:
-            link = 'mailto:%s' % self.mailto
+            link = 'mailto:{}'.format(self.mailto)
         elif self.external_link:
             link = self.external_link
         elif self.internal_link_id:
@@ -179,7 +174,7 @@ class AbstractLink(CMSPlugin):
         else:
             link = ''
         if (self.external_link or self.internal_link or not link) and self.anchor:
-            link += '#%s' % self.anchor
+            link += '#{}'.format(self.anchor)
         return link
 
 
