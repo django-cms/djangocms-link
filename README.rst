@@ -8,6 +8,9 @@ django CMS Link
 **django CMS Link** is a plugin for `django CMS <http://django-cms.org>`_ that
 allows you to add links on your site.
 
+This plugin supports child plugins. If you add an other plugin as a
+child it will take this content instead of the link name as the content of the link.
+
 This addon is compatible with `Aldryn <http://aldryn.com>`_ and is also available on the
 `django CMS Marketplace <https://marketplace.django-cms.org/en/addons/browse/djangocms-link/>`_
 for easy installation.
@@ -66,58 +69,6 @@ otherwise you will get a *template does not exist* error. You can do this by
 copying the ``default`` folder inside that directory and renaming it to
 ``feature``.
 
-
-
-
-To get ``django-select2`` support https://github.com/applegrew/django-select2#installation
-
-
-If you want to enable the ajax loading:
-
-* In your projects :code:`virtualenv`, run :code:`pip install Django-Select2`.
-* Add :code:`'django_select2'` to your :code:`INSTALLED_APPS` settings.
-* Add :code:`url(r'^select2/', include('django_select2.urls')),` to your main ``urls.py``.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Running Tests
--------------
-
-You can run tests by executing::
-
-    virtualenv env
-    source env/bin/activate
-    pip install -r tests/requirements.txt
-    python setup.py test
-
-
-.. |pypi| image:: https://badge.fury.io/py/djangocms-link.svg
-    :target: http://badge.fury.io/py/djangocms-link
-.. |build| image:: https://travis-ci.org/divio/djangocms-link.svg?branch=master
-    :target: https://travis-ci.org/divio/djangocms-link
-.. |coverage| image:: https://codecov.io/gh/divio/djangocms-link/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/divio/djangocms-link
-
-
-
-
-
-
-
-Settings
-~~~~~~~~
-
 To support environments where non-standard URLs would otherwise work, this
 project supports the defining of an additional RegEx pattern for validating the
 host-portion of the URL.
@@ -137,15 +88,33 @@ Either of these might accept a URL such as: ::
 If left undefined, the normal Django URLValidator will be used.
 
 
-Children
-~~~~~~~~
+Django Select2
+~~~~~~~~~~~~~~
 
-This plugin supports child plugins. If you add an other plugin as a child it will take this content
-instead of the link name as the content of the link.
+This plugin supports `django-select2 <https://github.com/applegrew/django-select2#installation>`_
+for simpler use of internal links. We **do not support 5.x**, this is why you
+need to manually configure this feature:
 
-Translations
-~~~~~~~~~~~~
+* run ``pip install django-select2>=4.3,<5.0``
+* add ``django_select2`` to your ``INSTALLED_APPS``
+* add ``url(r'^select2/', include('django_select2.urls')),`` to your ``urls.py``
+* set ``DJANGOCMS_ENABLE_SELECT2 = True`` in your ``settings.py``
 
-If you want to help translate the plugin please do it on transifex:
 
-https://www.transifex.com/projects/p/djangocms-link/resource/djangocms-link/
+Running Tests
+-------------
+
+You can run tests by executing::
+
+    virtualenv env
+    source env/bin/activate
+    pip install -r tests/requirements.txt
+    python setup.py test
+
+
+.. |pypi| image:: https://badge.fury.io/py/djangocms-link.svg
+    :target: http://badge.fury.io/py/djangocms-link
+.. |build| image:: https://travis-ci.org/divio/djangocms-link.svg?branch=master
+    :target: https://travis-ci.org/divio/djangocms-link
+.. |coverage| image:: https://codecov.io/gh/divio/djangocms-link/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/divio/djangocms-link

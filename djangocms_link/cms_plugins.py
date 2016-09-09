@@ -35,12 +35,10 @@ class LinkPlugin(CMSPluginBase):
             'classes': ('collapse',),
             'fields': (
                 'template',
-                ('styles', 'link_type'),
                 'attributes',
             )
         }),
     ]
-
 
     def get_render_template(self, context, instance, placeholder):
         return 'djangocms_link/{}/link.html'.format(instance.template)

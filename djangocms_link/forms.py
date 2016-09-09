@@ -13,13 +13,13 @@ class LinkForm(ModelForm):
     try:
         from djangocms_link.fields import PageSearchField
         internal_link = PageSearchField(
-            label=_('Page'),
+            label=_('Internal link'),
             required=False,
         )
     except ImportError:
         from cms.forms.fields import PageSelectFormField
         internal_link = PageSelectFormField(
-            label=_('Page'),
+            label=_('Internal link'),
             required=False,
         )
 
@@ -52,14 +52,3 @@ class LinkForm(ModelForm):
         if not any([external_link, internal_link, mailto, phone, anchor]):
             raise ValidationError(_('At least one link is required.'))
         return cleaned_data
-
-    # def _get_media(self):
-    #     """
-    #     Provide a description of all media required to render the widgets on this form
-    #     """
-    #     media = Media()
-    #     for field in self.fields.values():
-    #         media = media + field.widget.media
-    #     media._js = ['cms/js/libs/jquery.min.js'] + media._js
-    #     return media
-    # media = property(_get_media)

@@ -2,7 +2,14 @@
 from django.conf import settings
 
 
-if 'django_select2' in settings.INSTALLED_APPS:
+ENABLE_SELECT2 = getattr(
+    settings,
+    'DJANGOCMS_ENABLE_SELECT2',
+    True
+)
+
+
+if 'django_select2' in settings.INSTALLED_APPS and ENABLE_SELECT2:
     from django_select2.fields import AutoModelSelect2Field
 
     class PageSearchField(AutoModelSelect2Field):

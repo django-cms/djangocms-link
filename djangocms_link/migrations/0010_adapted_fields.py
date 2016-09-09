@@ -16,18 +16,8 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='link',
-            name='link_type',
-            field=models.CharField(blank=True, max_length=255, verbose_name='Link type', choices=[('anchor', '<a>'), ('button', '<button>')]),
-        ),
-        migrations.AddField(
-            model_name='link',
             name='template',
             field=models.CharField(default='default', max_length=255, verbose_name='Template', choices=[('default', 'Default')]),
-        ),
-        migrations.AddField(
-            model_name='link',
-            name='styles',
-            field=models.CharField(max_length=255, verbose_name='Styles', blank=True),
         ),
         migrations.RenameField(
             model_name='link',

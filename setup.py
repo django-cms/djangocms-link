@@ -7,7 +7,6 @@ from djangocms_link import __version__
 
 REQUIREMENTS = [
     'django-cms>=3.2.0',
-    'django-select2>=4.3,<5.0',
     'djangocms-attributes-field>=0.1.1',
 ]
 
