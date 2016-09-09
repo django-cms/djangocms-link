@@ -1,17 +1,9 @@
-{% load cms_tags %}
+{% load cms_tags %}{% spaceless %}
 
-<a href="{{ link }}"
-    {% if target %} target="{{ instance.target }}"{% endif %}
-    {{ instance.attributes_str }}
->
-    {% for plugin in instance.child_plugin_instances %}
-        {% render_plugin plugin %}
-    {% empty %}
-        {{ instance.name }}
-    {% endfor %}
-</a>
+{# this needs to be in one line for rendering purpose #}
+{% endspaceless %}<a href="{{ link }}"{% if target %} target="{{ instance.target }}"{% endif %}{% if instance.attributes %} {{ instance.attributes_str }}{% endif %}>{% for plugin in instance.child_plugin_instances %}{% render_plugin plugin %}{% empty %}{{ instance.name }}{% endfor %}</a>{% spaceless %}
 
-{% comment %}
+{% endspaceless %}{% comment %}
 # https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a
     {{ instance.name }}
     {{ link }} or {{ instance.get_link }} summarizes:

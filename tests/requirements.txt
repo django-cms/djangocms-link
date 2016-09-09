@@ -1,6 +1,7 @@
 # requirements from setup.py
 django-select2>=4.3,<5.0
 # other requirements
+djangocms-text-ckeditor
 djangocms-helper>=0.9.2,<0.10
 tox
 coverage

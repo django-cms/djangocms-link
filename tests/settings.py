@@ -4,6 +4,7 @@
 HELPER_SETTINGS = {
     'INSTALLED_APPS': [
         'django_select2',
+        'djangocms_text_ckeditor',
     ],
     'ALLOWED_HOSTS': ['localhost'],
     'CMS_LANGUAGES': {

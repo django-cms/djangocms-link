@@ -42,7 +42,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='link',
             name='external_link',
-            field=models.URLField(blank=True, max_length=2040, null=True, verbose_name='External link', validators=[djangocms_link.validators.IntranetURLValidator(intranet_host_re=None)]),
+            field=models.URLField(blank=True, max_length=2040, null=True, verbose_name='External link', help_text='Provide a valid url to an external website.', validators=[djangocms_link.validators.IntranetURLValidator(intranet_host_re=None)]),
         ),
         migrations.AlterField(
             model_name='link',
@@ -67,6 +67,6 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='link',
             name='target',
-            field=models.CharField(blank=True, max_length=255, verbose_name='Target', choices=[('_blank', 'Open in new window.'), ('_self', 'Open in same window.'), ('_parent', 'Delegate to parent.'), ('_top', 'Delegate to top.')]),
+            field=models.CharField(blank=True, max_length=255, verbose_name='Target', choices=[('_blank', 'Open in new window'), ('_self', 'Open in same window'), ('_parent', 'Delegate to parent'), ('_top', 'Delegate to top')]),
         ),
     ]
