@@ -55,7 +55,7 @@ class AbstractLink(CMSPlugin):
         max_length=255,
     )
     name = models.CharField(
-        verbose_name=_('Name'),
+        verbose_name=_('Display name'),
         blank=True,
         max_length=255,
     )

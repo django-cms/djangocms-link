@@ -4,8 +4,8 @@ from django.conf import settings
 
 ENABLE_SELECT2 = getattr(
     settings,
-    'DJANGOCMS_ENABLE_SELECT2',
-    True
+    'DJANGOCMS_LINK_SELECT2',
+    False
 )
 
 

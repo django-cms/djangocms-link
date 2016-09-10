@@ -98,7 +98,7 @@ need to manually configure this feature:
 * run ``pip install django-select2>=4.3,<5.0``
 * add ``django_select2`` to your ``INSTALLED_APPS``
 * add ``url(r'^select2/', include('django_select2.urls')),`` to your ``urls.py``
-* set ``DJANGOCMS_ENABLE_SELECT2 = True`` in your ``settings.py``
+* set ``DJANGOCMS_LINK_SELECT2 = True`` in your ``settings.py``
 
 
 Running Tests
