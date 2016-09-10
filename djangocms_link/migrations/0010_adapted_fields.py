@@ -57,7 +57,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='link',
             name='name',
-            field=models.CharField(max_length=255, verbose_name='Name', blank=True),
+            field=models.CharField(max_length=255, verbose_name='Display name', blank=True),
         ),
         migrations.AlterField(
             model_name='link',

@@ -7,10 +7,11 @@ Changelog
 ==================
 
 * Added additional settings
+* Added configuration option for select2
 * Cleaned up file structure
 * Removed Django < 1.8 support
 * Adapted ``README.txt``
-* Adapted fields
+* Fixed an issue where links appear twice
 * Updated translations
 
 

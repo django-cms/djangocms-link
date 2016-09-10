@@ -74,6 +74,7 @@ class AbstractLink(CMSPlugin):
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
+        limit_choices_to={'publisher_is_draft': False},
         help_text=_('If provided, overrides the external link.'),
     )
     # other link types
