@@ -49,7 +49,8 @@ class AbstractLink(CMSPlugin):
         blank=True,
         null=True,
         help_text=_('A link to a page has priority over a text link.'),
-        on_delete=models.SET_NULL
+        on_delete=models.SET_NULL,
+        limit_choices_to={'publisher_is_draft': False},
     )
     anchor = models.CharField(_('anchor'), max_length=128, blank=True,
                               help_text=_('This applies only to page and text links.'
