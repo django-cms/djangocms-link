@@ -3,7 +3,7 @@ Changelog
 =========
 
 
-1.9.0 (unreleased)
+2.0.0 (unreleased)
 ==================
 
 * Added additional settings

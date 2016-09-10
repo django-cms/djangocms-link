@@ -141,8 +141,12 @@ class AbstractLink(CMSPlugin):
             link = self.internal_link.get_absolute_url()
         else:
             link = ''
-        if (self.external_link or self.internal_link or not link) and self.anchor:
+        if (self.external_link or self.internal_link_id or not link) and self.anchor:
             link += '#{}'.format(self.anchor)
+        # link can be empty if a page attached to it has been removed
+        if link == '':
+            link = '<link-is-missing>'
+
         return link
 
 
