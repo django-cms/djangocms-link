@@ -146,7 +146,7 @@ class AbstractLink(CMSPlugin):
             link += '#{}'.format(self.anchor)
         # link can be empty if a page attached to it has been removed
         if link == '':
-            link = '<link-is-missing>'
+            link = '<link is missing>'
 
         return link
 

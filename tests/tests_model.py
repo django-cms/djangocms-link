@@ -88,7 +88,7 @@ class LinkTestCase(BaseTestCase):
             'en',
             name='some text',
         )
-        self.assertEqual(plugin.get_link(), '')
+        self.assertEqual(plugin.get_link(), '<link is missing>')
         self.assertEqual(force_text(plugin), 'some text')
 
     def test_render(self):
