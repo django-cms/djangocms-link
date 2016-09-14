@@ -15,7 +15,7 @@ Changelog
 * Updated translations
 
 
-1.8.3 (unreleased)
+1.8.3 (2016-09-12)
 ==================
 
 * Added native Aldryn support
