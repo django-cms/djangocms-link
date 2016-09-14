@@ -51,6 +51,4 @@ if ENABLE_SELECT2 and 'django_select2' in settings.INSTALLED_APPS:
                 return None
             return super(UserSearchField, self).prepare_value(value)
 else:
-    from cms.forms.fields import PageSelectFormField
-
-    PageSearchField = PageSelectFormField
+    from cms.forms.fields import PageSelectFormField as PageSearchField
