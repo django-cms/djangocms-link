@@ -15,7 +15,7 @@ class Form(forms.BaseForm):
     The following settings need to be configured on your project separately
     as we don't want to expose them as aldryn configurations yet:
         DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN
-        DJANGOCMS_LINK_SELECT2
+        DJANGOCMS_LINK_USE_SELECT2
     """
 
     def clean(self):

@@ -4,12 +4,12 @@ from django.conf import settings
 
 ENABLE_SELECT2 = getattr(
     settings,
-    'DJANGOCMS_LINK_SELECT2',
+    'DJANGOCMS_LINK_USE_SELECT2',
     False
 )
 
 
-if 'django_select2' in settings.INSTALLED_APPS and ENABLE_SELECT2:
+if ENABLE_SELECT2 and 'django_select2' in settings.INSTALLED_APPS:
     from django_select2.fields import AutoModelSelect2Field
 
     class PageSearchField(AutoModelSelect2Field):
@@ -50,3 +50,7 @@ if 'django_select2' in settings.INSTALLED_APPS and ENABLE_SELECT2:
             if not value:
                 return None
             return super(UserSearchField, self).prepare_value(value)
+else:
+    from cms.forms.fields import PageSelectFormField
+
+    PageSearchField = PageSelectFormField

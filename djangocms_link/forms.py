@@ -6,22 +6,15 @@ from django.utils.translation import ugettext_lazy as _
 
 from djangocms_attributes_field.widgets import AttributesWidget
 
+from .fields import PageSearchField
 from .models import Link
 
 
 class LinkForm(ModelForm):
-    try:
-        from djangocms_link.fields import PageSearchField
-        internal_link = PageSearchField(
-            label=_('Internal link'),
-            required=False,
-        )
-    except ImportError:
-        from cms.forms.fields import PageSelectFormField
-        internal_link = PageSelectFormField(
-            label=_('Internal link'),
-            required=False,
-        )
+    internal_link = PageSearchField(
+        label=_('Internal link'),
+        required=False,
+    )
 
     def for_site(self, site):
         # override the internal_link fields queryset to contains just pages for

@@ -3,6 +3,8 @@
 Enables the user to add a "Link" plugin that displays a link
 using the HTML <a> tag.
 """
+from __future__ import unicode_literals
+
 from django.db import models
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -63,7 +65,6 @@ class AbstractLink(CMSPlugin):
     external_link = models.URLField(
         verbose_name=_('External link'),
         blank=True,
-        null=True,
         max_length=2040,
         validators=url_validators,
         help_text=_('Provide a valid url to an external website.'),
@@ -88,13 +89,11 @@ class AbstractLink(CMSPlugin):
     mailto = models.EmailField(
         verbose_name=_('Email address'),
         blank=True,
-        null=True,
         max_length=255,
     )
     phone = models.CharField(
         verbose_name=_('Phone'),
         blank=True,
-        null=True,
         max_length=255,
     )
     # advanced options
@@ -129,7 +128,7 @@ class AbstractLink(CMSPlugin):
     def get_short_description(self):
         if self.name:
             return '{} ({})'.format(self.name, self.get_link())
-        return self.get_link()
+        return self.get_link() or ugettext('<link is missing>')
 
     def get_link(self):
         if self.phone:
@@ -142,11 +141,8 @@ class AbstractLink(CMSPlugin):
             link = self.internal_link.get_absolute_url()
         else:
             link = ''
-        if (self.external_link or self.internal_link_id or not link) and self.anchor:
+        if (not self.phone and not self.mailto) and self.anchor:
             link += '#{}'.format(self.anchor)
-        # link can be empty if a page attached to it has been removed
-        if link == '':
-            link = '<link is missing>'
 
         return link
 
