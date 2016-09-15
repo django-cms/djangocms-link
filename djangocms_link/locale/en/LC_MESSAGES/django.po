@@ -73,7 +73,7 @@ msgid "External link"
 msgstr ""
 
 #: models.py:70
-msgid "Provide a valid url to an external website."
+msgid "Provide a valid URL to an external website."
 msgstr ""
 
 #: models.py:79

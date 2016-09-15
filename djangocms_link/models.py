@@ -67,7 +67,7 @@ class AbstractLink(CMSPlugin):
         blank=True,
         max_length=2040,
         validators=url_validators,
-        help_text=_('Provide a valid url to an external website.'),
+        help_text=_('Provide a valid URL to an external website.'),
     )
     internal_link = models.ForeignKey(
         Page,
