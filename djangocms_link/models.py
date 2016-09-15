@@ -67,7 +67,7 @@ class AbstractLink(CMSPlugin):
         blank=True,
         max_length=2040,
         validators=url_validators,
-        help_text=_('Provide a valid url to an external website.'),
+        help_text=_('Provide a valid URL to an external website.'),
     )
     internal_link = models.ForeignKey(
         Page,
@@ -75,7 +75,6 @@ class AbstractLink(CMSPlugin):
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
-        limit_choices_to={'publisher_is_draft': False},
         help_text=_('If provided, overrides the external link.'),
     )
     # other link types

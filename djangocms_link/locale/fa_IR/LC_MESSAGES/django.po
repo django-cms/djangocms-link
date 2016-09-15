@@ -1,107 +1,108 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-# Translators:
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: django CMS\n"
+"Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-08-30 20:15-0400\n"
-"PO-Revision-Date: 2016-06-30 12:59+0000\n"
-"Last-Translator: Martin Koistinen <mkoistinen@gmail.com>\n"
-"Language-Team: Persian (Iran) (http://www.transifex.com/divio/django-cms/language/fa_IR/)\n"
+"POT-Creation-Date: 2016-09-15 11:08+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Language-Team: Persian (Iran) (https://www.transifex.com/divio/teams/58664/fa_IR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: fa_IR\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Poedit-Country: SWITZERLAND\n"
-"X-Poedit-Language: English\n"
-"X-Poedit-SourceCharset: utf-8\n"
 
-#: cms_plugins.py:18
+#: cms_plugins.py:16
 msgid "Link"
 msgstr ""
 
-#: forms.py:17 forms.py:20
-msgid "Page"
+#: cms_plugins.py:27
+msgid "Link settings"
 msgstr ""
 
-#: forms.py:60
+#: cms_plugins.py:34
+msgid "Advanced settings"
+msgstr ""
+
+#: forms.py:15 models.py:74
+msgid "Internal link"
+msgstr ""
+
+#: forms.py:46
 msgid "At least one link is required."
 msgstr ""
 
-#: models.py:23
-msgid "same window"
-msgstr ""
-
 #: models.py:24
-msgid "new window"
+msgid "Default"
 msgstr ""
 
-#: models.py:25
-msgid "parent window"
+#: models.py:40
+msgid "Open in new window"
 msgstr ""
 
-#: models.py:26
-msgid "topmost frame"
+#: models.py:41
+msgid "Open in same window"
 msgstr ""
 
 #: models.py:42
-msgid "name"
+msgid "Delegate to parent"
 msgstr ""
 
-#: models.py:44
-msgid "link"
-msgstr ""
-
-#: models.py:48
-msgid "page"
-msgstr ""
-
-#: models.py:51
-msgid "A link to a page has priority over a text link."
+#: models.py:43
+msgid "Delegate to top"
 msgstr ""
 
 #: models.py:54
-msgid "anchor"
-msgstr ""
-
-#: models.py:55
-msgid ""
-"This applies only to page and text links. Do <em>not</em> include a "
-"preceding \"#\" symbol."
-msgstr ""
-
-#: models.py:59
-msgid "email address"
+msgid "Template"
 msgstr ""
 
 #: models.py:60
-#| msgid "An email adress has priority over a text link."
-msgid "An email address has priority over a text link."
+msgid "Display name"
 msgstr ""
 
-#: models.py:61
+#: models.py:66
+msgid "External link"
+msgstr ""
+
+#: models.py:70
+msgid "Provide a valid URL to an external website."
+msgstr ""
+
+#: models.py:79
+msgid "If provided, overrides the external link."
+msgstr ""
+
+#: models.py:83
+msgid "Anchor"
+msgstr ""
+
+#: models.py:86
+msgid ""
+"Appends the value only after the internal or external link. Do <em>not</em> "
+"include a preceding \"#\" symbol."
+msgstr ""
+
+#: models.py:90
+msgid "Email address"
+msgstr ""
+
+#: models.py:95
 msgid "Phone"
 msgstr ""
 
-#: models.py:62
-msgid "A phone number has priority over a mailto link."
+#: models.py:101
+msgid "Target"
 msgstr ""
 
-#: models.py:63
-msgid "target"
+#: models.py:107
+msgid "Attributes"
 msgstr ""
 
-#: models.py:73
-msgid "link tag attributes"
+#: models.py:131
+msgid "<link is missing>"
 msgstr ""
-
-#: models.py:74
-msgid "Optional. Link HTML tag attributes"
-msgstr ""
-
-#~ msgid "mailto"
-#~ msgstr "email address"
