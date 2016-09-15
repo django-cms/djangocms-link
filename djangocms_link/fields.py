@@ -1,9 +1,15 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
-
 from django.conf import settings
 
-if 'django_select2' in settings.INSTALLED_APPS:
+
+ENABLE_SELECT2 = getattr(
+    settings,
+    'DJANGOCMS_LINK_USE_SELECT2',
+    False
+)
+
+
+if ENABLE_SELECT2 and 'django_select2' in settings.INSTALLED_APPS:
     from django_select2.fields import AutoModelSelect2Field
 
     class PageSearchField(AutoModelSelect2Field):
@@ -28,7 +34,11 @@ if 'django_select2' in settings.INSTALLED_APPS:
             return False
 
     class UserSearchField(AutoModelSelect2Field):
-        search_fields = ['username__icontains', 'firstname__icontains', 'lastname__icontains']
+        search_fields = [
+            'username__icontains',
+            'firstname__icontains',
+            'lastname__icontains'
+        ]
 
         def security_check(self, request, *args, **kwargs):
             user = request.user
@@ -40,3 +50,5 @@ if 'django_select2' in settings.INSTALLED_APPS:
             if not value:
                 return None
             return super(UserSearchField, self).prepare_value(value)
+else:
+    from cms.forms.fields import PageSelectFormField as PageSearchField

@@ -1,46 +1,51 @@
 # -*- coding: utf-8 -*-
-from __future__ import absolute_import, print_function, unicode_literals
+from django.conf import settings
+from django.utils.translation import ugettext_lazy as _
+from django.contrib.sites.models import Site
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
-from django.conf import settings
-from django.contrib.sites.models import Site
-from django.utils.translation import ugettext_lazy as _
 
-from djangocms_link.forms import LinkForm
-from djangocms_link.models import Link
+from .forms import LinkForm
+from .models import Link
 
 
 class LinkPlugin(CMSPluginBase):
-
     model = Link
     form = LinkForm
     name = _('Link')
-    render_template = 'cms/plugins/link.html'
     text_enabled = True
     allow_children = True
-    fieldsets = (
+
+    fieldsets = [
         (None, {
             'fields': (
-                'name', 'url', 'page_link', 'anchor', 'mailto', 'phone', 'target',
-            ),
+                'name',
+                ('external_link', 'internal_link'),
+            )
         }),
-        ('Advanced', {
-            'classes': ('collapse', ),
-            'fields': ('attributes', ),
+        (_('Link settings'), {
+            'classes': ('collapse',),
+            'fields': (
+                ('mailto', 'phone'),
+                ('anchor', 'target'),
+            )
         }),
-    )
+        (_('Advanced settings'), {
+            'classes': ('collapse',),
+            'fields': (
+                'template',
+                'attributes',
+            )
+        }),
+    ]
+
+    def get_render_template(self, context, instance, placeholder):
+        return 'djangocms_link/{}/link.html'.format(instance.template)
 
     def render(self, context, instance, placeholder):
-        link = instance.link()
-        context.update({
-            'name': instance.name,
-            'link': link,
-            'target': instance.target,
-            'placeholder': placeholder,
-            'object': instance
-        })
-        return context
+        context['link'] = instance.get_link()
+        return super(LinkPlugin, self).render(context, instance, placeholder)
 
     def get_form(self, request, obj=None, **kwargs):
         form_class = super(LinkPlugin, self).get_form(request, obj, **kwargs)
@@ -60,7 +65,5 @@ class LinkPlugin(CMSPluginBase):
 
         return Form
 
-    def icon_src(self, instance):
-        return '{0}cms/img/icons/plugins/link.png'.format(settings.STATIC_URL)
 
 plugin_pool.register_plugin(LinkPlugin)

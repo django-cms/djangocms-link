@@ -1,48 +1,73 @@
-##############
-djangocms-link
-##############
-
-.. image:: https://img.shields.io/pypi/v/djangocms-link.svg
-    :target: https://pypi.python.org/pypi/djangocms-link/
-.. image:: https://img.shields.io/pypi/dm/djangocms-link.svg
-    :target: https://pypi.python.org/pypi/djangocms-link/
-.. image:: https://img.shields.io/badge/wheel-yes-green.svg
-    :target: https://pypi.python.org/pypi/djangocms-link/
-.. image:: https://img.shields.io/pypi/l/djangocms-link.svg
-    :target: https://pypi.python.org/pypi/djangocms-link/
+===============
+django CMS Link
+===============
 
 
-A Link plugin for django CMS.
+|pypi| |build| |coverage|
+
+**django CMS Link** is a plugin for `django CMS <http://django-cms.org>`_ that
+allows you to add links on your site.
+
+This plugin supports child plugins. If you add an other plugin as a
+child it will take this content instead of the link name as the content of the link.
+
+This addon is compatible with `Aldryn <http://aldryn.com>`_ and is also available on the
+`django CMS Marketplace <https://marketplace.django-cms.org/en/addons/browse/djangocms-link/>`_
+for easy installation.
+
+.. image:: preview.gif
+
+
+Contributing
+============
+
+This is a an open-source project. We'll be delighted to receive your
+feedback in the form of issues and pull requests. Before submitting your
+pull request, please review our `contribution guidelines
+<http://docs.django-cms.org/en/latest/contributing/index.html>`_.
+
+One of the easiest contributions you can make is helping to translate this addon on
+`Transifex <https://www.transifex.com/projects/p/djangocms-link/>`_.
+
+
+Documentation
+=============
+
+See ``REQUIREMENTS`` in the `setup.py <https://github.com/divio/djangocms-link/blob/master/setup.py>`_
+file for additional dependencies:
+
+* Python 2.7, 3.3 or higher
+* Django 1.8 or higher
 
 
 Installation
-~~~~~~~~~~~~
+------------
+
+For a manual install:
+
+* run ``pip install djangocms-link``
+* add ``djangocms_link`` to your ``INSTALLED_APPS``
+* run ``python manage.py migrate djangocms_link``
 
 
-This plugin requires :code:`django CMS` 3.0 or higher to be properly installed and
-configured. If you have many pages it supports ajax loading for selecting a page.
-To enable this install Django-Select2 3.4 or above.
+Configuration
+-------------
 
-* In your projects :code:`virtualenv`, run :code:`pip install djangocms-link`.
-* Add :code:`'djangocms_link'` to your :code:`INSTALLED_APPS` setting.
-* Run ``manage.py migrate djangocms_link``.
+Note that the provided templates are very minimal by design. You are encouraged
+to adapt and override them to your project's requirements.
 
-.. warning:: If upgrading for versions prior to 1.7, remove `djangocms_link` from
-             ``MIGRATION_MODULES`` setting.
+This addon provides a ``default`` template for all instances. You can provide
+additional template choices by adding a ``DJANGOCMS_LINK_TEMPLATES``
+setting::
 
-.. warning:: If using Django 1.6, you may need to eventually add
-             :code:`'djangocms_link': 'djangocms_link.south_migrations',` to
-             :code:`SOUTH_MIGRATION_MODULES`
+    DJANGOCMS_LINK_TEMPLATES = [
+        ('feature', _('Featured Version')),
+    ]
 
-If you want to enable the ajax loading:
-
-* In your projects :code:`virtualenv`, run :code:`pip install Django-Select2`.
-* Add :code:`'django_select2'` to your :code:`INSTALLED_APPS` settings.
-* Add :code:`url(r'^select2/', include('django_select2.urls')),` to your main ``urls.py``.
-
-
-Settings
-~~~~~~~~
+You'll need to create the `feature` folder inside ``templates/djangocms_link/``
+otherwise you will get a *template does not exist* error. You can do this by
+copying the ``default`` folder inside that directory and renaming it to
+``feature``.
 
 To support environments where non-standard URLs would otherwise work, this
 project supports the defining of an additional RegEx pattern for validating the
@@ -63,16 +88,33 @@ Either of these might accept a URL such as: ::
 If left undefined, the normal Django URLValidator will be used.
 
 
-Children
-~~~~~~~~
+Django Select2
+~~~~~~~~~~~~~~
 
-This plugin supports child plugins. If you add an other plugin as a child it will take this content
-instead of the link name as the content of the link.
+This plugin supports `django-select2 <https://github.com/applegrew/django-select2#installation>`_
+for simpler use of internal links. We **do not support 5.x**, this is why you
+need to manually configure this feature:
 
-Translations
-~~~~~~~~~~~~
+* run ``pip install django-select2>=4.3,<5.0``
+* add ``django_select2`` to your ``INSTALLED_APPS``
+* add ``url(r'^select2/', include('django_select2.urls')),`` to your ``urls.py``
+* set ``DJANGOCMS_LINK_USE_SELECT2 = True`` in your ``settings.py``
 
-If you want to help translate the plugin please do it on transifex:
 
-https://www.transifex.com/projects/p/djangocms-link/resource/djangocms-link/
+Running Tests
+-------------
 
+You can run tests by executing::
+
+    virtualenv env
+    source env/bin/activate
+    pip install -r tests/requirements.txt
+    python setup.py test
+
+
+.. |pypi| image:: https://badge.fury.io/py/djangocms-link.svg
+    :target: http://badge.fury.io/py/djangocms-link
+.. |build| image:: https://travis-ci.org/divio/djangocms-link.svg?branch=master
+    :target: https://travis-ci.org/divio/djangocms-link
+.. |coverage| image:: https://codecov.io/gh/divio/djangocms-link/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/divio/djangocms-link

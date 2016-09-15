@@ -1,39 +1,27 @@
-# Config file for automatic testing at travis-ci.org
-
 language: python
-
-python: 3.5
 
 sudo: false
 
 env:
-  matrix:
-    - TOXENV=flake8
-    - TOXENV=isort
-    - TOXENV=py35-dj19-cms33
-    - TOXENV=py35-dj19-cms32
-    - TOXENV=py34-dj19-cms33
-    - TOXENV=py34-dj19-cms32
-    - TOXENV=py27-dj19-cms33
-    - TOXENV=py27-dj19-cms32
-    - TOXENV=py35-dj18-cms33
-    - TOXENV=py35-dj18-cms32
-    - TOXENV=py35-dj18-cms31
-    - TOXENV=py34-dj18-cms33
-    - TOXENV=py34-dj18-cms32
-    - TOXENV=py34-dj18-cms31
-    - TOXENV=py33-dj18-cms33
-    - TOXENV=py33-dj18-cms32
-    - TOXENV=py33-dj18-cms31
-    - TOXENV=py27-dj18-cms33
-    - TOXENV=py27-dj18-cms32
-    - TOXENV=py27-dj18-cms31
+  - TOX_ENV=flake8
+  - TOX_ENV=py27-latest
+  - TOX_ENV=py34-latest
+  # Django 1.8
+  - TOX_ENV=py34-dj18-cms33
+  - TOX_ENV=py34-dj18-cms32
+  - TOX_ENV=py27-dj18-cms33
+  - TOX_ENV=py27-dj18-cms32
+  # Django 1.9
+  - TOX_ENV=py34-dj19-cms33
+  - TOX_ENV=py34-dj19-cms32
+  - TOX_ENV=py27-dj19-cms33
+  - TOX_ENV=py27-dj19-cms32
 
-# command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
 install:
-  - pip install -U tox>=1.8 coveralls
+  - pip install tox coverage
 
-# command to run tests, e.g. python setup.py test
-script: COMMAND='coverage run' tox -e$TOXENV
+script:
+  - tox -e $TOX_ENV
 
-after_success: coveralls
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
