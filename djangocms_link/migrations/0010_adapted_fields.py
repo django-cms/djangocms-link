@@ -7,6 +7,14 @@ import djangocms_attributes_field.fields
 import djangocms_link.validators
 
 
+def reset_null_values(apps, schema_editor):
+    Link = apps.get_model('djangocms_link', 'Link')
+    plugins = Link.objects.all()
+    plugins.filter(url__isnull=True).update(url='')
+    plugins.filter(mailto__isnull=True).update(mailto='')
+    plugins.filter(phone__isnull=True).update(phone='')
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -14,6 +22,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(reset_null_values),
         migrations.AddField(
             model_name='link',
             name='template',
