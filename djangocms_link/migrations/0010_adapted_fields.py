@@ -7,14 +7,6 @@ import djangocms_attributes_field.fields
 import djangocms_link.validators
 
 
-def reset_null_values(apps, schema_editor):
-    Link = apps.get_model('djangocms_link', 'Link')
-    plugins = Link.objects.all()
-    plugins.filter(url__isnull=True).update(url='')
-    plugins.filter(mailto__isnull=True).update(mailto='')
-    plugins.filter(phone__isnull=True).update(phone='')
-
-
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -22,7 +14,6 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.RunPython(reset_null_values),
         migrations.AddField(
             model_name='link',
             name='template',
@@ -50,28 +41,13 @@ class Migration(migrations.Migration):
         ),
         migrations.AlterField(
             model_name='link',
-            name='external_link',
-            field=models.URLField(blank=True, max_length=2040, verbose_name='External link', help_text='Provide a valid URL to an external website.', validators=[djangocms_link.validators.IntranetURLValidator(intranet_host_re=None)]),
-        ),
-        migrations.AlterField(
-            model_name='link',
             name='internal_link',
             field=models.ForeignKey(on_delete=django.db.models.deletion.SET_NULL, blank=True, to='cms.Page', help_text='If provided, overrides the external link.', null=True, verbose_name='Internal link'),
         ),
         migrations.AlterField(
             model_name='link',
-            name='mailto',
-            field=models.EmailField(max_length=255, verbose_name='Email address', blank=True),
-        ),
-        migrations.AlterField(
-            model_name='link',
             name='name',
             field=models.CharField(max_length=255, verbose_name='Display name', blank=True),
-        ),
-        migrations.AlterField(
-            model_name='link',
-            name='phone',
-            field=models.CharField(max_length=255, verbose_name='Phone', blank=True),
         ),
         migrations.AlterField(
             model_name='link',
