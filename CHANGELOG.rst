@@ -2,6 +2,10 @@
 Changelog
 =========
 
+2.0.2 (unreleased)
+==================
+
+* Fixed an issue with ``target`` attribute
 
 2.0.1 (2016-20-09)
 ==================
