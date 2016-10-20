@@ -2,10 +2,12 @@
 Changelog
 =========
 
+
 2.0.2 (unreleased)
 ==================
 
 * Fixed an issue with ``target`` attribute
+
 
 2.0.1 (2016-20-09)
 ==================
@@ -16,11 +18,14 @@ Changelog
 2.0.0 (2016-15-08)
 ==================
 
-* Added additional settings
-* Added configuration option for select2
-* Cleaned up file structure
+* Added ``DJANGOCMS_LINK_TEMPLATES`` setting
+* Added select2 configuration setting ``DJANGOCMS_LINK_USE_SELECT2``
+* Added adaptions to ``README.txt``
+* Moved template from ``templates/cms/plugins/link.html`` to
+  ``templates/djangocms_link/default/link.html``
+* Renamed model field ``url`` to ``external_link`` and ``page_link`` to ``internal_link``
+* Removed ``name`` and ``target`` context in favour of ``instance.name`` and ``instance.target``
 * Removed Django < 1.8 support
-* Adapted ``README.txt``
 * Fixed an issue where links appear twice
 * Updated translations
 
