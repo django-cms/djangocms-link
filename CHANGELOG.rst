@@ -19,13 +19,13 @@ Changelog
 ==================
 
 * Backwards incompatible changes
-  * Added ``DJANGOCMS_LINK_TEMPLATES`` setting
-  * Added select2 configuration setting ``DJANGOCMS_LINK_USE_SELECT2``
-  * Moved template from ``templates/cms/plugins/link.html`` to
-    ``templates/djangocms_link/default/link.html``
-  * Removed ``name`` and ``target`` context in favour of ``instance.name`` and ``instance.target``
-  * Removed Django < 1.8 support
-  * Renamed model field ``url`` to ``external_link`` and ``page_link`` to ``internal_link``
+    * Added ``DJANGOCMS_LINK_TEMPLATES`` setting
+    * Added select2 configuration setting ``DJANGOCMS_LINK_USE_SELECT2``
+    * Moved template from ``templates/cms/plugins/link.html`` to
+      ``templates/djangocms_link/default/link.html``
+    * Removed ``name`` and ``target`` context in favour of ``instance.name`` and ``instance.target``
+    * Removed Django < 1.8 support
+    * Renamed model field ``url`` to ``external_link`` and ``page_link`` to ``internal_link``
 * Added adaptions to ``README.txt``
 * Fixed an issue where links appear twice
 * Updated translations
