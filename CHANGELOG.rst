@@ -58,13 +58,13 @@ Changelog
 * Adds support for arbitrary HTML attributes on link tag
 
 
-1.7.2 (2015-03-04)
+1.7.2 (2016-03-04)
 ==================
 
 * fix field name clashes with in Django 1.9
 
 
-1.7.1 (2015-10-14)
+1.7.1 (2015-10-15)
 ==================
 
 * Pin Django Select2 to >=4.3,<5.0 to preserve Django 1.6 compatibility
