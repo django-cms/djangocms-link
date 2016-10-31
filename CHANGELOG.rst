@@ -3,19 +3,19 @@ Changelog
 =========
 
 
-2.0.2 (unreleased)
+2.0.2 (2016-10-31)
 ==================
 
 * Fixed an issue with ``target`` attribute
 
 
-2.0.1 (2016-20-09)
+2.0.1 (2016-09-20)
 ==================
 
 * Fixed an issues with migrations where Null values caused ``IntegrityError``
 
 
-2.0.0 (2016-15-08)
+2.0.0 (2016-09-15)
 ==================
 
 * Backwards incompatible changes
