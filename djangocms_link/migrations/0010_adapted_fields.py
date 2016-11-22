@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import django.db.models.deletion
 import djangocms_attributes_field.fields
-import djangocms_link.validators
+from djangocms_link.models import get_templates
 
 
 class Migration(migrations.Migration):
@@ -17,7 +17,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='link',
             name='template',
-            field=models.CharField(default='default', max_length=255, verbose_name='Template', choices=[('default', 'Default')]),
+            field=models.CharField(default=get_templates()[0][0], max_length=255, verbose_name='Template', choices=get_templates()),
         ),
         migrations.RenameField(
             model_name='link',

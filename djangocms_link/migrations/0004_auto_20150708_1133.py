@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.db import models, migrations
 import djangocms_link.validators
+from djangocms_link.models import HOSTNAME
 
 
 class Migration(migrations.Migration):
@@ -21,7 +22,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='link',
             name='url',
-            field=models.CharField(blank=True, max_length=2048, null=True, verbose_name='link', validators=[djangocms_link.validators.IntranetURLValidator(intranet_host_re=None)]),
+            field=models.CharField(blank=True, max_length=2048, null=True, verbose_name='link', validators=[djangocms_link.validators.IntranetURLValidator(intranet_host_re=HOSTNAME)]),
             preserve_default=True,
         ),
     ]

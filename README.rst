@@ -11,7 +11,7 @@ allows you to add links on your site.
 This plugin supports child plugins. If you add an other plugin as a
 child it will take this content instead of the link name as the content of the link.
 
-This addon is compatible with `Aldryn <http://aldryn.com>`_ and is also available on the
+This addon is compatible with `Divio Cloud <http://divio.com>`_ and is also available on the
 `django CMS Marketplace <https://marketplace.django-cms.org/en/addons/browse/djangocms-link/>`_
 for easy installation.
 
@@ -77,9 +77,6 @@ For example: ::
 
     # RFC1123 Pattern:
     DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,-]{1,15}'
-
-    # NetBios Pattern:
-    DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,!@#$%^()\\-\'{}.~]{1,15}'
 
 Either of these might accept a URL such as: ::
 

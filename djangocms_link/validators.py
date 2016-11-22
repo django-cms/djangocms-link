@@ -13,8 +13,6 @@ class IntranetURLValidator(URLValidator):
     Some examples:
     RFC1123 Pattern
         DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,-]{1,15}'
-    NetBios Pattern
-        DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,!@#$%^()\\-\'{}.~]{1,15}'
     """
 
     ul = '\u00a1-\uffff'  # unicode letters range (must be a unicode string, not a raw string)
