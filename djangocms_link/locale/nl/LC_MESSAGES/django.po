@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-15 11:08+0200\n"
+"POT-Creation-Date: 2016-09-15 18:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Angelo Dini <finalangeljp@hotmail.com>, 2016\n"
+"Last-Translator: Evelijn Saaltink <evelijnsaaltink@gmail.com>, 2016\n"
 "Language-Team: Dutch (https://www.transifex.com/divio/teams/58664/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,15 +24,15 @@ msgstr "Link"
 
 #: cms_plugins.py:27
 msgid "Link settings"
-msgstr ""
+msgstr "Linkinstellingen"
 
 #: cms_plugins.py:34
 msgid "Advanced settings"
-msgstr ""
+msgstr "Geavanceerde instellinge"
 
 #: forms.py:15 models.py:74
 msgid "Internal link"
-msgstr ""
+msgstr "Interne link"
 
 #: forms.py:46
 msgid "At least one link is required."
@@ -40,70 +40,72 @@ msgstr "Minstens één link nodig."
 
 #: models.py:24
 msgid "Default"
-msgstr ""
+msgstr "Standaard"
 
 #: models.py:40
 msgid "Open in new window"
-msgstr ""
+msgstr "Openen in nieuw venster"
 
 #: models.py:41
 msgid "Open in same window"
-msgstr ""
+msgstr "Openen in hetzelfde venster"
 
 #: models.py:42
 msgid "Delegate to parent"
-msgstr ""
+msgstr "Naar ouder delegeren"
 
 #: models.py:43
 msgid "Delegate to top"
-msgstr ""
+msgstr "Naar de bovenkant delegeren"
 
 #: models.py:54
 msgid "Template"
-msgstr ""
+msgstr "Template"
 
 #: models.py:60
 msgid "Display name"
-msgstr ""
+msgstr "Weergavenaam"
 
 #: models.py:66
 msgid "External link"
-msgstr ""
+msgstr "Externe link"
 
 #: models.py:70
 msgid "Provide a valid URL to an external website."
-msgstr ""
+msgstr "Verstrek een geldige URL naar een externe website."
 
-#: models.py:79
+#: models.py:78
 msgid "If provided, overrides the external link."
-msgstr ""
+msgstr "Indien versterkt overschrijft het de externe link."
 
-#: models.py:83
+#: models.py:82
 msgid "Anchor"
-msgstr ""
+msgstr "Anker"
 
-#: models.py:86
+#: models.py:85
 msgid ""
 "Appends the value only after the internal or external link. Do <em>not</em> "
 "include a preceding \"#\" symbol."
 msgstr ""
+"Voegt alleen een waarde toe na een interne of externe link. Voeg "
+"<em>geen</em> \"#\"-teken toe aan het begin."
 
-#: models.py:90
+#: models.py:89
 msgid "Email address"
-msgstr ""
+msgstr "E-mailadres"
 
-#: models.py:95
+#: models.py:94
 msgid "Phone"
 msgstr "Telefoonnummer"
 
-#: models.py:101
+#: models.py:100
 msgid "Target"
-msgstr ""
+msgstr "Doe"
 
-#: models.py:107
+#: models.py:106
 msgid "Attributes"
-msgstr ""
+msgstr "Eigenschappen"
 
-#: models.py:131
+#: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<link ontbreekt>"
