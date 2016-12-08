@@ -10,7 +10,5 @@ if ENABLE_SELECT2 and 'django_select2' in settings.INSTALLED_APPS:
         from djangocms_link.fields_select2 import Select2PageSearchField as PageSearchField
     else:
         from djangocms_link.fields_select2_legacy import Select2LegacyPageSearchField as PageSearchField
-        from djangocms_link.fields_select2_legacy import Select2LegacyUserSearchField as UserSearchField
-
 else:
     from cms.forms.fields import PageSelectFormField as PageSearchField

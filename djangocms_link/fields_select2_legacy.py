@@ -15,17 +15,3 @@ class Select2LegacyPageSearchField(AutoModelSelect2Field):
 
     def security_check(self, request, *args, **kwargs):
         return request.user and not request.user.is_anonymous() and request.user.is_staff
-
-
-class Select2LegacyUserSearchField(AutoModelSelect2Field):
-    search_fields = [
-        'username__icontains',
-        'firstname__icontains',
-        'lastname__icontains'
-    ]
-
-    def security_check(self, request, *args, **kwargs):
-        return request.user and not request.user.is_anonymous() and request.user.is_staff
-
-    def prepare_value(self, value):
-        return None if not value else super(Select2LegacyUserSearchField, self).prepare_value(value)
