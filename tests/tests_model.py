@@ -1,12 +1,10 @@
 # -*- coding: utf-8 -*-
-import django
-
 from django.core.management import call_command
 from django.utils.encoding import force_text
 from django.utils.six import StringIO
+from django.utils import translation
 
 from cms.api import add_plugin, create_page
-from cms.plugin_rendering import PluginContext
 
 from djangocms_helper.base_test import BaseTestCase
 
@@ -90,6 +88,35 @@ class LinkTestCase(BaseTestCase):
         )
         self.assertEqual(plugin.get_link(), '')
         self.assertEqual(force_text(plugin), 'some text')
+
+    def test_get_link_doesnt_raise_error_on_untranslated_target(self):
+        """
+        Test that getting the URL of a link to a page that is not translated
+        in the current language doesn't raise an exception.
+        """
+        homepage = create_page(
+            title='help',
+            template='page.html',
+            language='en',
+            published=True
+        )
+        # Make sure this page is not a homepage
+        non_homepage = create_page(
+            title='Foobar',
+            template='page.html',
+            language='en',
+            published=True
+        )
+
+        plugin = add_plugin(
+            homepage.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+            internal_link=non_homepage
+        )
+
+        with translation.override('fr'):
+            self.assertEqual(plugin.get_link(), '')
 
     def test_makemigrations(self):
         """
