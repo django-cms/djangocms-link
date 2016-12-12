@@ -2,6 +2,12 @@
 Changelog
 =========
 
+2.0.4 (unreleased)
+==================
+
+* Fixed a bug when a link points to a page that's not translated in the current
+  language
+
 
 2.0.3 (2016-11-22)
 ==================

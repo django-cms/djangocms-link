@@ -8,6 +8,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.core.urlresolvers import NoReverseMatch
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext, ugettext_lazy as _
 
@@ -137,7 +138,11 @@ class AbstractLink(CMSPlugin):
         elif self.external_link:
             link = self.external_link
         elif self.internal_link_id:
-            link = self.internal_link.get_absolute_url()
+            try:
+                link = self.internal_link.get_absolute_url()
+            # This can happen if the link points to a page that doesn't have a translation in the current language
+            except NoReverseMatch:
+                link = ''
         else:
             link = ''
         if (not self.phone and not self.mailto) and self.anchor:
