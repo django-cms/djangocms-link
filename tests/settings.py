@@ -1,6 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
 HELPER_SETTINGS = {
     'INSTALLED_APPS': [
         'django_select2',
@@ -14,11 +11,14 @@ HELPER_SETTINGS = {
         }]
     },
     'LANGUAGE_CODE': 'en',
+    'DJANGOCMS_LINK_USE_SELECT2': True
 }
+
 
 def run():
     from djangocms_helper import runner
     runner.cms('djangocms_link')
+
 
 if __name__ == '__main__':
     run()

@@ -2,6 +2,12 @@
 Changelog
 =========
 
+2.1.0 (unreleased)
+==================
+
+* Supported new django-select2 versions
+* Remove unused ``UserSearchField``
+
 
 2.0.3 (2016-11-22)
 ==================
