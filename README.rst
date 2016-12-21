@@ -89,10 +89,9 @@ Django Select2
 ~~~~~~~~~~~~~~
 
 This plugin supports `django-select2 <https://github.com/applegrew/django-select2#installation>`_
-for simpler use of internal links. We **do not support 5.x**, this is why you
-need to manually configure this feature:
+for simpler use of internal links. You need to manually enable it by:
 
-* run ``pip install django-select2>=4.3,<5.0``
+* run ``pip install django-select2``
 * add ``django_select2`` to your ``INSTALLED_APPS``
 * add ``url(r'^select2/', include('django_select2.urls')),`` to your ``urls.py``
 * set ``DJANGOCMS_LINK_USE_SELECT2 = True`` in your ``settings.py``
