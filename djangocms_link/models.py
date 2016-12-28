@@ -185,7 +185,7 @@ class AbstractLink(CMSPlugin):
             # Too many fields have a value.
             error_msg = '{} {}'.format(
                 _('Only one of these fields is allowed:'),
-                ', '.join(link_field_verbose_names.values()),
+                ', '.join(sorted(link_field_verbose_names.values())),
             )
             errors = {}
             for field, value in link_fields.items():
