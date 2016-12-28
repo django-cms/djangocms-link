@@ -8,7 +8,7 @@ from __future__ import unicode_literals
 from django.db import models
 from django.conf import settings
 from django.core.exceptions import ValidationError
-from django.utils.encoding import python_2_unicode_compatible
+from django.utils.encoding import python_2_unicode_compatible, force_text
 from django.utils.translation import ugettext, ugettext_lazy as _
 
 from cms.models import CMSPlugin, Page
@@ -144,6 +144,66 @@ class AbstractLink(CMSPlugin):
             link += '#{}'.format(self.anchor)
 
         return link
+
+    def clean(self):
+        super(AbstractLink, self).clean()
+        field_names = (
+            'external_link',
+            'internal_link',
+            'mailto',
+            'phone',
+        )
+        anchor_field_name = 'anchor'
+        field_names_allowed_with_anchor = (
+            'external_link',
+            'internal_link',
+        )
+
+        cleaned_data = {
+            key: getattr(self, key)
+            for key in field_names + (anchor_field_name,)
+        }
+        anchor_field_verbose_name = force_text(
+           self._meta.get_field_by_name(anchor_field_name)[0].verbose_name)
+        anchor_field_value = cleaned_data.get(anchor_field_name)
+
+        link_fields = {
+            key: cleaned_data.get(key)
+            for key in field_names
+        }
+        link_field_verbose_names = {
+            key: force_text(self._meta.get_field_by_name(key)[0].verbose_name)
+            for key in link_fields.keys()
+        }
+        provided_link_fields = {
+            key: value
+            for key, value in link_fields.items()
+            if value
+        }
+
+        if len(provided_link_fields) > 1:
+            # Too many fields have a value.
+            error_msg = '{} {}'.format(
+                _('Only one of these fields is allowed:'),
+                ', '.join(link_field_verbose_names.values()),
+            )
+            errors = {}
+            for field, value in link_fields.items():
+                if value:
+                    errors[field] = error_msg
+            raise ValidationError(errors)
+
+        if anchor_field_value:
+            for field_name in provided_link_fields.keys():
+                if field_name not in field_names_allowed_with_anchor:
+                    error_msg = _('%(anchor_field_verbose_name)s is not allowed together with %(field_name)s') % {
+                        'anchor_field_verbose_name': anchor_field_verbose_name,
+                        'field_name': link_field_verbose_names.get(field_name)
+                    }
+                    raise ValidationError({
+                        anchor_field_name: error_msg,
+                        field_name: error_msg,
+                    })
 
 
 class Link(AbstractLink):
