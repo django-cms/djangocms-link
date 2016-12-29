@@ -159,16 +159,12 @@ class AbstractLink(CMSPlugin):
             'internal_link',
         )
 
-        cleaned_data = {
-            key: getattr(self, key)
-            for key in field_names + (anchor_field_name,)
-        }
         anchor_field_verbose_name = force_text(
            self._meta.get_field_by_name(anchor_field_name)[0].verbose_name)
-        anchor_field_value = cleaned_data.get(anchor_field_name)
+        anchor_field_value = getattr(self, anchor_field_name)
 
         link_fields = {
-            key: cleaned_data.get(key)
+            key: getattr(self, key)
             for key in field_names
         }
         link_field_verbose_names = {
@@ -180,17 +176,14 @@ class AbstractLink(CMSPlugin):
             for key, value in link_fields.items()
             if value
         }
-
         if len(provided_link_fields) > 1:
             # Too many fields have a value.
-            error_msg = '{} {}'.format(
-                _('Only one of these fields is allowed:'),
-                ', '.join(sorted(link_field_verbose_names.values())),
+            verbose_names = sorted(link_field_verbose_names.values())
+            error_msg = _('Only one of %s or %s may be given.') % (
+                ', '.join(verbose_names[:-1]),
+                verbose_names[-1],
             )
-            errors = {}
-            for field, value in link_fields.items():
-                if value:
-                    errors[field] = error_msg
+            errors = {}.fromkeys(provided_link_fields.keys(), error_msg)
             raise ValidationError(errors)
 
         if anchor_field_value:
