@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.forms import ValidationError
+from __future__ import unicode_literals
 from django.forms.models import ModelForm
-from django.forms.widgets import Media
 from django.utils.translation import ugettext_lazy as _
 
 from djangocms_attributes_field.widgets import AttributesWidget
@@ -34,14 +33,3 @@ class LinkForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(LinkForm, self).__init__(*args, **kwargs)
         self.fields['attributes'].widget = AttributesWidget()
-
-    def clean(self):
-        cleaned_data = super(LinkForm, self).clean()
-        external_link = cleaned_data.get('external_link')
-        internal_link = cleaned_data.get('internal_link')
-        mailto = cleaned_data.get('mailto')
-        phone = cleaned_data.get('phone')
-        anchor = cleaned_data.get('anchor')
-        if not any([external_link, internal_link, mailto, phone, anchor]):
-            raise ValidationError(_('At least one link is required.'))
-        return cleaned_data
