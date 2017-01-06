@@ -5,6 +5,7 @@ Changelog
 2.1.0 (unreleased)
 ==================
 
+* Adds compatibility for django 1.10 
 * Supported new django-select2 versions
 * Remove unused ``UserSearchField``
 
