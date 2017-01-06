@@ -168,7 +168,7 @@ class AbstractLink(CMSPlugin):
             for key in field_names
         }
         link_field_verbose_names = {
-            key: force_text(self._meta.get_field_by_name(key)[0].verbose_name)
+            key: force_text(self._meta.get_field(key).verbose_name)
             for key in link_fields.keys()
         }
         provided_link_fields = {
