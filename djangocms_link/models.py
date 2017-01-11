@@ -130,14 +130,14 @@ class AbstractLink(CMSPlugin):
         return self.get_link() or ugettext('<link is missing>')
 
     def get_link(self):
-        if self.phone:
+        if self.internal_link_id:
+            link = self.internal_link.get_absolute_url()
+        elif self.external_link:
+            link = self.external_link
+        elif self.phone:
             link = 'tel:{}'.format(self.phone.replace(' ', ''))
         elif self.mailto:
             link = 'mailto:{}'.format(self.mailto)
-        elif self.external_link:
-            link = self.external_link
-        elif self.internal_link_id:
-            link = self.internal_link.get_absolute_url()
         else:
             link = ''
         if (not self.phone and not self.mailto) and self.anchor:
@@ -176,15 +176,21 @@ class AbstractLink(CMSPlugin):
             for key, value in link_fields.items()
             if value
         }
+
         if len(provided_link_fields) > 1:
             # Too many fields have a value.
             verbose_names = sorted(link_field_verbose_names.values())
-            error_msg = _('Only one of %s or %s may be given.') % (
+            error_msg = _('Only one of {0} or {1} may be given.').format(
                 ', '.join(verbose_names[:-1]),
                 verbose_names[-1],
             )
             errors = {}.fromkeys(provided_link_fields.keys(), error_msg)
             raise ValidationError(errors)
+
+        if len(provided_link_fields) == 0 and not self.anchor:
+            raise ValidationError(
+                _('Please provide a link.')
+            )
 
         if anchor_field_value:
             for field_name in provided_link_fields.keys():
