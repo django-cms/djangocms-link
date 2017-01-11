@@ -189,7 +189,7 @@ class AbstractLink(CMSPlugin):
 
         if len(provided_link_fields) == 0 and not self.anchor:
             raise ValidationError(
-                _('Please provide at least one link type.')
+                _('Please provide a link.')
             )
 
         if anchor_field_value:
