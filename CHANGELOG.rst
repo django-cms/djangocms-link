@@ -5,7 +5,8 @@ Changelog
 2.1.0 (unreleased)
 ==================
 
-* Adds compatibility for django 1.10 
+* Added compatibility for django 1.10
+* Added better validation to set a link
 * Supported new django-select2 versions
 * Remove unused ``UserSearchField``
 
