@@ -42,7 +42,6 @@ class LinkTestCase(BaseTestCase):
             page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
-            external_link='http://example.com',
             phone='555-123-555',
         )
         self.assertEqual(plugin.get_link(), 'tel:555-123-555')
@@ -51,7 +50,6 @@ class LinkTestCase(BaseTestCase):
             page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
-            external_link='http://example.com',
             mailto='hello@example.com',
         )
         self.assertEqual(plugin.get_link(), 'mailto:hello@example.com')
@@ -60,7 +58,6 @@ class LinkTestCase(BaseTestCase):
             page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
-            internal_link=page,
             external_link='http://example.com',
         )
         self.assertEqual(plugin.get_link(), 'http://example.com')

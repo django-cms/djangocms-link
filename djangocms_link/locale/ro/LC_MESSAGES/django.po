@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-15 18:36+0200\n"
+"POT-Creation-Date: 2017-01-12 13:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Angelo Dini <finalangeljp@hotmail.com>, 2016\n"
 "Language-Team: Romanian (https://www.transifex.com/divio/teams/58664/ro/)\n"
@@ -30,12 +30,8 @@ msgstr ""
 msgid "Advanced settings"
 msgstr ""
 
-#: forms.py:15 models.py:74
+#: forms.py:14 models.py:74
 msgid "Internal link"
-msgstr ""
-
-#: forms.py:46
-msgid "At least one link is required."
 msgstr ""
 
 #: models.py:24
@@ -107,3 +103,21 @@ msgstr ""
 #: models.py:130
 msgid "<link is missing>"
 msgstr ""
+
+#: models.py:183
+#, python-brace-format
+msgid "Only one of {0} or {1} may be given."
+msgstr ""
+
+#: models.py:192
+msgid "Please provide a link."
+msgstr ""
+
+#: models.py:198
+#, python-format
+msgid ""
+"%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
+msgstr ""
+
+#~ msgid "At least one link is required."
+#~ msgstr ""

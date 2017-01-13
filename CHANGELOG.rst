@@ -9,6 +9,7 @@ Changelog
 * Added better validation to set a link
 * Supported new django-select2 versions
 * Remove unused ``UserSearchField``
+* Updated translations
 
 
 2.0.3 (2016-11-22)
