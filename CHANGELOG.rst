@@ -2,13 +2,13 @@
 Changelog
 =========
 
-2.1.0 (unreleased)
+2.1.0 (2017-01-18)
 ==================
 
 * Added compatibility for django 1.10
 * Added better validation to set a link
-* Supported new django-select2 versions
-* Remove unused ``UserSearchField``
+* Added support for django-select2 5.x
+* Removed unused ``UserSearchField``
 * Updated translations
 
 
