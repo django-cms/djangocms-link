@@ -160,7 +160,7 @@ class AbstractLink(CMSPlugin):
         )
 
         anchor_field_verbose_name = force_text(
-           self._meta.get_field_by_name(anchor_field_name)[0].verbose_name)
+           self._meta.get_field(anchor_field_name).verbose_name)
         anchor_field_value = getattr(self, anchor_field_name)
 
         link_fields = {
