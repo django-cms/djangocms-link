@@ -2,6 +2,11 @@
 Changelog
 =========
 
+2.1.1 (unreleased)
+==================
+
+* Added compatibility for django 1.10
+
 2.1.0 (2017-01-18)
 ==================
 
