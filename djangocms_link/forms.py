@@ -25,6 +25,7 @@ class LinkForm(ModelForm):
         # this will be used by the field later to properly set up the queryset
         # this will work for PageSearchField
         self.fields['internal_link'].site = site
+        self.fields['internal_link'].widget.site = site
 
     class Meta:
         model = Link

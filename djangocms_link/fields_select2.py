@@ -1,5 +1,6 @@
 from cms.models import Page
 from django import forms
+
 from django_select2.forms import ModelSelect2Widget
 
 
@@ -12,14 +13,17 @@ class Select2PageSearchFieldMixin(object):
 
 
 class Select2PageSelectWidget(Select2PageSearchFieldMixin, ModelSelect2Widget):
-    def __init__(self, site=None, *args, **kwargs):
-        self.site = site
-        super(Select2PageSelectWidget, self).__init__(*args, **kwargs)
+    site = None
 
     def get_queryset(self):
-        return Page.objects.drafts().on_site(self.site) if self.site is not None else Page.objects.drafts()
+        if self.site:
+            return Page.objects.drafts().on_site(self.site)
+        return Page.objects.drafts()
 
 
-class Select2PageSearchField(forms.ChoiceField):
-    site = None
-    widget = Select2PageSelectWidget(site=site)
+class Select2PageSearchField(forms.ModelChoiceField):
+    widget = Select2PageSelectWidget()
+
+    def __init__(self, *args, **kwargs):
+        kwargs['queryset'] = self.widget.get_queryset()
+        super(Select2PageSearchField, self).__init__(*args, **kwargs)
