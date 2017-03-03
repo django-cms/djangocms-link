@@ -2,10 +2,13 @@
 Changelog
 =========
 
-2.1.1 (unreleased)
+2.1.1 (2017-03-02)
 ==================
 
 * Added compatibility for django 1.10
+* Fixed a bug with newer versions of django-select2 which prevented users
+  from selecting a page.
+
 
 2.1.0 (2017-01-18)
 ==================
