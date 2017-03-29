@@ -40,6 +40,11 @@ class LinkPlugin(CMSPluginBase):
         }),
     ]
 
+    @classmethod
+    def get_render_queryset(cls):
+        queryset = super(LinkPlugin, cls).get_render_queryset()
+        return queryset.select_related('internal_link')
+
     def get_render_template(self, context, instance, placeholder):
         return 'djangocms_link/{}/link.html'.format(instance.template)
 

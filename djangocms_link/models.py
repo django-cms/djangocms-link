@@ -5,9 +5,10 @@ using the HTML <a> tag.
 """
 from __future__ import unicode_literals
 
-from django.db import models
+from django.contrib.sites.models import Site
 from django.conf import settings
 from django.core.exceptions import ValidationError
+from django.db import models
 from django.utils.encoding import python_2_unicode_compatible, force_text
 from django.utils.translation import ugettext, ugettext_lazy as _
 
@@ -130,8 +131,13 @@ class AbstractLink(CMSPlugin):
         return self.get_link() or ugettext('<link is missing>')
 
     def get_link(self):
-        if self.internal_link_id:
-            link = self.internal_link.get_absolute_url()
+        if self.internal_link:
+            ref_page = self.internal_link
+            link = ref_page.get_absolute_url()
+
+            if ref_page.site_id != getattr(self.page, 'site_id', None):
+                ref_site = Site.objects._get_site_by_id(ref_page.site_id)
+                link = '//{}{}'.format(ref_site, link)
         elif self.external_link:
             link = self.external_link
         elif self.phone:
