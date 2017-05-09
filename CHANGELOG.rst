@@ -3,7 +3,7 @@ Changelog
 =========
 
 
-2.1.2 (unreleased)
+2.1.2 (2017-05-09)
 ==================
 
 * Fixed a bug which prevented links from working when the page
