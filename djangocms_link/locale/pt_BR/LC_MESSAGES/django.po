@@ -10,7 +10,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-12 13:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Angelo Dini <finalangeljp@hotmail.com>, 2016\n"
+"Last-Translator: Diego Ponci <dgo.ponciano@gmail.com>, 2017\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/divio/teams/58664/pt_BR/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,69 +24,71 @@ msgstr "Link"
 
 #: cms_plugins.py:27
 msgid "Link settings"
-msgstr ""
+msgstr "Configurações do link"
 
 #: cms_plugins.py:34
 msgid "Advanced settings"
-msgstr ""
+msgstr "Configurações avançadas"
 
 #: forms.py:14 models.py:74
 msgid "Internal link"
-msgstr ""
+msgstr "Link interno"
 
 #: models.py:24
 msgid "Default"
-msgstr ""
+msgstr "Padrão"
 
 #: models.py:40
 msgid "Open in new window"
-msgstr ""
+msgstr "Abrir em nova janela"
 
 #: models.py:41
 msgid "Open in same window"
-msgstr ""
+msgstr "Abrir na mesma janela"
 
 #: models.py:42
 msgid "Delegate to parent"
-msgstr ""
+msgstr "Abrir no frame superior"
 
 #: models.py:43
 msgid "Delegate to top"
-msgstr ""
+msgstr "Abrir na página principal"
 
 #: models.py:54
 msgid "Template"
-msgstr ""
+msgstr "Template"
 
 #: models.py:60
 msgid "Display name"
-msgstr ""
+msgstr "Nome exibido"
 
 #: models.py:66
 msgid "External link"
-msgstr ""
+msgstr "Link externo"
 
 #: models.py:70
 msgid "Provide a valid URL to an external website."
-msgstr ""
+msgstr "Forneça uma URL válida para um website externo"
 
 #: models.py:78
 msgid "If provided, overrides the external link."
-msgstr ""
+msgstr "Se fornecido, substitui o link externo."
 
 #: models.py:82
 msgid "Anchor"
-msgstr ""
+msgstr "Âncora"
 
 #: models.py:85
 msgid ""
 "Appends the value only after the internal or external link. Do <em>not</em> "
 "include a preceding \"#\" symbol."
 msgstr ""
+"Acrescenta o valor somente após o link interno ou externo. <em>Não</em> "
+"inclui o prefixo \"#\"."
 
 #: models.py:89
 msgid "Email address"
-msgstr ""
+msgstr "Endereço de e-mail"
 
 #: models.py:94
 msgid "Phone"
@@ -94,30 +96,31 @@ msgstr "Telefone"
 
 #: models.py:100
 msgid "Target"
-msgstr ""
+msgstr "Target"
 
 #: models.py:106
 msgid "Attributes"
-msgstr ""
+msgstr "Atributos"
 
 #: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<link faltando>"
 
 #: models.py:183
 #, python-brace-format
 msgid "Only one of {0} or {1} may be given."
-msgstr ""
+msgstr "Apenas um de {0} ou {1} deve ser informado."
 
 #: models.py:192
 msgid "Please provide a link."
-msgstr ""
+msgstr "Por favor forneça um link."
 
 #: models.py:198
 #, python-format
 msgid ""
 "%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
 msgstr ""
+"%(anchor_field_verbose_name)s não é permitido junto com %(field_name)s"
 
 #~ msgid "At least one link is required."
 #~ msgstr "Pelo menos um link é necessário."
