@@ -7,6 +7,7 @@ Changelog
 ==================
 
 * Fixed a bug where overriding ``Site.__str__`` resulted in invalid urls.
+* Fixed a bug preventing HOSTNAME_PATTERN to work.
 
 
 2.1.2 (2017-05-09)
