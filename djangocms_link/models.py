@@ -135,7 +135,9 @@ class AbstractLink(CMSPlugin):
             ref_page = self.internal_link
             link = ref_page.get_absolute_url()
 
-            if ref_page.site_id != getattr(self.page, 'site_id', None):
+            # simulate the call to the unauthorized CMSPlugin.page property
+            cms_page = self.placeholder.page if self.placeholder_id else None
+            if ref_page.site_id != getattr(cms_page, 'site_id', None):
                 ref_site = Site.objects._get_site_by_id(ref_page.site_id).domain
                 link = '//{}{}'.format(ref_site, link)
         elif self.external_link:
