@@ -45,7 +45,7 @@ TARGET_CHOICES = (
 )
 
 @python_2_unicode_compatible
-class AbstractLink(CMSPlugin):
+class BaseLink(models.Model):
     # used by django CMS search
     search_fields = ('name', )
 
@@ -109,16 +109,6 @@ class AbstractLink(CMSPlugin):
         excluded_keys=['href', 'target'],
     )
 
-    # Add an app namespace to related_name to avoid field name clashes
-    # with any other plugins that have a field with the same name as the
-    # lowercase of the class name of this model.
-    # https://github.com/divio/django-cms/issues/5030
-    cmsplugin_ptr = models.OneToOneField(
-        CMSPlugin,
-        related_name='%(app_label)s_%(class)s',
-        parent_link=True,
-    )
-
     class Meta:
         abstract = True
 
@@ -136,7 +126,7 @@ class AbstractLink(CMSPlugin):
             link = ref_page.get_absolute_url()
 
             # simulate the call to the unauthorized CMSPlugin.page property
-            cms_page = self.placeholder.page if self.placeholder_id else None
+            cms_page = self.placeholder.page if getattr(self, "placeholder_id", None) else None
             if ref_page.site_id != getattr(cms_page, 'site_id', None):
                 ref_site = Site.objects._get_site_by_id(ref_page.site_id).domain
                 link = '//{}{}'.format(ref_site, link)
@@ -154,7 +144,7 @@ class AbstractLink(CMSPlugin):
         return link
 
     def clean(self):
-        super(AbstractLink, self).clean()
+        super(BaseLink, self).clean()
         field_names = (
             'external_link',
             'internal_link',
@@ -211,6 +201,21 @@ class AbstractLink(CMSPlugin):
                         anchor_field_name: error_msg,
                         field_name: error_msg,
                     })
+
+
+class AbstractLink(BaseLink, CMSPlugin):
+    # Add an app namespace to related_name to avoid field name clashes
+    # with any other plugins that have a field with the same name as the
+    # lowercase of the class name of this model.
+    # https://github.com/divio/django-cms/issues/5030
+    cmsplugin_ptr = models.OneToOneField(
+        CMSPlugin,
+        related_name='%(app_label)s_%(class)s',
+        parent_link=True,
+    )
+
+    class Meta:
+        abstract = True
 
 
 class Link(AbstractLink):
