@@ -58,7 +58,9 @@ to adapt and override them to your project's requirements.
 
 This addon provides a ``default`` template for all instances. You can provide
 additional template choices by adding a ``DJANGOCMS_LINK_TEMPLATES``
-setting::
+setting:
+
+.. code-block:: python
 
     DJANGOCMS_LINK_TEMPLATES = [
         ('feature', _('Featured Version')),
@@ -73,12 +75,16 @@ To support environments where non-standard URLs would otherwise work, this
 project supports the defining of an additional RegEx pattern for validating the
 host-portion of the URL.
 
-For example: ::
+For example:
+
+.. code-block:: python
 
     # RFC1123 Pattern:
     DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,-]{1,15}'
 
-Either of these might accept a URL such as: ::
+Either of these might accept a URL such as:
+
+.. code-block:: html
 
     http://SEARCHHOST/?q=some+search+string
 
@@ -100,7 +106,9 @@ for simpler use of internal links. You need to manually enable it by:
 Running Tests
 -------------
 
-You can run tests by executing::
+You can run tests by executing:
+
+.. code-block:: bash
 
     virtualenv env
     source env/bin/activate
