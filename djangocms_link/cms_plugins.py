@@ -29,7 +29,7 @@ class LinkPlugin(CMSPluginBase):
             'fields': (
                 ('mailto', 'phone'),
                 ('anchor', 'target'),
-            )
+            )+ (('file_link', ) if Link.file_link else ()),
         }),
         (_('Advanced settings'), {
             'classes': ('collapse',),
