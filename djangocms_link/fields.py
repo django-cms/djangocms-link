@@ -7,7 +7,9 @@ ENABLE_SELECT2 = getattr(settings, 'DJANGOCMS_LINK_USE_SELECT2', False)
 if ENABLE_SELECT2 and 'django_select2' in settings.INSTALLED_APPS:
     import django_select2
 
-    select2_version = LooseVersion(django_select2.__version__)
+    select2_version = LooseVersion(django_select2.__version__)\
+        if hasattr(django_select2, '__version__') else LooseVersion('6')
+        # As of version 6, django_select2 does not have a __version__ prperty
     if select2_version >= LooseVersion('5'):
         from djangocms_link.fields_select2 import Select2PageSearchField as PageSearchField
     else:
