@@ -20,6 +20,7 @@ class LinkTestCase(BaseTestCase):
             template='page.html',
             language='en',
         )
+        page.set_as_homepage()
 
         plugin = add_plugin(
             page.placeholders.get(slot='content'),

@@ -12,16 +12,15 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible, force_text
 from django.utils.translation import ugettext, ugettext_lazy as _
 
-from cms.models import CMSPlugin, Page
-try:
-    from filer.fields.file import FilerFileField
-except:
-    FilerFileField = None
-
-
 from djangocms_attributes_field.fields import AttributesField
 
 from .validators import IntranetURLValidator
+
+from cms.models import CMSPlugin, Page
+if 'filer' in settings.INSTALLED_APPS:
+    from filer.fields.file import FilerFileField
+else:
+    FilerFileField = None
 
 
 # Add additional choices through the ``settings.py``.
@@ -36,6 +35,7 @@ def get_templates():
     )
     return choices
 
+
 HOSTNAME = getattr(
     settings,
     'DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN',
@@ -49,12 +49,13 @@ TARGET_CHOICES = (
     ('_top', _('Delegate to top')),
 )
 
+
 @python_2_unicode_compatible
 class AbstractLink(CMSPlugin):
     # used by django CMS search
     search_fields = ('name', )
 
-    url_validators = [IntranetURLValidator(intranet_host_re=HOSTNAME),]
+    url_validators = [IntranetURLValidator(intranet_host_re=HOSTNAME), ]
 
     template = models.CharField(
         verbose_name=_('Template'),
@@ -151,7 +152,7 @@ class AbstractLink(CMSPlugin):
 
             # simulate the call to the unauthorized CMSPlugin.page property
             cms_page = self.placeholder.page if self.placeholder_id else None
-            if ref_page.site_id != getattr(cms_page, 'site_id', None):
+            if cms_page and ref_page.site_id != getattr(cms_page.node, 'site_id', None):
                 ref_site = Site.objects._get_site_by_id(ref_page.site_id).domain
                 link = '//{}{}'.format(ref_site, link)
         elif self.file_link:
