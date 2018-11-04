@@ -20,7 +20,11 @@ class LinkTestCase(BaseTestCase):
             template='page.html',
             language='en',
         )
-        page.set_as_homepage()
+        try:    # only available in cms 3.5+
+            page.set_as_homepage()
+        except AttributeError:
+            pass
+
 
         plugin = add_plugin(
             page.placeholders.get(slot='content'),
