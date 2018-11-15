@@ -5,6 +5,8 @@ using the HTML <a> tag.
 """
 from __future__ import unicode_literals
 
+from distutils.version import LooseVersion
+
 from django.contrib.sites.models import Site
 from django.conf import settings
 from django.core.exceptions import ValidationError
@@ -12,6 +14,7 @@ from django.db import models
 from django.utils.encoding import python_2_unicode_compatible, force_text
 from django.utils.translation import ugettext, ugettext_lazy as _
 
+import cms
 from cms.models import CMSPlugin, Page
 
 from djangocms_attributes_field.fields import AttributesField
@@ -31,6 +34,7 @@ def get_templates():
     )
     return choices
 
+
 HOSTNAME = getattr(
     settings,
     'DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN',
@@ -43,6 +47,7 @@ TARGET_CHOICES = (
     ('_parent', _('Delegate to parent')),
     ('_top', _('Delegate to top')),
 )
+
 
 @python_2_unicode_compatible
 class AbstractLink(CMSPlugin):
@@ -137,7 +142,14 @@ class AbstractLink(CMSPlugin):
 
             # simulate the call to the unauthorized CMSPlugin.page property
             cms_page = self.placeholder.page if self.placeholder_id else None
-            if ref_page.site_id != getattr(cms_page, 'site_id', None):
+            if getattr(cms_page, 'node'):
+                ref_page_site_id = ref_page.node.site_id
+                cms_page_site_id = getattr(cms_page.node, 'site_id', None)
+            else:
+                ref_page_site_id = ref_page.site_id
+                cms_page_site_id = getattr(cms_page, 'site_id', None)
+
+            if ref_page_site_id != cms_page_site_id:
                 ref_site = Site.objects._get_site_by_id(ref_page.site_id).domain
                 link = '//{}{}'.format(ref_site, link)
         elif self.external_link:
