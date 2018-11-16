@@ -140,12 +140,17 @@ class AbstractLink(CMSPlugin):
 
             # simulate the call to the unauthorized CMSPlugin.page property
             cms_page = self.placeholder.page if self.placeholder_id else None
-            if getattr(cms_page, 'node', None):
-                ref_page_site_id = ref_page.node.site_id
-                cms_page_site_id = getattr(cms_page.node, 'site_id', None)
+            if cms_page:
+                if getattr(cms_page, 'node', None):
+                    ref_page_site_id = ref_page.node.site_id
+                    cms_page_site_id = getattr(cms_page.node, 'site_id', None)
+                else:
+                    ref_page_site_id = ref_page.site_id
+                    cms_page_site_id = getattr(cms_page, 'site_id', None)
             else:
+                ref_page = Site.objects.get_current()
                 ref_page_site_id = ref_page.site_id
-                cms_page_site_id = getattr(cms_page, 'site_id', None)
+                cms_page_site_id = None
 
             if ref_page_site_id != cms_page_site_id:
                 ref_site = Site.objects._get_site_by_id(ref_page.site_id).domain
