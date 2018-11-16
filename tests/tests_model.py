@@ -61,14 +61,13 @@ class LinkTestCase(BaseTestCase):
             external_link='http://example.com',
         )
         self.assertEqual(plugin.get_link(), 'http://example.com')
-
         plugin = add_plugin(
             page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
             internal_link=page,
         )
-        self.assertEqual(plugin.get_link(), '/en/')
+        self.assertEqual(plugin.get_link(), '/en/help/')
 
         plugin = add_plugin(
             page.placeholders.get(slot='content'),
@@ -77,7 +76,7 @@ class LinkTestCase(BaseTestCase):
             internal_link=page,
             anchor='some-h1',
         )
-        self.assertEqual(plugin.get_link(), '/en/#some-h1')
+        self.assertEqual(plugin.get_link(), '/en/help/#some-h1')
 
         plugin = add_plugin(
             page.placeholders.get(slot='content'),
