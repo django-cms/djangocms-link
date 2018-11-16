@@ -3,6 +3,12 @@ Changelog
 =========
 
 
+2.2.1 (unreleased)
+==================
+
+* Fixed missing on_delete for AbstractLink model
+
+
 2.2.0 (2018-11-16)
 ==================
 
