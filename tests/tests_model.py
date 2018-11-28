@@ -1,28 +1,30 @@
 # -*- coding: utf-8 -*-
-import django
+from unittest import skipIf, skipUnless
+from distutils.version import LooseVersion
 
 from django.core.management import call_command
 from django.utils.encoding import force_text
 from django.utils.six import StringIO
 
+import cms
 from cms.api import add_plugin, create_page
-from cms.plugin_rendering import PluginContext
 
 from djangocms_helper.base_test import BaseTestCase
 
+CMS_35 = LooseVersion(cms.__version__) >= LooseVersion('3.5')
+
 
 class LinkTestCase(BaseTestCase):
-
-    def test_link(self):
-
-        page = create_page(
+    def setUp(self):
+        self.page = create_page(
             title='help',
             template='page.html',
             language='en',
         )
 
+    def test_link(self):
         plugin = add_plugin(
-            page.placeholders.get(slot='content'),
+            self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
             external_link='http://example.com'
@@ -30,7 +32,7 @@ class LinkTestCase(BaseTestCase):
         self.assertEqual(plugin.get_link(), 'http://example.com')
 
         plugin = add_plugin(
-            page.placeholders.get(slot='content'),
+            self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
             external_link='http://example.com',
@@ -39,7 +41,7 @@ class LinkTestCase(BaseTestCase):
         self.assertEqual(plugin.get_link(), 'http://example.com#some-h1')
 
         plugin = add_plugin(
-            page.placeholders.get(slot='content'),
+            self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
             phone='555-123-555',
@@ -47,7 +49,7 @@ class LinkTestCase(BaseTestCase):
         self.assertEqual(plugin.get_link(), 'tel:555-123-555')
 
         plugin = add_plugin(
-            page.placeholders.get(slot='content'),
+            self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
             mailto='hello@example.com',
@@ -55,37 +57,59 @@ class LinkTestCase(BaseTestCase):
         self.assertEqual(plugin.get_link(), 'mailto:hello@example.com')
 
         plugin = add_plugin(
-            page.placeholders.get(slot='content'),
+            self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
             external_link='http://example.com',
         )
         self.assertEqual(plugin.get_link(), 'http://example.com')
-        plugin = add_plugin(
-            page.placeholders.get(slot='content'),
-            'LinkPlugin',
-            'en',
-            internal_link=page,
-        )
-        self.assertEqual(plugin.get_link(), '/en/help/')
 
         plugin = add_plugin(
-            page.placeholders.get(slot='content'),
-            'LinkPlugin',
-            'en',
-            internal_link=page,
-            anchor='some-h1',
-        )
-        self.assertEqual(plugin.get_link(), '/en/help/#some-h1')
-
-        plugin = add_plugin(
-            page.placeholders.get(slot='content'),
+            self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
             name='some text',
         )
         self.assertEqual(plugin.get_link(), '')
         self.assertEqual(force_text(plugin), 'some text')
+
+    @skipUnless(CMS_35, "Test relevant only for CMS>=3.5")
+    def test_link_for_cms35(self):
+        plugin = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+            internal_link=self.page,
+        )
+        self.assertEqual(plugin.get_link(), '/en/help/')
+
+        plugin = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+            internal_link=self.page,
+            anchor='some-h1',
+        )
+        self.assertEqual(plugin.get_link(), '/en/help/#some-h1')
+
+    @skipIf(CMS_35, "Test relevant only for CMS<3.5")
+    def test_link_for_cms_34(self):
+        plugin = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+            internal_link=self.page,
+        )
+        self.assertEqual(plugin.get_link(), '/en/')
+
+        plugin = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+            internal_link=self.page,
+            anchor='some-h1',
+        )
+        self.assertEqual(plugin.get_link(), '/en/#some-h1')
 
     def test_makemigrations(self):
         """
