@@ -7,6 +7,7 @@ Changelog
 ==================
 
 * Fixed node attribute error
+* Fixed tests for travis and fixed tox file
 
 
 2.2.1 (2018-11-16)
