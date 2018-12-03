@@ -3,7 +3,7 @@ Changelog
 =========
 
 
-2.2.2 (unreleased)
+2.2.2 (2018-01-03)
 ==================
 
 * Fixed node attribute error
