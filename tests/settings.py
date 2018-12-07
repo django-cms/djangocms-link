@@ -3,7 +3,6 @@ HELPER_SETTINGS = {
         'django_select2',
         'djangocms_text_ckeditor',
     ],
-    'ALLOWED_HOSTS': ['localhost'],
     'CMS_LANGUAGES': {
         1: [{
             'code': 'en',
@@ -11,6 +10,7 @@ HELPER_SETTINGS = {
         }]
     },
     'LANGUAGE_CODE': 'en',
+    'ALLOWED_HOSTS': ['localhost'],
     'DJANGOCMS_LINK_USE_SELECT2': True
 }
 
