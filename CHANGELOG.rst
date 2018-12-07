@@ -2,6 +2,12 @@
 Changelog
 =========
 
+2.3.0 (unreleased)
+==================
+
+* Fixed test matrix
+* Fixed an issue when ``page.site`` is not available
+
 
 2.2.2 (2018-01-03)
 ==================
