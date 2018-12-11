@@ -7,6 +7,7 @@ Changelog
 
 * Fixed test matrix
 * Fixed an issue when ``page.site`` is not available
+* Fixed an issue generating ``'Page' object has no attribute 'site'``
 
 
 2.2.2 (2018-01-03)
