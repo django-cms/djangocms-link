@@ -148,7 +148,7 @@ class AbstractLink(CMSPlugin):
                 cms_page_site_id = getattr(cms_page, 'site_id', None)
 
             if ref_page_site_id != cms_page_site_id:
-                ref_site = Site.objects._get_site_by_id(ref_page.site_id).domain
+                ref_site = Site.objects._get_site_by_id(ref_page_site_id).domain
                 link = '//{}{}'.format(ref_site, link)
         elif self.external_link:
             link = self.external_link
