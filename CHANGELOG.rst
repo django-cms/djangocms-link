@@ -2,7 +2,7 @@
 Changelog
 =========
 
-2.3.0 (unreleased)
+2.3.0 (2018-12-11)
 ==================
 
 * Fixed test matrix
@@ -10,7 +10,7 @@ Changelog
 * Fixed an issue generating ``'Page' object has no attribute 'site'``
 
 
-2.2.2 (2018-01-03)
+2.2.2 (2018-12-03)
 ==================
 
 * Fixed node attribute error
