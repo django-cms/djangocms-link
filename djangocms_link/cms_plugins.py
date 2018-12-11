@@ -60,7 +60,8 @@ class LinkPlugin(CMSPluginBase):
             elif self.page and self.page.site:
                 site = self.page.site
         except:
-            # this might NOT give the result you expect
+            site = Site.objects.get_current()
+        else:
             site = Site.objects.get_current()
 
         class Form(form_class):
