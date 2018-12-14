@@ -2,6 +2,12 @@
 Changelog
 =========
 
+2.3.1 (unreleased)
+==================
+
+* Fixes an issue when ``cms_page`` is not available (#153)
+
+
 2.3.0 (2018-12-11)
 ==================
 
