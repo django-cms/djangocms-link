@@ -2,9 +2,7 @@
 from unittest import skipIf, skipUnless
 from distutils.version import LooseVersion
 
-from django.core.management import call_command
 from django.utils.encoding import force_text
-from django.utils.six import StringIO
 
 import cms
 from cms.api import add_plugin, create_page
@@ -110,16 +108,3 @@ class LinkTestCase(BaseTestCase):
             anchor='some-h1',
         )
         self.assertEqual(plugin.get_link(), '/en/#some-h1')
-
-    def test_makemigrations(self):
-        """
-        Fail if there are schema changes with no migrations.
-        """
-        app_name = 'djangocms_link'
-        out = StringIO()
-        call_command('makemigrations', dry_run=True, no_input=True, stdout=out)
-        output = out.getvalue()
-        self.assertNotIn(app_name, output, (
-            '`makemigrations` thinks there are schema changes without'
-            ' migrations.'
-        ))
