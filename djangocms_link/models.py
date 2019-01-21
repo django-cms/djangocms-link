@@ -5,12 +5,13 @@ using the HTML <a> tag.
 """
 from __future__ import unicode_literals
 
-from django.contrib.sites.models import Site
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible, force_text
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.utils.encoding import force_text, python_2_unicode_compatible
+from django.utils.translation import ugettext
+from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin, Page
 
@@ -51,7 +52,9 @@ class AbstractLink(CMSPlugin):
     # used by django CMS search
     search_fields = ('name', )
 
-    url_validators = [IntranetURLValidator(intranet_host_re=HOSTNAME),]
+    url_validators = [
+        IntranetURLValidator(intranet_host_re=HOSTNAME),
+    ]
 
     template = models.CharField(
         verbose_name=_('Template'),

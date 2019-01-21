@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from django.utils.translation import ugettext_lazy as _
 from django.contrib.sites.models import Site
+from django.utils.translation import ugettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
@@ -59,7 +59,7 @@ class LinkPlugin(CMSPluginBase):
                 site = obj.page.site
             elif self.page and self.page.site:
                 site = self.page.site
-        except:
+        except:  # noqa
             site = Site.objects.get_current()
         else:
             site = Site.objects.get_current()
