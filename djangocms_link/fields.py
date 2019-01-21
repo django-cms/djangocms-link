@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from django.conf import settings
 
+
 ENABLE_SELECT2 = getattr(settings, 'DJANGOCMS_LINK_USE_SELECT2', False)
 
 if ENABLE_SELECT2 and 'django_select2' in settings.INSTALLED_APPS:

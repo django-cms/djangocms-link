@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from cms.models import Page
+
 from django_select2.fields import AutoModelSelect2Field
 
 

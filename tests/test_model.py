@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from unittest import skipIf, skipUnless
 from distutils.version import LooseVersion
+from unittest import skipIf, skipUnless
 
 from django.utils.encoding import force_text
 
@@ -8,6 +8,7 @@ import cms
 from cms.api import add_plugin, create_page
 
 from djangocms_helper.base_test import BaseTestCase
+
 
 CMS_35 = LooseVersion(cms.__version__) >= LooseVersion('3.5')
 
