@@ -6,8 +6,8 @@ ENABLE_SELECT2 = getattr(settings, 'DJANGOCMS_LINK_USE_SELECT2', False)
 
 if ENABLE_SELECT2 and 'django_select2' in settings.INSTALLED_APPS:
     try:
-        from djangocms_link.fields_select2 import Select2PageSearchField as PageSearchField
+        from djangocms_link.fields_select2 import Select2PageSearchField as PageSearchField # NOQA
     except ImportError:
-        from djangocms_link.fields_select2_legacy import Select2LegacyPageSearchField as PageSearchField
+        from djangocms_link.fields_select2_legacy import Select2LegacyPageSearchField as PageSearchField # NOQA
 else:
-    from cms.forms.fields import PageSelectFormField as PageSearchField
+    from cms.forms.fields import PageSelectFormField as PageSearchField # NOQA

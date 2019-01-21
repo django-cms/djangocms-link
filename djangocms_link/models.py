@@ -52,7 +52,9 @@ class AbstractLink(CMSPlugin):
     # used by django CMS search
     search_fields = ('name', )
 
-    url_validators = [IntranetURLValidator(intranet_host_re=HOSTNAME),]
+    url_validators = [
+        IntranetURLValidator(intranet_host_re=HOSTNAME),
+    ]
 
     template = models.CharField(
         verbose_name=_('Template'),
