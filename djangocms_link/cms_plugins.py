@@ -59,7 +59,7 @@ class LinkPlugin(CMSPluginBase):
                 site = obj.page.site
             elif self.page and self.page.site:
                 site = self.page.site
-        except: # NOQA
+        except: # noqa
             site = Site.objects.get_current()
         else:
             site = Site.objects.get_current()
