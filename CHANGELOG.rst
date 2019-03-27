@@ -3,7 +3,7 @@ Changelog
 =========
 
 
-2.3.2 (unreleased)
+2.4.0 (unreleased)
 ==================
 
 * Introduced support for CMS 3.7 and Django 2.2
