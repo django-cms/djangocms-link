@@ -113,9 +113,20 @@ class LinkTestCase(BaseTestCase):
         self.assertEqual(plugin.get_link(), '/en/#some-h1')
 
     def test_optional_link(self):
-        self.assertEqual(AbstractLink.link_is_optional, False)
+        AbstractLink.link_is_optional = True
 
         plugin1 = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+        )
+        self.assertIsNone(plugin1.clean())
+
+        AbstractLink.link_is_optional = False
+
+        self.assertEqual(AbstractLink.link_is_optional, False)
+
+        plugin2 = add_plugin(
             self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
@@ -123,13 +134,5 @@ class LinkTestCase(BaseTestCase):
 
         # should throw "Please provide a link." error
         with self.assertRaises(ValidationError):
-            plugin1.clean()
+            plugin2.clean()
 
-        AbstractLink.link_is_optional = True
-
-        plugin2 = add_plugin(
-            self.page.placeholders.get(slot='content'),
-            'LinkPlugin',
-            'en',
-        )
-        self.assertIsNone(plugin2.clean())
