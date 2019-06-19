@@ -2,7 +2,6 @@
 django CMS Link
 ===============
 
-
 |pypi| |build| |coverage|
 
 **django CMS Link** is a plugin for `django CMS <http://django-cms.org>`_ that
@@ -26,6 +25,10 @@ feedback in the form of issues and pull requests. Before submitting your
 pull request, please review our `contribution guidelines
 <http://docs.django-cms.org/en/latest/contributing/index.html>`_.
 
+We're grateful to all contributors who have helped create and maintain this package.
+Contributors are listed at the `contributors <https://github.com/divio/djangocms-link/graphs/contributors>`_
+section.
+
 One of the easiest contributions you can make is helping to translate this addon on
 `Transifex <https://www.transifex.com/projects/p/djangocms-link/>`_.
 
@@ -36,8 +39,7 @@ Documentation
 See ``REQUIREMENTS`` in the `setup.py <https://github.com/divio/djangocms-link/blob/master/setup.py>`_
 file for additional dependencies:
 
-* Python 2.7, 3.3 or higher
-* Django 1.8 or higher
+|python| |django| |djangocms|
 
 
 Installation
@@ -58,7 +60,9 @@ to adapt and override them to your project's requirements.
 
 This addon provides a ``default`` template for all instances. You can provide
 additional template choices by adding a ``DJANGOCMS_LINK_TEMPLATES``
-setting::
+setting:
+
+.. code-block:: python
 
     DJANGOCMS_LINK_TEMPLATES = [
         ('feature', _('Featured Version')),
@@ -73,12 +77,16 @@ To support environments where non-standard URLs would otherwise work, this
 project supports the defining of an additional RegEx pattern for validating the
 host-portion of the URL.
 
-For example: ::
+For example:
+
+.. code-block:: python
 
     # RFC1123 Pattern:
     DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,-]{1,15}'
 
-Either of these might accept a URL such as: ::
+Either of these might accept a URL such as:
+
+.. code-block:: html
 
     http://SEARCHHOST/?q=some+search+string
 
@@ -114,3 +122,10 @@ You can run tests by executing::
     :target: https://travis-ci.org/divio/djangocms-link
 .. |coverage| image:: https://codecov.io/gh/divio/djangocms-link/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/divio/djangocms-link
+
+.. |python| image:: https://img.shields.io/badge/python-2.7%20%7C%203.4+-blue.svg
+    :target: https://pypi.org/project/djangocms-link/
+.. |django| image:: https://img.shields.io/badge/django-1.11%20%7C%202.1%20%7C%202.2-blue.svg
+    :target: https://www.djangoproject.com/
+.. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.4%2B-blue.svg
+    :target: https://www.django-cms.org/
