@@ -3,6 +3,13 @@ Changelog
 =========
 
 
+2.4.1 (unreleased)
+==================
+
+* Allow link requirement to be changed when another
+  CMS plugin inherits from AbstractLink
+
+
 2.4.0 (2019-04-16)
 ==================
 
