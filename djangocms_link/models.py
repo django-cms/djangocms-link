@@ -52,6 +52,10 @@ class AbstractLink(CMSPlugin):
     # used by django CMS search
     search_fields = ('name', )
 
+    # allows link requirement to be changed when another
+    # CMS plugin inherits from AbstractLink
+    link_is_optional = False
+
     url_validators = [
         IntranetURLValidator(intranet_host_re=HOSTNAME),
     ]
@@ -132,9 +136,9 @@ class AbstractLink(CMSPlugin):
         return self.name or str(self.pk)
 
     def get_short_description(self):
-        if self.name:
+        if self.name and self.get_link():
             return '{} ({})'.format(self.name, self.get_link())
-        return self.get_link() or ugettext('<link is missing>')
+        return self.name or self.get_link() or ugettext('<link is missing>')
 
     def get_link(self):
         if self.internal_link:
@@ -213,7 +217,10 @@ class AbstractLink(CMSPlugin):
             errors = {}.fromkeys(provided_link_fields.keys(), error_msg)
             raise ValidationError(errors)
 
-        if len(provided_link_fields) == 0 and not self.anchor:
+        if (len(provided_link_fields) == 0
+                and not self.anchor
+                and not self.link_is_optional):
+
             raise ValidationError(
                 _('Please provide a link.')
             )

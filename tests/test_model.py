@@ -3,11 +3,13 @@ from distutils.version import LooseVersion
 from unittest import skipIf, skipUnless
 
 from django.utils.encoding import force_text
+from django.core.exceptions import ValidationError
 
 import cms
 from cms.api import add_plugin, create_page
 
 from djangocms_helper.base_test import BaseTestCase
+from djangocms_link.models import AbstractLink
 
 
 CMS_35 = LooseVersion(cms.__version__) >= LooseVersion('3.5')
@@ -109,3 +111,27 @@ class LinkTestCase(BaseTestCase):
             anchor='some-h1',
         )
         self.assertEqual(plugin.get_link(), '/en/#some-h1')
+
+    def test_optional_link(self):
+        AbstractLink.link_is_optional = True
+
+        plugin1 = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+        )
+        self.assertIsNone(plugin1.clean())
+
+        AbstractLink.link_is_optional = False
+
+        self.assertEqual(AbstractLink.link_is_optional, False)
+
+        plugin2 = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+        )
+
+        # should throw "Please provide a link." error
+        with self.assertRaises(ValidationError):
+            plugin2.clean()
