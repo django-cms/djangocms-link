@@ -123,7 +123,7 @@ class LinkTestCase(BaseTestCase):
 
         # should throw "Please provide a link." error
         with self.assertRaises(ValidationError):
-            text = plugin1.clean()
+            plugin1.clean()
 
         AbstractLink.link_is_optional = True
 
