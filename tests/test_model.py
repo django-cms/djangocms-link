@@ -135,4 +135,3 @@ class LinkTestCase(BaseTestCase):
         # should throw "Please provide a link." error
         with self.assertRaises(ValidationError):
             plugin2.clean()
-
