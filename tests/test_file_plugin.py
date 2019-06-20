@@ -2,14 +2,13 @@
 import os
 
 from django.conf import settings
+from django.core.files import File as DjangoFile
 
 from cms.api import add_plugin, create_page
 
-from filer.utils.compatibility import PILImage, PILImageDraw
-from filer.models.filemodels import File as FilerFile
-from django.core.files import File as DjangoFile
-
 from djangocms_helper.base_test import BaseTestCase
+from filer.models.filemodels import File as FilerFile
+from filer.utils.compatibility import PILImage, PILImageDraw
 
 
 # from https://github.com/divio/django-filer/blob/develop/tests/helpers.py#L46-L52

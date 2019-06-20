@@ -6,7 +6,7 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
 from .forms import LinkForm
-from .models import Link, FilerFileField
+from .models import Link
 
 
 class LinkPlugin(CMSPluginBase):

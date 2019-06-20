@@ -15,9 +15,8 @@ from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin, Page
 
-from filer.fields.file import FilerFileField
-
 from djangocms_attributes_field.fields import AttributesField
+from filer.fields.file import FilerFileField
 
 from .validators import IntranetURLValidator
 
