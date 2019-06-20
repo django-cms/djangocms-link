@@ -142,6 +142,7 @@ class LinkTestCase(BaseTestCase):
         with self.assertRaises(ValidationError):
             plugin2.clean()
 
+    @skipUnless(CMS_35, "Test relevant only for CMS>=3.5")
     def test_in_placeholders(self):
         plugin1 = add_plugin(
             self.page.placeholders.get(slot='content'),
