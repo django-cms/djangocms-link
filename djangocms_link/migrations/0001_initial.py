@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.db import models, migrations
 import django.db.models.deletion
+from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Link',
             fields=[
-                ('cmsplugin_ptr', models.OneToOneField(serialize=False, parent_link=True, auto_created=True, to='cms.CMSPlugin', primary_key=True)),
+                ('cmsplugin_ptr', models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, serialize=False, parent_link=True, auto_created=True, to='cms.CMSPlugin', primary_key=True)),
                 ('name', models.CharField(verbose_name='name', max_length=256)),
                 ('url', models.URLField(verbose_name='link', blank=True, null=True)),
                 ('anchor', models.CharField(help_text='This applies only to page and text links.', blank=True, default='', max_length=128, verbose_name='anchor')),

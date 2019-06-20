@@ -5,12 +5,13 @@ using the HTML <a> tag.
 """
 from __future__ import unicode_literals
 
-from django.contrib.sites.models import Site
 from django.conf import settings
+from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils.encoding import python_2_unicode_compatible, force_text
-from django.utils.translation import ugettext, ugettext_lazy as _
+from django.utils.encoding import force_text, python_2_unicode_compatible
+from django.utils.translation import ugettext
+from django.utils.translation import ugettext_lazy as _
 
 from djangocms_attributes_field.fields import AttributesField
 
@@ -55,7 +56,13 @@ class AbstractLink(CMSPlugin):
     # used by django CMS search
     search_fields = ('name', )
 
-    url_validators = [IntranetURLValidator(intranet_host_re=HOSTNAME), ]
+    # allows link requirement to be changed when another
+    # CMS plugin inherits from AbstractLink
+    link_is_optional = False
+
+    url_validators = [
+        IntranetURLValidator(intranet_host_re=HOSTNAME),
+    ]
 
     template = models.CharField(
         verbose_name=_('Template'),
@@ -132,6 +139,7 @@ class AbstractLink(CMSPlugin):
         CMSPlugin,
         related_name='%(app_label)s_%(class)s',
         parent_link=True,
+        on_delete=models.CASCADE,
     )
 
     class Meta:
@@ -141,9 +149,9 @@ class AbstractLink(CMSPlugin):
         return self.name or str(self.pk)
 
     def get_short_description(self):
-        if self.name:
+        if self.name and self.get_link():
             return '{} ({})'.format(self.name, self.get_link())
-        return self.get_link() or ugettext('<link is missing>')
+        return self.name or self.get_link() or ugettext('<link is missing>')
 
     def get_link(self):
         if self.internal_link:
@@ -152,10 +160,20 @@ class AbstractLink(CMSPlugin):
 
             # simulate the call to the unauthorized CMSPlugin.page property
             cms_page = self.placeholder.page if self.placeholder_id else None
-            if hasattr(cms_page, 'node'):
-                cms_page=cms_page.node
-            if cms_page and ref_page.site_id != getattr(cms_page, 'site_id', None):
-                ref_site = Site.objects._get_site_by_id(ref_page.site_id).domain
+            if cms_page is not None:
+                if getattr(cms_page, 'node', None):
+                    ref_page_site_id = ref_page.node.site_id
+                    cms_page_site_id = getattr(cms_page.node, 'site_id', None)
+                else:
+                    ref_page_site_id = ref_page.site_id
+                    cms_page_site_id = getattr(cms_page, 'site_id', None)
+            else:
+                ref_page = Site.objects.get_current()
+                ref_page_site_id = ref_page.pk
+                cms_page_site_id = None
+
+            if ref_page_site_id != cms_page_site_id:
+                ref_site = Site.objects._get_site_by_id(ref_page_site_id).domain
                 link = '//{}{}'.format(ref_site, link)
         elif self.file_link:
             link = self.file_link.url
@@ -214,7 +232,10 @@ class AbstractLink(CMSPlugin):
             errors = {}.fromkeys(provided_link_fields.keys(), error_msg)
             raise ValidationError(errors)
 
-        if len(provided_link_fields) == 0 and not self.anchor:
+        if (len(provided_link_fields) == 0
+                and not self.anchor
+                and not self.link_is_optional):
+
             raise ValidationError(
                 _('Please provide a link.')
             )

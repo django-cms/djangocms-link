@@ -3,9 +3,57 @@ Changelog
 =========
 
 
-2.1.3 (unreleased)
+2.4.1 (unreleased)
 ==================
 
+* Allow link requirement to be changed when another
+  CMS plugin inherits from AbstractLink
+
+
+2.4.0 (2019-04-16)
+==================
+
+* Added support for Django 2.2 and django CMS 3.7
+* Removed support for Django 2.0
+* Extended test matrix
+* Added isort and adapted imports
+* Adapted code base to align with other supported addons
+
+
+2.3.1 (2018-12-20)
+==================
+
+* Fixes an issue when ``cms_page`` is not available (#153)
+
+
+2.3.0 (2018-12-11)
+==================
+
+* Fixed test matrix
+* Fixed an issue when ``page.site`` is not available
+* Fixed an issue generating ``'Page' object has no attribute 'site'``
+
+
+2.2.2 (2018-12-03)
+==================
+
+* Fixed node attribute error
+* Fixed tests for travis and fixed tox file
+
+
+2.2.1 (2018-11-16)
+==================
+
+* Fixed missing on_delete for AbstractLink model
+
+
+2.2.0 (2018-11-16)
+==================
+
+* Added support for Django 1.11, 2.0 and 2.1
+* Removed support for Django 1.8, 1.9, 1.10
+* Adapted testing infrastructure (tox/travis) to incorporate
+  django CMS 3.5 and 4.0
 * Fixed a bug where overriding ``Site.__str__`` resulted in invalid urls.
 
 

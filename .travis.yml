@@ -2,23 +2,42 @@ language: python
 
 sudo: false
 
-env:
-  - TOX_ENV=flake8
-  - TOX_ENV=py27-latest
-  - TOX_ENV=py34-latest
-  # Django 1.8
-  - TOX_ENV=py27-dj18-cms34
-  - TOX_ENV=py27-dj18-cms33
-  - TOX_ENV=py34-dj18-cms34
-  - TOX_ENV=py34-dj18-cms33
-  # Django 1.9
-  - TOX_ENV=py27-dj19-cms34
-  - TOX_ENV=py27-dj19-cms33
-  - TOX_ENV=py34-dj19-cms34
-  - TOX_ENV=py34-dj19-cms33
+matrix:
+  include:
+    - python: 3.5
+      env: TOX_ENV='flake8'
+    - python: 3.5
+      env: TOX_ENV='isort'
+      # Django 1.11
+    - python: 2.7
+      env: DJANGO='dj111' CMS='cms34'
+    - python: 3.4
+      env: DJANGO='dj111' CMS='cms35'
+    - python: 3.5
+      env: DJANGO='dj111' CMS='cms36'
+    - python: 3.6
+      env: DJANGO='dj111' CMS='cms37'
+    # Django 2.1
+    - python: 3.6
+      env: DJANGO='dj21' CMS='cms36'
+    - python: 3.6
+      env: DJANGO='dj21' CMS='cms37'
+    # Django 2.2
+    - python: 3.6
+      env: DJANGO='dj22' CMS='cms37'
+    - python: 3.7
+      env: DJANGO='dj22' CMS='cms37'
+      dist: xenial
+      sudo: true
 
 install:
-  - pip install tox coverage
+  - pip install coverage isort tox
+  - "if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then export PY_VER=py27; fi"
+  - "if [[ $TRAVIS_PYTHON_VERSION == '3.4' ]]; then export PY_VER=py34; fi"
+  - "if [[ $TRAVIS_PYTHON_VERSION == '3.5' ]]; then export PY_VER=py35; fi"
+  - "if [[ $TRAVIS_PYTHON_VERSION == '3.6' ]]; then export PY_VER=py36; fi"
+  - "if [[ $TRAVIS_PYTHON_VERSION == '3.7' ]]; then export PY_VER=py37; fi"
+  - "if [[ ${DJANGO}z != 'z' ]]; then export TOX_ENV=$PY_VER-$DJANGO-$CMS; fi"
 
 script:
   - tox -e $TOX_ENV
