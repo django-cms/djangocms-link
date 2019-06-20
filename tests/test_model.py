@@ -159,25 +159,31 @@ class LinkTestCase(BaseTestCase):
             placeholder,
             'LinkPlugin',
             'en',
-            internal_link=self.page,
+            internal_link=self.static_page,
         )
-        self.assertEqual(plugin2.get_link(), '//example.com/en/help/')
+        # the generated placeholder has no page attached to it, thus:
+        self.assertEqual(plugin2.get_link(), '//example.com/en/static-help/')
+
+        static_placeholder = StaticPlaceholder.objects.create(
+            name='content_static',
+            code='content_static',
+            site_id=1,
+        )
+        static_placeholder.save()
 
         plugin3 = add_plugin(
-            self.static_page.placeholders.get(slot='content_static'),
+            static_placeholder.draft,
             'LinkPlugin',
             'en',
             internal_link=self.page,
         )
-        self.assertEqual(plugin3.get_link(), '/en/help/')
-
-        static_placeholder = StaticPlaceholder.objects.create(name='foo', code='bar', site_id=1)
-        static_placeholder.save()
 
         plugin4 = add_plugin(
             static_placeholder.public,
             'LinkPlugin',
             'en',
-            internal_link=self.page,
+            internal_link=self.static_page,
         )
-        self.assertEqual(plugin4.get_link(), '//example.com/en/help/')
+        # static placeholders will always return the full path
+        self.assertEqual(plugin3.get_link(), '//example.com/en/help/')
+        self.assertEqual(plugin4.get_link(), '//example.com/en/static-help/')
