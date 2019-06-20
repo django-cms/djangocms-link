@@ -194,7 +194,8 @@ class AbstractLink(CMSPlugin):
             'internal_link',
             'mailto',
             'phone',
-        ) + (('file_link', ) if self.file_link else ())
+            'file_link',
+        )
         anchor_field_name = 'anchor'
         field_names_allowed_with_anchor = (
             'external_link',
