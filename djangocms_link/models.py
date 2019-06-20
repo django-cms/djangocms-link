@@ -13,11 +13,13 @@ from django.utils.encoding import force_text, python_2_unicode_compatible
 from django.utils.translation import ugettext
 from django.utils.translation import ugettext_lazy as _
 
+from cms.models import CMSPlugin, Page
+
 from djangocms_attributes_field.fields import AttributesField
 
 from .validators import IntranetURLValidator
 
-from cms.models import CMSPlugin, Page
+
 if 'filer' in settings.INSTALLED_APPS:
     from filer.fields.file import FilerFileField
 else:
