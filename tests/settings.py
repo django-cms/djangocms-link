@@ -4,6 +4,7 @@ HELPER_SETTINGS = {
     'INSTALLED_APPS': [
         'django_select2',
         'djangocms_text_ckeditor',
+        'tests.utils',
     ],
     'CMS_LANGUAGES': {
         1: [{
@@ -13,7 +14,11 @@ HELPER_SETTINGS = {
     },
     'LANGUAGE_CODE': 'en',
     'ALLOWED_HOSTS': ['localhost'],
-    'DJANGOCMS_LINK_USE_SELECT2': True
+    'DJANGOCMS_LINK_USE_SELECT2': True,
+    'CMS_TEMPLATES': (
+        ('page.html', 'Normal page'),
+        ('static_placeholder.html', 'Page with static placeholder'),
+    ),
 }
 
 
