@@ -15,15 +15,11 @@ from django.utils.translation import ugettext_lazy as _
 
 from cms.models import CMSPlugin, Page
 
+from filer.fields.file import FilerFileField
+
 from djangocms_attributes_field.fields import AttributesField
 
 from .validators import IntranetURLValidator
-
-
-if 'filer' in settings.INSTALLED_APPS:
-    from filer.fields.file import FilerFileField
-else:
-    FilerFileField = None
 
 
 # Add additional choices through the ``settings.py``.
@@ -95,12 +91,12 @@ class AbstractLink(CMSPlugin):
     )
 
     file_link = FilerFileField(
-        verbose_name=_('File download'),
+        verbose_name=_('File link'),
         blank=True,
         null=True,
         on_delete=models.SET_NULL,
-        help_text=_('If provided links a file from the filer app'),
-    ) if FilerFileField else None
+        help_text=_('If provided links a file from the filer app.'),
+    )
 
     # other link types
     anchor = models.CharField(

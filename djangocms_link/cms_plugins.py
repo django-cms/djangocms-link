@@ -6,7 +6,7 @@ from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
 from .forms import LinkForm
-from .models import Link
+from .models import Link, FilerFileField
 
 
 class LinkPlugin(CMSPluginBase):
@@ -28,7 +28,8 @@ class LinkPlugin(CMSPluginBase):
             'fields': (
                 ('mailto', 'phone'),
                 ('anchor', 'target'),
-            )+(('file_link', ) if 'filer' in settings.INSTALLED_APPS else ()),
+                ('file_link'),
+            ),
         }),
         (_('Advanced settings'), {
             'classes': ('collapse',),
