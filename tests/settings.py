@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from tempfile import mkdtemp
+
+
 HELPER_SETTINGS = {
     'INSTALLED_APPS': [
+        'filer',
         'django_select2',
         'djangocms_text_ckeditor',
         'tests.utils',
@@ -13,12 +17,19 @@ HELPER_SETTINGS = {
         }]
     },
     'LANGUAGE_CODE': 'en',
+    'THUMBNAIL_PROCESSORS': (
+        'easy_thumbnails.processors.colorspace',
+        'easy_thumbnails.processors.autocrop',
+        'filer.thumbnail_processors.scale_and_crop_with_subject_location',
+        'easy_thumbnails.processors.filters',
+    ),
     'ALLOWED_HOSTS': ['localhost'],
     'DJANGOCMS_LINK_USE_SELECT2': True,
     'CMS_TEMPLATES': (
         ('page.html', 'Normal page'),
         ('static_placeholder.html', 'Page with static placeholder'),
     ),
+    'FILE_UPLOAD_TEMP_DIR': mkdtemp(),
 }
 
 

@@ -2,14 +2,15 @@
 from distutils.version import LooseVersion
 from unittest import skipIf, skipUnless
 
-from django.utils.encoding import force_text
 from django.core.exceptions import ValidationError
+from django.utils.encoding import force_text
 
 from cms import __version__
 from cms.api import add_plugin, create_page
 from cms.models import StaticPlaceholder, Placeholder
 
 from djangocms_helper.base_test import BaseTestCase
+
 from djangocms_link.models import AbstractLink
 
 
