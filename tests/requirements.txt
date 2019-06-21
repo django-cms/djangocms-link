@@ -1,5 +1,6 @@
 # requirements from setup.py
 django-select2>=5.11,<7 # 7 works in Django 2+
+django-filer>=1.3.0
 djangocms-text-ckeditor
 html5lib<0.99999999
 # other requirements

@@ -16,6 +16,7 @@ from django.utils.translation import ugettext_lazy as _
 from cms.models import CMSPlugin, Page
 
 from djangocms_attributes_field.fields import AttributesField
+from filer.fields.file import FilerFileField
 
 from .validators import IntranetURLValidator
 
@@ -87,6 +88,15 @@ class AbstractLink(CMSPlugin):
         on_delete=models.SET_NULL,
         help_text=_('If provided, overrides the external link.'),
     )
+
+    file_link = FilerFileField(
+        verbose_name=_('File link'),
+        blank=True,
+        null=True,
+        on_delete=models.SET_NULL,
+        help_text=_('If provided links a file from the filer app.'),
+    )
+
     # other link types
     anchor = models.CharField(
         verbose_name=_('Anchor'),
@@ -162,6 +172,8 @@ class AbstractLink(CMSPlugin):
             if ref_page_site_id != cms_page_site_id:
                 ref_site = Site.objects._get_site_by_id(ref_page_site_id).domain
                 link = '//{}{}'.format(ref_site, link)
+        elif self.file_link:
+            link = self.file_link.url
         elif self.external_link:
             link = self.external_link
         elif self.phone:
@@ -182,6 +194,7 @@ class AbstractLink(CMSPlugin):
             'internal_link',
             'mailto',
             'phone',
+            'file_link',
         )
         anchor_field_name = 'anchor'
         field_names_allowed_with_anchor = (
