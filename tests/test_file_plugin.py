@@ -22,6 +22,7 @@ def create_image(mode="RGB", size=(800, 600)):
 
 
 class LinkTestCase(BaseTestCase):
+
     def setUp(self):
         self.page = create_page(
             title="help",
@@ -36,16 +37,17 @@ class LinkTestCase(BaseTestCase):
 
     def tearDown(self):
         os.remove(self.filename)
-        for f in FilerFile.objects.all():
-            f.delete()
+        self.page.delete()
+        self.filer_object.delete()
         pass
 
     def create_filer_file(self):
         filer_file = DjangoFile(open(self.filename, "rb"), name=self.image_name)
-        return FilerFile.objects.create(
+        self.filer_object = FilerFile.objects.create(
             original_filename=self.image_name,
             file=filer_file,
         )
+        return self.filer_object
 
     def test_file(self):
         sample_file = self.create_filer_file()
