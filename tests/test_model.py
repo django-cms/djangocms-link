@@ -7,7 +7,7 @@ from django.utils.encoding import force_text
 
 from cms import __version__
 from cms.api import add_plugin, create_page
-from cms.models import StaticPlaceholder, Placeholder
+from cms.models import Placeholder, StaticPlaceholder
 
 from djangocms_helper.base_test import BaseTestCase
 
