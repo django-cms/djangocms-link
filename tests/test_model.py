@@ -7,7 +7,7 @@ from django.utils.encoding import force_text
 
 from cms import __version__
 from cms.api import add_plugin, create_page
-from cms.models import StaticPlaceholder, Placeholder
+from cms.models import Placeholder, StaticPlaceholder
 
 from djangocms_helper.base_test import BaseTestCase
 
@@ -43,6 +43,22 @@ class LinkTestCase(BaseTestCase):
             external_link='http://example.com'
         )
         self.assertEqual(plugin.get_link(), 'http://example.com')
+
+        plugin = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+            external_link='/en/home/'
+        )
+        self.assertEqual(plugin.get_link(), '/en/home/')
+
+        plugin = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+            external_link='//SEARCHHOST/?q=some+search+string'
+        )
+        self.assertEqual(plugin.get_link(), '//SEARCHHOST/?q=some+search+string')
 
         plugin = add_plugin(
             self.page.placeholders.get(slot='content'),
@@ -127,18 +143,18 @@ class LinkTestCase(BaseTestCase):
     def test_optional_link(self):
         AbstractLink.link_is_optional = True
 
-        plugin1 = add_plugin(
+        plugin = add_plugin(
             self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
         )
-        self.assertIsNone(plugin1.clean())
+        self.assertIsNone(plugin.clean())
 
         AbstractLink.link_is_optional = False
 
         self.assertEqual(AbstractLink.link_is_optional, False)
 
-        plugin2 = add_plugin(
+        plugin = add_plugin(
             self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
@@ -146,29 +162,29 @@ class LinkTestCase(BaseTestCase):
 
         # should throw "Please provide a link." error
         with self.assertRaises(ValidationError):
-            plugin2.clean()
+            plugin.clean()
 
     @skipUnless(CMS_35, "Test relevant only for CMS>=3.5")
     def test_in_placeholders(self):
-        plugin1 = add_plugin(
+        plugin = add_plugin(
             self.page.placeholders.get(slot='content'),
             'LinkPlugin',
             'en',
             internal_link=self.page,
         )
-        self.assertEqual(plugin1.get_link(), '/en/help/')
+        self.assertEqual(plugin.get_link(), '/en/help/')
 
         placeholder = Placeholder(slot="generated_placeholder")
         placeholder.save()
 
-        plugin2 = add_plugin(
+        plugin = add_plugin(
             placeholder,
             'LinkPlugin',
             'en',
             internal_link=self.static_page,
         )
         # the generated placeholder has no page attached to it, thus:
-        self.assertEqual(plugin2.get_link(), '//example.com/en/static-help/')
+        self.assertEqual(plugin.get_link(), '//example.com/en/static-help/')
 
         static_placeholder = StaticPlaceholder.objects.create(
             name='content_static',
@@ -177,19 +193,19 @@ class LinkTestCase(BaseTestCase):
         )
         static_placeholder.save()
 
-        plugin3 = add_plugin(
+        plugin_a = add_plugin(
             static_placeholder.draft,
             'LinkPlugin',
             'en',
             internal_link=self.page,
         )
 
-        plugin4 = add_plugin(
+        plugin_b = add_plugin(
             static_placeholder.public,
             'LinkPlugin',
             'en',
             internal_link=self.static_page,
         )
         # static placeholders will always return the full path
-        self.assertEqual(plugin3.get_link(), '//example.com/en/help/')
-        self.assertEqual(plugin4.get_link(), '//example.com/en/static-help/')
+        self.assertEqual(plugin_a.get_link(), '//example.com/en/help/')
+        self.assertEqual(plugin_b.get_link(), '//example.com/en/static-help/')

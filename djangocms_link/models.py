@@ -73,12 +73,12 @@ class AbstractLink(CMSPlugin):
         max_length=255,
     )
     # re: max_length, see: http://stackoverflow.com/questions/417142/
-    external_link = models.URLField(
+    external_link = models.CharField(
         verbose_name=_('External link'),
         blank=True,
         max_length=2040,
         validators=url_validators,
-        help_text=_('Provide a valid URL to an external website.'),
+        help_text=_('Provide a link to an external source.'),
     )
     internal_link = models.ForeignKey(
         Page,
