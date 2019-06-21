@@ -5,24 +5,35 @@ from unittest import skipIf, skipUnless
 from django.core.exceptions import ValidationError
 from django.utils.encoding import force_text
 
-import cms
+from cms import __version__
 from cms.api import add_plugin, create_page
+from cms.models import StaticPlaceholder, Placeholder
 
 from djangocms_helper.base_test import BaseTestCase
 
 from djangocms_link.models import AbstractLink
 
 
-CMS_35 = LooseVersion(cms.__version__) >= LooseVersion('3.5')
+CMS_35 = LooseVersion(__version__) >= LooseVersion('3.5')
 
 
 class LinkTestCase(BaseTestCase):
+
     def setUp(self):
         self.page = create_page(
             title='help',
             template='page.html',
             language='en',
         )
+        self.static_page = create_page(
+            title='static-help',
+            template='static_placeholder.html',
+            language='en',
+        )
+
+    def tearDown(self):
+        self.page.delete()
+        self.static_page.delete()
 
     def test_link(self):
         plugin = add_plugin(
@@ -136,3 +147,49 @@ class LinkTestCase(BaseTestCase):
         # should throw "Please provide a link." error
         with self.assertRaises(ValidationError):
             plugin2.clean()
+
+    @skipUnless(CMS_35, "Test relevant only for CMS>=3.5")
+    def test_in_placeholders(self):
+        plugin1 = add_plugin(
+            self.page.placeholders.get(slot='content'),
+            'LinkPlugin',
+            'en',
+            internal_link=self.page,
+        )
+        self.assertEqual(plugin1.get_link(), '/en/help/')
+
+        placeholder = Placeholder(slot="generated_placeholder")
+        placeholder.save()
+
+        plugin2 = add_plugin(
+            placeholder,
+            'LinkPlugin',
+            'en',
+            internal_link=self.static_page,
+        )
+        # the generated placeholder has no page attached to it, thus:
+        self.assertEqual(plugin2.get_link(), '//example.com/en/static-help/')
+
+        static_placeholder = StaticPlaceholder.objects.create(
+            name='content_static',
+            code='content_static',
+            site_id=1,
+        )
+        static_placeholder.save()
+
+        plugin3 = add_plugin(
+            static_placeholder.draft,
+            'LinkPlugin',
+            'en',
+            internal_link=self.page,
+        )
+
+        plugin4 = add_plugin(
+            static_placeholder.public,
+            'LinkPlugin',
+            'en',
+            internal_link=self.static_page,
+        )
+        # static placeholders will always return the full path
+        self.assertEqual(plugin3.get_link(), '//example.com/en/help/')
+        self.assertEqual(plugin4.get_link(), '//example.com/en/static-help/')

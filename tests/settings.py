@@ -8,6 +8,7 @@ HELPER_SETTINGS = {
         'filer',
         'django_select2',
         'djangocms_text_ckeditor',
+        'tests.utils',
     ],
     'CMS_LANGUAGES': {
         1: [{
@@ -24,6 +25,10 @@ HELPER_SETTINGS = {
     ),
     'ALLOWED_HOSTS': ['localhost'],
     'DJANGOCMS_LINK_USE_SELECT2': True,
+    'CMS_TEMPLATES': (
+        ('page.html', 'Normal page'),
+        ('static_placeholder.html', 'Page with static placeholder'),
+    ),
     'FILE_UPLOAD_TEMP_DIR': mkdtemp(),
 }
 
