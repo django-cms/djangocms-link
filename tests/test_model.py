@@ -17,6 +17,7 @@ CMS_35 = LooseVersion(__version__) >= LooseVersion('3.5')
 
 
 class LinkTestCase(BaseTestCase):
+
     def setUp(self):
         self.page = create_page(
             title='help',
@@ -28,6 +29,10 @@ class LinkTestCase(BaseTestCase):
             template='static_placeholder.html',
             language='en',
         )
+
+    def tearDown(self):
+        self.page.delete()
+        self.static_page.delete()
 
     def test_link(self):
         plugin = add_plugin(
