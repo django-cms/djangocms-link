@@ -3,13 +3,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
+# Translators:
+# Angelo Dini <angelo.dini@divio.ch>, 2016
+# Diego Ponci <dgo.ponciano@gmail.com>, 2017
+# 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-01-12 13:02+0100\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"POT-Creation-Date: 2019-07-03 10:56+0200\n"
+"PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Diego Ponci <dgo.ponciano@gmail.com>, 2017\n"
 "Language-Team: Portuguese (Brazil) (https://www.transifex.com/divio/teams/58664/pt_BR/)\n"
 "MIME-Version: 1.0\n"
@@ -18,11 +22,11 @@ msgstr ""
 "Language: pt_BR\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: cms_plugins.py:16
+#: cms_plugins.py:15
 msgid "Link"
 msgstr "Link"
 
-#: cms_plugins.py:27
+#: cms_plugins.py:26
 msgid "Link settings"
 msgstr "Configurações do link"
 
@@ -30,55 +34,59 @@ msgstr "Configurações do link"
 msgid "Advanced settings"
 msgstr "Configurações avançadas"
 
-#: forms.py:14 models.py:74
+#: forms.py:15 models.py:85
 msgid "Internal link"
 msgstr "Link interno"
 
-#: models.py:24
+#: models.py:27
 msgid "Default"
 msgstr "Padrão"
 
-#: models.py:40
+#: models.py:44
 msgid "Open in new window"
 msgstr "Abrir em nova janela"
 
-#: models.py:41
+#: models.py:45
 msgid "Open in same window"
 msgstr "Abrir na mesma janela"
 
-#: models.py:42
+#: models.py:46
 msgid "Delegate to parent"
 msgstr "Abrir no frame superior"
 
-#: models.py:43
+#: models.py:47
 msgid "Delegate to top"
 msgstr "Abrir na página principal"
 
-#: models.py:54
+#: models.py:65
 msgid "Template"
 msgstr "Template"
 
-#: models.py:60
+#: models.py:71
 msgid "Display name"
 msgstr "Nome exibido"
 
-#: models.py:66
+#: models.py:77
 msgid "External link"
 msgstr "Link externo"
 
-#: models.py:70
-msgid "Provide a valid URL to an external website."
-msgstr "Forneça uma URL válida para um website externo"
-
-#: models.py:78
+#: models.py:89
 msgid "If provided, overrides the external link."
 msgstr "Se fornecido, substitui o link externo."
 
-#: models.py:82
+#: models.py:93
+msgid "File link"
+msgstr ""
+
+#: models.py:97
+msgid "If provided links a file from the filer app."
+msgstr ""
+
+#: models.py:102
 msgid "Anchor"
 msgstr "Âncora"
 
-#: models.py:85
+#: models.py:105
 msgid ""
 "Appends the value only after the internal or external link. Do <em>not</em> "
 "include a preceding \"#\" symbol."
@@ -86,36 +94,36 @@ msgstr ""
 "Acrescenta o valor somente após o link interno ou externo. <em>Não</em> "
 "inclui o prefixo \"#\"."
 
-#: models.py:89
+#: models.py:109
 msgid "Email address"
 msgstr "Endereço de e-mail"
 
-#: models.py:94
+#: models.py:114
 msgid "Phone"
 msgstr "Telefone"
 
-#: models.py:100
+#: models.py:120
 msgid "Target"
 msgstr "Target"
 
-#: models.py:106
+#: models.py:126
 msgid "Attributes"
 msgstr "Atributos"
 
-#: models.py:130
+#: models.py:151
 msgid "<link is missing>"
 msgstr "<link faltando>"
 
-#: models.py:183
+#: models.py:246
 #, python-brace-format
 msgid "Only one of {0} or {1} may be given."
 msgstr "Apenas um de {0} ou {1} deve ser informado."
 
-#: models.py:192
+#: models.py:258
 msgid "Please provide a link."
 msgstr "Por favor forneça um link."
 
-#: models.py:198
+#: models.py:264
 #, python-format
 msgid ""
 "%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"

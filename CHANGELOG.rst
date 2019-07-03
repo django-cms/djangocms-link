@@ -10,6 +10,7 @@ Changelog
 * Allow link requirement to be changed when another
   CMS plugin inherits from AbstractLink
 * Fixed a bug preventing ``HOSTNAME_PATTERN`` to work
+* Updated translations
 
 
 2.4.0 (2019-04-16)
