@@ -3,7 +3,7 @@ Changelog
 =========
 
 
-2.5.0 (2019-07-03)
+2.5.0 (unreleased)
 ==================
 
 * Added file link support
