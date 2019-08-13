@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
@@ -95,7 +94,3 @@ class LinkModelTestCase(TestCase):
         # now we allow the link to be empty
         instance.link_is_optional = True
         instance.clean()
-
-# TODO
-# * optional link
-# * url validators

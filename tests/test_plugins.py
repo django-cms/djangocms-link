@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 import warnings
 
-from django.conf import settings
 from django.core.exceptions import ValidationError
-from django.utils.encoding import force_text
 
 from cms.api import add_plugin, create_page
 from cms.models import Placeholder, StaticPlaceholder
