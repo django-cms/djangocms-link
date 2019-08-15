@@ -74,7 +74,6 @@ class LinkModelTestCase(TestCase):
             # should throw an error as too many values are provided
             instance.clean()
         self.assertEqual(instance.get_link(), "//example.com" + self.page.get_absolute_url())
-        # TODO needs more tests inside internal_link eventually
         instance.internal_link = None
         self.assertEqual(instance.get_link(), self.file.url)
         instance.file_link = None
@@ -93,4 +92,16 @@ class LinkModelTestCase(TestCase):
             instance.clean()
         # now we allow the link to be empty
         instance.link_is_optional = True
+        instance.clean()
+
+    def test_not_allowed_attributes(self):
+        instance = self.link
+        instance.internal_link = None
+        instance.external_link = None
+        instance.phone = None
+        instance.file_link = None
+        with self.assertRaises(ValidationError):
+            # anchor is not compatible with all fields (e.g. phone, mailto)
+            instance.clean()
+        instance.mailto = None
         instance.clean()

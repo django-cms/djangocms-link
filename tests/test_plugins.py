@@ -162,3 +162,13 @@ class LinkPluginsTestCase(CMSTestCase):
         # static placeholders will always return the full path
         self.assertEqual(plugin_a.get_link(), '//example.com/en/content/')
         self.assertEqual(plugin_b.get_link(), '//example.com/en/static-content/')
+
+    def test_file(self):
+        plugin = add_plugin(
+            self.page.placeholders.get(slot="content"),
+            "LinkPlugin",
+            "en",
+            file_link=self.file,
+        )
+        self.assertIn("test_file.pdf", plugin.get_link())
+        self.assertIn("/media/filer_public/", plugin.get_link())
