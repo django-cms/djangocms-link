@@ -2,15 +2,15 @@
 from django.conf import settings
 from django.test import TestCase
 
+from djangocms_link.fields import is_select2_enabled, PageSearchField
+from djangocms_link.fields_select2 import Select2PageSearchField
+
 
 class LinkFieldTestCase(TestCase):
 
     def test_field_with_django_select2_extension(self):
         self.assertTrue('django_select2' in settings.INSTALLED_APPS)
-        self.assertTrue(settings.DJANGOCMS_LINK_USE_SELECT2)
-        settings.DJANGOCMS_LINK_USE_SELECT2 = False
-        self.assertFalse(settings.DJANGOCMS_LINK_USE_SELECT2)
-
-        from djangocms_link.fields import PageSearchField
-        from djangocms_link.fields_select2 import Select2PageSearchField
+        self.assertTrue(is_select2_enabled())
+        settings.INSTALLED_APPS.remove("django_select2")
+        self.assertFalse(is_select2_enabled())
         self.assertEqual(PageSearchField, Select2PageSearchField)

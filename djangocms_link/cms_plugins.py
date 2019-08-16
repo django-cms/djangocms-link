@@ -55,13 +55,10 @@ class LinkPlugin(CMSPluginBase):
     def get_form(self, request, obj=None, **kwargs):
         form_class = super(LinkPlugin, self).get_form(request, obj, **kwargs)
 
-        try:
-            if obj and obj.page and obj.page.site:
-                site = obj.page.site
-            elif self.page and self.page.site:
-                site = self.page.site
-        except:  # noqa
-            site = Site.objects.get_current()
+        if obj and obj.page and obj.page.site:
+            site = obj.page.site
+        elif self.page and self.page.site:
+            site = self.page.site
         else:
             site = Site.objects.get_current()
 
