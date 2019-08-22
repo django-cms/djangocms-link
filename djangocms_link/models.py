@@ -88,7 +88,6 @@ class AbstractLink(CMSPlugin):
         on_delete=models.SET_NULL,
         help_text=_('If provided, overrides the external link.'),
     )
-
     file_link = FilerFileField(
         verbose_name=_('File link'),
         blank=True,
@@ -96,7 +95,6 @@ class AbstractLink(CMSPlugin):
         on_delete=models.SET_NULL,
         help_text=_('If provided links a file from the filer app.'),
     )
-
     # other link types
     anchor = models.CharField(
         verbose_name=_('Anchor'),

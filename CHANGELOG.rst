@@ -3,6 +3,16 @@ Changelog
 =========
 
 
+2.6.0 (unreleased)
+==================
+
+* Pinned ``django-filer`` to 1.5.0
+* Added further tests to raise coverage
+* Fixed smaller issues found during testing
+* Dropped support for django-select2 <= 4
+* Dropped support for django-filer <= 1.4
+
+
 2.5.0 (2019-07-09)
 ==================
 
