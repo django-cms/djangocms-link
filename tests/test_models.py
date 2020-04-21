@@ -4,7 +4,7 @@ from django.test import TestCase
 
 from cms.api import create_page
 
-from djangocms_link.models import Link, TARGET_CHOICES
+from djangocms_link.models import TARGET_CHOICES, Link
 
 from .helpers import get_filer_file
 
