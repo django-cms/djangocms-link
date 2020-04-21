@@ -7,8 +7,8 @@ from cms.api import add_plugin, create_page
 from cms.models import Placeholder, StaticPlaceholder
 from cms.test_utils.testcases import CMSTestCase
 
-from djangocms_link.models import AbstractLink
 from djangocms_link.cms_plugins import LinkPlugin
+from djangocms_link.models import AbstractLink
 
 from .helpers import get_filer_file
 

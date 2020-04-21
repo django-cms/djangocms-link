@@ -9,7 +9,7 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils.encoding import force_text, python_2_unicode_compatible
+from django.utils.encoding import force_text
 from django.utils.translation import ugettext
 from django.utils.translation import ugettext_lazy as _
 
@@ -17,6 +17,7 @@ from cms.models import CMSPlugin, Page
 
 from djangocms_attributes_field.fields import AttributesField
 from filer.fields.file import FilerFileField
+from six import python_2_unicode_compatible
 
 from .validators import IntranetURLValidator
 

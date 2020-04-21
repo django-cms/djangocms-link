@@ -2,7 +2,7 @@
 from django.conf import settings
 from django.test import TestCase
 
-from djangocms_link.fields import is_select2_enabled, PageSearchField
+from djangocms_link.fields import PageSearchField, is_select2_enabled
 from djangocms_link.fields_select2 import Select2PageSearchField
 
 
