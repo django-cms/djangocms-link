@@ -3,6 +3,12 @@ Changelog
 =========
 
 
+2.6.1 (2020-05-12)
+==================
+
+* Fixed an issue where 'Page' object has no attribute 'site'
+
+
 2.6.0 (2020-04-21)
 ==================
 
