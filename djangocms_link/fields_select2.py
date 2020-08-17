@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 from django import forms
 
 from cms.models import Page
@@ -6,7 +5,7 @@ from cms.models import Page
 from django_select2.forms import ModelSelect2Widget
 
 
-class Select2PageSearchFieldMixin(object):
+class Select2PageSearchFieldMixin:
     search_fields = [
         'title_set__title__icontains',
         'title_set__menu_title__icontains',
@@ -28,4 +27,4 @@ class Select2PageSearchField(forms.ModelChoiceField):
 
     def __init__(self, *args, **kwargs):
         kwargs['queryset'] = self.widget.get_queryset()
-        super(Select2PageSearchField, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)

@@ -1,4 +1,3 @@
-# -*- coding: utf-8 -*-
 import re
 
 from django.core.validators import URLValidator
@@ -28,7 +27,7 @@ class IntranetURLValidator(URLValidator):
     host_re = '(' + hostname_re + domain_re + tld_re + '|localhost)'
 
     def __init__(self, intranet_host_re=None, **kwargs):
-        super(IntranetURLValidator, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         if intranet_host_re:
             self.host_re = (
                 '(' + self.hostname_re + self.domain_re + self.tld_re +
