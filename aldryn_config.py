@@ -18,7 +18,7 @@ class Form(forms.BaseForm):
     """
 
     def clean(self):
-        data = super().clean()
+        data = super(Form, self).clean()
 
         # prettify
         data['templates'] = ', '.join(split_and_strip(data['templates']))
