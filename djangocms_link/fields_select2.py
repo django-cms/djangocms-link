@@ -16,7 +16,7 @@ class Select2PageSearchFieldMixin:
 class Select2PageSelectWidget(Select2PageSearchFieldMixin, ModelSelect2Widget):
     site = None
 
-    # show entries when clicking on it
+    # show entries when clicking on it
     def build_attrs(self, base_attrs, extra_attrs=None):
         default_attrs = {"data-minimum-input-length": 0}
         default_attrs.update(base_attrs)
@@ -28,7 +28,7 @@ class Select2PageSelectWidget(Select2PageSearchFieldMixin, ModelSelect2Widget):
             return Page.objects.drafts().on_site(self.site)
         return Page.objects.drafts()
 
-    # we need to implement jQuery ourselves, see #180
+    # we need to implement jQuery ourselves, see #180
     class Media:
         js = (
             "https://code.jquery.com/jquery-3.5.1.slim.min.js",
