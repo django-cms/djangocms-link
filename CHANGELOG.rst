@@ -3,6 +3,16 @@ Changelog
 =========
 
 
+3.0.0 (unreleased)
+==================
+
+* Added support for Django 3.1
+* Dropped support for Python 2.7 and Python 3.4
+* Dropped support for Django < 2.2
+* Fixed an issue when using django-select2 where jQuery is missing
+* Decreased django-select2's ``data-minimum-input-length`` option to 0
+
+
 2.6.1 (2020-05-12)
 ==================
 

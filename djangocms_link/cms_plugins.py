@@ -1,6 +1,5 @@
-# -*- coding: utf-8 -*-
 from django.contrib.sites.models import Site
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
@@ -42,7 +41,7 @@ class LinkPlugin(CMSPluginBase):
 
     @classmethod
     def get_render_queryset(cls):
-        queryset = super(LinkPlugin, cls).get_render_queryset()
+        queryset = super().get_render_queryset()
         return queryset.select_related('internal_link')
 
     def get_render_template(self, context, instance, placeholder):
@@ -50,10 +49,10 @@ class LinkPlugin(CMSPluginBase):
 
     def render(self, context, instance, placeholder):
         context['link'] = instance.get_link()
-        return super(LinkPlugin, self).render(context, instance, placeholder)
+        return super().render(context, instance, placeholder)
 
     def get_form(self, request, obj=None, **kwargs):
-        form_class = super(LinkPlugin, self).get_form(request, obj, **kwargs)
+        form_class = super().get_form(request, obj, **kwargs)
 
         if obj and obj.page and hasattr(obj.page, 'site') and obj.page.site:
             site = obj.page.site
@@ -64,7 +63,7 @@ class LinkPlugin(CMSPluginBase):
 
         class Form(form_class):
             def __init__(self, *args, **kwargs):
-                super(Form, self).__init__(*args, **kwargs)
+                super().__init__(*args, **kwargs)
                 self.for_site(site)
 
         return Form

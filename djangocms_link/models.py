@@ -1,23 +1,19 @@
-# -*- coding: utf-8 -*-
 """
 Enables the user to add a "Link" plugin that displays a link
 using the HTML <a> tag.
 """
-from __future__ import unicode_literals
-
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.encoding import force_text
-from django.utils.translation import ugettext
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext
+from django.utils.translation import gettext_lazy as _
 
 from cms.models import CMSPlugin, Page
 
 from djangocms_attributes_field.fields import AttributesField
 from filer.fields.file import FilerFileField
-from six import python_2_unicode_compatible
 
 from .validators import IntranetURLValidator
 
@@ -49,7 +45,6 @@ TARGET_CHOICES = (
 )
 
 
-@python_2_unicode_compatible
 class AbstractLink(CMSPlugin):
     # used by django CMS search
     search_fields = ('name', )
@@ -147,7 +142,7 @@ class AbstractLink(CMSPlugin):
     def get_short_description(self):
         if self.name and self.get_link():
             return '{} ({})'.format(self.name, self.get_link())
-        return self.name or self.get_link() or ugettext('<link is missing>')
+        return self.name or self.get_link() or gettext('<link is missing>')
 
     def get_link(self):
         if self.internal_link:
@@ -207,7 +202,7 @@ class AbstractLink(CMSPlugin):
         return link
 
     def clean(self):
-        super(AbstractLink, self).clean()
+        super().clean()
         field_names = (
             'external_link',
             'internal_link',

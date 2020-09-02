@@ -1,8 +1,5 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
 from django.forms.models import ModelForm
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from djangocms_attributes_field.widgets import AttributesWidget
 
@@ -33,5 +30,5 @@ class LinkForm(ModelForm):
         exclude = ('page', 'position', 'placeholder', 'language', 'plugin_type')
 
     def __init__(self, *args, **kwargs):
-        super(LinkForm, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.fields['attributes'].widget = AttributesWidget()
