@@ -5,15 +5,7 @@ from djangocms_attributes_field.widgets import AttributesWidget
 
 from .fields import PageSearchField
 from .models import Link
-
 from .compat import CMS_LT_4
-
-if CMS_LT_4:
-    # django CMS 3 compatibility
-    self.fields['internal_link'].queryset = Page.objects.drafts().on_site(site)
-    else
-    # django CMS 4.0.x + compatibility
-    self.fields['internal_link'].queryset = Page.objects.on_site(site)
 
 class LinkForm(ModelForm):
     internal_link = PageSearchField(
@@ -33,6 +25,12 @@ class LinkForm(ModelForm):
         self.fields['internal_link'].site = site
         self.fields['internal_link'].widget.site = site
 
+        if CMS_LT_4:
+            # django CMS 3 compatibility
+            self.fields['internal_link'].queryset = Page.objects.drafts().on_site(site)
+        else:
+            # django CMS 4.0.x + compatibility
+            self.fields['internal_link'].queryset = Page.objects.on_site(site)
 
     class Meta:
         model = Link
