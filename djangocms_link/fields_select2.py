@@ -11,6 +11,11 @@ class Select2PageSearchFieldMixin:
         'title_set__menu_title__icontains',
         'title_set__slug__icontains'
     ]
+    
+    def label_from_instance(self, obj):
+        # Display `title` instead of `menu title` returned
+        # by the Page's __str__ method
+        return obj.get_title()
 
 
 class Select2PageSelectWidget(Select2PageSearchFieldMixin, ModelSelect2Widget):
