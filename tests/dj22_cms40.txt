@@ -1,4 +1,0 @@
--r base.txt
-
-Django>=2.2,<3.0
-https://github.com/divio/django-cms/tarball/release/4.0.x#egg=django-cms
