@@ -3,9 +3,10 @@ from django.utils.translation import gettext_lazy as _
 
 from djangocms_attributes_field.widgets import AttributesWidget
 
+from .compat import CMS_LT_4
 from .fields import PageSearchField
 from .models import Link
-from .compat import CMS_LT_4
+
 
 class LinkForm(ModelForm):
     internal_link = PageSearchField(
