@@ -12,6 +12,9 @@ class Select2PageSearchFieldMixin:
         'title_set__slug__icontains'
     ]
 
+    def label_from_instance(self, obj):
+        return obj.get_title()
+
 
 class Select2PageSelectWidget(Select2PageSearchFieldMixin, ModelSelect2Widget):
     site = None
