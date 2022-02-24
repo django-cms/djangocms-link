@@ -2,6 +2,11 @@
 Changelog
 =========
 
+Unreleased
+==========
+
+* Display page title instead of menu title
+
 
 3.0.0 (2020-09-02)
 ==================
