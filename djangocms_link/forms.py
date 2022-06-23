@@ -22,10 +22,9 @@ class LinkForm(ModelForm):
         # django-cms 3.x compatibility
         try:
             self.fields['internal_link'].queryset = Page.objects.drafts().on_site(site)
+        # django-cms 4.x compatibility
         except AttributeError:
-            # FIXME: Need a way to get draft page objects from djangocms-versioning,
-            # can use _original_manager for now to get any objects including draft
-            self.fields['internal_link'].queryset = Page._original_manager.on_site(site)
+            self.fields['internal_link'].queryset = Page.objects.on_site(site)
 
         # set the current site as a internal_link field instance attribute
         # this will be used by the field later to properly set up the queryset
