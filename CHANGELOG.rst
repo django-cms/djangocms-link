@@ -5,6 +5,7 @@ Changelog
 Unreleased
 ==========
 
+* Added support for django-cms 4.0
 * Display page title instead of menu title
 
 
