@@ -6,7 +6,6 @@ HELPER_SETTINGS = {
     'INSTALLED_APPS': [
         'filer',
         'django_select2',
-        'djangocms_text_ckeditor',
         'tests.utils',
     ],
     'CMS_LANGUAGES': {
