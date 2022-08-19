@@ -6,7 +6,7 @@ from django.conf import settings
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.db import models
-from django.utils.encoding import force_text
+from django.utils.encoding import force_str
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
@@ -216,7 +216,7 @@ class AbstractLink(CMSPlugin):
             'internal_link',
         )
 
-        anchor_field_verbose_name = force_text(
+        anchor_field_verbose_name = force_str(
            self._meta.get_field(anchor_field_name).verbose_name)
         anchor_field_value = getattr(self, anchor_field_name)
 
@@ -225,7 +225,7 @@ class AbstractLink(CMSPlugin):
             for key in field_names
         }
         link_field_verbose_names = {
-            key: force_text(self._meta.get_field(key).verbose_name)
+            key: force_str(self._meta.get_field(key).verbose_name)
             for key in link_fields.keys()
         }
         provided_link_fields = {
