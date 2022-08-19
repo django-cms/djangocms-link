@@ -2,8 +2,9 @@
 Changelog
 =========
 
-Unreleased
-==========
+
+3.1.0 (2022-08-19)
+==================
 
 * Added support for Django 4.0
 * Display page title instead of menu title
