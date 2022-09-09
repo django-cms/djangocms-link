@@ -141,7 +141,7 @@ class AbstractLink(CMSPlugin):
 
     def get_short_description(self):
         if self.name and self.get_link():
-            return '{} ({})'.format(self.name, self.get_link())
+            return f'{self.name} ({self.get_link()})'
         return self.name or self.get_link() or gettext('<link is missing>')
 
     def get_link(self):
@@ -179,7 +179,7 @@ class AbstractLink(CMSPlugin):
 
             if ref_page_site_id != cms_page_site_id:
                 ref_site = Site.objects._get_site_by_id(ref_page_site_id).domain
-                link = '//{}{}'.format(ref_site, link)
+                link = f'//{ref_site}{link}'
 
         elif self.file_link:
             link = self.file_link.url
@@ -191,13 +191,13 @@ class AbstractLink(CMSPlugin):
             link = 'tel:{}'.format(self.phone.replace(' ', ''))
 
         elif self.mailto:
-            link = 'mailto:{}'.format(self.mailto)
+            link = f'mailto:{self.mailto}'
 
         else:
             link = ''
 
         if (not self.phone and not self.mailto) and self.anchor:
-            link += '#{}'.format(self.anchor)
+            link += f'#{self.anchor}'
 
         return link
 
