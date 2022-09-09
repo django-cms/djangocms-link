@@ -5,6 +5,9 @@ Changelog
 Unreleased
 ==========
 
+* Added support for python 3.9 and 3.10
+* Dropped support for django < 3.2
+* Dropped support for python < 3.8
 * fix: Remove deprecated test suite assertEquals
 
 3.1.0 (2022-08-19)

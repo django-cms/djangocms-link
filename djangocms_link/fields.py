@@ -8,7 +8,6 @@ def is_select2_enabled():
 
 
 if is_select2_enabled():
-    from djangocms_link.fields_select2 import \
-        Select2PageSearchField as PageSearchField
+    from djangocms_link.fields_select2 import Select2PageSearchField as PageSearchField  # noqa
 else:
     from cms.forms.fields import PageSelectFormField as PageSearchField  # noqa
