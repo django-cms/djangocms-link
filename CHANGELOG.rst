@@ -2,6 +2,10 @@
 Changelog
 =========
 
+Unreleased
+==========
+
+* fix: Remove deprecated test suite assertEquals
 
 3.1.0 (2022-08-19)
 ==================
