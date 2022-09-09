@@ -45,7 +45,7 @@ class LinkPlugin(CMSPluginBase):
         return queryset.select_related('internal_link')
 
     def get_render_template(self, context, instance, placeholder):
-        return 'djangocms_link/{}/link.html'.format(instance.template)
+        return f'djangocms_link/{instance.template}/link.html'
 
     def render(self, context, instance, placeholder):
         context['link'] = instance.get_link()
