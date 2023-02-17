@@ -9,6 +9,7 @@ Unreleased
 * Dropped support for django < 3.2
 * Dropped support for python < 3.8
 * fix: Remove deprecated test suite assertEquals
+* fix: Remove outdated treebeard dependency
 
 3.1.0 (2022-08-19)
 ==================
