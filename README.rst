@@ -134,3 +134,15 @@ You can run tests by executing::
     :target: https://www.djangoproject.com/
 .. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.7%2B-blue.svg
     :target: https://www.django-cms.org/
+
+
+Updating from `cmsplugin-filer <https://github.com/django-cms/cmsplugin-filer>`_
+--------------------------------------------------------------------------------
+
+`cmsplugin-filer` was used a few times ago to create file, folder, image, link, teaser & video plugins on your DjangoCMS projects. Now the project is archived, and you might be wondering how to migrate your old instances without having to copy them manually to the new `djangocms-<file|picture|link|...>` plugins.
+
+Don't be afraid, we have you covered! Here's a management command that you can use to get started with this tasks:
+
+`migrate_cmsplugin_filer.py <https://gist.github.com/corentinbettiol/84a6ea7e4d047fc01861b0af15fd60f0>`_
+
+This management command is only a starting point. It *may* work out of the box for some people, but we encourage you to read the code, understand what it does, and try it on a development environment before running it on your production server. The management command is only configured to transfer your `cmsplugin_link`, `cmsplugin_file`, `cmsplugin_folder` and `cmsplugin_image` plugins to modern `djangocms_*` plugins. If you need to transfer other `cmsplugin_*` plugins, you'll have to write your own code.
