@@ -28,8 +28,8 @@ class Select2PageSelectWidget(Select2PageSearchFieldMixin, ModelSelect2Widget):
 
     def get_queryset(self):
         if self.site:
-            return Page.objects.drafts().on_site(self.site)
-        return Page.objects.drafts()
+            return Page.objects.on_site(self.site)
+        return Page.objects.all()
 
     # we need to implement jQuery ourselves, see #180
     class Media:
