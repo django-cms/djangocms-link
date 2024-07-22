@@ -2,12 +2,13 @@
 Changelog
 =========
 
-Unreleased
-==========
+4.0.0 (2024-07-22)
+================
 
-* Added support for python 3.9 and 3.10
-* Dropped support for django < 3.2
-* Dropped support for python < 3.8
+* Added support for django CMS 4.1
+* Added support for python 3.10 to 3.13
+* Dropped support for django < 4.2
+* Dropped support for python < 3.10
 * fix: Remove deprecated test suite assertEquals
 * fix: Remove outdated treebeard dependency
 
