@@ -6,7 +6,7 @@ Changelog
 ================
 
 * Added support for django CMS 4.1
-* Added support for python 3.10 to 3.13
+* Added support for python 3.10 to 3.12
 * Dropped support for django < 4.2
 * Dropped support for python < 3.10
 * fix: Remove deprecated test suite assertEquals
