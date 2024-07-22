@@ -10,9 +10,10 @@ from djangocms_link.cms_plugins import LinkPlugin
 from djangocms_link.models import AbstractLink
 
 from .helpers import get_filer_file
+from .fixtures import TestFixture
 
 
-class LinkPluginsTestCase(CMSTestCase):
+class LinkPluginsTestCase(TestFixture, CMSTestCase):
 
     def setUp(self):
         self.file = get_filer_file()
@@ -22,19 +23,19 @@ class LinkPluginsTestCase(CMSTestCase):
             template="page.html",
             language=self.language,
         )
-        self.home.publish(self.language)
+        self.publish(self.home, self.language)
         self.page = create_page(
             title="content",
             template="page.html",
             language=self.language,
         )
-        self.page.publish(self.language)
+        self.publish(self.page, self.language)
         self.static_page = create_page(
             title='static-content',
             template='static_placeholder.html',
             language='en',
         )
-        self.placeholder = self.page.placeholders.get(slot="content")
+        self.placeholder = self.get_placeholders(self.page, self.language).get(slot="content")
         self.superuser = self.get_superuser()
 
     def tearDown(self):
@@ -64,7 +65,7 @@ class LinkPluginsTestCase(CMSTestCase):
             internal_link=self.page,
             name="Page link",
         )
-        self.page.publish(self.language)
+        self.publish(self.page, self.language)
         self.assertEqual(plugin.get_plugin_class_instance().name, "Link")
 
         with self.login_user_context(self.superuser):
@@ -97,7 +98,7 @@ class LinkPluginsTestCase(CMSTestCase):
         AbstractLink.link_is_optional = True
 
         plugin = add_plugin(
-            self.page.placeholders.get(slot='content'),
+            self.get_placeholders(self.page, self.language).get(slot='content'),
             'LinkPlugin',
             'en',
         )
@@ -108,7 +109,7 @@ class LinkPluginsTestCase(CMSTestCase):
         self.assertEqual(AbstractLink.link_is_optional, False)
 
         plugin = add_plugin(
-            self.page.placeholders.get(slot='content'),
+            self.get_placeholders(self.page, self.language).get(slot='content'),
             'LinkPlugin',
             'en',
         )
@@ -119,7 +120,7 @@ class LinkPluginsTestCase(CMSTestCase):
 
     def test_in_placeholders(self):
         plugin = add_plugin(
-            self.page.placeholders.get(slot='content'),
+            self.get_placeholders(self.page, self.language).get(slot='content'),
             'LinkPlugin',
             'en',
             internal_link=self.page,
@@ -164,7 +165,7 @@ class LinkPluginsTestCase(CMSTestCase):
 
     def test_file(self):
         plugin = add_plugin(
-            self.page.placeholders.get(slot="content"),
+            self.get_placeholders(self.page, self.language).get(slot="content"),
             "LinkPlugin",
             "en",
             file_link=self.file,
