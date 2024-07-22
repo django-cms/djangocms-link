@@ -2,6 +2,7 @@ from django.apps import apps
 
 from cms import __version__
 
+
 DJANGO_CMS4 = not (__version__ < "4")
 DJANGOCMS_VERSIONING = apps.is_installed("djangocms_versioning")
 

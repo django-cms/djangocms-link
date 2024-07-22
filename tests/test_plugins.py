@@ -9,8 +9,8 @@ from cms.test_utils.testcases import CMSTestCase
 from djangocms_link.cms_plugins import LinkPlugin
 from djangocms_link.models import AbstractLink
 
-from .helpers import get_filer_file
 from .fixtures import TestFixture
+from .helpers import get_filer_file
 
 
 class LinkPluginsTestCase(TestFixture, CMSTestCase):
