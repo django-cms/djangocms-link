@@ -4,6 +4,8 @@ from cms.models import Page
 
 from django_select2.forms import ModelSelect2Widget
 
+from djangocms_link.helpers import get_queryset_manager
+
 
 class Select2PageSearchFieldMixin:
     search_fields = [
@@ -28,15 +30,10 @@ class Select2PageSelectWidget(Select2PageSearchFieldMixin, ModelSelect2Widget):
 
     def get_queryset(self):
         # django CMS < 4
-        if hasattr(Page.objects, "drafts"):
-            if self.site:
-                return Page.objects.drafts().on_site(self.site)
-            return Page.objects.drafts()
-
-        # django CMS >= 4
+        base_queryset = get_queryset_manager(Page.objects)
         if self.site:
-            return Page.objects.on_site(self.site)
-        return Page.objects.all()
+            return base_queryset.on_site(self.site)
+        return base_queryset.all()
 
     # we need to implement jQuery ourselves, see #180
     class Media:
