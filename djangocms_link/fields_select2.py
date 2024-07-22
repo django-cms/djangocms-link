@@ -27,6 +27,13 @@ class Select2PageSelectWidget(Select2PageSearchFieldMixin, ModelSelect2Widget):
         return attrs
 
     def get_queryset(self):
+        # django CMS < 4
+        if hasattr(Page.objects, "drafts"):
+            if self.site:
+                return Page.objects.drafts().on_site(self.site)
+            return Page.objects.drafts()
+        
+        # django CMS >= 4
         if self.site:
             return Page.objects.on_site(self.site)
         return Page.objects.all()
