@@ -110,4 +110,3 @@ class LinkModelTestCase(TestCase):
         # now we allow the link to be empty
         instance.link_is_optional = True
         instance.clean()
-
