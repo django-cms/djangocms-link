@@ -5,7 +5,6 @@ from tempfile import mkdtemp
 HELPER_SETTINGS = {
     'INSTALLED_APPS': [
         'filer',
-        'django_select2',
         'tests.utils',
     ],
     'CMS_LANGUAGES': {

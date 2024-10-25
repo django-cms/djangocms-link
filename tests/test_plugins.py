@@ -79,10 +79,13 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             plugin_type=LinkPlugin.__name__,
             language=self.language,
         )
+        from djangocms_link.fields import LinkWidget
+        pos = LinkWidget().data_pos["external_link"]
+
         data = {
             "template": "default",
             "link_0": "external_link",
-            "link_2": "https://www.google.com",
+            f"link_{pos}": "https://www.google.com",
             "name": "External link",
         }
 

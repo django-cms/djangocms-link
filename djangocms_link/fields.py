@@ -156,10 +156,7 @@ class LinkWidget(MultiWidget):
         js = ("djangocms_link/link-widget.js",)
         css = {"all": ("djangocms_link/link-widget.css",)}
 
-    def __init__(self):
-        # Get the number of sites only once
-        if LinkWidget.number_sites is None:
-            LinkWidget.number_sites = Site.objects.count()
+    def __init__(self, sites_selector=True):
 
         widgets = [
             Select(
@@ -169,22 +166,6 @@ class LinkWidget(MultiWidget):
                     "data-help": _("No destination selected. Use the dropdown to select a destination.")
                 },
             ),  # Link type selector
-            SiteAutocompleteSelect(
-                attrs={
-                    "class": "js-link-site-widget",
-                    "widget": "site",
-                    "data-placeholder": _("Select site"),
-                },
-            ),  # Site selector
-            LinkAutoCompleteWidget(
-                attrs={
-                    "widget": "internal_link",
-                    "data-help": _(
-                        "Select from available internal destinations. Optionally, add an anchor to scroll to."
-                    ),
-                    "data-placeholder": _("Select internal destination"),
-                },
-            ),  # Internal link selector
             URLInput(
                 attrs={
                     "widget": "external_link",
@@ -195,6 +176,15 @@ class LinkWidget(MultiWidget):
                     ),
                 },
             ),  # External link input
+            LinkAutoCompleteWidget(
+                attrs={
+                    "widget": "internal_link",
+                    "data-help": _(
+                        "Select from available internal destinations. Optionally, add an anchor to scroll to."
+                    ),
+                    "data-placeholder": _("Select internal destination"),
+                },
+            ),  # Internal link selector
             TextInput(
                 attrs={
                     "widget": "anchor",
@@ -214,6 +204,14 @@ class LinkWidget(MultiWidget):
                     },
                 ),
             )
+        if sites_selector:
+            widgets.insert(2, SiteAutocompleteSelect(
+                attrs={
+                    "class": "js-link-site-widget",
+                    "widget": "site",
+                    "data-placeholder": _("Select site"),
+                },
+            ))  # Site selector
 
         # Remember which widget expets its content at which position
         self.data_pos = {
