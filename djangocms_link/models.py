@@ -2,8 +2,6 @@
 Enables the user to add a "Link" plugin that displays a link
 using the HTML <a> tag.
 """
-from tabnanny import verbose
-
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
@@ -12,10 +10,9 @@ from django.utils.encoding import force_str
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
 
-from cms.models import CMSPlugin, Page
+from cms.models import CMSPlugin
 
 from djangocms_attributes_field.fields import AttributesField
-from filer.fields.file import FilerFileField
 
 from .fields import LinkField
 from .helpers import get_link
@@ -221,7 +218,7 @@ class AbstractLink(CMSPlugin):
                 code='required',
             )
 
-class Link(AbstractLink):
 
+class Link(AbstractLink):
     class Meta:
         abstract = False

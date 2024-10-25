@@ -86,4 +86,3 @@ class ExtendedURLValidator(URLValidator):
         if scheme == "mailto":
             return EmailValidator()(value[7:])
         return super().__call__(value)
-

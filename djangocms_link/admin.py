@@ -1,15 +1,16 @@
-from cms.models import Page, PageContent
-from cms.utils import get_language_from_request
 from django.apps import apps
 from django.contrib import admin
-from django.core.exceptions import PermissionDenied, FieldError
-from django.http import JsonResponse, Http404
+from django.core.exceptions import FieldError, PermissionDenied
+from django.http import JsonResponse
 from django.urls import path
 from django.views.generic.list import BaseListView
 
 from cms import __version__
+from cms.models import Page, PageContent
+from cms.utils import get_language_from_request
 
 from . import models
+
 
 _version = int(__version__.split(".")[0])
 
@@ -96,14 +97,13 @@ class UrlsJsonView(BaseListView):
                 )
         else:
             # django CMS 3
-            qs = list(
-                PageContent.objects.filter(language=self.language, title__icontains=self.term).order_by("page__node__path")
-                )
+            qs = list(PageContent.objects.filter(
+                language=self.language, title__icontains=self.term
+            ).order_by("page__node__path"))
             for page_content in qs:
                 # Patch the missing get_absolute_url method
                 page_content.get_absolute_url = lambda: page_content.page.get_absolute_url()
         return qs
-
 
     def process_request(self, request):
         """

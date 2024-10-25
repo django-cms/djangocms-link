@@ -11,6 +11,7 @@ from django.utils.translation import gettext_lazy as _
 
 from cms.utils.urlutils import admin_reverse
 
+
 try:
     from filer.fields.file import AdminFileWidget, FilerFileField
     from filer.models import File
@@ -239,13 +240,12 @@ class LinkFormField(Field):
                 self.validators = getattr(self, f"{link_type}_validators", [])
                 super().run_validators(value[link_type])
         if "anchor" in value:
-            self.validators = getattr(self, f"anchor_validators", [])
+            self.validators = getattr(self, "anchor_validators", [])
             super().run_validators(value["anchor"])
 
     def _get_pos(self, link_type):
         """Returns the position of the different link type widgets"""
         return self.widget.data_pos.get(link_type)
-
 
 
 class LinkField(JSONField):
