@@ -15,7 +15,7 @@ class LinkValidatorTestCase(TestCase):
         try:
             validator(value)
             self.fail(f"Validation of {value} unexpectedly did not fail")
-        except Exception as e:
+        except Exception:
             pass
 
     def test_intranet_host_re(self):

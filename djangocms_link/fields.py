@@ -5,8 +5,8 @@ from django.conf import settings
 from django.contrib.admin import site
 from django.contrib.admin.widgets import SELECT2_TRANSLATIONS, AutocompleteSelect
 from django.contrib.sites.models import Site
-from django.db.models import JSONField, ManyToOneRel, ForeignKey, SET_NULL
-from django.forms import Field, MultiWidget, Select, TextInput, URLInput, CheckboxInput
+from django.db.models import JSONField, ManyToOneRel
+from django.forms import Field, MultiWidget, Select, TextInput, URLInput
 from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 
@@ -151,6 +151,7 @@ class LinkWidget(MultiWidget):
     template_name = "djangocms_link/admin/link_widget.html"
     data_pos = {}
     number_sites = None
+
     class Media:
         js = ("djangocms_link/link-widget.js",)
         css = {"all": ("djangocms_link/link-widget.css",)}
@@ -172,7 +173,7 @@ class LinkWidget(MultiWidget):
                 attrs={
                     "class": "js-link-site-widget",
                     "widget": "site",
-                    "data-placeholder": "XXX", #_("Select site"),
+                    "data-placeholder": _("Select site"),
                 },
             ),  # Site selector
             LinkAutoCompleteWidget(
