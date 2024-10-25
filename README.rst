@@ -150,7 +150,7 @@ You can run tests by executing::
 .. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.7%2B-blue.svg
     :target: https://www.django-cms.org/
 
-Updating from version 4 or lower
+Upgrading from version 4 or lower
 --------------------------------
 
 django CMS Link 5 is a rewrite of the plugin. If you are updating from
@@ -172,6 +172,6 @@ fields.
 .. warning::
 
    Migration has worked for some people seamlessly. We strongly recommend to
-    backup your database before updating to version 5. If you encounter any
-    issues, please report them on
-    `GitHub <https://github.com/django-cms/djangocms-link/issues>`_.
+   backup your database before updating to version 5. If you encounter any
+   issues, please report them on
+   `GitHub <https://github.com/django-cms/djangocms-link/issues>`_.

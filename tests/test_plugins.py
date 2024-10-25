@@ -176,3 +176,29 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
         )
         self.assertIn("test_file.pdf", plugin.get_link())
         self.assertIn("/media/filer_public/", plugin.get_link())
+
+    def test_rendering(self):
+        plugin = add_plugin(
+            self.get_placeholders(self.page, self.language).get(slot="content"),
+            "LinkPlugin",
+            "en",
+            name="Link",
+            link={"internal_link": f"cms.page:{self.page.pk}"},
+        )
+        self.publish(self.page, self.language)
+
+        response = self.client.get(self.page.get_absolute_url(self.language))
+        self.assertContains(response, '<a href="/en/content/">Link</a>')
+
+    def test_rendering_fallback(self):
+        plugin = add_plugin(
+            self.get_placeholders(self.page, self.language).get(slot="content"),
+            "LinkPlugin",
+            "en",
+            name="Link",
+            link={"internal_link": f"cms.page:0"},
+        )
+        self.publish(self.page, self.language)
+
+        response = self.client.get(self.page.get_absolute_url(self.language))
+        self.assertContains(response, '<span>Link</span>')

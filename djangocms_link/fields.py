@@ -4,8 +4,9 @@ from django.apps import apps
 from django.conf import settings
 from django.contrib.admin import site
 from django.contrib.admin.widgets import SELECT2_TRANSLATIONS, AutocompleteSelect
-from django.db.models import JSONField, ManyToOneRel
-from django.forms import Field, MultiWidget, Select, TextInput, URLInput
+from django.contrib.sites.models import Site
+from django.db.models import JSONField, ManyToOneRel, ForeignKey, SET_NULL
+from django.forms import Field, MultiWidget, Select, TextInput, URLInput, CheckboxInput
 from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 
@@ -35,6 +36,9 @@ MINIMUM_INPUT_LENGTH = getattr(
 
 
 class LinkAutoCompleteWidget(AutocompleteSelect):
+    def __init__(self, attrs=None):
+        super().__init__(None, None, attrs)
+
     def get_internal_obj(self, values):
         internal_obj = []
         for value in values:
@@ -105,15 +109,57 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
         return attrs
 
 
+class SiteAutocompleteSelect(AutocompleteSelect):
+    no_sites = None
+
+    def __init__(self, attrs=None):
+        try:
+            from cms.models.pagemodel import TreeNode
+
+            field = TreeNode._meta.get_field("site")
+        except ImportError:
+            from cms.models import Page
+
+            field = Page._meta.get_field("site")
+        super().__init__(field, site, attrs)
+
+    def optgroups(self, name, value, attr=None):
+        default = (None, [], 0)
+        groups = [default]
+        has_selected = False
+        selected_choices = set(value)
+        default[1].append(self.create_option(name, "", "", False, 0))
+
+        site = Site.objects.get_current()
+        option_value, option_label = site.pk, str(site)
+
+        selected = str(option_value) in value and (
+            has_selected is False or self.allow_multiple_selected
+        )
+        has_selected |= selected
+        index = len(default[1])
+        subgroup = default[1]
+        subgroup.append(
+            self.create_option(
+                name, option_value, option_label, selected_choices, index
+            )
+        )
+        return groups
+
+
 class LinkWidget(MultiWidget):
     template_name = "djangocms_link/admin/link_widget.html"
     data_pos = {}
-
+    number_sites = None
     class Media:
         js = ("djangocms_link/link-widget.js",)
         css = {"all": ("djangocms_link/link-widget.css",)}
 
     def __init__(self):
+        # Get the number of sites only once
+        if LinkWidget.number_sites is None:
+            LinkWidget.number_sites = Site.objects.count()
+
         widgets = [
             Select(
                 choices=list(link_types.items()),
@@ -122,14 +168,20 @@ class LinkWidget(MultiWidget):
                     "data-help": _("No destination selected. Use the dropdown to select a destination.")
                 },
             ),  # Link type selector
+            SiteAutocompleteSelect(
+                attrs={
+                    "class": "js-link-site-widget",
+                    "widget": "site",
+                    "data-placeholder": "XXX", #_("Select site"),
+                },
+            ),  # Site selector
             LinkAutoCompleteWidget(
-                field=None,
-                admin_site=None,
                 attrs={
                     "widget": "internal_link",
                     "data-help": _(
                         "Select from available internal destinations. Optionally, add an anchor to scroll to."
                     ),
+                    "data-placeholder": _("Select internal destination"),
                 },
             ),  # Internal link selector
             URLInput(
@@ -161,6 +213,7 @@ class LinkWidget(MultiWidget):
                     },
                 ),
             )
+
         # Remember which widget expets its content at which position
         self.data_pos = {
             widget.attrs.get("widget"): i for i, widget in enumerate(widgets)

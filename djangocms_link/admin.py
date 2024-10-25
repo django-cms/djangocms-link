@@ -38,7 +38,7 @@ class UrlsJsonView(BaseListView):
             # Get name of a reference
             return self.get_reference(request)
 
-        self.term, self.language = self.process_request(request)
+        self.term, self.language, self.site = self.process_request(request)
 
         if not self.has_perm(request):
             raise PermissionDenied
@@ -87,23 +87,32 @@ class UrlsJsonView(BaseListView):
         if _version >= 4:
             try:
                 # django CMS 4.2+
-                qs = list(
+                qs = (
                     PageContent.admin_manager.filter(language=self.language, title__icontains=self.term)
                     .current_content()
                     .order_by("page__path")
                 )
+                if self.site:
+                    qs = qs.filter(page__site_id=self.site)
+                qs = list(qs)
             except FieldError:
                 # django CMS 4.0 - 4.1
-                qs = list(
+                qs = (
                     PageContent.admin_manager.filter(language=self.language, title__icontains=self.term)
                     .current_content()
                     .order_by("page__node__path")
                 )
+                if self.site:
+                    qs = qs.filter(page__site_id=self.site)
+                qs = list(qs)
         else:
             # django CMS 3
-            qs = list(PageContent.objects.filter(
+            qs = (PageContent.objects.filter(
                 language=self.language, title__icontains=self.term
             ).order_by("page__node__path"))
+            if self.site:
+                qs = qs.filter(page__node_site_id=self.site)
+            qs = list(qs)
             for page_content in qs:
                 # Patch the missing get_absolute_url method
                 page_content.get_absolute_url = lambda: page_content.page.get_absolute_url()
@@ -114,8 +123,13 @@ class UrlsJsonView(BaseListView):
         Validate request integrity, extract and return request parameters.
         """
         term = request.GET.get("term", "").strip("  ").lower()
+        site = request.GET.get("app_label", "")  # Django admin's app_label is abused as site id
+        try:
+            site = int(site)
+        except ValueError:
+            site = None
         language = get_language_from_request(request)
-        return term, language
+        return term, language, site
 
     def has_perm(self, request, obj=None):
         """Check if user has permission to access the related model."""

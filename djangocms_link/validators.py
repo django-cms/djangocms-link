@@ -63,10 +63,10 @@ class AnchorValidator:
         return value
 
 
-class ExtendedURLValidator(URLValidator):
+class ExtendedURLValidator(IntranetURLValidator):
     # Phone numbers don't match the host regex in Django's validator,
     # so we test for a simple alternative.
-    tel_re = r'^tel\:[0-9\#\*\-\.\(\)\+]+$'
+    tel_re = r'^tel\:[0-9 \#\*\-\.\(\)\+]+$'
 
     def __call__(self, value):
         if not isinstance(value, str) or len(value) > self.max_length:
