@@ -2,6 +2,8 @@
 Enables the user to add a "Link" plugin that displays a link
 using the HTML <a> tag.
 """
+from tabnanny import verbose
+
 from django.conf import settings
 from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
@@ -15,6 +17,8 @@ from cms.models import CMSPlugin, Page
 from djangocms_attributes_field.fields import AttributesField
 from filer.fields.file import FilerFileField
 
+from .fields import LinkField
+from .helpers import get_link
 from .validators import IntranetURLValidator
 
 
@@ -68,47 +72,52 @@ class AbstractLink(CMSPlugin):
         blank=True,
         max_length=255,
     )
-    # re: max_length, see: http://stackoverflow.com/questions/417142/
-    external_link = models.CharField(
-        verbose_name=_('External link'),
-        blank=True,
-        max_length=2040,
-        validators=url_validators,
-        help_text=_('Provide a link to an external source.'),
+
+    link = LinkField(
+        verbose_name=_('Link'),
     )
-    internal_link = models.ForeignKey(
-        Page,
-        verbose_name=_('Internal link'),
-        blank=True,
-        null=True,
-        on_delete=models.SET_NULL,
-        help_text=_('If provided, overrides the external link.'),
-    )
-    file_link = FilerFileField(
-        verbose_name=_('File link'),
-        blank=True,
-        null=True,
-        on_delete=models.SET_NULL,
-        help_text=_('If provided links a file from the filer app.'),
-    )
-    # other link types
-    anchor = models.CharField(
-        verbose_name=_('Anchor'),
-        blank=True,
-        max_length=255,
-        help_text=_('Appends the value only after the internal or external link. '
-                    'Do <em>not</em> include a preceding "#" symbol.'),
-    )
-    mailto = models.EmailField(
-        verbose_name=_('Email address'),
-        blank=True,
-        max_length=255,
-    )
-    phone = models.CharField(
-        verbose_name=_('Phone'),
-        blank=True,
-        max_length=255,
-    )
+    # # re: max_length, see: http://stackoverflow.com/questions/417142/
+    #
+    # external_link = models.CharField(
+    #     verbose_name=_('External link'),
+    #     blank=True,
+    #     max_length=2040,
+    #     validators=url_validators,
+    #     help_text=_('Provide a link to an external source.'),
+    # )
+    # internal_link = models.ForeignKey(
+    #     Page,
+    #     verbose_name=_('Internal link'),
+    #     blank=True,
+    #     null=True,
+    #     on_delete=models.SET_NULL,
+    #     help_text=_('If provided, overrides the external link.'),
+    # )
+    # file_link = FilerFileField(
+    #     verbose_name=_('File link'),
+    #     blank=True,
+    #     null=True,
+    #     on_delete=models.SET_NULL,
+    #     help_text=_('If provided links a file from the filer app.'),
+    # )
+    # # other link types
+    # anchor = models.CharField(
+    #     verbose_name=_('Anchor'),
+    #     blank=True,
+    #     max_length=255,
+    #     help_text=_('Appends the value only after the internal or external link. '
+    #                 'Do <em>not</em> include a preceding "#" symbol.'),
+    # )
+    # mailto = models.EmailField(
+    #     verbose_name=_('Email address'),
+    #     blank=True,
+    #     max_length=255,
+    # )
+    # phone = models.CharField(
+    #     verbose_name=_('Phone'),
+    #     blank=True,
+    #     max_length=255,
+    # )
     # advanced options
     target = models.CharField(
         verbose_name=_('Target'),
@@ -140,11 +149,14 @@ class AbstractLink(CMSPlugin):
         return self.name or str(self.pk)
 
     def get_short_description(self):
-        if self.name and self.get_link():
-            return f'{self.name} ({self.get_link()})'
-        return self.name or self.get_link() or gettext('<link is missing>')
+        link = self.get_link()
+        if self.name and link:
+            return f'{self.name} ({link})'
+        return self.name or link or gettext('<link is missing>')
 
-    def get_link(self):
+    def get_link(self, site=None):
+        return get_link(self.link, site)
+
         if self.internal_link:
             ref_page = self.internal_link
             link = ref_page.get_absolute_url()
@@ -203,67 +215,11 @@ class AbstractLink(CMSPlugin):
 
     def clean(self):
         super().clean()
-        field_names = (
-            'external_link',
-            'internal_link',
-            'mailto',
-            'phone',
-            'file_link',
-        )
-        anchor_field_name = 'anchor'
-        field_names_allowed_with_anchor = (
-            'external_link',
-            'internal_link',
-        )
-
-        anchor_field_verbose_name = force_str(
-           self._meta.get_field(anchor_field_name).verbose_name)
-        anchor_field_value = getattr(self, anchor_field_name)
-
-        link_fields = {
-            key: getattr(self, key)
-            for key in field_names
-        }
-        link_field_verbose_names = {
-            key: force_str(self._meta.get_field(key).verbose_name)
-            for key in link_fields.keys()
-        }
-        provided_link_fields = {
-            key: value
-            for key, value in link_fields.items()
-            if value
-        }
-
-        if len(provided_link_fields) > 1:
-            # Too many fields have a value.
-            verbose_names = sorted(link_field_verbose_names.values())
-            error_msg = _('Only one of {0} or {1} may be given.').format(
-                ', '.join(verbose_names[:-1]),
-                verbose_names[-1],
-            )
-            errors = {}.fromkeys(provided_link_fields.keys(), error_msg)
-            raise ValidationError(errors)
-
-        if (len(provided_link_fields) == 0
-                and not self.anchor
-                and not self.link_is_optional):
-
+        if not self.link_is_optional and not self.link:
             raise ValidationError(
-                _('Please provide a link.')
+                force_str(_('Link is required.')),
+                code='required',
             )
-
-        if anchor_field_value:
-            for field_name in provided_link_fields.keys():
-                if field_name not in field_names_allowed_with_anchor:
-                    error_msg = _('%(anchor_field_verbose_name)s is not allowed together with %(field_name)s') % {
-                        'anchor_field_verbose_name': anchor_field_verbose_name,
-                        'field_name': link_field_verbose_names.get(field_name)
-                    }
-                    raise ValidationError({
-                        anchor_field_name: error_msg,
-                        field_name: error_msg,
-                    })
-
 
 class Link(AbstractLink):
 

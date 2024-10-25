@@ -1,10 +1,11 @@
-from django.contrib.sites.models import Site
+from django.contrib.sites.shortcuts import get_current_site
 from django.utils.translation import gettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
 from .forms import LinkForm
+from .helpers import get_link
 from .models import Link
 
 
@@ -19,16 +20,9 @@ class LinkPlugin(CMSPluginBase):
         (None, {
             'fields': (
                 'name',
-                ('external_link', 'internal_link'),
+                'link',
+                'target',
             )
-        }),
-        (_('Link settings'), {
-            'classes': ('collapse',),
-            'fields': (
-                ('mailto', 'phone'),
-                ('anchor', 'target'),
-                ('file_link'),
-            ),
         }),
         (_('Advanced settings'), {
             'classes': ('collapse',),
@@ -39,16 +33,11 @@ class LinkPlugin(CMSPluginBase):
         }),
     ]
 
-    @classmethod
-    def get_render_queryset(cls):
-        queryset = super().get_render_queryset()
-        return queryset.select_related('internal_link')
-
     def get_render_template(self, context, instance, placeholder):
         return f'djangocms_link/{instance.template}/link.html'
 
     def render(self, context, instance, placeholder):
-        context['link'] = instance.get_link()
+        context['link'] = get_link(instance.link, getattr(get_current_site(context["request"]), "id", None))
         return super().render(context, instance, placeholder)
 
     def get_form(self, request, obj=None, **kwargs):
@@ -59,7 +48,7 @@ class LinkPlugin(CMSPluginBase):
         elif self.page and hasattr(self.page, 'site') and self.page.site:
             site = self.page.site
         else:
-            site = Site.objects.get_current()
+            site = get_current_site(request)
 
         class Form(form_class):
             def __init__(self, *args, **kwargs):

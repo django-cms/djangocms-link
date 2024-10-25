@@ -1,0 +1,6 @@
+{% spaceless %}<div name="{{ widget.name }}" class="link-widget widget"{% include "django/forms/widgets/attrs.html" %}>
+    {% for name, widget in widget.subwidgets.items %}
+        <div class="{{ name }}">{% include widget.template_name %}</div>
+    {% endfor %}
+    {% if filer_widget %}<div class="file_link">{{ filer_widget }}</div>{% endif %}
+</div>{% endspaceless %}

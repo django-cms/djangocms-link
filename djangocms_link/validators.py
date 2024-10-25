@@ -1,6 +1,9 @@
 import re
 
-from django.core.validators import URLValidator
+from django.core.exceptions import ValidationError
+from django.core.validators import EmailValidator, URLValidator
+from django.utils.deconstruct import deconstructible
+from django.utils.translation import gettext as _
 
 
 class IntranetURLValidator(URLValidator):
@@ -40,3 +43,47 @@ class IntranetURLValidator(URLValidator):
                 r'(?::\d{2,5})?'
                 r'(?:[/?#][^\s]*)?'
                 r'$', re.IGNORECASE)
+
+
+@deconstructible
+class AnchorValidator:
+    message = _("Enter a valid anchor.")
+    code = "invalid"
+
+    def __call__(self, value):
+        value = value.lstrip("#")
+        if not value:
+            return value
+        print("AnchorValidator", value)
+        if not isinstance(value, str) or len(value) > 100:
+            raise ValidationError(self.message, code=self.code, params={"value": value})
+
+        if not re.match(r'^[a-zA-Z0-9_\-]+$', value):
+            raise ValidationError(self.message, code=self.code, params={"value": value})
+        return value
+
+
+class ExtendedURLValidator(URLValidator):
+    # Phone numbers don't match the host regex in Django's validator,
+    # so we test for a simple alternative.
+    tel_re = r'^tel\:[0-9\#\*\-\.\(\)\+]+$'
+
+    def __call__(self, value):
+        if not isinstance(value, str) or len(value) > self.max_length:
+            raise ValidationError(self.message, code=self.code, params={"value": value})
+        if self.unsafe_chars.intersection(value):
+            raise ValidationError(self.message, code=self.code, params={"value": value})
+        # Check if just an anchor
+        if value.startswith("#"):
+            return AnchorValidator()(value)
+        # Check if the scheme is valid.
+        scheme = value.split(":")[0].lower()
+        if scheme == "tel":
+            if re.match(self.tel_re, value):
+                return
+            else:
+                raise ValidationError(_("Enter a valid phone number"), code=self.code, params={"value": value})
+        if scheme == "mailto":
+            return EmailValidator()(value[7:])
+        return super().__call__(value)
+

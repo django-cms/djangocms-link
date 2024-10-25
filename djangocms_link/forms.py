@@ -1,11 +1,11 @@
 from django.forms.models import ModelForm
 from django.utils.translation import gettext_lazy as _
 
-from djangocms_attributes_field.widgets import AttributesWidget
+from cms.forms.fields import PageSelectFormField as PageSearchField
 
+from djangocms_attributes_field.widgets import AttributesWidget
 from djangocms_link.helpers import get_queryset_manager
 
-from .fields import PageSearchField
 from .models import Link
 
 
