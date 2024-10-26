@@ -103,7 +103,7 @@ class LinkModelTestCase(TestCase):
         from djangocms_link.templatetags.djangocms_link_tags import get_url, to_url
 
         self.assertEqual(
-            get_url({}, self.internal_link.link),
+            get_url(self.internal_link.link),
             "//example.com" + self.page.get_absolute_url() + "#some_id"
         )
         self.assertEqual(to_url(self.file_link.link), self.file.url)
@@ -111,6 +111,8 @@ class LinkModelTestCase(TestCase):
         self.assertEqual(to_url(self.phone_link.link), "tel:+0123456789")
         self.assertEqual(to_url(self.mail_link.link), "mailto:test@email.com")
         self.assertEqual(to_url(self.anchor_link.link), "#some_id")
+        self.assertEqual(to_url(None), "")
+        self.assertEqual(to_url({}), "")
 
     def test_respect_link_is_optional(self):
         # by now the configuration is good again

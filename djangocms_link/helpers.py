@@ -26,6 +26,8 @@ def get_rel_obj(internal_link: str) -> models.Model | None:
 
 
 def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
+    if not link_field_value:
+        return None
     if "external_link" in link_field_value:
         if link_field_value["external_link"].startswith("tel:"):
             return link_field_value["external_link"].replace(" ", "")
