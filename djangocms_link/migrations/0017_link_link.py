@@ -13,18 +13,11 @@ def forward(apps, schema_editor):
             link.link = {"external_link": link.url + anchor}
         elif link.internal_link:
             opt = link.internal_link._meta
-            link.link = {
-                "model": f"{opt.app_label}.{opt.model_name}",
-                "pk": link.internal_link.pk,
-            }
+            link.link = {"internal_link": f"{opt.app_label}.{opt.model_name}:{link.internal_link.pk}"}
             if link.anchor:
                 link.link["anchor"] = "#" + link.anchor
         elif link.file_link:
-            opt = link.file_link._meta
-            link.link = {
-                "model": f"{opt.app_label}.{opt.model_name}",
-                "pk": link.file_link.pk,
-            }
+            link.link = {"file_link": str(link.file_link.pk)}
         elif link.phone:
             link.link = {"external_link": f"tel:{link.phone}"}
         elif link.mailto:

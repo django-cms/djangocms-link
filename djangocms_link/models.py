@@ -3,7 +3,6 @@ Enables the user to add a "Link" plugin that displays a link
 using the HTML <a> tag.
 """
 from django.conf import settings
-from django.contrib.sites.models import Site
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.encoding import force_str
@@ -72,49 +71,8 @@ class AbstractLink(CMSPlugin):
 
     link = LinkField(
         verbose_name=_('Link'),
+        blank=False,
     )
-    # # re: max_length, see: http://stackoverflow.com/questions/417142/
-    #
-    # external_link = models.CharField(
-    #     verbose_name=_('External link'),
-    #     blank=True,
-    #     max_length=2040,
-    #     validators=url_validators,
-    #     help_text=_('Provide a link to an external source.'),
-    # )
-    # internal_link = models.ForeignKey(
-    #     Page,
-    #     verbose_name=_('Internal link'),
-    #     blank=True,
-    #     null=True,
-    #     on_delete=models.SET_NULL,
-    #     help_text=_('If provided, overrides the external link.'),
-    # )
-    # file_link = FilerFileField(
-    #     verbose_name=_('File link'),
-    #     blank=True,
-    #     null=True,
-    #     on_delete=models.SET_NULL,
-    #     help_text=_('If provided links a file from the filer app.'),
-    # )
-    # # other link types
-    # anchor = models.CharField(
-    #     verbose_name=_('Anchor'),
-    #     blank=True,
-    #     max_length=255,
-    #     help_text=_('Appends the value only after the internal or external link. '
-    #                 'Do <em>not</em> include a preceding "#" symbol.'),
-    # )
-    # mailto = models.EmailField(
-    #     verbose_name=_('Email address'),
-    #     blank=True,
-    #     max_length=255,
-    # )
-    # phone = models.CharField(
-    #     verbose_name=_('Phone'),
-    #     blank=True,
-    #     max_length=255,
-    # )
     # advanced options
     target = models.CharField(
         verbose_name=_('Target'),
@@ -153,62 +111,6 @@ class AbstractLink(CMSPlugin):
 
     def get_link(self, site=None):
         return get_link(self.link, site)
-
-        if self.internal_link:
-            ref_page = self.internal_link
-            link = ref_page.get_absolute_url()
-
-            # simulate the call to the unauthorized CMSPlugin.page property
-            cms_page = self.placeholder.page if self.placeholder_id else None
-
-            # first, we check if the placeholder the plugin is attached to
-            # has a page. Thus the check "is not None":
-            if cms_page is not None:
-                if getattr(cms_page, 'node', None):
-                    cms_page_site_id = getattr(cms_page.node, 'site_id', None)
-                else:
-                    cms_page_site_id = getattr(cms_page, 'site_id', None)
-            # a plugin might not be attached to a page and thus has no site
-            # associated with it. This also applies to plugins inside
-            # static placeholders
-            else:
-                cms_page_site_id = None
-
-            # now we do the same for the reference page the plugin links to
-            # in order to compare them later
-            if cms_page is not None:
-                if getattr(cms_page, 'node', None):
-                    ref_page_site_id = ref_page.node.site_id
-                else:
-                    ref_page_site_id = ref_page.site_id
-            # if no external reference is found the plugin links to the
-            # current page
-            else:
-                ref_page_site_id = Site.objects.get_current().pk
-
-            if ref_page_site_id != cms_page_site_id:
-                ref_site = Site.objects._get_site_by_id(ref_page_site_id).domain
-                link = f'//{ref_site}{link}'
-
-        elif self.file_link:
-            link = self.file_link.url
-
-        elif self.external_link:
-            link = self.external_link
-
-        elif self.phone:
-            link = 'tel:{}'.format(self.phone.replace(' ', ''))
-
-        elif self.mailto:
-            link = f'mailto:{self.mailto}'
-
-        else:
-            link = ''
-
-        if (not self.phone and not self.mailto) and self.anchor:
-            link += f'#{self.anchor}'
-
-        return link
 
     def clean(self):
         super().clean()
