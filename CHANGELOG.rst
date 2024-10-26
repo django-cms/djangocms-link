@@ -2,8 +2,20 @@
 Changelog
 =========
 
+5.0.0 (unreleased)
+==================
+
+* Major refactor
+* New re-usable LinkWidget, LinkFormField, and LinkField
+* New re-usable JSON endpoint for internal links
+* New template tags (``get_url`` tag and ``to_url`` filter) to convert link
+  fields into URLs. This allows multiple LinkFields per model
+* Fixed cross-site linking which reduces the number situations of the hostname
+  needing to be part of a link
+* Droped django-select2 dependency in favor of django admin's autocomplete
+
 4.0.0 (2024-07-22)
-================
+==================
 
 * Added support for django CMS 4.1
 * Added support for python 3.10 to 3.12
