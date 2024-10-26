@@ -36,7 +36,7 @@ for _admin in admin.site._registry.values():
 print(REGISTERED_ADMIN)
 
 
-class UrlsJsonView(BaseListView):
+class AdminUrlsView(BaseListView):
     """Handle AutocompleteWidget's AJAX requests for data."""
 
     paginate_by = 20
@@ -80,9 +80,6 @@ class UrlsJsonView(BaseListView):
                 obj = model.admin_manager.get(pk=pk)
             else:
                 obj = model.objects.get(pk=pk)
-            if isinstance(obj, Page) and _version >= 4:
-                obj = obj.pagecontent_set(manager="admin_manager").current_content().first()
-                return JsonResponse(self.serialize_result(obj))
             return JsonResponse(self.serialize_result(obj))
         except Exception as e:
             return JsonResponse({"error": str(e)})
@@ -93,7 +90,8 @@ class UrlsJsonView(BaseListView):
         previous_model = None
         for obj in context["object_list"]:
             if obj._meta.verbose_name_plural != previous_model or not model:
-                results.append(model)
+                if model:  # Don't add the initial empty model
+                    results.append(model)
                 previous_model = obj._meta.verbose_name_plural
                 model = {
                     "text": previous_model.capitalize(),
@@ -129,7 +127,7 @@ class UrlsJsonView(BaseListView):
             qs = PageContent.admin_manager.filter(
                 language=self.language, title__icontains=self.term
             ).current_content().values_list("page_id", flat=True)
-            qs = Page.objects.filter(pk__in=qs).order_by("path")
+            qs = Page.objects.filter(pk__in=qs).order_by("node__path")
             if self.site:
                 qs = qs.filter(page__site_id=self.site)
         return list(qs)
@@ -180,19 +178,26 @@ class UrlsJsonView(BaseListView):
 class LinkAdmin(admin.ModelAdmin):
     """The LinkAdmin class provides the endpoint for getting the urls. It is not visible in the
     admin interface."""
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.link_url_name = f"{self.opts.app_label}_{self.opts.model_name}_urls"
+
     def has_module_permission(self, request):
         # Remove from admin
         return False
 
     def get_urls(self):
+        # Only url endpoint public, do not call super().get_urls()
         return [
             path("urls",
                  self.admin_site.admin_view(self.url_view),
-                 name=f"{self.opts.app_label}_{self.opts.model_name}_urls")
+                 name=self.link_url_name
+                 ),
         ]
 
     def url_view(self, request):
-        return UrlsJsonView.as_view(admin_site=self)(request)
+        return AdminUrlsView.as_view(admin_site=self)(request)
 
 
 admin.site.register(models.Link, LinkAdmin)
