@@ -50,3 +50,20 @@ class LinkValidatorTestCase(TestCase):
         self.assertDoesNotValidate(validator, "mailto:info@localhost")
         self.assertDoesNotValidate(validator, "mailto:")
         self.assertDoesNotValidate(validator, "mailto: info@django-cms.org")
+
+    def test_wrong_type_fails(self):
+        validator = ExtendedURLValidator()
+
+        self.assertDoesNotValidate(validator, "\n")
+        self.assertDoesNotValidate(validator, 42)
+
+    def test_anchor(self):
+        validator = ExtendedURLValidator()
+        self.assertValidates(validator, "#anchor")
+        self.assertValidates(validator, "#anchor-1")
+        self.assertValidates(validator, "#anchor_1")
+        self.assertDoesNotValidate(validator, "#anchor!")
+        self.assertDoesNotValidate(validator, "#anchor with spaces")
+        self.assertValidates(validator, "#" + "a" * (100 - 1))
+        self.assertDoesNotValidate(validator, "#" + "a" * 101)
+        self.assertValidates(validator, "#")
