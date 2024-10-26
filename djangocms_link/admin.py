@@ -8,7 +8,6 @@ from django.urls import path
 from django.views.generic.list import BaseListView
 
 from cms import __version__
-from cms.admin.utils import GrouperModelAdmin
 from cms.models import Page
 from cms.utils import get_language_from_request
 
@@ -17,10 +16,13 @@ from . import models
 
 _version = int(__version__.split(".")[0])
 if _version >= 4:
+    from cms.admin.utils import GrouperModelAdmin
     from cms.models import PageContent
 else:
     from cms.models import Title as PageContent
 
+    class GrouperModelAdmin:
+        pass
 
 REGISTERED_ADMIN = []
 
