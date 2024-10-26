@@ -304,7 +304,7 @@ class LinkField(JSONField):
     """A link is a JSON field with a default LinkFormField"""
 
     def __init__(self, *args, **kwargs):
-        kwargs.setdefault("default", {})
+        kwargs.setdefault("default", dict)
         kwargs.setdefault("blank", True)
         kwargs.setdefault("help_text", "-")
         super().__init__(*args, **kwargs)

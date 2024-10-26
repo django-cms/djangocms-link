@@ -7,10 +7,11 @@ import djangocms_link.fields
 
 def forward(apps, schema_editor):
     Link = apps.get_model("djangocms_link", "Link")
-    for link in Link.objects.all():
+    links = Link.objects.all()
+    for link in links:
         if link.external_link:
             anchor = "#" + link.anchor if link.anchor else ""
-            link.link = {"external_link": link.url + anchor}
+            link.link = {"external_link": link.external_link + anchor}
         elif link.internal_link:
             opt = link.internal_link._meta
             link.link = {"internal_link": f"{opt.app_label}.{opt.model_name}:{link.internal_link.pk}"}
@@ -24,7 +25,7 @@ def forward(apps, schema_editor):
             link.link = {"external_link": f"mailto:{link.mailto}"}
         elif link.anchor:
             link.link = {"external_link": "#" + link.anchor}
-    Link.objects.bulk_update(Link.objects.all(), ["link"])
+    Link.objects.bulk_update(links, ["link"])
 
 
 def backward(apps, schema_editor):
