@@ -71,7 +71,6 @@ class AbstractLink(CMSPlugin):
 
     link = LinkField(
         verbose_name=_('Link'),
-        blank=False,
     )
     # advanced options
     target = models.CharField(
@@ -119,6 +118,10 @@ class AbstractLink(CMSPlugin):
                 force_str(_('Link is required.')),
                 code='required',
             )
+
+    def __init__(self, *args, **wkargs):
+        super().__init__(*args, **wkargs)
+        self._meta.get_field('link').blank = self.link_is_optional
 
 
 class Link(AbstractLink):
