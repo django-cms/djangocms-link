@@ -50,7 +50,7 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             placeholder=self.placeholder,
             plugin_type=LinkPlugin.__name__,
             language=self.language,
-            internal_link=self.page,
+            link={"internal_link": f"cms.page:{self.page.pk}"},
         )
         plugin.full_clean()
         self.assertEqual(plugin.plugin_type, "LinkPlugin")
@@ -62,7 +62,7 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             placeholder=self.placeholder,
             plugin_type=LinkPlugin.__name__,
             language=self.language,
-            internal_link=self.page,
+            link={"internal_link": f"cms.page:{self.page.pk}"},
             name="Page link",
         )
         self.publish(self.page, self.language)
@@ -79,10 +79,14 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             plugin_type=LinkPlugin.__name__,
             language=self.language,
         )
+        from djangocms_link.fields import LinkWidget
+        pos = LinkWidget().data_pos["external_link"]
+
         data = {
             "template": "default",
-            "external_link": "https://www.google.com",
-            "name": "External link"
+            "link_0": "external_link",
+            f"link_{pos}": "https://www.google.com",
+            "name": "External link",
         }
 
         with self.login_user_context(self.superuser), warnings.catch_warnings():
@@ -119,13 +123,16 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             plugin.clean()
 
     def test_in_placeholders(self):
+        from djangocms_link.helpers import get_link
+
         plugin = add_plugin(
             self.get_placeholders(self.page, self.language).get(slot='content'),
             'LinkPlugin',
             'en',
-            internal_link=self.page,
+            link={"internal_link": f"cms.page:{self.page.pk}"},
         )
-        self.assertEqual(plugin.get_link(), '/en/content/')
+        site = getattr(self.page, "site", self.page.node.site)
+        self.assertEqual(get_link(plugin.link, site.id), '/en/content/')
 
         placeholder = Placeholder(slot="generated_placeholder")
         placeholder.save()
@@ -134,7 +141,7 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             placeholder,
             'LinkPlugin',
             'en',
-            internal_link=self.static_page,
+            link={"internal_link": f"cms.page:{self.static_page.pk}"},
         )
         # the generated placeholder has no page attached to it, thus:
         self.assertEqual(plugin.get_link(), '//example.com/en/static-content/')
@@ -150,14 +157,14 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             static_placeholder.draft,
             'LinkPlugin',
             'en',
-            internal_link=self.page,
+            link={"internal_link": f"cms.page:{self.page.pk}"},
         )
 
         plugin_b = add_plugin(
             static_placeholder.public,
             'LinkPlugin',
             'en',
-            internal_link=self.static_page,
+            link={"internal_link": f"cms.page:{self.static_page.pk}"},
         )
         # static placeholders will always return the full path
         self.assertEqual(plugin_a.get_link(), '//example.com/en/content/')
@@ -168,7 +175,33 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             self.get_placeholders(self.page, self.language).get(slot="content"),
             "LinkPlugin",
             "en",
-            file_link=self.file,
+            link={"file_link": str(self.file.pk)},
         )
         self.assertIn("test_file.pdf", plugin.get_link())
         self.assertIn("/media/filer_public/", plugin.get_link())
+
+    def test_rendering(self):
+        add_plugin(
+            self.get_placeholders(self.page, self.language).get(slot="content"),
+            "LinkPlugin",
+            "en",
+            name="Link",
+            link={"internal_link": f"cms.page:{self.page.pk}"},
+        )
+        self.publish(self.page, self.language)
+
+        response = self.client.get(self.page.get_absolute_url(self.language))
+        self.assertContains(response, '<a href="/en/content/">Link</a>')
+
+    def test_rendering_fallback(self):
+        add_plugin(
+            self.get_placeholders(self.page, self.language).get(slot="content"),
+            "LinkPlugin",
+            "en",
+            name="Link",
+            link={"internal_link": "cms.page:0"},
+        )
+        self.publish(self.page, self.language)
+
+        response = self.client.get(self.page.get_absolute_url(self.language))
+        self.assertContains(response, '<span>Link</span>')
