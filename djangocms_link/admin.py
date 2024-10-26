@@ -20,6 +20,7 @@ if _version >= 4:
     from cms.models import PageContent
 else:
     from cms.models import Title as PageContent
+    PageContent.admin_manager = PageContent.objects
 
     class GrouperModelAdmin:
         pass
@@ -31,9 +32,6 @@ for _admin in admin.site._registry.values():
         continue
     if getattr(_admin, "search_fields", []) and hasattr(_admin.model, "get_absolute_url"):
         REGISTERED_ADMIN.append(_admin)
-
-
-print(REGISTERED_ADMIN)
 
 
 class AdminUrlsView(BaseListView):
@@ -122,7 +120,7 @@ class AdminUrlsView(BaseListView):
             qs = Page.objects.filter(pk__in=qs).order_by("path")
             if self.site:
                 qs = qs.filter(page__site_id=self.site)
-        except FieldError:
+        except (AttributeError, FieldError):
             # django CMS 3.11 - 4.1
             qs = PageContent.admin_manager.filter(
                 language=self.language, title__icontains=self.term
