@@ -54,7 +54,6 @@ class AnchorValidator:
         value = value.lstrip("#")
         if not value:
             return value
-        print("AnchorValidator", value)
         if not isinstance(value, str) or len(value) > 100:
             raise ValidationError(self.message, code=self.code, params={"value": value})
 

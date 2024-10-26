@@ -139,9 +139,9 @@ You can run tests by executing::
 .. |pypi| image:: https://badge.fury.io/py/djangocms-link.svg
     :target: http://badge.fury.io/py/djangocms-link
 .. |build| image:: https://travis-ci.org/divio/djangocms-link.svg?branch=master
-    :target: https://travis-ci.org/divio/djangocms-link
-.. |coverage| image:: https://codecov.io/gh/divio/djangocms-link/branch/master/graph/badge.svg
-    :target: https://codecov.io/gh/divio/djangocms-link
+    :target: https://travis-ci.org/django-cms/djangocms-link
+.. |coverage| image:: https://codecov.io/gh/django-cms/djangocms-link/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/django-cms/djangocms-link
 
 .. |python| image:: https://img.shields.io/badge/python-3.10+-blue.svg
     :target: https://pypi.org/project/djangocms-link/

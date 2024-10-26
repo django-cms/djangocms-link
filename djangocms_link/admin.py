@@ -1,5 +1,3 @@
-import traceback
-
 from django.apps import apps
 from django.contrib import admin
 from django.core.exceptions import FieldError, PermissionDenied
@@ -118,7 +116,7 @@ class AdminUrlsView(BaseListView):
             ).current_content().values_list("page_id", flat=True)
             qs = Page.objects.filter(pk__in=qs).order_by("path")
             if self.site:
-                qs = qs.filter(page__site_id=self.site)
+                qs = qs.filter(site_id=self.site)
         except (AttributeError, FieldError):
             # django CMS 3.11 - 4.1
             if hasattr(PageContent, "admin_manager"):  # V4
@@ -131,7 +129,7 @@ class AdminUrlsView(BaseListView):
                 ).values_list("page_id", flat=True)
             qs = Page.objects.filter(pk__in=qs).order_by("node__path")
             if self.site:
-                qs = qs.filter(page__site_id=self.site)
+                qs = qs.filter(node__site_id=self.site)
         return list(qs)
 
     def add_admin_querysets(self, qs):
@@ -148,10 +146,10 @@ class AdminUrlsView(BaseListView):
                     new_qs = new_qs.distinct()
 
                 qs += list(new_qs)
-            except Exception as e:
-                print("==>", e)
-                traceback.print_tb(e.__traceback__)
-                # raise e
+            except Exception:
+                # Still report back remaining urls even if one model fails
+                pass
+
         return qs
 
     def process_request(self, request):
@@ -185,7 +183,7 @@ class LinkAdmin(admin.ModelAdmin):
         super().__init__(*args, **kwargs)
         self.link_url_name = f"{self.opts.app_label}_{self.opts.model_name}_urls"
 
-    def has_module_permission(self, request):
+    def has_module_permission(self, request):  # pragma: no cover
         # Remove from admin
         return False
 
