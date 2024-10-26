@@ -20,7 +20,6 @@ if _version >= 4:
     from cms.models import PageContent
 else:
     from cms.models import Title as PageContent
-    PageContent.admin_manager = PageContent.objects
 
     class GrouperModelAdmin:
         pass
@@ -122,9 +121,14 @@ class AdminUrlsView(BaseListView):
                 qs = qs.filter(page__site_id=self.site)
         except (AttributeError, FieldError):
             # django CMS 3.11 - 4.1
-            qs = PageContent.admin_manager.filter(
-                language=self.language, title__icontains=self.term
-            ).current_content().values_list("page_id", flat=True)
+            if hasattr(PageContent, "admin_manager"):  # V4
+                qs = PageContent.admin_manager.filter(
+                    language=self.language, title__icontains=self.term
+                ).current_content().values_list("page_id", flat=True)
+            else:  # V3
+                qs = PageContent.objects.filter(
+                    language=self.language, title__icontains=self.term
+                ).values_list("page_id", flat=True)
             qs = Page.objects.filter(pk__in=qs).order_by("node__path")
             if self.site:
                 qs = qs.filter(page__site_id=self.site)
