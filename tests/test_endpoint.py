@@ -242,3 +242,37 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
         self.assertEqual(data["id"], "utils.thirdpartymodel:1")
         self.assertEqual(data["text"], "First")
         self.assertEqual(data["url"], self.items[0].get_absolute_url())
+
+
+class LinkEndpointMultiModelTestCase(CMSTestCase):
+    def setUp(self):
+
+        LinkAdmin = admin.site._registry[Link]
+
+        self.endpoint = admin_reverse(LinkAdmin.link_url_name)
+        self.root_page = create_page(
+            title="root",
+            template="page.html",
+            language="en",
+        )
+        self.items = (
+            ThirdPartyModel.objects.create(name="First", path="/first"),
+            ThirdPartyModel.objects.create(name="Second", path="/second"),
+        )
+
+    def test_api_endpoint(self):
+        with self.login_user_context(self.get_superuser()):
+            response = self.client.get(self.endpoint)
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+
+        self.assertIn("results", data)
+        self.assertIn("pagination", data)
+        self.assertEqual(data["pagination"]["more"], False)
+
+        # Two optgroups:
+        # 1. Pages (always first)
+        # 2. Third party models
+        self.assertEqual(len(data["results"]), 2)
+        self.assertEqual(data["results"][0]["text"], "Pages")
+        self.assertEqual(data["results"][1]["text"], "Third party models")
