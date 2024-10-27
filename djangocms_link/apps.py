@@ -33,7 +33,7 @@ class DjangoCmsLinkConfig(AppConfig):
                     model = apps.get_model(model)
                     if not hasattr(model, "get_absolute_url"):  # pragma: no cover
                         raise ImproperlyConfigured(f"{model.__name__} needs to implement get_absolute_url method")
-                    admin = admin.site.get_model_admin(model)
+                    admin = admin.site._registry[model]
                     if admin not in admins:
                         admins.append(admin)
                 elif not isinstance(model, ModelAdmin):  # pragma: no cover
