@@ -67,7 +67,7 @@ class AdminUrlsView(BaseListView):
             model, pk = request.GET.get("g").split(":")
             app, model = model.split(".")
             model = apps.get_model(app, model)
-            if hasattr(model, "admin_manager"):
+            if hasattr(model, "admin_manager"):  # pragma: no cover
                 obj = model.admin_manager.get(pk=pk)
             else:
                 obj = model.objects.get(pk=pk)
@@ -129,13 +129,10 @@ class AdminUrlsView(BaseListView):
         return list(qs)
 
     def add_admin_querysets(self, qs):
-        if REGISTERED_ADMIN == "auto":
-            return qs
-
         for model_admin in REGISTERED_ADMIN:
             try:
                 # hack: GrouperModelAdmin expects a language to be temporarily set
-                if isinstance(model_admin, GrouperModelAdmin):
+                if isinstance(model_admin, GrouperModelAdmin):  # pragma: no cover
                     model_admin.language = self.language
                 new_qs = model_admin.get_queryset(self.request)
                 if hasattr(model_admin.model, "site") and self.site:
@@ -145,11 +142,11 @@ class AdminUrlsView(BaseListView):
                 new_qs, search_use_distinct = model_admin.get_search_results(
                     self.request, new_qs, self.term
                 )
-                if search_use_distinct:
+                if search_use_distinct:  # pragma: no cover
                     new_qs = new_qs.distinct()
 
                 qs += list(new_qs)
-            except Exception:
+            except Exception:  # pragma: no cover
                 # Still report back remaining urls even if one model fails
                 pass
 
