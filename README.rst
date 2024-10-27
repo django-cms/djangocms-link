@@ -91,6 +91,7 @@ Linkable models
 By default, django CMS Link will autodetect which Django or Django CMS models it
 can create internal links to. To make a model appear in the list of internal
 links, you need to
+
 * register a model admin for the model and provide a ``search_fields``
   attribute. django CMS Link uses the same search logic as the Django admin.
 * provide a ``get_absolute_url()`` method on the model. This method should
@@ -161,6 +162,15 @@ To render the link field in a template, use the new template tags::
     {% if url %}
         <a href="{{ url }}">Link available</a>
     {% endif %}
+
+To turn the ``LinkField``'s dictionary into a URL in python code, use the
+``djangocms_link.helpers.get_link`` helper function::
+
+    from djangocms_link.helpers import get_link
+
+    obj = MyModel.objects.first()
+    url = get_link(obj.link)
+
 
 Running Tests
 -------------

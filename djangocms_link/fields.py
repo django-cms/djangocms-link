@@ -113,6 +113,7 @@ class SiteAutocompleteSelect(AutocompleteSelect):
 
     def __init__(self, attrs=None):
         # Hack: Pretend that the user is selecting a site for a Page object
+        # and use Django admin's autocomplete widget
         try:
             from cms.models.pagemodel import TreeNode
 
