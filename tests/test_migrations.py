@@ -7,7 +7,9 @@ from django.core.management import call_command
 from django.forms import model_to_dict
 from django.test import TestCase, override_settings
 
+from cms import __version__ as cms_version
 from cms.api import create_page
+from cms.models import PageUrl
 
 from django_test_migrations.contrib.unittest_case import MigratorTestCase
 
@@ -38,44 +40,59 @@ class MigrationTestCase(TestCase):
         if status_code == '1' and "djangocms_link" in output:
             self.fail(f'There are missing migrations:\n {output.getvalue()}')
 
-# @skipIf(__version__ >= '5', "Migration has already been tested before releasing version 5")
+@skipIf(__version__ >= '5' or cms_version < "4", "Migration has already been tested before releasing version 5")
 class MigrationToVersion5(MigratorTestCase):
     migrate_from = ('djangocms_link', '0016_alter_link_cmsplugin_ptr')
     migrate_to = ('djangocms_link', '0018_remove_link_anchor_remove_link_external_link_and_more')
 
-    def setUp(self):
-        self.page = model_to_dict(create_page(
-            title='test',
-            template='page.html',
-            language='en',
-        ))
-        if hasattr(self.page, "node"):
-            self.node = model_to_dict(self.page.node)
-        self.file = model_to_dict(get_filer_file())
-        super().setUp()
-
     def prepare(self):
         Link = self.old_state.apps.get_model('djangocms_link', 'Link')
         Page = self.old_state.apps.get_model('cms', 'Page')
-        File = self.old_state.apps.get_model('filer', 'File')
+        PageContent = self.old_state.apps.get_model('cms', 'PageContent')
+        PageUrl = self.old_state.apps.get_model('cms', 'PageUrl')
+        TreeNode = self.old_state.apps.get_model('cms', 'TreeNode')
+        Site = self.old_state.apps.get_model('sites', 'Site')
 
+        # First create a Site at this stage in migration
+        site = Site.objects.create(
+            domain='example.com',
+            name='example.com',
+        )
+        # ... then a node
+        node = TreeNode.objects.create(
+            path='0001',
+            depth=1,
+            numchild=0,
+            parent=None,
+            site=site,
+        )
+        # ... a page
+        self.page = Page.objects.create(
+            node=node,
+        )
+        # ... and finally a page content object
+        PageContent.objects.create(
+            title='My Page',
+            page=self.page,
+            language='en',
+        )
+        PageUrl.objects.create(
+            page=self.page,
+            language='en',
+            path='my-page',
+        )
         self.links = [
-            # Link.objects.create(
-            #     template="default",
-            #     name="My Link",
-            #     internal_link=self.page,
-            #     anchor="some_id",
-            # ),
+            Link.objects.create(
+                template="default",
+                name="My Link",
+                internal_link=self.page,
+                anchor="some_id",
+            ),
             Link.objects.create(
                 template="default",
                 name="My Link",
                 external_link="http://www.django-cms.com",
             ),
-            # Link.objects.create(
-            #     template="default",
-            #     name="My Link",
-            #     file_link=self.file,
-            # ),
             Link.objects.create(
                 template="default",
                 name="My Link",
@@ -87,7 +104,7 @@ class MigrationToVersion5(MigratorTestCase):
                 phone="+01 234 567 89",
             ),
         ]
-        self.urls = ["http://www.django-cms.com", "mailto:test@email.com", "tel:+0123456789"]
+        self.urls = ["/en/my-page/#some_id", "http://www.django-cms.com", "mailto:test@email.com", "tel:+0123456789"]
 
     def test_tags_migrated(self):
         Link = self.new_state.apps.get_model('djangocms_link', 'Link')
@@ -95,5 +112,5 @@ class MigrationToVersion5(MigratorTestCase):
 
         for link, url in zip(links, self.urls):
             with self.subTest(link=link, url=url):
-                self.assertEqual(get_link(link.link), url)
+                self.assertEqual(get_link(link.link, site_id=1), url)
 
