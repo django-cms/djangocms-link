@@ -12,6 +12,7 @@ from cms.models import Page
 from cms.utils import get_language_from_request
 
 from . import models
+from .helpers import get_manager
 
 
 _version = int(__version__.split(".")[0])
@@ -67,10 +68,7 @@ class AdminUrlsView(BaseListView):
             model, pk = request.GET.get("g").split(":")
             app, model = model.split(".")
             model = apps.get_model(app, model)
-            if hasattr(model, "admin_manager"):  # pragma: no cover
-                obj = model.admin_manager.get(pk=pk)
-            else:
-                obj = model.objects.get(pk=pk)
+            obj = get_manager(model).get(pk=pk)
             return JsonResponse(self.serialize_result(obj))
         except Exception as e:
             return JsonResponse({"error": str(e)})
@@ -115,12 +113,7 @@ class AdminUrlsView(BaseListView):
                 qs = qs.filter(site_id=self.site)
         except (AttributeError, FieldError):
             # django CMS 3.11 - 4.1
-            if hasattr(PageContent, "admin_manager"):  # V4
-                qs = PageContent.admin_manager.filter(
-                    language=self.language, title__icontains=self.term
-                ).current_content().values_list("page_id", flat=True)
-            else:  # V3
-                qs = PageContent.objects.filter(
+            qs = get_manager(PageContent, current_content=True).filter(
                     language=self.language, title__icontains=self.term
                 ).values_list("page_id", flat=True)
             qs = Page.objects.filter(pk__in=qs).order_by("node__path")
