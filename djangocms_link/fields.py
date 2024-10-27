@@ -12,6 +12,8 @@ from django.utils.translation import gettext_lazy as _
 
 from cms.utils.urlutils import admin_reverse
 
+from djangocms_link.helpers import get_manager
+
 
 try:
     from filer.fields.file import AdminFileWidget, FilerFileField
@@ -45,10 +47,7 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
             if value:
                 model_path, pk = value.split(":", 1)
                 model = apps.get_model(*model_path.split(".", 1))
-                if hasattr(model, "admin_manager"):
-                    internal_obj.append(model.admin_manager.filter(pk=pk).first())
-                else:
-                    internal_obj.append(model.objects.filter(pk=pk).first())
+                internal_obj.append(get_manager(model).filter(pk=pk).first())
             else:
                 internal_obj.append(None)
         return internal_obj
