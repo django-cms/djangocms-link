@@ -47,7 +47,7 @@ class IntranetURLValidator(URLValidator):
 
 @deconstructible
 class AnchorValidator:
-    message = _("Enter a valid anchor.")
+    message = _("Enter a valid anchor")
     code = "invalid"
 
     def __call__(self, value):

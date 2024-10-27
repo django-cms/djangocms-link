@@ -12,122 +12,133 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 10:56+0200\n"
+"POT-Creation-Date: 2024-10-27 14:11+0100\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Matas Dailyda <matas@dailyda.com>, 2017\n"
-"Language-Team: Lithuanian (https://www.transifex.com/divio/teams/58664/lt/)\n"
+"Language-Team: Lithuanian (https://app.transifex.com/divio/teams/58664/lt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: lt\n"
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < 11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? 1 : n % 1 != 0 ? 2: 3);\n"
 
-#: cms_plugins.py:15
+#: djangocms_link/apps.py:7
+msgid "django CMS Link"
+msgstr ""
+
+#: djangocms_link/cms_plugins.py:15 djangocms_link/models.py:73
 msgid "Link"
 msgstr "Nuoroda"
 
-#: cms_plugins.py:26
-msgid "Link settings"
-msgstr "Nuorodos nustatymai"
-
-#: cms_plugins.py:34
+#: djangocms_link/cms_plugins.py:27
 msgid "Advanced settings"
 msgstr "Išplėstiniai nustatymai"
 
-#: forms.py:15 models.py:85
+#: djangocms_link/fields.py:26 djangocms_link/forms.py:15
 msgid "Internal link"
 msgstr "Vidinė nuoroda"
 
-#: models.py:27
-msgid "Default"
-msgstr "Numatytasis"
+#: djangocms_link/fields.py:27
+msgid "External link/anchor"
+msgstr ""
 
-#: models.py:44
-msgid "Open in new window"
-msgstr "Atidaryti naujame lange"
-
-#: models.py:45
-msgid "Open in same window"
-msgstr "Atidaryti tame pačiame lange"
-
-#: models.py:46
-msgid "Delegate to parent"
-msgstr "Nukreipti į tėvinį elementą"
-
-#: models.py:47
-msgid "Delegate to top"
-msgstr "Nukreipti į viršų"
-
-#: models.py:65
-msgid "Template"
-msgstr "Šablonas"
-
-#: models.py:71
-msgid "Display name"
-msgstr "Atvaizduojamas pavadinimas"
-
-#: models.py:77
-msgid "External link"
-msgstr "Išorinė nuoroda"
-
-#: models.py:89
-msgid "If provided, overrides the external link."
-msgstr "Jei pateikta, perrašo išorinę nuorodą."
-
-#: models.py:93
+#: djangocms_link/fields.py:30
 msgid "File link"
 msgstr ""
 
-#: models.py:97
-msgid "If provided links a file from the filer app."
+#: djangocms_link/fields.py:169
+msgid "No destination selected. Use the dropdown to select a destination."
 msgstr ""
 
-#: models.py:102
-msgid "Anchor"
-msgstr "Ankeris"
+#: djangocms_link/fields.py:175
+msgid "https://example.com or #anchor"
+msgstr ""
 
-#: models.py:105
+#: djangocms_link/fields.py:177
 msgid ""
-"Appends the value only after the internal or external link. Do <em>not</em> "
-"include a preceding \"#\" symbol."
+"Provide a link to an external URL, including the schema such as 'https://', "
+"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
+" to."
 msgstr ""
-"Prideda reikšmė po vidinės ar išorinės nuorodos.  <em>Nepridėkite</em>\"#\" "
-"simbolio pradžioje."
 
-#: models.py:109
-msgid "Email address"
-msgstr "Elektroninio pašto adresas"
+#: djangocms_link/fields.py:186
+msgid ""
+"Select from available internal destinations. Optionally, add an anchor to "
+"scroll to."
+msgstr ""
 
-#: models.py:114
-msgid "Phone"
-msgstr "Telefono numeris"
+#: djangocms_link/fields.py:188
+msgid "Select internal destination"
+msgstr ""
 
-#: models.py:120
+#: djangocms_link/fields.py:194
+msgid "#anchor"
+msgstr ""
+
+#: djangocms_link/fields.py:195
+msgid "Provide an anchor to scroll to."
+msgstr ""
+
+#: djangocms_link/fields.py:206
+msgid "Select a file as destination."
+msgstr ""
+
+#: djangocms_link/fields.py:215
+msgid "Select site"
+msgstr ""
+
+#: djangocms_link/fields.py:249
+msgid "Select a link type and provide a link."
+msgstr ""
+
+#: djangocms_link/models.py:24
+msgid "Default"
+msgstr "Numatytasis"
+
+#: djangocms_link/models.py:41
+msgid "Open in new window"
+msgstr "Atidaryti naujame lange"
+
+#: djangocms_link/models.py:42
+msgid "Open in same window"
+msgstr "Atidaryti tame pačiame lange"
+
+#: djangocms_link/models.py:43
+msgid "Delegate to parent"
+msgstr "Nukreipti į tėvinį elementą"
+
+#: djangocms_link/models.py:44
+msgid "Delegate to top"
+msgstr "Nukreipti į viršų"
+
+#: djangocms_link/models.py:61
+msgid "Template"
+msgstr "Šablonas"
+
+#: djangocms_link/models.py:67
+msgid "Display name"
+msgstr "Atvaizduojamas pavadinimas"
+
+#: djangocms_link/models.py:77
 msgid "Target"
 msgstr "Tikslas"
 
-#: models.py:126
+#: djangocms_link/models.py:83
 msgid "Attributes"
 msgstr "Atributai"
 
-#: models.py:151
+#: djangocms_link/models.py:109
 msgid "<link is missing>"
 msgstr "<nuoroda nerasta>"
 
-#: models.py:246
-#, python-brace-format
-msgid "Only one of {0} or {1} may be given."
-msgstr "Tik vienas iš {0} arba {1} gali būti pateiktas."
+#: djangocms_link/models.py:118
+msgid "Link is required."
+msgstr ""
 
-#: models.py:258
-msgid "Please provide a link."
-msgstr "Pateikite nuorodą."
+#: djangocms_link/validators.py:50
+msgid "Enter a valid anchor"
+msgstr ""
 
-#: models.py:264
-#, python-format
-msgid ""
-"%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
-msgstr "%(anchor_field_verbose_name)s negalimas kartu su %(field_name)s"
-
-#~ msgid "At least one link is required."
-#~ msgstr "Reikalinga bent viena nuoroda."
+#: djangocms_link/validators.py:84
+msgid "Enter a valid phone number"
+msgstr ""

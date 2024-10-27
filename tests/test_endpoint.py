@@ -119,6 +119,15 @@ class LinkEndpointTestCase(CMSTestCase):
         self.assertEqual(data["text"], "root")
         self.assertEqual(data["url"], self.root_page.get_absolute_url())
 
+    def test_outdated_reference(self):
+        with self.login_user_context(self.get_superuser()):
+            response = self.client.get(self.endpoint + "?g=cms.page:0")
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+
+        self.assertIn("error", data)
+        self.assertEqual(data["error"], "Page matching query does not exist.")
+
 
 class LinkEndpointThirdPartyTestCase(CMSTestCase):
     def setUp(self):
@@ -184,7 +193,6 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
         self.assertEqual(len(pages["children"]), 2)
 
     def test_site_selector(self):
-
         for site_id in (1, 2):
             with self.subTest(site_id=site_id):
                 with self.login_user_context(self.get_superuser()):

@@ -156,7 +156,10 @@ class LinkWidget(MultiWidget):
         js = ("djangocms_link/link-widget.js",)
         css = {"all": ("djangocms_link/link-widget.css",)}
 
-    def __init__(self, sites_selector=True):
+    def __init__(self, site_selector=None):
+
+        if site_selector is None:
+            site_selector = getattr(settings, "DJANGOCMS_LINK_SITE_SELECTOR", False)
 
         widgets = [
             Select(
@@ -204,7 +207,7 @@ class LinkWidget(MultiWidget):
                     },
                 ),
             )
-        if sites_selector:
+        if site_selector:
             widgets.insert(2, SiteAutocompleteSelect(
                 attrs={
                     "class": "js-link-site-widget",
