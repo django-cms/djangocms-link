@@ -59,6 +59,9 @@ For a manual install:
 Configuration
 -------------
 
+Link templates
+..............
+
 Note that the provided templates are very minimal by design. You are encouraged
 to adapt and override them to your project's requirements.
 
@@ -76,6 +79,32 @@ You'll need to create the ``feature`` folder inside ``templates/djangocms_link/`
 otherwise you will get a *template does not exist* error. You can do this by
 copying the ``default`` folder inside that directory and renaming it to
 ``feature``.
+
+
+Linkable models
+...............
+
+*Changed in version 5:*
+
+By default, django CMS Link will autodetect which Django or Django CMS models it
+can create internal links to. To make a model appear in the list of internal
+links, you need to
+* register a model admin for the model and provide a ``search_fields``
+  attribute. django CMS Link uses the same search logic as the Django admin.
+* provide a ``get_absolute_url()`` method on the model. This method should
+  return the URL of the model instance.
+
+If you do not want to use the autodetection, you can provide a list of models
+in the ``DJANGOCMS_LINKABLE_MODELS`` setting using dotted strings::
+
+    DJANGOCMS_LINKABLE_MODELS = [
+        'myapp.mymodel',
+    ]
+
+Attention: ``Page`` objects are always linkable.
+
+Non-standard hostnames
+......................
 
 To support environments where non-standard URLs would otherwise work, this
 project supports the defining of an additional RegEx pattern for validating the
@@ -109,17 +138,23 @@ models or forms.
     from djangocms_link.fields import LinkField, LinkFormField, LinkWidget
 
     class MyModel(models.Model):
-        link = LinkField()
+        link = LinkField()  # or LinkField(blank=True) for optional links
 
     class MyForm(forms.Form):
         link = LinkFormField(required=False)
 
 ``LinkField`` is a subclass of ``JSONField`` and stores the link data as dict.
+(An empty link will be ``{}``.)
+
 To render the link field in a template, use the new template tags::
 
     {% load djangocms_link_tags %}
-    <a href="{{ obj.link|to_url }}">Link</a>
+    {# Variant 1 #}
+    {% if obj.link %}
+        <a href="{{ obj.link|to_url }}">Link</a>
+    {% endif %}
 
+    {# Variant 2 #}
     {% get_url obj.link as url %}
     {% if url %}
         <a href="{{ url }}">Link available</a>
@@ -169,9 +204,7 @@ version 4 or lower, you will notice
 Migrations should automatically existing plugin instances to the new model
 fields.
 
-.. warning::
-
-   Migration has worked for some people seamlessly. We strongly recommend to
-   backup your database before updating to version 5. If you encounter any
-   issues, please report them on
-   `GitHub <https://github.com/django-cms/djangocms-link/issues>`_.
+**WARNING:** We strongly recommend to backup your database before updating to
+version 5. The migrations have been tests but they do remove unused fields from
+the database. If you encounter any issues, please report them on
+`GitHub <https://github.com/django-cms/djangocms-link/issues>`_.

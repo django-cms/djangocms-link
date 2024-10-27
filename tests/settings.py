@@ -27,7 +27,8 @@ HELPER_SETTINGS = {
         ('static_placeholder.html', 'Page with static placeholder'),
     ),
     'FILE_UPLOAD_TEMP_DIR': mkdtemp(),
-    'CMS_CONFIRM_VERSION4': True
+    'CMS_CONFIRM_VERSION4': True,
+    'DJANGOCMS_LINKABLE_MODELS': ["utils.thirdpartymodel"],
 }
 
 

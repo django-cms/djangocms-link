@@ -1,4 +1,6 @@
-from django.apps import AppConfig
+from django.apps import AppConfig, apps
+from django.contrib.admin import ModelAdmin
+from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import gettext_lazy as _
 
 
@@ -12,7 +14,7 @@ class DjangoCmsLinkConfig(AppConfig):
 
         from djangocms_link import admin as link_admin
 
-        if link_admin.REGISTERED_ADMIN == "auto":
+        if link_admin.REGISTERED_ADMIN == "auto":  # pragma: no cover
             # Autoconfig? Check the admin registry for suitable admins
             link_admin.REGISTERED_ADMIN = []
             for _admin in admin.site._registry.values():
@@ -23,3 +25,19 @@ class DjangoCmsLinkConfig(AppConfig):
                 # a get_absolute_url method.
                 if getattr(_admin, "search_fields", []) and hasattr(_admin.model, "get_absolute_url"):
                     link_admin.REGISTERED_ADMIN.append(_admin)
+        else:
+            # turn model config into model admin instances
+            admins = []
+            for model in link_admin.REGISTERED_ADMIN:
+                if isinstance(model, str):
+                    model = apps.get_model(model)
+                    if not hasattr(model, "get_absolute_url"):  # pragma: no cover
+                        raise ImproperlyConfigured(f"{model.__name__} needs to implement get_absolute_url method")
+                    admin = admin.site.get_model_admin(model)
+                    if admin not in admins:
+                        admins.append(admin)
+                elif not isinstance(model, ModelAdmin):  # pragma: no cover
+                    raise ImproperlyConfigured(
+                        "DJANGOCMS_LINK_LINKABLE_MODELS must be a list of string \"app_label.model_name\""
+                    )
+            link_admin.REGISTERED_ADMIN = admins

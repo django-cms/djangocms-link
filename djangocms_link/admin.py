@@ -25,7 +25,7 @@ else:
     class GrouperModelAdmin:
         pass
 
-REGISTERED_ADMIN = getattr(settings, "DJANGOCMS_LINK_URL_ADMINS", "auto")
+REGISTERED_ADMIN = getattr(settings, "DJANGOCMS_LINKABLE_MODELS", "auto")
 
 
 class AdminUrlsView(BaseListView):
