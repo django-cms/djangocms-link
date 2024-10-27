@@ -1,6 +1,8 @@
 from django.apps import apps
+from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import FieldError, PermissionDenied
+from django.db.models import Q
 from django.http import JsonResponse
 from django.urls import path
 from django.views.generic.list import BaseListView
@@ -22,13 +24,7 @@ else:
     class GrouperModelAdmin:
         pass
 
-REGISTERED_ADMIN = []
-
-for _admin in admin.site._registry.values():
-    if _admin.model._meta.app_label == "cms":
-        continue
-    if getattr(_admin, "search_fields", []) and hasattr(_admin.model, "get_absolute_url"):
-        REGISTERED_ADMIN.append(_admin)
+REGISTERED_ADMIN = getattr(settings, "DJANGOCMS_LINK_URL_ADMINS", "auto")
 
 
 class AdminUrlsView(BaseListView):
@@ -133,12 +129,19 @@ class AdminUrlsView(BaseListView):
         return list(qs)
 
     def add_admin_querysets(self, qs):
+        if REGISTERED_ADMIN == "auto":
+            return qs
+
         for model_admin in REGISTERED_ADMIN:
             try:
                 # hack: GrouperModelAdmin expects a language to be temporarily set
                 if isinstance(model_admin, GrouperModelAdmin):
                     model_admin.language = self.language
                 new_qs = model_admin.get_queryset(self.request)
+                if hasattr(model_admin.model, "site") and self.site:
+                    new_qs = new_qs.filter(Q(site_id=self.site) | Q(site__isnull=True))
+                elif hasattr(model_admin.model, "sites") and self.site:
+                    new_qs = new_qs.filter(sites__id=self.site)
                 new_qs, search_use_distinct = model_admin.get_search_results(
                     self.request, new_qs, self.term
                 )
