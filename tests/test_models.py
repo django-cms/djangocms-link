@@ -114,6 +114,16 @@ class LinkModelTestCase(TestCase):
         self.assertEqual(to_url(None), "")
         self.assertEqual(to_url({}), "")
 
+    def test_to_link_template_tag(self):
+        from djangocms_link.templatetags.djangocms_link_tags import to_link
+
+        self.assertEqual(to_link(self.file), {"file_link": self.file.pk})
+        self.assertEqual(to_link(self.page), {"internal_link": f"cms.page:{self.page.pk}"})
+        self.assertEqual(
+            to_link("https://www.django-cms.org/#some_id"),
+            {"external_link": "https://www.django-cms.org/#some_id"}
+        )
+
     def test_respect_link_is_optional(self):
         # by now the configuration is good again
         instance = self.internal_link

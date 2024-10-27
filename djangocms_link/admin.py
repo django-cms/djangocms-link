@@ -98,7 +98,7 @@ class AdminUrlsView(BaseListView):
         return {
             "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
             "text": str(obj),
-            "url": obj.get_absolute_url()
+            "url": obj.get_absolute_url(),
         }
 
     def get_queryset(self):
@@ -149,7 +149,7 @@ class AdminUrlsView(BaseListView):
         """
         Validate request integrity, extract and return request parameters.
         """
-        term = request.GET.get("term", "").strip("  ").lower()
+        term = request.GET.get("term", request.GET.get("q", "")).strip("  ").lower()
         site = request.GET.get("app_label", "")  # Django admin's app_label is abused as site id
         try:
             site = int(site)
