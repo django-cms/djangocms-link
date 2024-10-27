@@ -4,18 +4,14 @@ from io import StringIO
 from unittest import skipIf
 
 from django.core.management import call_command
-from django.forms import model_to_dict
 from django.test import TestCase, override_settings
 
 from cms import __version__ as cms_version
-from cms.api import create_page
-from cms.models import PageUrl
 
 from django_test_migrations.contrib.unittest_case import MigratorTestCase
 
 from djangocms_link import __version__
 from djangocms_link.helpers import get_link
-from tests.helpers import get_filer_file
 
 
 class MigrationTestCase(TestCase):
@@ -40,7 +36,10 @@ class MigrationTestCase(TestCase):
         if status_code == '1' and "djangocms_link" in output:
             self.fail(f'There are missing migrations:\n {output.getvalue()}')
 
-@skipIf(__version__ >= '5' or cms_version < "4", "Migration has already been tested before releasing version 5")
+@skipIf(
+    __version__ >= '5' or cms_version < "4",
+    "Migration has already been tested before releasing version 5",
+)
 class MigrationToVersion5(MigratorTestCase):
     migrate_from = ('djangocms_link', '0016_alter_link_cmsplugin_ptr')
     migrate_to = ('djangocms_link', '0018_remove_link_anchor_remove_link_external_link_and_more')
