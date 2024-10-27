@@ -90,7 +90,13 @@ class MigrationToVersion5(MigratorTestCase):
             Link.objects.create(
                 template="default",
                 name="My Link",
-                external_link="http://www.django-cms.com",
+                external_link="https://www.django-cms.com",
+            ),
+            Link.objects.create(
+                template="default",
+                name="My Link",
+                external_link="https://www.django-cms.com/",
+                anchor="some_id",
             ),
             Link.objects.create(
                 template="default",
@@ -102,8 +108,20 @@ class MigrationToVersion5(MigratorTestCase):
                 name="My Link",
                 phone="+01 234 567 89",
             ),
+            Link.objects.create(
+                template="default",
+                name="My Link",
+                anchor="anchor",
+            ),
         ]
-        self.urls = ["/en/my-page/#some_id", "http://www.django-cms.com", "mailto:test@email.com", "tel:+0123456789"]
+        self.urls = [
+            "/en/my-page/#some_id",
+            "https://www.django-cms.com",
+            "https://www.django-cms.com/#some_id",
+            "mailto:test@email.com",
+            "tel:+0123456789",
+            "#anchor",
+        ]
 
     def test_tags_migrated(self):
         Link = self.new_state.apps.get_model('djangocms_link', 'Link')
