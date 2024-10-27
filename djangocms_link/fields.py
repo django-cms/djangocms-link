@@ -117,7 +117,8 @@ class SiteAutocompleteSelect(AutocompleteSelect):
             from cms.models.pagemodel import TreeNode
 
             field = TreeNode._meta.get_field("site")
-        except ImportError:
+        except ImportError:  # pragma: no cover
+            # django CMS 4.2+
             from cms.models import Page
 
             field = Page._meta.get_field("site")
@@ -253,8 +254,8 @@ class LinkFormField(Field):
         super().__init__(*args, **kwargs)
 
     def prepare_value(self, value):
-        if isinstance(value, list):
-            return value
+        # if isinstance(value, list):
+        #     return value
         if value is None:
             value = {}
         multi_value = len(self.widget.widgets) * [None]
