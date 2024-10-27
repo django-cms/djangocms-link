@@ -39,11 +39,13 @@ file for additional dependencies:
 
 |python| |django| |djangocms|
 
-* Django Filer 1.7 or higher
-
-If `django Filer <http://django-filer.readthedocs.io/en/latest/installation.html>`_
+django CMS Link has a weak dependency on django Filer. If
+`django Filer <http://django-filer.readthedocs.io/en/latest/installation.html>`_
 is installed and configured appropriately, django CMS Link will allow linking
 files.
+
+* Django Filer 1.7 or higher
+* djangocms-atrributes-field 1.0 or higher
 
 
 Installation

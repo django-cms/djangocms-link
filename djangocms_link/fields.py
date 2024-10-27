@@ -16,7 +16,7 @@ from cms.utils.urlutils import admin_reverse
 try:
     from filer.fields.file import AdminFileWidget, FilerFileField
     from filer.models import File
-except (ModuleNotFoundError, ImportError):
+except (ModuleNotFoundError, ImportError):  # pragma: no cover
     File = None
 
 from djangocms_link.validators import AnchorValidator, ExtendedURLValidator
