@@ -8,7 +8,6 @@ class DjangoCmsLinkConfig(AppConfig):
 
     def ready(self):
         # Only scan admins after all apps are loaded
-
         from django.contrib import admin
 
         from djangocms_link import admin as link_admin

@@ -113,6 +113,7 @@ class SiteAutocompleteSelect(AutocompleteSelect):
     no_sites = None
 
     def __init__(self, attrs=None):
+        # Hack: Pretend that the user is selecting a site for a Page object
         try:
             from cms.models.pagemodel import TreeNode
 
@@ -151,6 +152,7 @@ class LinkWidget(MultiWidget):
     template_name = "djangocms_link/admin/link_widget.html"
     data_pos = {}
     number_sites = None
+    default_site_selector = getattr(settings, "DJANGOCMS_LINK_SITE_SELECTOR", False)
 
     class Media:
         js = ("djangocms_link/link-widget.js",)
@@ -159,7 +161,7 @@ class LinkWidget(MultiWidget):
     def __init__(self, site_selector=None):
 
         if site_selector is None:
-            site_selector = getattr(settings, "DJANGOCMS_LINK_SITE_SELECTOR", False)
+            site_selector = LinkWidget.default_site_selector
 
         widgets = [
             Select(
@@ -254,7 +256,8 @@ class LinkFormField(Field):
     def prepare_value(self, value):
         if isinstance(value, list):
             return value
-
+        if value is None:
+            value = {}
         multi_value = len(self.widget.widgets) * [None]
         if "external_link" in value:
             pos = self._get_pos("external_link")
@@ -309,7 +312,7 @@ class LinkField(JSONField):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault("default", dict)
         kwargs.setdefault("blank", True)
-        kwargs.setdefault("help_text", "-")
+        kwargs.setdefault("help_text", "-")  # Help text is set by the widget
         super().__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):

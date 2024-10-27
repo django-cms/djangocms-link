@@ -23,15 +23,15 @@ msgstr ""
 
 #: djangocms_link/cms_plugins.py:15 djangocms_link/models.py:73
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: djangocms_link/cms_plugins.py:27
 msgid "Advanced settings"
-msgstr ""
+msgstr "Advanced settings"
 
 #: djangocms_link/fields.py:26 djangocms_link/forms.py:15
 msgid "Internal link"
-msgstr ""
+msgstr "Internal link"
 
 #: djangocms_link/fields.py:27
 msgid "External link/anchor"
@@ -47,7 +47,7 @@ msgstr ""
 
 #: djangocms_link/fields.py:175
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com or #anchor"
 
 #: djangocms_link/fields.py:177
 msgid ""
@@ -80,7 +80,7 @@ msgstr ""
 
 #: djangocms_link/fields.py:215
 msgid "Select site"
-msgstr ""
+msgstr "Select site"
 
 #: djangocms_link/fields.py:249
 msgid "Select a link type and provide a link."
@@ -128,12 +128,12 @@ msgstr ""
 
 #: djangocms_link/models.py:118
 msgid "Link is required."
-msgstr ""
+msgstr "Link is required."
 
 #: djangocms_link/validators.py:50
 msgid "Enter a valid anchor"
-msgstr ""
+msgstr "Enter a valid anchor"
 
 #: djangocms_link/validators.py:84
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "Enter a valid phone number"
