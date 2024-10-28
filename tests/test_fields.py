@@ -43,7 +43,8 @@ class LinkFieldTestCase(TestCase):
             'data-help="Select from available internal destinations. Optionally, add an anchor to scroll to." '
             'data-placeholder="" required id="id_link_field_2" class="admin-autocomplete" data-ajax--cache="true" '
             'data-ajax--delay="250" data-ajax--type="GET" data-ajax--url="/en/admin/djangocms_link/link/urls" '
-            'data-theme="admin-autocomplete" data-allow-clear="true" lang="en">'
+            'data-theme="admin-autocomplete" data-allow-clear="true" '
+            'data-minimum-input-length="0" lang="en">'
             '<option value=""></option><option value="" selected>None</option>'
             '</select>',
             form_html
