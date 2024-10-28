@@ -6,7 +6,7 @@ from djangocms_link.helpers import get_link
 
 try:
     from filer.models import File
-except (ImportError, ModuleNotFoundError):
+except (ImportError, ModuleNotFoundError):  # pragma: no cover
     class File:
         pass
 
@@ -26,8 +26,3 @@ def to_link(value):
     elif isinstance(value, models.Model):
         return {"internal_link": f"{value._meta.app_label}.{value._meta.model_name}:{value.pk}"}
     return {"external_link": value}
-
-
-@register.simple_tag
-def get_url(value):
-    return to_url(value)

@@ -45,6 +45,8 @@ def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
 
     if hasattr(obj, "get_absolute_url"):
         # Access site id if possible (no db access necessary)
+        if site_id is None:
+            site_id = Site.objects.get_current().id
         obj_site_id = getattr(obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None))
         link_field_value["__cache__"] = obj.get_absolute_url()  # Can be None
         if obj_site_id and obj_site_id != site_id:

@@ -92,7 +92,7 @@ class LinkModelTestCase(TestCase):
         self.assertEqual(instance.get_short_description(), "<link is missing>")
 
     def test_get_link(self):
-        self.assertEqual(self.internal_link.get_link(), "//example.com" + self.page.get_absolute_url() + "#some_id")
+        self.assertEqual(self.internal_link.get_link(), self.page.get_absolute_url() + "#some_id")
         self.assertEqual(self.file_link.get_link(), self.file.url)
         self.assertEqual(self.external_link.get_link(), "https://www.django-cms.org/#some_id")
         self.assertEqual(self.phone_link.get_link(), "tel:+0123456789")
@@ -100,11 +100,11 @@ class LinkModelTestCase(TestCase):
         self.assertEqual(self.anchor_link.get_link(), "#some_id")
 
     def test_get_url_template_tag(self):
-        from djangocms_link.templatetags.djangocms_link_tags import get_url, to_url
+        from djangocms_link.templatetags.djangocms_link_tags import to_url
 
         self.assertEqual(
-            get_url(self.internal_link.link),
-            "//example.com" + self.page.get_absolute_url() + "#some_id"
+            to_url(self.internal_link.link),
+            self.page.get_absolute_url() + "#some_id"
         )
         self.assertEqual(to_url(self.file_link.link), self.file.url)
         self.assertEqual(to_url(self.external_link.link), "https://www.django-cms.org/#some_id")

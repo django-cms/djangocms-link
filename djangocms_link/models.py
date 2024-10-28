@@ -108,8 +108,8 @@ class AbstractLink(CMSPlugin):
             return f'{self.name} ({link})'
         return self.name or link or gettext('<link is missing>')
 
-    def get_link(self, site=None):
-        return get_link(self.link, site)
+    def get_link(self, site_id=None):
+        return get_link(self.link, site_id)
 
     def clean(self):
         super().clean()

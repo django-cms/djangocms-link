@@ -144,7 +144,7 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             link={"internal_link": f"cms.page:{self.static_page.pk}"},
         )
         # the generated placeholder has no page attached to it, thus:
-        self.assertEqual(plugin.get_link(), '//example.com/en/static-content/')
+        self.assertEqual(plugin.get_link(), '/en/static-content/')
 
         static_placeholder = StaticPlaceholder.objects.create(
             name='content_static',
@@ -166,9 +166,9 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             'en',
             link={"internal_link": f"cms.page:{self.static_page.pk}"},
         )
-        # static placeholders will always return the full path
-        self.assertEqual(plugin_a.get_link(), '//example.com/en/content/')
-        self.assertEqual(plugin_b.get_link(), '//example.com/en/static-content/')
+        # static placeholders will not return the full path
+        self.assertEqual(plugin_a.get_link(0), '//example.com/en/content/')
+        self.assertEqual(plugin_b.get_link(), '/en/static-content/')
 
     def test_file(self):
         plugin = add_plugin(

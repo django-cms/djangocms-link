@@ -180,7 +180,7 @@ models or forms.
 ``LinkField`` is a subclass of ``JSONField`` and stores the link data as dict.
 (An empty link will be ``{}``.)
 
-To render the link field in a template, use the new template tags::
+To render the link field in a template, use the new template tag ``to_url``::
 
     {% load djangocms_link_tags %}
     {# Variant 1 #}
@@ -189,7 +189,7 @@ To render the link field in a template, use the new template tags::
     {% endif %}
 
     {# Variant 2 #}
-    {% get_url obj.link as url %}
+    {% with url=obj.link|to_url %}
     {% if url %}
         <a href="{{ url }}">Link available</a>
     {% endif %}
