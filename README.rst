@@ -126,6 +126,16 @@ in the ``DJANGOCMS_LINKABLE_MODELS`` setting using dotted strings::
 
 Attention: ``Page`` objects are always linkable.
 
+Large search-sets
+..................
+
+If you have a large number of internally linkable models, you can use the
+``DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH`` setting to require a minimum number of
+characters typed before the search is triggered. The default is 0::
+
+    # Require at least 2 characters to be typed before searching for pages
+    DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH = 2  
+
 Non-standard hostnames
 ......................
 

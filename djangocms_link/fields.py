@@ -25,7 +25,7 @@ from djangocms_link.validators import AnchorValidator, ExtendedURLValidator
 
 
 MINIMUM_INPUT_LENGTH = getattr(
-    settings, "DJANGOCMS_LINK_SELECT2_MINIMUM_INPUT_LENGTH", 0
+    settings, "DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH", 0
 )
 
 
@@ -91,6 +91,7 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
                 "data-theme": "admin-autocomplete",
                 "data-allow-clear": json.dumps(not self.is_required),
                 "data-placeholder": "",  # Allows clearing of the input.
+                "data-minimum-input-length": MINIMUM_INPUT_LENGTH,
                 "lang": i18n_name,
                 "class": attrs["class"]
                 + (" " if attrs["class"] else "")
