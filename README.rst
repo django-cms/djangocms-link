@@ -126,6 +126,16 @@ in the ``DJANGOCMS_LINKABLE_MODELS`` setting using dotted strings::
 
 Attention: ``Page`` objects are always linkable.
 
+django CMS Link will use the model admin's ``get_queryset`` method to retrieve
+the list of objects. If you want to add custom filters, sorting or site
+handling, you can add a ``get_link_queryset`` method to the model admin::
+
+    class MyModelAdmin(admin.ModelAdmin):
+        def get_link_queryset(self, request, site_id):
+            """Only used by djangocms-link: returns queryset to select link targets from."""
+            qs = self.get_queryset(request)
+            return qs.filter(is_public=True)
+
 Large search-sets
 ..................
 
