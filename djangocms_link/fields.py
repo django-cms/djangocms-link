@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import json
 
 from django.apps import apps
@@ -5,6 +7,7 @@ from django.conf import settings
 from django.contrib.admin import site
 from django.contrib.admin.widgets import SELECT2_TRANSLATIONS, AutocompleteSelect
 from django.contrib.sites.models import Site
+from django.db import models
 from django.db.models import JSONField, ManyToOneRel
 from django.forms import Field, MultiWidget, Select, TextInput, URLInput
 from django.utils.translation import get_language
@@ -30,10 +33,10 @@ MINIMUM_INPUT_LENGTH = getattr(
 
 
 class LinkAutoCompleteWidget(AutocompleteSelect):
-    def __init__(self, attrs=None):
+    def __init__(self, attrs: dict | None = None):
         super().__init__(None, None, attrs)
 
-    def get_internal_obj(self, values):
+    def get_internal_obj(self, values: list[str | None]) -> list[models.Model | None]:
         internal_obj = []
         for value in values:
             if value:
@@ -44,7 +47,7 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
                 internal_obj.append(None)
         return internal_obj
 
-    def optgroups(self, name, value, attr=None):
+    def optgroups(self, name: str, value: str, attr: str | None = None):
         default = (None, [], 0)
         groups = [default]
         has_selected = False
@@ -69,7 +72,7 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
     def get_url(self):
         return admin_reverse("djangocms_link_link_urls")
 
-    def build_attrs(self, base_attrs, extra_attrs=None):
+    def build_attrs(self, base_attrs: dict, extra_attrs: dict | None = None) -> dict:
         """
         Set select2's AJAX attributes.
 
@@ -104,7 +107,7 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
 class SiteAutocompleteSelect(AutocompleteSelect):
     no_sites = None
 
-    def __init__(self, attrs=None):
+    def __init__(self, attrs: dict | None = None):
         # Hack: Pretend that the user is selecting a site for a Page object
         # and use Django admin's autocomplete widget
         try:
@@ -118,7 +121,7 @@ class SiteAutocompleteSelect(AutocompleteSelect):
             field = Page._meta.get_field("site")
         super().__init__(field, site, attrs)
 
-    def optgroups(self, name, value, attr=None):
+    def optgroups(self, name: str, value: str, attr: dict | None = None):
         default = (None, [], 0)
         groups = [default]
         has_selected = False
@@ -224,7 +227,7 @@ class LinkWidget(MultiWidget):
         js = ("djangocms_link/link-widget.js",)
         css = {"all": ("djangocms_link/link-widget.css",)}
 
-    def __init__(self, site_selector=None):
+    def __init__(self, site_selector: bool | None = None):
         if site_selector is None:
             site_selector = LinkWidget.default_site_selector
 
@@ -246,7 +249,7 @@ class LinkWidget(MultiWidget):
         }
         super().__init__(widgets)
 
-    def get_context(self, name, value, attrs):
+    def get_context(self, name: str, value: str | None, attrs: dict) -> dict:
         if not self.is_required:
             self.widgets[0].choices = [("empty", "---------")] + self.widgets[0].choices
         context = super().get_context(name, value, attrs)
@@ -277,7 +280,7 @@ class LinkFormField(Field):
         kwargs.pop("decoder", None)  # but not needed
         super().__init__(*args, **kwargs)
 
-    def prepare_value(self, value):
+    def prepare_value(self, value: dict) -> list[str | None]:
         if isinstance(value, list):
             return value
         multi_value = len(self.widget.widgets) * [None]
@@ -297,7 +300,7 @@ class LinkFormField(Field):
             multi_value[pos] = str(value["file_link"])
         return multi_value
 
-    def to_python(self, value):
+    def to_python(self, value: list[str | None]) -> dict:
         """Turn MultiWidget list data into LinkField dict format"""
         if not value:
             return {}
@@ -313,7 +316,7 @@ class LinkFormField(Field):
             python["anchor"] = value[pos_anchor]
         return python
 
-    def run_validators(self, value):
+    def run_validators(self, value: dict):
         """Check for <link_type>_validators property and run the validators"""
         for link_type in link_types:
             if link_type in value:

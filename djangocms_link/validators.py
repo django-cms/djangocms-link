@@ -50,7 +50,7 @@ class AnchorValidator:
     message = _("Enter a valid anchor")
     code = "invalid"
 
-    def __call__(self, value):
+    def __call__(self, value: str):
         value = value.lstrip("#")
         if not value:
             return value
@@ -71,7 +71,7 @@ class ExtendedURLValidator(IntranetURLValidator):
         self.allowed_link_types = allowed_link_types
         super().__init__(**kwargs)
 
-    def __call__(self, value):
+    def __call__(self, value: str):
         if not isinstance(value, str) or len(value) > self.max_length:
             raise ValidationError(self.message, code=self.code, params={"value": value})
         if self.unsafe_chars.intersection(value):

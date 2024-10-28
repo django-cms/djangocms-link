@@ -16,7 +16,6 @@ def get_rel_obj(internal_link: str) -> models.Model | None:
         model, pk = internal_link.split(":", 1)
         model = apps.get_model(*model.split(".", 1))
         return get_manager(model).filter(pk=pk).first()
-    return None
 
 
 def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
