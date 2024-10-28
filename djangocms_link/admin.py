@@ -105,17 +105,17 @@ class AdminUrlsView(BaseListView):
         """Return queryset based on ModelAdmin.get_search_results()."""
         try:
             # django CMS 4.2+
-            qs = PageContent.admin_manager.filter(
-                language=self.language, title__icontains=self.term
+            qs = PageContent.admin_manager.filter(language=self.language).filter(
+                Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
             ).current_content().values_list("page_id", flat=True)
             qs = Page.objects.filter(pk__in=qs).order_by("path")
             if self.site:
                 qs = qs.filter(site_id=self.site)
         except (AttributeError, FieldError):
             # django CMS 3.11 - 4.1
-            qs = get_manager(PageContent, current_content=True).filter(
-                    language=self.language, title__icontains=self.term
-                ).values_list("page_id", flat=True)
+            qs = get_manager(PageContent, current_content=True).filter(language=self.language).filter(
+                Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
+            ).values_list("page_id", flat=True)
             qs = Page.objects.filter(pk__in=qs).order_by("node__path")
             if self.site:
                 qs = qs.filter(node__site_id=self.site)
@@ -127,11 +127,16 @@ class AdminUrlsView(BaseListView):
                 # hack: GrouperModelAdmin expects a language to be temporarily set
                 if isinstance(model_admin, GrouperModelAdmin):  # pragma: no cover
                     model_admin.language = self.language
-                new_qs = model_admin.get_queryset(self.request)
-                if hasattr(model_admin.model, "site") and self.site:
-                    new_qs = new_qs.filter(Q(site_id=self.site) | Q(site__isnull=True))
-                elif hasattr(model_admin.model, "sites") and self.site:
-                    new_qs = new_qs.filter(sites__id=self.site)
+                if hasattr(model_admin, "get_link_queryset"):
+                    # Allow model admins to define get_link_queryset to do additional
+                    # filtering, sorting and potentially custom site selection
+                    new_qs = model_admin.get_link_queryset(self.request, self.site)
+                else:
+                    new_qs = model_admin.get_queryset(self.request)
+                    if hasattr(model_admin.model, "site") and self.site:
+                        new_qs = new_qs.filter(Q(site_id=self.site) | Q(site__isnull=True))
+                    elif hasattr(model_admin.model, "sites") and self.site:
+                        new_qs = new_qs.filter(sites__id=self.site)
                 new_qs, search_use_distinct = model_admin.get_search_results(
                     self.request, new_qs, self.term
                 )
