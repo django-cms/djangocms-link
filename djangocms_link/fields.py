@@ -24,14 +24,6 @@ except (ModuleNotFoundError, ImportError):  # pragma: no cover
 from djangocms_link.validators import AnchorValidator, ExtendedURLValidator
 
 
-link_types = {
-    "internal_link": _("Internal link"),
-    "external_link": _("External link/anchor"),
-}
-if File:
-    link_types["file_link"] = _("File link")
-
-
 MINIMUM_INPUT_LENGTH = getattr(
     settings, "DJANGOCMS_LINK_SELECT2_MINIMUM_INPUT_LENGTH", 0
 )
@@ -149,6 +141,78 @@ class SiteAutocompleteSelect(AutocompleteSelect):
         return groups
 
 
+# Configure the LinkWidget
+link_types = {
+    "internal_link": _("Internal link"),
+    "external_link": _("External link/anchor"),
+}
+if File:
+    link_types["file_link"] = _("File link")
+
+# Get the allowed link types from the settings
+allowed_link_types = getattr(
+    settings, "DJANGOCMS_LINK_ALLOWED_LINK_TYPES",
+    ("internal_link", "external_link", "file_link", "anchor", "mailto", "tel")
+)
+
+# Adjust example uri schemes to allowed link types
+example_uri_scheme = "'https://'" + (", 'tel:'" if "tel" in allowed_link_types else "") + \
+                     (", or 'mailto:'" if 'mailto' in allowed_link_types else "")
+
+# Show anchor sub-widget only for internal_link
+_mapping = {key: key for key in link_types.keys()}
+_mapping["anchor"] = "internal_link"
+
+# Remove disallowed link types
+link_types = {key: value for key, value in link_types.items() if key in allowed_link_types}
+
+# Create the available widgets
+_available_widgets = {
+    "always": Select(
+        choices=list(link_types.items()),
+        attrs={
+            "class": "js-link-widget-selector",
+            "data-help": _("No destination selected. Use the dropdown to select a destination.")
+        },
+    ),  # Link type selector
+    "external_link": URLInput(
+        attrs={
+            "widget": "external_link",
+            "placeholder": _("https://example.com or #anchor"),
+            "data-help": _(
+                "Provide a link to an external URL, including the schema such as {}. "
+                "Optionally, add an #anchor (including the #) to scroll to."
+            ).format(example_uri_scheme),
+        },
+    ),  # External link input
+    "internal_link": LinkAutoCompleteWidget(
+        attrs={
+            "widget": "internal_link",
+            "data-help": _(
+                "Select from available internal destinations. Optionally, add an anchor to scroll to."
+            ),
+            "data-placeholder": _("Select internal destination"),
+        },
+    ),  # Internal link selector
+    "anchor": TextInput(
+        attrs={
+            "widget": "anchor",
+            "placeholder": _("#anchor"),
+            "data-help": _("Provide an anchor to scroll to."),
+        }
+    ),
+}
+if File:
+    _available_widgets["file_link"] = AdminFileWidget(
+        rel=ManyToOneRel(FilerFileField, File, "id"),
+        admin_site=site,
+        attrs={
+            "widget": "file_link",
+            "data-help": _("Select a file as destination."),
+        },
+    )
+
+
 class LinkWidget(MultiWidget):
     template_name = "djangocms_link/admin/link_widget.html"
     data_pos = {}
@@ -160,58 +224,14 @@ class LinkWidget(MultiWidget):
         css = {"all": ("djangocms_link/link-widget.css",)}
 
     def __init__(self, site_selector=None):
-
         if site_selector is None:
             site_selector = LinkWidget.default_site_selector
 
-        widgets = [
-            Select(
-                choices=list(link_types.items()),
-                attrs={
-                    "class": "js-link-widget-selector",
-                    "data-help": _("No destination selected. Use the dropdown to select a destination.")
-                },
-            ),  # Link type selector
-            URLInput(
-                attrs={
-                    "widget": "external_link",
-                    "placeholder": _("https://example.com or #anchor"),
-                    "data-help": _(
-                        "Provide a link to an external URL, including the schema such as 'https://', 'tel:', "
-                        "or 'mailto:'. Optionally, add an #anchor (including the #) to scroll to."
-                    ),
-                },
-            ),  # External link input
-            LinkAutoCompleteWidget(
-                attrs={
-                    "widget": "internal_link",
-                    "data-help": _(
-                        "Select from available internal destinations. Optionally, add an anchor to scroll to."
-                    ),
-                    "data-placeholder": _("Select internal destination"),
-                },
-            ),  # Internal link selector
-            TextInput(
-                attrs={
-                    "widget": "anchor",
-                    "placeholder": _("#anchor"),
-                    "data-help": _("Provide an anchor to scroll to."),
-                }
-            ),
-        ]
-        if File:
-            widgets.append(
-                AdminFileWidget(
-                    rel=ManyToOneRel(FilerFileField, File, "id"),
-                    admin_site=site,
-                    attrs={
-                        "widget": "file_link",
-                        "data-help": _("Select a file as destination."),
-                    },
-                ),
-            )
-        if site_selector:
-            widgets.insert(2, SiteAutocompleteSelect(
+        widgets = [widget for key, widget in _available_widgets.items()
+                   if key == "always" or _mapping[key] in link_types]
+        if site_selector and "internal_link" in allowed_link_types:
+            index = next(i for i, widget in enumerate(widgets) if widget.attrs.get("widget") == "internal_link")
+            widgets.insert(index, SiteAutocompleteSelect(
                 attrs={
                     "class": "js-link-site-widget",
                     "widget": "site",
@@ -233,15 +253,16 @@ class LinkWidget(MultiWidget):
             widget["attrs"].get("widget", "link-type-selector"): widget
             for widget in context["widget"]["subwidgets"]
         }
-        if File:
+        if File and "file_link" in allowed_link_types:
             del context["widget"]["subwidgets"]["file_link"]
-            context["filer_widget"] = self.widgets[-1].render(name + "_4", value[4], attrs)
+            index = next(i for i, widget in enumerate(self.widgets) if widget.attrs.get("widget") == "file_link")
+            context["filer_widget"] = self.widgets[index].render(name + f"_{index}", value[index], attrs)
         return context
 
 
 class LinkFormField(Field):
     widget = LinkWidget
-    external_link_validators = [ExtendedURLValidator()]
+    external_link_validators = [ExtendedURLValidator(allowed_link_types=allowed_link_types)]
     internal_link_validators = []
     file_link_validators = []
     anchor_validators = [AnchorValidator()]
@@ -256,8 +277,8 @@ class LinkFormField(Field):
         super().__init__(*args, **kwargs)
 
     def prepare_value(self, value):
-        # if isinstance(value, list):
-        #     return value
+        if isinstance(value, list):
+            return value
         if value is None:
             value = {}
         multi_value = len(self.widget.widgets) * [None]

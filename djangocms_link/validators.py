@@ -67,21 +67,25 @@ class ExtendedURLValidator(IntranetURLValidator):
     # so we test for a simple alternative.
     tel_re = r'^tel\:[0-9 \#\*\-\.\(\)\+]+$'
 
+    def __init__(self, allowed_link_types: list = None, **kwargs):
+        self.allowed_link_types = allowed_link_types
+        super().__init__(**kwargs)
+
     def __call__(self, value):
         if not isinstance(value, str) or len(value) > self.max_length:
             raise ValidationError(self.message, code=self.code, params={"value": value})
         if self.unsafe_chars.intersection(value):
             raise ValidationError(self.message, code=self.code, params={"value": value})
         # Check if just an anchor
-        if value.startswith("#"):
+        if value.startswith("#") and (self.allowed_link_types is None or "anchor" in self.allowed_link_types):
             return AnchorValidator()(value)
         # Check if the scheme is valid.
         scheme = value.split(":")[0].lower()
-        if scheme == "tel":
+        if scheme == "tel" and (self.allowed_link_types is None or "tel" in self.allowed_link_types):
             if re.match(self.tel_re, value):
                 return
             else:
                 raise ValidationError(_("Enter a valid phone number"), code=self.code, params={"value": value})
-        if scheme == "mailto":
+        if scheme == "mailto" and (self.allowed_link_types is None or "mailto" in self.allowed_link_types):
             return EmailValidator()(value[7:])
         return super().__call__(value)

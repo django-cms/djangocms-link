@@ -82,6 +82,26 @@ otherwise you will get a *template does not exist* error. You can do this by
 copying the ``default`` folder inside that directory and renaming it to
 ``feature``.
 
+Link types
+...........
+
+By default, django CMS Link provides three major link types: internal, external,
+and file link (if django-filer is installed).
+
+Phone links or email links can be entered by using the ``tel:`` or ``mailto:``
+scheme, respectively, in the external link field.
+
+By changing the ``DJANGOCMS_LINK_ALLOWED_LINK_TYPES`` setting you can limit
+the type of links accepted. The default is::
+
+    DJANGOCMS_LINK_ALLOWED_LINK_TYPES = [
+        'internal_link',  # Pages and other models
+        'external_link',  # Hand-typed URLs
+        'file_link',      # Files from django-filer
+        'tel',            # Phone numbers as external links using the tel: scheme
+        'mailto',         # Email addresses as external links using the mailto: scheme
+        'anchor',         # Anchors in the current page as external links using #
+    ]
 
 Linkable models
 ...............
