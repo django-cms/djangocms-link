@@ -33,7 +33,7 @@ def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
         obj = get_rel_obj(link_field_value["internal_link"])
     elif "file_link" in link_field_value:
         obj = get_rel_obj("filer.file:" + str(link_field_value["file_link"]))
-    else:
+    else:  # pragma: no cover
         return None
 
     if hasattr(obj, "get_absolute_url"):
