@@ -5,12 +5,6 @@ from django.contrib.sites.models import Site
 from django.db import models
 
 
-def get_queryset_manager(base: models.QuerySet | models.Manager) -> models.QuerySet:
-    if hasattr(base, "drafts"):
-        return base.drafts()
-    return base
-
-
 def get_manager(model: models.Model, current_content: bool = False) -> models.Manager:
     if hasattr(model, "admin_manager"):
         return model.admin_manager.current_content() if current_content else model.admin_manager

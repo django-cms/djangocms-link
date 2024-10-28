@@ -268,7 +268,7 @@ class LinkFormField(Field):
     file_link_validators = []
     anchor_validators = [AnchorValidator()]
 
-    empty_values = [{}] + [{link_type: ""} for link_type in link_types]
+    empty_values = [None, {}]
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault("help_text", _("Select a link type and provide a link."))
@@ -280,8 +280,6 @@ class LinkFormField(Field):
     def prepare_value(self, value):
         if isinstance(value, list):
             return value
-        if value is None:
-            value = {}
         multi_value = len(self.widget.widgets) * [None]
         if "external_link" in value:
             pos = self._get_pos("external_link")
@@ -310,7 +308,7 @@ class LinkFormField(Field):
             return {}
         pos_anchor = self._get_pos("anchor")
 
-        python = {link_type: value[pos]}
+        python = {link_type: value[pos]} if value[pos] else {}
         if link_type == "internal_link" and pos_anchor and value[pos_anchor]:
             python["anchor"] = value[pos_anchor]
         return python
