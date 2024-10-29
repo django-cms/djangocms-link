@@ -37,7 +37,7 @@ class LinkEndpointTestCase(CMSTestCase):
         from django.contrib.admin import site
 
         LinkAdmin = site._registry[Link]
-        self.endpoint = admin_reverse(LinkAdmin.link_url_name)
+        self.endpoint = admin_reverse(LinkAdmin.global_link_url_name)
 
     def tearDown(self):
         self.root_page.delete()
@@ -132,7 +132,7 @@ class LinkEndpointTestCase(CMSTestCase):
 class LinkEndpointThirdPartyTestCase(CMSTestCase):
     def setUp(self):
         LinkAdmin = admin.site._registry[Link]
-        self.endpoint = admin_reverse(LinkAdmin.link_url_name)
+        self.endpoint = admin_reverse(LinkAdmin.global_link_url_name)
 
         self.second_site = Site.objects.create(
             domain="second",
@@ -249,7 +249,7 @@ class LinkEndpointMultiModelTestCase(CMSTestCase):
 
         LinkAdmin = admin.site._registry[Link]
 
-        self.endpoint = admin_reverse(LinkAdmin.link_url_name)
+        self.endpoint = admin_reverse(LinkAdmin.global_link_url_name)
         self.root_page = create_page(
             title="root",
             template="page.html",
