@@ -245,7 +245,7 @@ Migrations should automatically existing plugin instances to the new model
 fields.
 
 **WARNING:** We strongly recommend to backup your database before updating to
-version 5. The migrations have been tests but they do remove unused fields from
+version 5. The migration is tested but they do remove unused fields from
 the database. If you encounter any issues, please report them on
 `GitHub <https://github.com/django-cms/djangocms-link/issues>`_.
 
