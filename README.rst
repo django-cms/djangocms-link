@@ -2,7 +2,7 @@
 django CMS Link
 ===============
 
-|pypi| |build| |coverage|
+|pypi| |coverage| |python| |django| |djangocms| |djangocms4|
 
 **django CMS Link** is a plugin for `django CMS <https://django-cms.org>`_ that
 allows you to add links on your site.
@@ -36,8 +36,6 @@ Documentation
 
 See ``REQUIREMENTS`` in the `setup.py <https://github.com/divio/djangocms-link/blob/master/setup.py>`_
 file for additional dependencies:
-
-|python| |django| |djangocms|
 
 django CMS Link has a weak dependency on django Filer. If
 `django Filer <http://django-filer.readthedocs.io/en/latest/installation.html>`_
@@ -251,8 +249,6 @@ the database. If you encounter any issues, please report them on
 
 .. |pypi| image:: https://badge.fury.io/py/djangocms-link.svg
     :target: http://badge.fury.io/py/djangocms-link
-.. |build| image:: https://travis-ci.org/divio/djangocms-link.svg?branch=master
-    :target: https://travis-ci.org/django-cms/djangocms-link
 .. |coverage| image:: https://codecov.io/gh/django-cms/djangocms-link/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/django-cms/djangocms-link
 
@@ -261,5 +257,7 @@ the database. If you encounter any issues, please report them on
 .. |django| image:: https://img.shields.io/badge/django-4.2,%205.0,%205.1-blue.svg
     :target: https://www.djangoproject.com/
 .. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.11%2B-blue.svg
+    :target: https://www.django-cms.org/
+.. |djangocms4| image:: https://img.shields.io/badge/django%20CMS-4-blue.svg
     :target: https://www.django-cms.org/
 
