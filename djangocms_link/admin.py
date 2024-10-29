@@ -179,7 +179,7 @@ class LinkAdmin(admin.ModelAdmin):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.link_url_name = f"{self.opts.app_label}_{self.opts.model_name}_urls"
+        self.global_link_url_name = f"{self.opts.app_label}_{self.opts.model_name}_urls"
 
     def has_module_permission(self, request):  # pragma: no cover
         # Remove from admin
@@ -190,7 +190,7 @@ class LinkAdmin(admin.ModelAdmin):
         return [
             path("urls",
                  self.admin_site.admin_view(self.url_view),
-                 name=self.link_url_name
+                 name=self.global_link_url_name
                  ),
         ]
 
