@@ -145,6 +145,16 @@ smaller the average result set size. The default is 0::
     # Require at least 2 characters to be typed before searching for pages
     DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH = 2
 
+By default django CMS Link will paginate the search results. You can change the
+page size by setting the ``DJANGOCMS_LINK_PAGINATE_BY`` setting.
+The default is 100::
+
+    # Show 5 results per page
+    DJANGOCMS_LINK_PAGINATE_BY = 100
+
+Note, that in the admin paginated search results repeat the modle verbose name.
+
+
 Non-standard hostnames
 ......................
 

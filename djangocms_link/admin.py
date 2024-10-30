@@ -31,7 +31,7 @@ REGISTERED_ADMIN = getattr(settings, "DJANGOCMS_LINKABLE_MODELS", "auto")
 class AdminUrlsView(BaseListView):
     """Handle AutocompleteWidget's AJAX requests for data."""
 
-    paginate_by = 20
+    paginate_by = getattr(settings, "DJANGOCMS_LINK_PAGINATE_BY", 100)
     admin_site = None
 
     def get(self, request, *args, **kwargs):
