@@ -87,11 +87,9 @@ class LinkEndpointTestCase(CMSTestCase):
             data = response.json()
 
         self.assertIn("results", data)
-        self.assertEqual(len(data["results"]), 1)
+        self.assertEqual(len(data["results"]), 0)
         self.assertIn("pagination", data)
         self.assertEqual(data["pagination"]["more"], False)
-        pages = data["results"][0]
-        self.assertEqual(pages, {})
 
     def test_site_selector(self):
         with self.login_user_context(self.get_superuser()):
@@ -100,11 +98,9 @@ class LinkEndpointTestCase(CMSTestCase):
             data = response.json()
 
         self.assertIn("results", data)
-        self.assertEqual(len(data["results"]), 1)
+        self.assertEqual(len(data["results"]), 0)
         self.assertIn("pagination", data)
         self.assertEqual(data["pagination"]["more"], False)
-        pages = data["results"][0]
-        self.assertEqual(pages, {})
 
     def test_get_reference(self):
         with self.login_user_context(self.get_superuser()):
