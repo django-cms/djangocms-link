@@ -336,7 +336,6 @@ class LinkField(JSONField):
 
     def __init__(self, *args, **kwargs):
         kwargs.setdefault("default", dict)
-        kwargs.setdefault("blank", True)
         kwargs.setdefault("help_text", "-")  # Help text is set by the widget
         super().__init__(*args, **kwargs)
 
