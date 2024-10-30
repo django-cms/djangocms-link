@@ -87,7 +87,8 @@ class AdminUrlsView(BaseListView):
                     "children": [],
                 }
             model["children"].append(self.serialize_result(obj))
-        results.append(model)
+        if model:
+            results.append(model)
         return results
 
     def serialize_result(self, obj):
