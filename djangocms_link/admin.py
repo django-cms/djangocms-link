@@ -2,7 +2,7 @@ from django.apps import apps
 from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import FieldError, PermissionDenied
-from django.db.models import Q
+from django.db.models import OuterRef, Q, Subquery
 from django.http import JsonResponse
 from django.urls import path
 from django.views.generic.list import BaseListView
@@ -65,10 +65,21 @@ class AdminUrlsView(BaseListView):
 
     def get_reference(self, request):
         try:
-            model, pk = request.GET.get("g").split(":")
-            app, model = model.split(".")
+            model_str, pk = request.GET.get("g").split(":")
+            app, model = model_str.split(".")
             model = apps.get_model(app, model)
-            obj = get_manager(model).get(pk=pk)
+            model_admin = self.admin_site._registry.get(model)
+            if model_str == "cms.page" or model_admin is None:
+                obj = get_manager(model).get(pk=pk)
+                if model_str == "cms.page":
+                    language = get_language_from_request(request)
+                    obj.__link_text__ = obj.get_admin_content(language).title
+                return JsonResponse(self.serialize_result(obj))
+
+            if hasattr(model_admin, "get_link_queryset"):
+                obj = model_admin.get_link_queryset(self.request, None).get(pk=pk)
+            else:
+                obj = model_admin.get_queryset(self.request).get(pk=pk)
             return JsonResponse(self.serialize_result(obj))
         except Exception as e:
             return JsonResponse({"error": str(e)})
@@ -98,7 +109,7 @@ class AdminUrlsView(BaseListView):
         """
         return {
             "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
-            "text": str(obj),
+            "text": getattr(obj, "__link_text__", str(obj)) or str(obj),
             "url": obj.get_absolute_url(),
         }
 
@@ -108,16 +119,18 @@ class AdminUrlsView(BaseListView):
             # django CMS 4.2+
             qs = PageContent.admin_manager.filter(language=self.language).filter(
                 Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
-            ).current_content().values_list("page_id", flat=True)
-            qs = Page.objects.filter(pk__in=qs).order_by("path")
+            ).current_content()
+            qs = (Page.objects.filter(pk__in=qs.values_list("page_id", flat=True)).order_by("path")
+                  .annotate(__link_text__=Subquery(qs.filter(page_id=OuterRef("pk")).values("title")[:1])))
             if self.site:
                 qs = qs.filter(site_id=self.site)
         except (AttributeError, FieldError):
             # django CMS 3.11 - 4.1
             qs = get_manager(PageContent, current_content=True).filter(language=self.language).filter(
                 Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
-            ).values_list("page_id", flat=True)
-            qs = Page.objects.filter(pk__in=qs).order_by("node__path")
+            )
+            qs = (Page.objects.filter(pk__in=qs.values_list("page_id", flat=True)).order_by("node__path")
+                  .annotate(__link_text__=Subquery(qs.filter(page_id=OuterRef("pk")).values("title")[:1])))
             if self.site:
                 qs = qs.filter(node__site_id=self.site)
         return list(qs)
@@ -196,7 +209,7 @@ class LinkAdmin(admin.ModelAdmin):
         ]
 
     def url_view(self, request):
-        return AdminUrlsView.as_view(admin_site=self)(request)
+        return AdminUrlsView.as_view(admin_site=self.admin_site)(request)
 
 
 admin.site.register(models.Link, LinkAdmin)
