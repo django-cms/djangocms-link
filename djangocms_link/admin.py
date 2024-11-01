@@ -69,7 +69,7 @@ class AdminUrlsView(BaseListView):
             app, model = model_str.split(".")
             model = apps.get_model(app, model)
             model_admin = self.admin_site._registry.get(model)
-            if model_str == "cms.page" or model_admin is None:
+            if model_str == "cms.page" and _version >= 4 or model_admin is None:
                 obj = get_manager(model).get(pk=pk)
                 if model_str == "cms.page":
                     language = get_language_from_request(request)
