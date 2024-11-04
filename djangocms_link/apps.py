@@ -15,9 +15,9 @@ class DjangoCmsLinkConfig(AppConfig):
 
         from djangocms_link import admin as link_admin
 
-        link_model_setting = getattr(settings, "DJANGOCMS_LINKABLE_MODELS", "auto")
+        linkable_models = getattr(settings, "DJANGOCMS_LINKABLE_MODELS", "auto")
 
-        if link_model_setting == "auto":  # pragma: no cover
+        if linkable_models == "auto":  # pragma: no cover
             # Autoconfig? Check the admin registry for suitable admins
             link_admin.REGISTERED_ADMIN = []
             for _admin in admin.site._registry.values():
@@ -31,7 +31,7 @@ class DjangoCmsLinkConfig(AppConfig):
         else:
             # turn model config into model admin instances
             admins = []
-            for model in link_model_setting:
+            for model in linkable_models:
                 if isinstance(model, str):
                     model = apps.get_model(model)
                     if not hasattr(model, "get_absolute_url"):  # pragma: no cover
