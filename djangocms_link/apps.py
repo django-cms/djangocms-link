@@ -1,4 +1,5 @@
 from django.apps import AppConfig, apps
+from django.conf import settings
 from django.contrib.admin import ModelAdmin
 from django.core.exceptions import ImproperlyConfigured
 from django.utils.translation import gettext_lazy as _
@@ -14,7 +15,9 @@ class DjangoCmsLinkConfig(AppConfig):
 
         from djangocms_link import admin as link_admin
 
-        if link_admin.REGISTERED_ADMIN == "auto":  # pragma: no cover
+        link_model_setting = getattr(settings, "DJANGOCMS_LINKABLE_MODELS", "auto")
+
+        if link_model_setting == "auto":  # pragma: no cover
             # Autoconfig? Check the admin registry for suitable admins
             link_admin.REGISTERED_ADMIN = []
             for _admin in admin.site._registry.values():
@@ -28,7 +31,7 @@ class DjangoCmsLinkConfig(AppConfig):
         else:
             # turn model config into model admin instances
             admins = []
-            for model in link_admin.REGISTERED_ADMIN:
+            for model in link_model_setting:
                 if isinstance(model, str):
                     model = apps.get_model(model)
                     if not hasattr(model, "get_absolute_url"):  # pragma: no cover

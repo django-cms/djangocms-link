@@ -25,7 +25,7 @@ else:
     class GrouperModelAdmin:
         pass
 
-REGISTERED_ADMIN = getattr(settings, "DJANGOCMS_LINKABLE_MODELS", "auto")
+REGISTERED_ADMIN = []  # Will be set by djangocms_link.apps.DjangoCmsLinkConfig.ready
 
 
 class AdminUrlsView(BaseListView):
