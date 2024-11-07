@@ -137,9 +137,13 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
 
         self.items = (
             ThirdPartyModel.objects.create(name="First", path="/first", site_id=1),
-            ThirdPartyModel.objects.create(name="Second", path="/second", site=self.second_site),
+            ThirdPartyModel.objects.create(
+                name="Second", path="/second", site=self.second_site
+            ),
             ThirdPartyModel.objects.create(name="django CMS", path="/django-cms"),
-            ThirdPartyModel.objects.create(name="django CMS rocks", path="/django-cms-2"),
+            ThirdPartyModel.objects.create(
+                name="django CMS rocks", path="/django-cms-2"
+            ),
         )
 
     def test_auto_config(self):
@@ -208,22 +212,38 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
                 # Specific site item
                 if site_id == 1:
                     self.assertIn(
-                        {'id': 'utils.thirdpartymodel:1', 'text': 'First', 'url': '/first'},
-                        destinations["children"]
+                        {
+                            "id": "utils.thirdpartymodel:1",
+                            "text": "First",
+                            "url": "/first",
+                        },
+                        destinations["children"],
                     )
                 else:
                     self.assertIn(
-                        {'id': 'utils.thirdpartymodel:2', 'text': 'Second', 'url': '/second'},
-                        destinations["children"]
+                        {
+                            "id": "utils.thirdpartymodel:2",
+                            "text": "Second",
+                            "url": "/second",
+                        },
+                        destinations["children"],
                     )
                 # All-sites items
                 self.assertIn(
-                    {'id': 'utils.thirdpartymodel:3', 'text': 'django CMS', 'url': '/django-cms'},
-                    destinations["children"]
+                    {
+                        "id": "utils.thirdpartymodel:3",
+                        "text": "django CMS",
+                        "url": "/django-cms",
+                    },
+                    destinations["children"],
                 )
                 self.assertIn(
-                    {'id': 'utils.thirdpartymodel:4', 'text': 'django CMS rocks', 'url': '/django-cms-2'},
-                    destinations["children"]
+                    {
+                        "id": "utils.thirdpartymodel:4",
+                        "text": "django CMS rocks",
+                        "url": "/django-cms-2",
+                    },
+                    destinations["children"],
                 )
 
     def test_get_reference(self):
@@ -242,7 +262,6 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
 
 class LinkEndpointMultiModelTestCase(CMSTestCase):
     def setUp(self):
-
         LinkAdmin = admin.site._registry[Link]
 
         self.endpoint = admin_reverse(LinkAdmin.global_link_url_name)

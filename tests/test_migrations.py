@@ -19,47 +19,52 @@ class MigrationTestCase(TestCase):
     def test_for_missing_migrations(self):
         output = StringIO()
         options = {
-            'interactive': False,
-            'dry_run': True,
-            'stdout': output,
-            'check_changes': True,
+            "interactive": False,
+            "dry_run": True,
+            "stdout": output,
+            "check_changes": True,
         }
 
         try:
-            call_command('makemigrations', **options)
+            call_command("makemigrations", **options)
         except SystemExit as e:
             status_code = str(e)
         else:
             # the "no changes" exit code is 0
-            status_code = '0'
+            status_code = "0"
 
-        if status_code == '1' and "djangocms_link" in output:
-            self.fail(f'There are missing migrations:\n {output.getvalue()}')
+        if status_code == "1" and "djangocms_link" in output:
+            self.fail(f"There are missing migrations:\n {output.getvalue()}")
+
 
 @skipIf(
-    __version__[0] > '5' or cms_version < "4",
+    __version__[0] > "5" or cms_version < "4",
     "Migration has already been tested before releasing version 5",
 )
 class MigrationToVersion5(MigratorTestCase):
-    migrate_from = ('djangocms_link', '0016_alter_link_cmsplugin_ptr')
-    migrate_to = ('djangocms_link', '0018_remove_link_anchor_remove_link_external_link_and_more')
+    migrate_from = ("djangocms_link", "0016_alter_link_cmsplugin_ptr")
+    migrate_to = (
+        "djangocms_link",
+        "0018_remove_link_anchor_remove_link_external_link_and_more",
+    )
 
     def prepare(self):
-        Link = self.old_state.apps.get_model('djangocms_link', 'Link')
-        Page = self.old_state.apps.get_model('cms', 'Page')
-        PageContent = self.old_state.apps.get_model('cms', 'PageContent')
-        PageUrl = self.old_state.apps.get_model('cms', 'PageUrl')
-        TreeNode = self.old_state.apps.get_model('cms', 'TreeNode')
-        Site = self.old_state.apps.get_model('sites', 'Site')
+        # Can't use the cms.api here, since these are "historic" versions of the models
+        Link = self.old_state.apps.get_model("djangocms_link", "Link")
+        Page = self.old_state.apps.get_model("cms", "Page")
+        PageContent = self.old_state.apps.get_model("cms", "PageContent")
+        PageUrl = self.old_state.apps.get_model("cms", "PageUrl")
+        TreeNode = self.old_state.apps.get_model("cms", "TreeNode")
+        Site = self.old_state.apps.get_model("sites", "Site")
 
         # First create a Site at this stage in migration
         site = Site.objects.create(
-            domain='example.com',
-            name='example.com',
+            domain="example.com",
+            name="example.com",
         )
         # ... then a node
         node = TreeNode.objects.create(
-            path='0001',
+            path="0001",
             depth=1,
             numchild=0,
             parent=None,
@@ -71,14 +76,14 @@ class MigrationToVersion5(MigratorTestCase):
         )
         # ... and finally a page content object
         PageContent.objects.create(
-            title='My Page',
+            title="My Page",
             page=self.page,
-            language='en',
+            language="en",
         )
         PageUrl.objects.create(
             page=self.page,
-            language='en',
-            path='my-page',
+            language="en",
+            path="my-page",
         )
         self.links = [
             Link.objects.create(
@@ -123,11 +128,10 @@ class MigrationToVersion5(MigratorTestCase):
             "#anchor",
         ]
 
-    def test_tags_migrated(self):
-        Link = self.new_state.apps.get_model('djangocms_link', 'Link')
+    def test_plugins_migrated(self):
+        Link = self.new_state.apps.get_model("djangocms_link", "Link")
         links = Link.objects.all()
 
         for link, url in zip(links, self.urls):
             with self.subTest(link=link, url=url):
                 self.assertEqual(get_link(link.link, site_id=1), url)
-

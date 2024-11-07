@@ -15,7 +15,7 @@ from django.utils.translation import gettext_lazy as _
 
 from cms.utils.urlutils import admin_reverse
 
-from djangocms_link.helpers import get_manager
+from djangocms_link.helpers import LinkDict, get_manager
 
 
 try:
@@ -27,9 +27,7 @@ except (ModuleNotFoundError, ImportError):  # pragma: no cover
 from djangocms_link.validators import AnchorValidator, ExtendedURLValidator
 
 
-MINIMUM_INPUT_LENGTH = getattr(
-    settings, "DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH", 0
-)
+MINIMUM_INPUT_LENGTH = getattr(settings, "DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH", 0)
 
 
 class LinkAutoCompleteWidget(AutocompleteSelect):
@@ -155,20 +153,26 @@ if File:
 
 # Get the allowed link types from the settings
 allowed_link_types = getattr(
-    settings, "DJANGOCMS_LINK_ALLOWED_LINK_TYPES",
-    ("internal_link", "external_link", "file_link", "anchor", "mailto", "tel")
+    settings,
+    "DJANGOCMS_LINK_ALLOWED_LINK_TYPES",
+    ("internal_link", "external_link", "file_link", "anchor", "mailto", "tel"),
 )
 
 # Adjust example uri schemes to allowed link types
-example_uri_scheme = "'https://'" + (", 'tel:'" if "tel" in allowed_link_types else "") + \
-                     (", or 'mailto:'" if 'mailto' in allowed_link_types else "")
+example_uri_scheme = (
+    "'https://'"
+    + (", 'tel:'" if "tel" in allowed_link_types else "")
+    + (", or 'mailto:'" if "mailto" in allowed_link_types else "")
+)
 
 # Show anchor sub-widget only for internal_link
 _mapping = {key: key for key in link_types.keys()}
 _mapping["anchor"] = "internal_link"
 
 # Remove disallowed link types
-link_types = {key: value for key, value in link_types.items() if key in allowed_link_types}
+link_types = {
+    key: value for key, value in link_types.items() if key in allowed_link_types
+}
 
 # Create the available widgets
 _available_widgets = {
@@ -176,7 +180,9 @@ _available_widgets = {
         choices=list(link_types.items()),
         attrs={
             "class": "js-link-widget-selector",
-            "data-help": _("No destination selected. Use the dropdown to select a destination.")
+            "data-help": _(
+                "No destination selected. Use the dropdown to select a destination."
+            ),
         },
     ),  # Link type selector
     "external_link": URLInput(
@@ -231,17 +237,27 @@ class LinkWidget(MultiWidget):
         if site_selector is None:
             site_selector = LinkWidget.default_site_selector
 
-        widgets = [widget for key, widget in _available_widgets.items()
-                   if key == "always" or _mapping[key] in link_types]
+        widgets = [
+            widget
+            for key, widget in _available_widgets.items()
+            if key == "always" or _mapping[key] in link_types
+        ]
         if site_selector and "internal_link" in allowed_link_types:
-            index = next(i for i, widget in enumerate(widgets) if widget.attrs.get("widget") == "internal_link")
-            widgets.insert(index, SiteAutocompleteSelect(
-                attrs={
-                    "class": "js-link-site-widget",
-                    "widget": "site",
-                    "data-placeholder": _("Select site"),
-                },
-            ))  # Site selector
+            index = next(
+                i
+                for i, widget in enumerate(widgets)
+                if widget.attrs.get("widget") == "internal_link"
+            )
+            widgets.insert(
+                index,
+                SiteAutocompleteSelect(
+                    attrs={
+                        "class": "js-link-site-widget",
+                        "widget": "site",
+                        "data-placeholder": _("Select site"),
+                    },
+                ),
+            )  # Site selector
 
         # Remember which widget expets its content at which position
         self.data_pos = {
@@ -259,14 +275,22 @@ class LinkWidget(MultiWidget):
         }
         if File and "file_link" in allowed_link_types:
             del context["widget"]["subwidgets"]["file_link"]
-            index = next(i for i, widget in enumerate(self.widgets) if widget.attrs.get("widget") == "file_link")
-            context["filer_widget"] = self.widgets[index].render(name + f"_{index}", value[index], attrs)
+            index = next(
+                i
+                for i, widget in enumerate(self.widgets)
+                if widget.attrs.get("widget") == "file_link"
+            )
+            context["filer_widget"] = self.widgets[index].render(
+                name + f"_{index}", value[index], attrs
+            )
         return context
 
 
 class LinkFormField(Field):
     widget = LinkWidget
-    external_link_validators = [ExtendedURLValidator(allowed_link_types=allowed_link_types)]
+    external_link_validators = [
+        ExtendedURLValidator(allowed_link_types=allowed_link_types)
+    ]
     internal_link_validators = []
     file_link_validators = []
     anchor_validators = [AnchorValidator()]
@@ -303,20 +327,20 @@ class LinkFormField(Field):
     def to_python(self, value: list[str | None]) -> dict:
         """Turn MultiWidget list data into LinkField dict format"""
         if not value:
-            return {}
+            return LinkDict()
 
         link_type = value[0]
         pos = self._get_pos(link_type)
         if not pos:  # No link type selected
-            return {}
+            return LinkDict()
         pos_anchor = self._get_pos("anchor")
 
-        python = {link_type: value[pos]} if value[pos] else {}
-        if link_type == "internal_link" and pos_anchor and value[pos_anchor]:
+        python = LinkDict({link_type: value[pos]} if value[pos] else {})
+        if python and link_type == "internal_link" and pos_anchor and value[pos_anchor]:
             python["anchor"] = value[pos_anchor]
         return python
 
-    def run_validators(self, value: dict):
+    def run_validators(self, value: LinkDict):
         """Check for <link_type>_validators property and run the validators"""
         for link_type in link_types:
             if link_type in value:
@@ -342,3 +366,11 @@ class LinkField(JSONField):
     def formfield(self, **kwargs):
         kwargs.setdefault("form_class", LinkFormField)
         return super().formfield(**kwargs)
+
+    def from_db_value(self, value, expression, connection):
+        value = super().from_db_value(value, expression, connection)
+        return LinkDict(value)
+
+    def to_python(self, value):
+        value = super().to_python(value)
+        return LinkDict(value)

@@ -12,6 +12,7 @@ from cms.models import Page
 from cms.utils import get_language_from_request
 
 from . import models
+from .fields import LinkFormField, LinkWidget
 from .helpers import get_manager
 
 
@@ -24,6 +25,7 @@ else:
 
     class GrouperModelAdmin:
         pass
+
 
 REGISTERED_ADMIN = []  # Will be set by djangocms_link.apps.DjangoCmsLinkConfig.ready
 
@@ -117,20 +119,42 @@ class AdminUrlsView(BaseListView):
         """Return queryset based on ModelAdmin.get_search_results()."""
         try:
             # django CMS 4.2+
-            qs = PageContent.admin_manager.filter(language=self.language).filter(
-                Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
-            ).current_content()
-            qs = (Page.objects.filter(pk__in=qs.values_list("page_id", flat=True)).order_by("path")
-                  .annotate(__link_text__=Subquery(qs.filter(page_id=OuterRef("pk")).values("title")[:1])))
+            qs = (
+                PageContent.admin_manager.filter(language=self.language)
+                .filter(
+                    Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
+                )
+                .current_content()
+            )
+            qs = (
+                Page.objects.filter(pk__in=qs.values_list("page_id", flat=True))
+                .order_by("path")
+                .annotate(
+                    __link_text__=Subquery(
+                        qs.filter(page_id=OuterRef("pk")).values("title")[:1]
+                    )
+                )
+            )
             if self.site:
                 qs = qs.filter(site_id=self.site)
         except (AttributeError, FieldError):
             # django CMS 3.11 - 4.1
-            qs = get_manager(PageContent, current_content=True).filter(language=self.language).filter(
-                Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
+            qs = (
+                get_manager(PageContent, current_content=True)
+                .filter(language=self.language)
+                .filter(
+                    Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
+                )
             )
-            qs = (Page.objects.filter(pk__in=qs.values_list("page_id", flat=True)).order_by("node__path")
-                  .annotate(__link_text__=Subquery(qs.filter(page_id=OuterRef("pk")).values("title")[:1])))
+            qs = (
+                Page.objects.filter(pk__in=qs.values_list("page_id", flat=True))
+                .order_by("node__path")
+                .annotate(
+                    __link_text__=Subquery(
+                        qs.filter(page_id=OuterRef("pk")).values("title")[:1]
+                    )
+                )
+            )
             if self.site:
                 qs = qs.filter(node__site_id=self.site)
         return list(qs)
@@ -148,7 +172,9 @@ class AdminUrlsView(BaseListView):
                 else:
                     new_qs = model_admin.get_queryset(self.request)
                     if hasattr(model_admin.model, "site") and self.site:
-                        new_qs = new_qs.filter(Q(site_id=self.site) | Q(site__isnull=True))
+                        new_qs = new_qs.filter(
+                            Q(site_id=self.site) | Q(site__isnull=True)
+                        )
                     elif hasattr(model_admin.model, "sites") and self.site:
                         new_qs = new_qs.filter(sites__id=self.site)
                 new_qs, search_use_distinct = model_admin.get_search_results(
@@ -169,7 +195,9 @@ class AdminUrlsView(BaseListView):
         Validate request integrity, extract and return request parameters.
         """
         term = request.GET.get("term", request.GET.get("q", "")).strip("  ").lower()
-        site = request.GET.get("app_label", "")  # Django admin's app_label is abused as site id
+        site = request.GET.get(
+            "app_label", ""
+        )  # Django admin's app_label is abused as site id
         try:
             site = int(site)
         except ValueError:
@@ -191,6 +219,10 @@ class LinkAdmin(admin.ModelAdmin):
     """The LinkAdmin class provides the endpoint for getting the urls. It is not visible in the
     admin interface."""
 
+    global_link_form_widget = LinkWidget
+    global_link_form_field = LinkFormField
+    global_link_url_name = None
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.global_link_url_name = f"{self.opts.app_label}_{self.opts.model_name}_urls"
@@ -202,10 +234,11 @@ class LinkAdmin(admin.ModelAdmin):
     def get_urls(self):
         # Only url endpoint public, do not call super().get_urls()
         return [
-            path("urls",
-                 self.admin_site.admin_view(self.url_view),
-                 name=self.global_link_url_name
-                 ),
+            path(
+                "urls",
+                self.admin_site.admin_view(self.url_view),
+                name=self.global_link_url_name,
+            ),
         ]
 
     def url_view(self, request):

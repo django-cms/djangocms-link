@@ -195,10 +195,12 @@ models or forms.
     class MyForm(forms.Form):
         link = LinkFormField(required=False)
 
-``LinkField`` is a subclass of ``JSONField`` and stores the link data as dict.
+``LinkField`` is a subclass of ``JSONField`` and stores the link data as
+``djangocms_link.helpers.LinkDict``, a direct subclass of ``dict``.
 (An empty link will be ``{}``.)
 
-To render the link field in a template, use the new template tag ``to_url``::
+To render the link field in a template, use the ``LinkDict`` property ``url`` or
+the new template tag ``to_url``::
 
     {% load djangocms_link_tags %}
     {# Variant 1 #}
@@ -207,18 +209,22 @@ To render the link field in a template, use the new template tag ``to_url``::
     {% endif %}
 
     {# Variant 2 #}
+    {% if obj.link %}
+        <a href="{{ obj.link.url }}">Link available</a>
+    {% endif %}
+
+    {# Variant 3 #}
     {% with url=obj.link|to_url %}
     {% if url %}
         <a href="{{ url }}">Link available</a>
     {% endif %}
 
-To turn the ``LinkField``'s dictionary into a URL in python code, use the
-``djangocms_link.helpers.get_link`` helper function::
-
-    from djangocms_link.helpers import get_link
+To turn the ``LinkField``'s ``LinkDict`` dictionary into a URL in python code,
+use the ``url`` property. (It will hit the database when needed. Results are
+cached.)::
 
     obj = MyModel.objects.first()
-    url = get_link(obj.link)
+    url = obj.link.url
 
 
 Running Tests

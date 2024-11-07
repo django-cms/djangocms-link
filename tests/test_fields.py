@@ -10,9 +10,9 @@ from tests.helpers import get_filer_file
 class LinkFieldTestCase(TestCase):
     def setUp(self):
         self.page = create_page(
-            title='django CMS is fun',
-            template='page.html',
-            language='en',
+            title="django CMS is fun",
+            template="page.html",
+            language="en",
         )
         self.file = get_filer_file()
 
@@ -26,7 +26,7 @@ class LinkFieldTestCase(TestCase):
         # Render widget
         self.assertIn(
             '<div name="link_field" class="link-widget widget" required id="id_link_field">',
-            form_html
+            form_html,
         )
         # Render selector
         self.assertIn(
@@ -35,7 +35,7 @@ class LinkFieldTestCase(TestCase):
             '<option value="internal_link">Internal link</option>'
             '<option value="external_link">External link/anchor</option>'
             '<option value="file_link">File link</option></select>',
-            form_html
+            form_html,
         )
         # Render internal URL field
         self.assertIn(
@@ -46,8 +46,8 @@ class LinkFieldTestCase(TestCase):
             'data-theme="admin-autocomplete" data-allow-clear="true" '
             'data-minimum-input-length="0" lang="en">'
             '<option value=""></option><option value="" selected>None</option>'
-            '</select>',
-            form_html
+            "</select>",
+            form_html,
         )
         # Render external URL field
         self.assertIn(
@@ -70,7 +70,7 @@ class LinkFieldTestCase(TestCase):
             '<option value="internal_link">Internal link</option>'
             '<option value="external_link">External link/anchor</option>'
             '<option value="file_link">File link</option></select>',
-            str(LinkNotRequiredForm())
+            str(LinkNotRequiredForm()),
         )
 
     def prepare_value(self, form, value):
@@ -82,7 +82,10 @@ class LinkFieldTestCase(TestCase):
 
         def check_value(value):
             # Creates submission data for value and checks if the form returns the submitted value
-            data = {f"link_field_{i}": item for i, item in enumerate(self.prepare_value(LinkForm(), value))}
+            data = {
+                f"link_field_{i}": item
+                for i, item in enumerate(self.prepare_value(LinkForm(), value))
+            }
             form = LinkForm(data=data)
             self.assertTrue(form.is_valid(), form.errors)
             self.assertEqual(form.cleaned_data["link_field"], value)
@@ -98,23 +101,32 @@ class LinkFieldTestCase(TestCase):
         pre_select_page = len(widget.widgets) * [None]
         pre_select_page[0] = "internal_link"
         pre_select_page[2] = f"cms.page:{self.page.id}"
-        rendered_widget = widget.render("link_field", pre_select_page, attrs={"id": "id_link_field"})
+        rendered_widget = widget.render(
+            "link_field", pre_select_page, attrs={"id": "id_link_field"}
+        )
 
-        self.assertIn('<option value="cms.page:1" selected>django CMS is fun</option>', rendered_widget)
+        self.assertIn(
+            '<option value="cms.page:1" selected>django CMS is fun</option>',
+            rendered_widget,
+        )
 
     def test_widget_renders_site_selector(self):
         widget = LinkWidget(site_selector=True)
         pre_select_page = len(widget.widgets) * [None]
         pre_select_page[0] = "internal_link"
         pre_select_page[2] = f"cms.page:{self.page.id}"
-        rendered_widget = widget.render("link_field", pre_select_page, attrs={"id": "id_link_field"})
+        rendered_widget = widget.render(
+            "link_field", pre_select_page, attrs={"id": "id_link_field"}
+        )
 
         # Subwidget is present
         self.assertIn(
             '<select name="link_field_2" class="js-link-site-widget admin-autocomplete" widget="site"',
-            rendered_widget
+            rendered_widget,
         )
         # Current site is pre-selected
-        self.assertIn('<option value="1" selected>example.com</option>', rendered_widget)
+        self.assertIn(
+            '<option value="1" selected>example.com</option>', rendered_widget
+        )
         # Site selector uses django admin autocomplete
         self.assertIn('data-ajax--url="/en/admin/autocomplete/"', rendered_widget)

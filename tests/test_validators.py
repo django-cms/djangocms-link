@@ -19,12 +19,15 @@ class LinkValidatorTestCase(TestCase):
             pass
 
     def test_intranet_host_re(self):
-        host = r'[a-z,0-9,-]{1,15}'
+        host = r"[a-z,0-9,-]{1,15}"
         host_re = (
-            '(' + ExtendedURLValidator.hostname_re
+            "("
+            + ExtendedURLValidator.hostname_re
             + ExtendedURLValidator.domain_re
-            + ExtendedURLValidator.tld_re +
-            '|' + host + '|localhost)'
+            + ExtendedURLValidator.tld_re
+            + "|"
+            + host
+            + "|localhost)"
         )
         validator = ExtendedURLValidator(
             intranet_host_re=host,

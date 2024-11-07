@@ -10,7 +10,7 @@ from .models import Link
 
 class LinkPlugin(CMSPluginBase):
     model = Link
-    name = _('Link')
+    name = _("Link")
     text_enabled = True
     text_icon = (
         '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" '
@@ -22,27 +22,35 @@ class LinkPlugin(CMSPluginBase):
     allow_children = True
 
     fieldsets = [
-        (None, {
-            'fields': (
-                'name',
-                'link',
-                'target',
-            )
-        }),
-        (_('Advanced settings'), {
-            'classes': ('collapse',),
-            'fields': (
-                'template',
-                'attributes',
-            )
-        }),
+        (
+            None,
+            {
+                "fields": (
+                    "name",
+                    "link",
+                    "target",
+                )
+            },
+        ),
+        (
+            _("Advanced settings"),
+            {
+                "classes": ("collapse",),
+                "fields": (
+                    "template",
+                    "attributes",
+                ),
+            },
+        ),
     ]
 
     def get_render_template(self, context, instance, placeholder):
-        return f'djangocms_link/{instance.template}/link.html'
+        return f"djangocms_link/{instance.template}/link.html"
 
     def render(self, context, instance, placeholder):
-        context['link'] = get_link(instance.link, getattr(get_current_site(context["request"]), "id", None))
+        context["link"] = get_link(
+            instance.link, getattr(get_current_site(context["request"]), "id", None)
+        )
         return super().render(context, instance, placeholder)
 
 

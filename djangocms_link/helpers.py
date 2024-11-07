@@ -5,9 +5,19 @@ from django.contrib.sites.models import Site
 from django.db import models
 
 
+try:
+    from filer.models import File
+except (ModuleNotFoundError, ImportError):  # pragma: no cover
+    File = None
+
+
 def get_manager(model: models.Model, current_content: bool = False) -> models.Manager:
     if hasattr(model, "admin_manager"):
-        return model.admin_manager.current_content() if current_content else model.admin_manager
+        return (
+            model.admin_manager.current_content()
+            if current_content
+            else model.admin_manager
+        )
     return model.objects
 
 
@@ -40,11 +50,15 @@ def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
         # Access site id if possible (no db access necessary)
         if site_id is None:
             site_id = Site.objects.get_current().id
-        obj_site_id = getattr(obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None))
+        obj_site_id = getattr(
+            obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None)
+        )
         link_field_value["__cache__"] = obj.get_absolute_url()  # Can be None
         if obj_site_id and obj_site_id != site_id:
             ref_site = Site.objects._get_site_by_id(obj_site_id).domain
-            link_field_value["__cache__"] = f"//{ref_site}{link_field_value['__cache__']}"
+            link_field_value["__cache__"] = (
+                f"//{ref_site}{link_field_value['__cache__']}"
+            )
         if link_field_value["__cache__"]:
             link_field_value["__cache__"] += link_field_value.get("anchor", "")
     elif hasattr(obj, "url"):
@@ -52,3 +66,37 @@ def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
     else:
         link_field_value["__cache__"] = None
     return link_field_value["__cache__"]
+
+
+class LinkDict(dict):
+    """dict subclass with two additional properties: url and type to easily infer the link type and
+    the url of the link. The url property is cached to avoid multiple db lookups."""
+
+    def __init__(self, initial=None, **kwargs):
+        super().__init__(**kwargs)
+        if initial:
+            if isinstance(initial, dict):
+                self.update(initial)
+            elif isinstance(initial, str):
+                self["external_link"] = initial
+            elif isinstance(initial, File):
+                self["file_link"] = initial.pk
+            elif isinstance(initial, models.Model):
+                self["internal_link"] = (
+                    f"{initial._meta.app_label}.{initial._meta.model_name}:{initial.pk}"
+                )
+                if "anchor" in kwargs:
+                    self["anchor"] = kwargs["anchor"]
+
+    @property
+    def url(self):
+        return get_link(self) or ""
+
+    @property
+    def type(self):
+        if "internal_link" in self:
+            # "internal_link" is checked prior to "anchor"
+            return "internal_link"
+        if self:
+            return next(iter(self))
+        return ""

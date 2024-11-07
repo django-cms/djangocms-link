@@ -26,7 +26,9 @@ class DjangoCmsLinkConfig(AppConfig):
                     continue
                 # search_fields need to be defined in the ModelAdmin class, and the model needs to have
                 # a get_absolute_url method.
-                if getattr(_admin, "search_fields", []) and hasattr(_admin.model, "get_absolute_url"):
+                if getattr(_admin, "search_fields", []) and hasattr(
+                    _admin.model, "get_absolute_url"
+                ):
                     link_admin.REGISTERED_ADMIN.append(_admin)
         else:
             # turn model config into model admin instances
@@ -35,12 +37,14 @@ class DjangoCmsLinkConfig(AppConfig):
                 if isinstance(model, str):
                     model = apps.get_model(model)
                     if not hasattr(model, "get_absolute_url"):  # pragma: no cover
-                        raise ImproperlyConfigured(f"{model.__name__} needs to implement get_absolute_url method")
+                        raise ImproperlyConfigured(
+                            f"{model.__name__} needs to implement get_absolute_url method"
+                        )
                     admin = admin.site._registry[model]
                     if admin not in admins:
                         admins.append(admin)
                 elif not isinstance(model, ModelAdmin):  # pragma: no cover
                     raise ImproperlyConfigured(
-                        "DJANGOCMS_LINK_LINKABLE_MODELS must be a list of string \"app_label.model_name\""
+                        'DJANGOCMS_LINK_LINKABLE_MODELS must be a list of string "app_label.model_name"'
                     )
             link_admin.REGISTERED_ADMIN = admins

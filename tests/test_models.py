@@ -9,12 +9,11 @@ from .helpers import get_filer_file
 
 
 class LinkModelTestCase(TestCase):
-
     def setUp(self):
         self.page = create_page(
-            title='help',
-            template='page.html',
-            language='en',
+            title="help",
+            template="page.html",
+            language="en",
         )
         self.file = get_filer_file()
         self.internal_link = Link.objects.create(
@@ -86,15 +85,21 @@ class LinkModelTestCase(TestCase):
         )
         instance.name = None
         self.assertEqual(str(instance), str(instance.pk))
-        self.assertEqual(instance.get_short_description(), "https://www.django-cms.org/#some_id")
+        self.assertEqual(
+            instance.get_short_description(), "https://www.django-cms.org/#some_id"
+        )
 
         instance.link = {}
         self.assertEqual(instance.get_short_description(), "<link is missing>")
 
     def test_get_link(self):
-        self.assertEqual(self.internal_link.get_link(), self.page.get_absolute_url() + "#some_id")
+        self.assertEqual(
+            self.internal_link.get_link(), self.page.get_absolute_url() + "#some_id"
+        )
         self.assertEqual(self.file_link.get_link(), self.file.url)
-        self.assertEqual(self.external_link.get_link(), "https://www.django-cms.org/#some_id")
+        self.assertEqual(
+            self.external_link.get_link(), "https://www.django-cms.org/#some_id"
+        )
         self.assertEqual(self.phone_link.get_link(), "tel:+0123456789")
         self.assertEqual(self.mail_link.get_link(), "mailto:test@email.com")
         self.assertEqual(self.anchor_link.get_link(), "#some_id")
@@ -103,11 +108,12 @@ class LinkModelTestCase(TestCase):
         from djangocms_link.templatetags.djangocms_link_tags import to_url
 
         self.assertEqual(
-            to_url(self.internal_link.link),
-            self.page.get_absolute_url() + "#some_id"
+            to_url(self.internal_link.link), self.page.get_absolute_url() + "#some_id"
         )
         self.assertEqual(to_url(self.file_link.link), self.file.url)
-        self.assertEqual(to_url(self.external_link.link), "https://www.django-cms.org/#some_id")
+        self.assertEqual(
+            to_url(self.external_link.link), "https://www.django-cms.org/#some_id"
+        )
         self.assertEqual(to_url(self.phone_link.link), "tel:+0123456789")
         self.assertEqual(to_url(self.mail_link.link), "mailto:test@email.com")
         self.assertEqual(to_url(self.anchor_link.link), "#some_id")
@@ -118,10 +124,12 @@ class LinkModelTestCase(TestCase):
         from djangocms_link.templatetags.djangocms_link_tags import to_link
 
         self.assertEqual(to_link(self.file), {"file_link": self.file.pk})
-        self.assertEqual(to_link(self.page), {"internal_link": f"cms.page:{self.page.pk}"})
+        self.assertEqual(
+            to_link(self.page), {"internal_link": f"cms.page:{self.page.pk}"}
+        )
         self.assertEqual(
             to_link("https://www.django-cms.org/#some_id"),
-            {"external_link": "https://www.django-cms.org/#some_id"}
+            {"external_link": "https://www.django-cms.org/#some_id"},
         )
 
     def test_respect_link_is_optional(self):
