@@ -200,7 +200,7 @@ models or forms.
 (An empty link will be ``{}``.)
 
 To render the link field in a template, use the ``LinkDict`` property ``url`` or
-the new template tag ``to_url``::
+the new template tag ``to_url``. The ``type`` property returns the link type::
 
     {% load djangocms_link_tags %}
     {# Variant 1 #}
@@ -210,7 +210,9 @@ the new template tag ``to_url``::
 
     {# Variant 2 #}
     {% if obj.link %}
-        <a href="{{ obj.link.url }}">Link available</a>
+        <a href="{{ obj.link.url }}"
+            {% if obj.link.type == "external_link" %} target="_blank"{% endif %}
+        >Link available</a>
     {% endif %}
 
     {# Variant 3 #}

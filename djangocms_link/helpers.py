@@ -94,9 +94,15 @@ class LinkDict(dict):
 
     @property
     def type(self):
-        if "internal_link" in self:
-            # "internal_link" is checked prior to "anchor"
-            return "internal_link"
-        if self:
-            return next(iter(self))
+        for key in ("internal_link", "file_link"):
+            if key in self:
+                return key
+        if "external_link" in self:
+            if self["external_link"].startswith("tel:"):
+                return "tel"
+            if self["external_link"].startswith("mailto:"):
+                return "mailto"
+            if self["external_link"].startswith("#"):
+                return "anchor"
+            return "external_link"
         return ""

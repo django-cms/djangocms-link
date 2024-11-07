@@ -55,3 +55,14 @@ class LinkDictTestCase(TestCase):
         self.assertEqual(link1.type, "internal_link")
         self.assertEqual(link2.type, "internal_link")
         self.assertEqual(link3.type, "internal_link")
+
+    def test_link_types(self):
+        anchor = LinkDict("#test")
+        external = LinkDict("https://www.example.com")
+        phone = LinkDict("tel:+1234567890")
+        mail = LinkDict("mailto:info@django-cms.org")
+
+        self.assertEqual(anchor.type, "anchor")
+        self.assertEqual(external.type, "external_link")
+        self.assertEqual(phone.type, "tel")
+        self.assertEqual(mail.type, "mailto")
