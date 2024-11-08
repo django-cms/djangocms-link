@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 import sys
 
@@ -38,14 +39,6 @@ INSTALLED_APPS = (
     + CMS_APP
 )
 DATABASES = {"default": {"ENGINE": "django.db.backends.sqlite3", "NAME": ":memory:"}}
-TEMPLATE_LOADERS = [
-    "django.template.loaders.filesystem.Loader",
-    "django.template.loaders.app_directories.Loader",
-]
-STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-]
 TEMPLATE_CONTEXT_PROCESSORS = [
     "django.template.context_processors.debug",
     "django.template.context_processors.request",
@@ -79,9 +72,6 @@ LANGUAGE_CODE = "en"
 LANGUAGES = (("en", "English"),)
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
-DEBUG = True
-CMS_TEMPLATES = (("fullwidth.html", "Fullwidth"), ("page.html", "Normal page"))
-PASSWORD_HASHERS = ("django.contrib.auth.hashers.MD5PasswordHasher",)
 MIGRATION_MODULES = {}
 URL_CONF = "tests.utils.urls"
 
@@ -97,8 +87,8 @@ def pytest_configure():
                 TEMPLATES=TEMPLATES,
                 DATABASES=DATABASES,
                 SITE_ID=SITE_ID,
+                LANGUAGE_CODE=LANGUAGE_CODE,
                 LANGUAGES=LANGUAGES,
-                CMS_CONFIRM_VERSION4=True,
                 MIGRATION_MODULES=MIGRATION_MODULES,
                 ROOT_URLCONF=URL_CONF,
                 STATIC_URL=STATIC_URL,
