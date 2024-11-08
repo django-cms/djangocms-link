@@ -4,6 +4,7 @@ from django.utils.crypto import get_random_string
 from filer.models import File
 
 from djangocms_link.helpers import LinkDict
+from djangocms_link.models import Link
 from tests.utils.models import ThirdPartyModel
 
 
@@ -46,12 +47,11 @@ class LinkDictTestCase(TestCase):
             {"internal_link": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}"}
         )
         link2 = LinkDict(obj)
-        link3 = LinkDict(obj, anchor="test")
+        link3 = LinkDict(obj, anchor="#test")
 
-        self.assertEqual(link1, link2)
         self.assertEqual(link1.url, obj.get_absolute_url())
         self.assertEqual(link2.url, obj.get_absolute_url())
-        self.assertEqual(link3.url, f"{obj.get_absolute_url()}test")
+        self.assertEqual(link3.url, f"{obj.get_absolute_url()}#test")
         self.assertEqual(link1.type, "internal_link")
         self.assertEqual(link2.type, "internal_link")
         self.assertEqual(link3.type, "internal_link")
@@ -66,3 +66,25 @@ class LinkDictTestCase(TestCase):
         self.assertEqual(external.type, "external_link")
         self.assertEqual(phone.type, "tel")
         self.assertEqual(mail.type, "mailto")
+
+    def test_db_queries(self):
+        obj = ThirdPartyModel.objects.create(
+            name=get_random_string(5), path=get_random_string(5)
+        )
+        link = LinkDict(obj)
+        with self.assertNumQueries(0):
+            self.assertEqual(link.url, obj.get_absolute_url())
+
+    def test_cache_no_written_to_db(self):
+        obj = ThirdPartyModel.objects.create(
+            name=get_random_string(5), path=get_random_string(5)
+        )
+        link = Link.objects.create(
+            link=LinkDict(obj)
+        )
+        self.assertEqual(link.link.url, link.link["__cache__"])  # populates cache
+        link.save()
+
+        link = Link.objects.get(pk=link.pk)  # load from db
+
+        self.assertNotIn("__cache__", link.link)

@@ -237,7 +237,7 @@ You can run tests by executing::
     virtualenv env
     source env/bin/activate
     pip install -r tests/requirements.txt
-    python setup.py test
+    pytest
 
 
 Upgrading from version 4 or lower

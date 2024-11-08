@@ -367,6 +367,14 @@ class LinkField(JSONField):
         kwargs.setdefault("form_class", LinkFormField)
         return super().formfield(**kwargs)
 
+    def get_prep_value(self, value):
+        if isinstance(value, dict):
+            # Drop any cached value without changing the original value
+            return super().get_prep_value(dict(**{
+                key: val for key, val in value.items() if key != "__cache__"
+            }))
+        return super().get_prep_value(value)
+
     def from_db_value(self, value, expression, connection):
         value = super().from_db_value(value, expression, connection)
         return LinkDict(value)

@@ -23,7 +23,6 @@ HELPER_SETTINGS = {
         "easy_thumbnails.processors.filters",
     ),
     "ALLOWED_HOSTS": ["localhost"],
-    "DJANGOCMS_LINK_USE_SELECT2": True,
     "CMS_TEMPLATES": (
         ("page.html", "Normal page"),
         ("static_placeholder.html", "Page with static placeholder"),

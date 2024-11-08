@@ -1,7 +1,6 @@
 from django import template
-from django.db import models
 
-from djangocms_link.helpers import get_link
+from djangocms_link.helpers import LinkDict, get_link
 
 
 try:
@@ -22,10 +21,4 @@ def to_url(value):
 
 @register.filter
 def to_link(value):
-    if isinstance(value, File):
-        return {"file_link": value.pk}
-    elif isinstance(value, models.Model):
-        return {
-            "internal_link": f"{value._meta.app_label}.{value._meta.model_name}:{value.pk}"
-        }
-    return {"external_link": value}
+    return LinkDict(value)

@@ -73,6 +73,7 @@ class LinkDict(dict):
     the url of the link. The url property is cached to avoid multiple db lookups."""
 
     def __init__(self, initial=None, **kwargs):
+        anchor = kwargs.pop("anchor", None)
         super().__init__(**kwargs)
         if initial:
             if isinstance(initial, dict):
@@ -85,8 +86,10 @@ class LinkDict(dict):
                 self["internal_link"] = (
                     f"{initial._meta.app_label}.{initial._meta.model_name}:{initial.pk}"
                 )
-                if "anchor" in kwargs:
-                    self["anchor"] = kwargs["anchor"]
+                self["__cache__"] = initial.get_absolute_url()
+                if anchor:
+                    self["anchor"] = anchor
+                    self["__cache__"] += anchor
 
     @property
     def url(self):

@@ -1,3 +1,5 @@
+from pprint import pprint
+
 from django.core.exceptions import ValidationError
 from django.test import TestCase
 
@@ -125,7 +127,10 @@ class LinkModelTestCase(TestCase):
 
         self.assertEqual(to_link(self.file), {"file_link": self.file.pk})
         self.assertEqual(
-            to_link(self.page), {"internal_link": f"cms.page:{self.page.pk}"}
+            to_link(self.page), {
+                "internal_link": f"cms.page:{self.page.pk}",
+                "__cache__": self.page.get_absolute_url(),
+            }
         )
         self.assertEqual(
             to_link("https://www.django-cms.org/#some_id"),
@@ -143,3 +148,7 @@ class LinkModelTestCase(TestCase):
         # now we allow the link to be empty
         instance.link_is_optional = True
         instance.clean()
+
+    def test_settings(self):
+        from django.conf import settings
+        pprint(settings.__dict__)
