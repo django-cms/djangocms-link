@@ -7,7 +7,7 @@ name = "djangocms-link"
 dynamic = ["version"]
 description = "Adds a link plugin to django CMS"
 readme = "README.rst"
-license = "BSD-3-Clause"
+license = {text = "BSD-3-Clause" }
 authors = [
     { name = "Divio AG", email = "info@divio.ch" },
 ]
