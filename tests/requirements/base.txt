@@ -4,6 +4,7 @@ tox
 coverage
 isort
 flake8
+flake8-pyproject
 pyflakes>=2.1
 django-test-migrations
 pytest
