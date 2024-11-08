@@ -202,17 +202,15 @@ models or forms.
 To render the link field in a template, use the ``LinkDict`` property ``url`` or
 the new template tag ``to_url``. The ``type`` property returns the link type::
 
-    {% load djangocms_link_tags %}
     {# Variant 1 #}
     {% if obj.link %}
-        <a href="{{ obj.link|to_url }}">Link</a>
+        <a href="{{ obj.link.url }}">Link available</a>
     {% endif %}
 
     {# Variant 2 #}
+    {% load djangocms_link_tags %}
     {% if obj.link %}
-        <a href="{{ obj.link.url }}"
-            {% if obj.link.type == "external_link" %} target="_blank"{% endif %}
-        >Link available</a>
+        <a href="{{ obj.link|to_url }}">Link</a>
     {% endif %}
 
     {# Variant 3 #}
@@ -220,6 +218,12 @@ the new template tag ``to_url``. The ``type`` property returns the link type::
     {% if url %}
         <a href="{{ url }}">Link available</a>
     {% endif %}
+    {% endwith %}
+
+    {% if obj.link.type == "external_link" %}
+        <a href="{{ obj.link.url }}">External link</a>
+    {% endif %}
+
 
 To turn the ``LinkField``'s ``LinkDict`` dictionary into a URL in python code,
 use the ``url`` property. (It will hit the database when needed. Results are
