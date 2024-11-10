@@ -109,3 +109,7 @@ class LinkDict(dict):
                 return "anchor"
             return "external_link"
         return ""
+
+    def __str__(self):
+        """If inserted into a Django template, expand the url."""
+        return self.url

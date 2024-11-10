@@ -25,6 +25,8 @@ class LinkDictTestCase(TestCase):
 
         self.assertEqual(link1.url, "https://www.example.com")
         self.assertEqual(link2.url, "https://www.django-cms.org")
+        self.assertEqual(str(link1), "https://www.example.com")
+        self.assertEqual(str(link2), "https://www.django-cms.org")
         self.assertEqual(link1.type, "external_link")
         self.assertEqual(link2.type, "external_link")
 
@@ -36,6 +38,8 @@ class LinkDictTestCase(TestCase):
         self.assertEqual(link1, link2)
         self.assertEqual(link1.url, file.url)
         self.assertEqual(link2.url, file.url)
+        self.assertEqual(str(link1), file.url)
+        self.assertEqual(str(link2), file.url)
         self.assertEqual(link1.type, "file_link")
         self.assertEqual(link2.type, "file_link")
 
@@ -52,6 +56,9 @@ class LinkDictTestCase(TestCase):
         self.assertEqual(link1.url, obj.get_absolute_url())
         self.assertEqual(link2.url, obj.get_absolute_url())
         self.assertEqual(link3.url, f"{obj.get_absolute_url()}#test")
+        self.assertEqual(str(link1), obj.get_absolute_url())
+        self.assertEqual(str(link2), obj.get_absolute_url())
+        self.assertEqual(str(link3), f"{obj.get_absolute_url()}#test")
         self.assertEqual(link1.type, "internal_link")
         self.assertEqual(link2.type, "internal_link")
         self.assertEqual(link3.type, "internal_link")
@@ -74,6 +81,7 @@ class LinkDictTestCase(TestCase):
         link = LinkDict(obj)
         with self.assertNumQueries(0):
             self.assertEqual(link.url, obj.get_absolute_url())
+            self.assertEqual(str(link), obj.get_absolute_url())
 
     def test_cache_no_written_to_db(self):
         obj = ThirdPartyModel.objects.create(
@@ -87,4 +95,5 @@ class LinkDictTestCase(TestCase):
 
         link = Link.objects.get(pk=link.pk)  # load from db
 
+        # Cache not saved to db
         self.assertNotIn("__cache__", link.link)
