@@ -245,7 +245,7 @@ You can run tests by executing::
 
 
 Upgrading from version 4 or lower
---------------------------------
+---------------------------------
 
 django CMS Link 5 is a rewrite of the plugin. If you are updating from
 version 4 or lower, you will notice
