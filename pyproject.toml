@@ -1,7 +1,7 @@
 [build-system]
-build-backend = "hatchling.build"
+build-backend = "setuptools.build_meta"
 
-requires = [ "hatchling" ]
+requires = [ "setuptools", "setuptools-scm" ]
 
 [project]
 name = "djangocms-link"
@@ -14,6 +14,8 @@ maintainers = [
 authors = [
   { name = "Divio AG", email = "info@divio.ch" },
 ]
+requires-python = ">=3.9"
+
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
@@ -45,16 +47,13 @@ dependencies = [
   "django-cms>=3.7,!=4.1,!=4.1.1,!=4.1.2",
   "djangocms-attributes-field>=1",
 ]
-
 urls.Homepage = "https://github.com/django-cms/djangocms-link"
 
-[tool.hatch.version]
-path = "djangocms_link/__init__.py"
+[tool.setuptools]
+packages = [ "djangocms_link" ]
 
-[tool.hatch.build.targets.sdist]
-include = [
-  "/djangocms_link",
-]
+[tool.setuptools.dynamic]
+version = { attr = "djangocms_link.__version__" }
 
 [tool.isort]
 line_length = 119
