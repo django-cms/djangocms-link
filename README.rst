@@ -104,7 +104,7 @@ the type of links accepted. The default is::
 Linkable models
 ...............
 
-*Changed in version 5:*
+*Added in version 5:*
 
 By default, django CMS Link will autodetect which Django or Django CMS models it
 can create internal links to. To make a model appear in the list of internal
@@ -149,7 +149,7 @@ By default django CMS Link will paginate the search results. You can change the
 page size by setting the ``DJANGOCMS_LINK_PAGINATE_BY`` setting.
 The default is 100::
 
-    # Show 5 results per page
+    # Show 100 results per "page"
     DJANGOCMS_LINK_PAGINATE_BY = 100
 
 Note, that in the admin paginated search results repeat the modle verbose name.
@@ -181,9 +181,10 @@ If left undefined, the normal Django URLValidator will be used.
 Link fields
 -----------
 
-As of version 5, django CMS Link provides a re-usable link model field,
-form field and form widget. This allows you to use the link field in your own
-models or forms.
+*Added in version 5:*
+
+django CMS Link provides a re-usable link model field, form field and form
+widget. This allows you to use the link field in your own models or forms.
 
 .. code-block:: python
 
@@ -199,8 +200,9 @@ models or forms.
 ``djangocms_link.helpers.LinkDict``, a direct subclass of ``dict``.
 (An empty link will be ``{}``.)
 
-To render the link field in a template, use the ``LinkDict`` property ``url`` or
-the new template tag ``to_url``. The ``type`` property returns the link type::
+To render the link field in a template, convert the ``LinkDict`` to string,
+use the ``LinkDict`` property ``url`` or the new template tag ``to_url``.
+The ``type`` property returns the link type::
 
     {# Variant 1 #}
     {% if obj.link %}
@@ -218,7 +220,7 @@ the new template tag ``to_url``. The ``type`` property returns the link type::
 
 
 To turn the ``LinkField``'s ``LinkDict`` dictionary into a URL in python code,
-use the ``url`` property. (It will hit the database when needed. Results are
+use the ``url`` property. (It will hit the database if needed. Results are
 cached.)::
 
     obj = MyModel.objects.first()
