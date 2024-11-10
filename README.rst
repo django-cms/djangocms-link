@@ -184,7 +184,7 @@ Link fields
 *Added in version 5:*
 
 django CMS Link provides a re-usable link model field, form field and form
-widget. This allows you to use the link field in your own models or forms.
+widget. This allows you to use the link field in your own models or admin forms.
 
 .. code-block:: python
 
