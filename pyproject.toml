@@ -101,3 +101,24 @@ exclude = [
   "requirements",
   "tmp",
 ]
+
+[tool.coverage.run]
+branch = true
+source = [ "djangocms_link" ]
+omit = [
+  "migrations/*",
+  "tests/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "def __repr__",
+  "if self.debug:",
+  "if settings.DEBUG",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "if 0:",
+  "if __name__ == .__main__.:",
+]
+ignore_errors = true
