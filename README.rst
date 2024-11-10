@@ -204,23 +204,15 @@ the new template tag ``to_url``. The ``type`` property returns the link type::
 
     {# Variant 1 #}
     {% if obj.link %}
-        <a href="{{ obj.link.url }}">Link available</a>
+        <a href="{{ obj.link }}">Link available</a>  {# str(obj.link) gives the URL #}
     {% endif %}
 
     {# Variant 2 #}
-    {% load djangocms_link_tags %}
     {% if obj.link %}
-        <a href="{{ obj.link|to_url }}">Link</a>
+        <a href="{{ obj.link.url }}">Link</a>  {# explicitly get the URL #}
     {% endif %}
 
-    {# Variant 3 #}
-    {% with url=obj.link|to_url %}
-    {% if url %}
-        <a href="{{ url }}">Link available</a>
-    {% endif %}
-    {% endwith %}
-
-    {% if obj.link.type == "external_link" %}
+    {% if obj.link.type == "external_link" %}  {# evaluate link type #}
         <a href="{{ obj.link.url }}">External link</a>
     {% endif %}
 
