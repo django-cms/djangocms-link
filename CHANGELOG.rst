@@ -12,7 +12,7 @@ Changelog
   fields into URLs. This allows multiple LinkFields per model
 * Fixed cross-site linking which reduces the number situations of the hostname
   needing to be part of a link
-* Droped django-select2 dependency in favor of django admin's autocomplete
+* Dropped django-select2 dependency in favor of django admin's autocomplete
 
 4.0.0 (2024-07-22)
 ==================

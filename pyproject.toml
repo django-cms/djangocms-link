@@ -1,92 +1,104 @@
 [build-system]
-requires = ["hatchling"]
 build-backend = "hatchling.build"
+
+requires = [ "hatchling" ]
 
 [project]
 name = "djangocms-link"
-dynamic = ["version"]
 description = "Adds a link plugin to django CMS"
 readme = "README.rst"
-license = {text = "BSD-3-Clause" }
-authors = [
-    { name = "Divio AG", email = "info@divio.ch" },
-]
+license = { text = "BSD-3-Clause" }
 maintainers = [
-    { name = "Django CMS Association and contributors", email = "info@django-cms.org" },
+  { name = "Django CMS Association and contributors", email = "info@django-cms.org" },
+]
+authors = [
+  { name = "Divio AG", email = "info@divio.ch" },
 ]
 classifiers = [
-    "Development Status :: 5 - Production/Stable",
-    "Environment :: Web Environment",
-    "Framework :: Django",
-    "Framework :: Django :: 4.2",
-    "Framework :: Django :: 5.0",
-    "Framework :: Django :: 5.1",
-    "Framework :: Django CMS",
-    "Framework :: Django CMS :: 3.11",
-    "Framework :: Django CMS :: 4.0",
-    "Framework :: Django CMS :: 4.1",
-    "Intended Audience :: Developers",
-    "License :: OSI Approved :: BSD License",
-    "Operating System :: OS Independent",
-    "Programming Language :: Python",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Topic :: Internet :: WWW/HTTP",
-    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
-    "Topic :: Software Development",
-    "Topic :: Software Development :: Libraries",
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 4.2",
+  "Framework :: Django :: 5.0",
+  "Framework :: Django :: 5.1",
+  "Framework :: Django CMS",
+  "Framework :: Django CMS :: 3.11",
+  "Framework :: Django CMS :: 4.0",
+  "Framework :: Django CMS :: 4.1",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+  "Topic :: Software Development",
+  "Topic :: Software Development :: Libraries",
 ]
+dynamic = [ "version" ]
 dependencies = [
-    "django-cms>=3.7,!=4.1.0,!=4.1.1,!=4.1.2",
-    "djangocms-attributes-field>=1",
+  "django-cms>=3.7,!=4.1,!=4.1.1,!=4.1.2",
+  "djangocms-attributes-field>=1",
 ]
 
-[project.urls]
-Homepage = "https://github.com/django-cms/djangocms-link"
+urls.Homepage = "https://github.com/django-cms/djangocms-link"
 
 [tool.hatch.version]
 path = "djangocms_link/__init__.py"
 
 [tool.hatch.build.targets.sdist]
 include = [
-    "/djangocms_link",
-]
-
-[tool.flake8]
-max-line-length = 119
-exclude = [
-    "*.egg-info",
-    ".eggs",
-    ".env",
-    ".git",
-    ".settings",
-    ".tox",
-    ".venv",
-    "build",
-    "data",
-    "dist",
-    "docs",
-    "*migrations*",
-    "requirements",
-    "tmp"
+  "/djangocms_link",
 ]
 
 [tool.isort]
 line_length = 119
 skip = [
-    "manage.py", "*migrations*", ".tox", ".eggs", ".env", ".venv", "data"
+  "manage.py",
+  "*migrations*",
+  ".tox",
+  ".eggs",
+  ".env",
+  ".venv",
+  "data",
 ]
 include_trailing_comma = true
 multi_line_output = 5
 lines_after_imports = 2
 default_section = "THIRDPARTY"
 sections = [
-    "FUTURE", "STDLIB", "DJANGO", "CMS",
-    "THIRDPARTY", "FIRSTPARTY", "LOCALFOLDER"
+  "FUTURE",
+  "STDLIB",
+  "DJANGO",
+  "CMS",
+  "THIRDPARTY",
+  "FIRSTPARTY",
+  "LOCALFOLDER",
 ]
 known_first_party = "djangocms_link"
-known_cms = ["cms", "menus"]
+known_cms = [ "cms", "menus" ]
 known_django = "django"
+
+[tool.flake8]
+max-line-length = 119
+exclude = [
+  "*.egg-info",
+  ".eggs",
+  ".env",
+  ".git",
+  ".settings",
+  ".tox",
+  ".venv",
+  "build",
+  "data",
+  "dist",
+  "docs",
+  "*migrations*",
+  "requirements",
+  "tmp",
+]
