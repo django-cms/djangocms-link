@@ -221,6 +221,7 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
                             "id": "utils.thirdpartymodel:1",
                             "text": "First",
                             "url": "/first",
+                            "verbose_name": ThirdPartyModel._meta.verbose_name.capitalize(),
                         },
                         destinations["children"],
                     )
@@ -230,6 +231,7 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
                             "id": "utils.thirdpartymodel:2",
                             "text": "Second",
                             "url": "/second",
+                            "verbose_name": ThirdPartyModel._meta.verbose_name.capitalize(),
                         },
                         destinations["children"],
                     )
@@ -239,6 +241,7 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
                         "id": "utils.thirdpartymodel:3",
                         "text": "django CMS",
                         "url": "/django-cms",
+                        "verbose_name": ThirdPartyModel._meta.verbose_name.capitalize(),
                     },
                     destinations["children"],
                 )
@@ -247,6 +250,7 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
                         "id": "utils.thirdpartymodel:4",
                         "text": "django CMS rocks",
                         "url": "/django-cms-2",
+                        "verbose_name": ThirdPartyModel._meta.verbose_name.capitalize(),
                     },
                     destinations["children"],
                 )
