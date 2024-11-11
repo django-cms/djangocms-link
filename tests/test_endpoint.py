@@ -44,6 +44,10 @@ class LinkEndpointTestCase(CMSTestCase):
         self.subling.delete()
 
     def test_api_endpoint(self):
+        from djangocms_link import admin
+
+        registered = admin.REGISTERED_ADMIN
+        admin.REGISTERED_ADMIN = []
         for query_params in ("", "?app_label=1"):
             with self.subTest(query_params=query_params):
                 with self.login_user_context(self.get_superuser()):
@@ -65,6 +69,7 @@ class LinkEndpointTestCase(CMSTestCase):
                     _, pk = page["id"].split(":")
                     db_page = Page.objects.get(pk=pk)
                     self.assertEqual(page["text"], str(db_page))
+        admin.REGISTERED_ADMIN = registered
 
     def test_filter(self):
         with self.login_user_context(self.get_superuser()):

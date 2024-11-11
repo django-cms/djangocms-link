@@ -3,8 +3,9 @@ from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import FieldError, PermissionDenied
 from django.db.models import OuterRef, Q, Subquery
-from django.http import JsonResponse
+from django.http import Http404, JsonResponse
 from django.urls import path
+from django.utils.translation import gettext as _
 from django.views.generic.list import BaseListView
 
 from cms import __version__
@@ -33,7 +34,7 @@ REGISTERED_ADMIN = []  # Will be set by djangocms_link.apps.DjangoCmsLinkConfig.
 class AdminUrlsView(BaseListView):
     """Handle AutocompleteWidget's AJAX requests for data."""
 
-    paginate_by = getattr(settings, "DJANGOCMS_LINK_PAGINATE_BY", 100)
+    paginate_by = getattr(settings, "DJANGOCMS_LINK_PAGINATE_BY", 50)
     admin_site = None
 
     def get(self, request, *args, **kwargs):
@@ -54,8 +55,9 @@ class AdminUrlsView(BaseListView):
         if not self.has_perm(request):
             raise PermissionDenied
 
-        self.object_list = self.get_queryset()
-        self.add_admin_querysets(self.object_list)
+        qs_list = [self.get_queryset()]
+        self.add_admin_querysets(qs_list)
+        self.object_list = self.get_paginated_multi_qs(qs_list)
         context = self.get_context_data()
         results = self.get_optgroups(context)
         return JsonResponse(
@@ -64,6 +66,28 @@ class AdminUrlsView(BaseListView):
                 "pagination": {"more": context["page_obj"].has_next()},
             }
         )
+
+    def get_page(self):
+        page_kwarg = self.page_kwarg
+        page = self.kwargs.get(page_kwarg) or self.request.GET.get(page_kwarg) or 1
+        try:
+            page_number = int(page)
+        except ValueError:
+            raise Http404(
+                _("Page is not “last”, nor can it be converted to an int.")
+            )
+        return page_number
+
+    def get_paginated_multi_qs(self, qs_list):
+        """
+        Paginate multiple querysets and return a result list.
+        """
+        if len(qs_list) == 1:
+            # Only one qs, just use regular pagination
+            return qs_list[0]
+        # Slize all querysets, evaluate and join them into a list
+        max_items = self.get_page() * self.paginate_by
+        return sum((list(qs[:max_items]) for qs in qs_list), start=[])
 
     def get_reference(self, request):
         try:
@@ -113,6 +137,7 @@ class AdminUrlsView(BaseListView):
             "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
             "text": getattr(obj, "__link_text__", str(obj)) or str(obj),
             "url": obj.get_absolute_url(),
+            "verbose_name": str(obj._meta.verbose_name).capitalize(),
         }
 
     def get_queryset(self):
@@ -157,7 +182,7 @@ class AdminUrlsView(BaseListView):
             )
             if self.site:
                 qs = qs.filter(node__site_id=self.site)
-        return list(qs)
+        return qs
 
     def add_admin_querysets(self, qs):
         for model_admin in REGISTERED_ADMIN:
@@ -183,7 +208,7 @@ class AdminUrlsView(BaseListView):
                 if search_use_distinct:  # pragma: no cover
                     new_qs = new_qs.distinct()
 
-                qs += list(new_qs)
+                qs.append(new_qs)
             except Exception:  # pragma: no cover
                 # Still report back remaining urls even if one model fails
                 pass

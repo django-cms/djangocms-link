@@ -147,7 +147,7 @@ smaller the average result set size. The default is 0::
 
 By default django CMS Link will paginate the search results. You can change the
 page size by setting the ``DJANGOCMS_LINK_PAGINATE_BY`` setting.
-The default is 100::
+The default is 50::
 
     # Show 100 results per "page"
     DJANGOCMS_LINK_PAGINATE_BY = 100
