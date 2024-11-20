@@ -1,0 +1,124 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+
+requires = [ "setuptools", "setuptools-scm" ]
+
+[project]
+name = "djangocms-link"
+description = "Adds a link plugin to django CMS"
+readme = "README.rst"
+license = { text = "BSD-3-Clause" }
+maintainers = [
+  { name = "Django CMS Association and contributors", email = "info@django-cms.org" },
+]
+authors = [
+  { name = "Divio AG", email = "info@divio.ch" },
+]
+requires-python = ">=3.9"
+
+classifiers = [
+  "Development Status :: 5 - Production/Stable",
+  "Environment :: Web Environment",
+  "Framework :: Django",
+  "Framework :: Django :: 4.2",
+  "Framework :: Django :: 5.0",
+  "Framework :: Django :: 5.1",
+  "Framework :: Django CMS",
+  "Framework :: Django CMS :: 3.11",
+  "Framework :: Django CMS :: 4.0",
+  "Framework :: Django CMS :: 4.1",
+  "Intended Audience :: Developers",
+  "License :: OSI Approved :: BSD License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Internet :: WWW/HTTP",
+  "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+  "Topic :: Software Development",
+  "Topic :: Software Development :: Libraries",
+]
+dynamic = [ "version" ]
+dependencies = [
+  "django-cms>=3.7,!=4.1,!=4.1.1,!=4.1.2",
+  "djangocms-attributes-field>=1",
+]
+urls.Homepage = "https://github.com/django-cms/djangocms-link"
+
+[tool.setuptools]
+packages = [ "djangocms_link" ]
+
+[tool.setuptools.dynamic]
+version = { attr = "djangocms_link.__version__" }
+
+[tool.isort]
+line_length = 119
+skip = [
+  "manage.py",
+  "*migrations*",
+  ".tox",
+  ".eggs",
+  ".env",
+  ".venv",
+  "data",
+]
+include_trailing_comma = true
+multi_line_output = 5
+lines_after_imports = 2
+default_section = "THIRDPARTY"
+sections = [
+  "FUTURE",
+  "STDLIB",
+  "DJANGO",
+  "CMS",
+  "THIRDPARTY",
+  "FIRSTPARTY",
+  "LOCALFOLDER",
+]
+known_first_party = "djangocms_link"
+known_cms = [ "cms", "menus" ]
+known_django = "django"
+
+[tool.flake8]
+max-line-length = 119
+exclude = [
+  "*.egg-info",
+  ".eggs",
+  ".env",
+  ".git",
+  ".settings",
+  ".tox",
+  ".venv",
+  "build",
+  "data",
+  "dist",
+  "docs",
+  "*migrations*",
+  "requirements",
+  "tmp",
+]
+
+[tool.coverage.run]
+branch = true
+source = [ "djangocms_link" ]
+omit = [
+  "migrations/*",
+  "tests/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+  "pragma: no cover",
+  "def __repr__",
+  "if self.debug:",
+  "if settings.DEBUG",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "if 0:",
+  "if __name__ == .__main__.:",
+]
+ignore_errors = true

@@ -1,72 +1,57 @@
-from django.contrib.sites.models import Site
+from django.contrib.sites.shortcuts import get_current_site
 from django.utils.translation import gettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
-from .forms import LinkForm
+from .helpers import get_link
 from .models import Link
 
 
 class LinkPlugin(CMSPluginBase):
     model = Link
-    form = LinkForm
-    name = _('Link')
+    name = _("Link")
     text_enabled = True
+    text_icon = (
+        '<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" '
+        'viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 '
+        "5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 "
+        '1-.128-1.287z"/><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 '
+        '1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/></svg>'
+    )
     allow_children = True
 
     fieldsets = [
-        (None, {
-            'fields': (
-                'name',
-                ('external_link', 'internal_link'),
-            )
-        }),
-        (_('Link settings'), {
-            'classes': ('collapse',),
-            'fields': (
-                ('mailto', 'phone'),
-                ('anchor', 'target'),
-                ('file_link'),
-            ),
-        }),
-        (_('Advanced settings'), {
-            'classes': ('collapse',),
-            'fields': (
-                'template',
-                'attributes',
-            )
-        }),
+        (
+            None,
+            {
+                "fields": (
+                    "name",
+                    "link",
+                    "target",
+                )
+            },
+        ),
+        (
+            _("Advanced settings"),
+            {
+                "classes": ("collapse",),
+                "fields": (
+                    "template",
+                    "attributes",
+                ),
+            },
+        ),
     ]
 
-    @classmethod
-    def get_render_queryset(cls):
-        queryset = super().get_render_queryset()
-        return queryset.select_related('internal_link')
-
     def get_render_template(self, context, instance, placeholder):
-        return f'djangocms_link/{instance.template}/link.html'
+        return f"djangocms_link/{instance.template}/link.html"
 
     def render(self, context, instance, placeholder):
-        context['link'] = instance.get_link()
+        context["link"] = get_link(
+            instance.link, getattr(get_current_site(context["request"]), "id", None)
+        )
         return super().render(context, instance, placeholder)
-
-    def get_form(self, request, obj=None, **kwargs):
-        form_class = super().get_form(request, obj, **kwargs)
-
-        if obj and obj.page and hasattr(obj.page, 'site') and obj.page.site:
-            site = obj.page.site
-        elif self.page and hasattr(self.page, 'site') and self.page.site:
-            site = self.page.site
-        else:
-            site = Site.objects.get_current()
-
-        class Form(form_class):
-            def __init__(self, *args, **kwargs):
-                super().__init__(*args, **kwargs)
-                self.for_site(site)
-
-        return Form
 
 
 plugin_pool.register_plugin(LinkPlugin)

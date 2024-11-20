@@ -22,3 +22,12 @@
         {% show_menu 0 100 100 100 %}
     </ul>
     {% block content %}
+    {% endblock content %}
+</div>
+{% render_block "js" %}
+{% with_data "js-script" as jsset %}
+        {% for js in jsset %}<script type="text/javascript" src="{% static js %}"></script>{% endfor %}
+{% end_with_data %}
+{% render_block "js_end" %}
+</body>
+</html>

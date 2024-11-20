@@ -1,0 +1,76 @@
+.link-widget {
+    width: 100%;
+    display: block;
+    margin-bottom: 0.5em;
+    .link-type-selector {
+        margin-inline-end: 1em;
+        display: inline-block;
+        width: calc(25% - 1em);
+        flex-shrink: 2;
+        select {
+            width: 100%;
+            min-width: unset;
+        }
+    }
+    .external_link, .internal_link, .file_link, .anchor, .site {
+        display: none;
+        padding: 0;
+        select, input {
+            width: 100%;
+        }
+        span.select2 {
+            display: inline-block;
+            width: 100% !important;
+        }
+    }
+    .external_link {
+        width: 75%;
+    }
+    .internal_link {
+        width: calc(60% - 1em);
+        margin-inline-end: 1em;
+    }
+    .anchor {
+        width: 15%;  /* end of line, no 1em margin to remove */
+    }
+    .file_link {
+        margin-top: 0.5em;
+    }
+    &[data-type="external_link"] .external_link,
+    &[data-type="internal_link"] .internal_link,
+    &[data-type="internal_link"] .site,
+    &[data-type="internal_link"] .anchor
+    {
+        display: inline-block;
+    }
+    &[data-type="file_link"] .file_link {
+        display: block;
+        width: 100%;
+    }
+    &[data-type="file_link"] .link-type-selector,
+    &[data-type="empty"] .link-type-selector{
+        margin-inline-end: 0;
+    }
+
+    &:has(.site) {
+        /* if site subwidget is present, arrange widgets in two lines */
+        .site {
+            width: 75%;
+            margin-inline-end: 0;
+            margin-bottom: 0.5em;
+        }
+        .internal_link {
+            width: calc(60% - 1em);
+            margin-inline-start: 25%;
+            margin-inline-end: 1em;
+        }
+        .anchor (
+            margin-top: -3em;
+        )
+    )
+    }
+
+    .select2-container .select2-selection--single {
+        height: 2.55em;
+    }
+}

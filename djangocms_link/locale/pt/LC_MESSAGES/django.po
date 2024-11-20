@@ -11,120 +11,133 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-07-03 10:56+0200\n"
+"POT-Creation-Date: 2024-10-27 14:11+0100\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Angelo Dini <angelo.dini@divio.ch>, 2016\n"
-"Language-Team: Portuguese (https://www.transifex.com/divio/teams/58664/pt/)\n"
+"Language-Team: Portuguese (https://app.transifex.com/divio/teams/58664/pt/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: pt\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 
-#: cms_plugins.py:15
+#: djangocms_link/apps.py:7
+msgid "django CMS Link"
+msgstr ""
+
+#: djangocms_link/cms_plugins.py:15 djangocms_link/models.py:73
 msgid "Link"
 msgstr "Link"
 
-#: cms_plugins.py:26
-msgid "Link settings"
-msgstr ""
-
-#: cms_plugins.py:34
+#: djangocms_link/cms_plugins.py:27
 msgid "Advanced settings"
 msgstr ""
 
-#: forms.py:15 models.py:85
+#: djangocms_link/fields.py:26 djangocms_link/forms.py:15
 msgid "Internal link"
 msgstr ""
 
-#: models.py:27
-msgid "Default"
+#: djangocms_link/fields.py:27
+msgid "External link/anchor"
 msgstr ""
 
-#: models.py:44
-msgid "Open in new window"
-msgstr ""
-
-#: models.py:45
-msgid "Open in same window"
-msgstr ""
-
-#: models.py:46
-msgid "Delegate to parent"
-msgstr ""
-
-#: models.py:47
-msgid "Delegate to top"
-msgstr ""
-
-#: models.py:65
-msgid "Template"
-msgstr ""
-
-#: models.py:71
-msgid "Display name"
-msgstr ""
-
-#: models.py:77
-msgid "External link"
-msgstr ""
-
-#: models.py:89
-msgid "If provided, overrides the external link."
-msgstr ""
-
-#: models.py:93
+#: djangocms_link/fields.py:30
 msgid "File link"
 msgstr ""
 
-#: models.py:97
-msgid "If provided links a file from the filer app."
+#: djangocms_link/fields.py:169
+msgid "No destination selected. Use the dropdown to select a destination."
 msgstr ""
 
-#: models.py:102
-msgid "Anchor"
+#: djangocms_link/fields.py:175
+msgid "https://example.com or #anchor"
 msgstr ""
 
-#: models.py:105
+#: djangocms_link/fields.py:177
 msgid ""
-"Appends the value only after the internal or external link. Do <em>not</em> "
-"include a preceding \"#\" symbol."
+"Provide a link to an external URL, including the schema such as 'https://', "
+"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
+" to."
 msgstr ""
 
-#: models.py:109
-msgid "Email address"
+#: djangocms_link/fields.py:186
+msgid ""
+"Select from available internal destinations. Optionally, add an anchor to "
+"scroll to."
 msgstr ""
 
-#: models.py:114
-msgid "Phone"
-msgstr "Telefone"
+#: djangocms_link/fields.py:188
+msgid "Select internal destination"
+msgstr ""
 
-#: models.py:120
+#: djangocms_link/fields.py:194
+msgid "#anchor"
+msgstr ""
+
+#: djangocms_link/fields.py:195
+msgid "Provide an anchor to scroll to."
+msgstr ""
+
+#: djangocms_link/fields.py:206
+msgid "Select a file as destination."
+msgstr ""
+
+#: djangocms_link/fields.py:215
+msgid "Select site"
+msgstr ""
+
+#: djangocms_link/fields.py:249
+msgid "Select a link type and provide a link."
+msgstr ""
+
+#: djangocms_link/models.py:24
+msgid "Default"
+msgstr ""
+
+#: djangocms_link/models.py:41
+msgid "Open in new window"
+msgstr ""
+
+#: djangocms_link/models.py:42
+msgid "Open in same window"
+msgstr ""
+
+#: djangocms_link/models.py:43
+msgid "Delegate to parent"
+msgstr ""
+
+#: djangocms_link/models.py:44
+msgid "Delegate to top"
+msgstr ""
+
+#: djangocms_link/models.py:61
+msgid "Template"
+msgstr ""
+
+#: djangocms_link/models.py:67
+msgid "Display name"
+msgstr ""
+
+#: djangocms_link/models.py:77
 msgid "Target"
 msgstr ""
 
-#: models.py:126
+#: djangocms_link/models.py:83
 msgid "Attributes"
 msgstr ""
 
-#: models.py:151
+#: djangocms_link/models.py:109
 msgid "<link is missing>"
 msgstr ""
 
-#: models.py:246
-#, python-brace-format
-msgid "Only one of {0} or {1} may be given."
+#: djangocms_link/models.py:118
+msgid "Link is required."
 msgstr ""
 
-#: models.py:258
-msgid "Please provide a link."
+#: djangocms_link/validators.py:50
+msgid "Enter a valid anchor"
 msgstr ""
 
-#: models.py:264
-#, python-format
-msgid ""
-"%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
+#: djangocms_link/validators.py:84
+msgid "Enter a valid phone number"
 msgstr ""
-
-#~ msgid "At least one link is required."
-#~ msgstr "É necessária no mínimo uma ligação."

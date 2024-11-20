@@ -14,7 +14,6 @@ from .helpers import get_filer_file
 
 
 class LinkPluginsTestCase(TestFixture, CMSTestCase):
-
     def setUp(self):
         self.file = get_filer_file()
         self.language = "en"
@@ -31,11 +30,13 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
         )
         self.publish(self.page, self.language)
         self.static_page = create_page(
-            title='static-content',
-            template='static_placeholder.html',
-            language='en',
+            title="static-content",
+            template="static_placeholder.html",
+            language="en",
         )
-        self.placeholder = self.get_placeholders(self.page, self.language).get(slot="content")
+        self.placeholder = self.get_placeholders(self.page, self.language).get(
+            slot="content"
+        )
         self.superuser = self.get_superuser()
 
     def tearDown(self):
@@ -50,7 +51,7 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             placeholder=self.placeholder,
             plugin_type=LinkPlugin.__name__,
             language=self.language,
-            internal_link=self.page,
+            link={"internal_link": f"cms.page:{self.page.pk}"},
         )
         plugin.full_clean()
         self.assertEqual(plugin.plugin_type, "LinkPlugin")
@@ -62,7 +63,7 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             placeholder=self.placeholder,
             plugin_type=LinkPlugin.__name__,
             language=self.language,
-            internal_link=self.page,
+            link={"internal_link": f"cms.page:{self.page.pk}"},
             name="Page link",
         )
         self.publish(self.page, self.language)
@@ -79,10 +80,15 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             plugin_type=LinkPlugin.__name__,
             language=self.language,
         )
+        from djangocms_link.fields import LinkWidget
+
+        pos = LinkWidget().data_pos["external_link"]
+
         data = {
             "template": "default",
-            "external_link": "https://www.google.com",
-            "name": "External link"
+            "link_0": "external_link",
+            f"link_{pos}": "https://www.google.com",
+            "name": "External link",
         }
 
         with self.login_user_context(self.superuser), warnings.catch_warnings():
@@ -98,9 +104,9 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
         AbstractLink.link_is_optional = True
 
         plugin = add_plugin(
-            self.get_placeholders(self.page, self.language).get(slot='content'),
-            'LinkPlugin',
-            'en',
+            self.get_placeholders(self.page, self.language).get(slot="content"),
+            "LinkPlugin",
+            "en",
         )
         self.assertIsNone(plugin.full_clean())
 
@@ -109,9 +115,9 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
         self.assertEqual(AbstractLink.link_is_optional, False)
 
         plugin = add_plugin(
-            self.get_placeholders(self.page, self.language).get(slot='content'),
-            'LinkPlugin',
-            'en',
+            self.get_placeholders(self.page, self.language).get(slot="content"),
+            "LinkPlugin",
+            "en",
         )
 
         # should throw "Please provide a link." error
@@ -119,56 +125,85 @@ class LinkPluginsTestCase(TestFixture, CMSTestCase):
             plugin.clean()
 
     def test_in_placeholders(self):
+        from djangocms_link.helpers import get_link
+
         plugin = add_plugin(
-            self.get_placeholders(self.page, self.language).get(slot='content'),
-            'LinkPlugin',
-            'en',
-            internal_link=self.page,
+            self.get_placeholders(self.page, self.language).get(slot="content"),
+            "LinkPlugin",
+            "en",
+            link={"internal_link": f"cms.page:{self.page.pk}"},
         )
-        self.assertEqual(plugin.get_link(), '/en/content/')
+        site = getattr(self.page, "site", self.page.node.site)
+        self.assertEqual(get_link(plugin.link, site.id), "/en/content/")
 
         placeholder = Placeholder(slot="generated_placeholder")
         placeholder.save()
 
         plugin = add_plugin(
             placeholder,
-            'LinkPlugin',
-            'en',
-            internal_link=self.static_page,
+            "LinkPlugin",
+            "en",
+            link={"internal_link": f"cms.page:{self.static_page.pk}"},
         )
         # the generated placeholder has no page attached to it, thus:
-        self.assertEqual(plugin.get_link(), '//example.com/en/static-content/')
+        self.assertEqual(plugin.get_link(), "/en/static-content/")
 
         static_placeholder = StaticPlaceholder.objects.create(
-            name='content_static',
-            code='content_static',
+            name="content_static",
+            code="content_static",
             site_id=1,
         )
         static_placeholder.save()
 
         plugin_a = add_plugin(
             static_placeholder.draft,
-            'LinkPlugin',
-            'en',
-            internal_link=self.page,
+            "LinkPlugin",
+            "en",
+            link={"internal_link": f"cms.page:{self.page.pk}"},
         )
 
         plugin_b = add_plugin(
             static_placeholder.public,
-            'LinkPlugin',
-            'en',
-            internal_link=self.static_page,
+            "LinkPlugin",
+            "en",
+            link={"internal_link": f"cms.page:{self.static_page.pk}"},
         )
-        # static placeholders will always return the full path
-        self.assertEqual(plugin_a.get_link(), '//example.com/en/content/')
-        self.assertEqual(plugin_b.get_link(), '//example.com/en/static-content/')
+        # static placeholders will not return the full path
+        self.assertEqual(plugin_a.get_link(0), "//example.com/en/content/")
+        self.assertEqual(plugin_b.get_link(), "/en/static-content/")
 
     def test_file(self):
         plugin = add_plugin(
             self.get_placeholders(self.page, self.language).get(slot="content"),
             "LinkPlugin",
             "en",
-            file_link=self.file,
+            link={"file_link": str(self.file.pk)},
         )
         self.assertIn("test_file.pdf", plugin.get_link())
         self.assertIn("/media/filer_public/", plugin.get_link())
+
+    def test_rendering(self):
+        add_plugin(
+            self.get_placeholders(self.page, self.language).get(slot="content"),
+            "LinkPlugin",
+            "en",
+            name="Link",
+            link={"internal_link": f"cms.page:{self.page.pk}"},
+        )
+        self.publish(self.page, self.language)
+
+        response = self.client.get(self.page.get_absolute_url(self.language))
+        self.assertContains(response, '<a href="/en/content/">Link</a>')
+
+    def test_rendering_fallback(self):
+        add_plugin(
+            self.get_placeholders(self.page, self.language).get(slot="content"),
+            "LinkPlugin",
+            "en",
+            name="Link",
+            link={"internal_link": "cms.page:0"},
+        )
+        self.publish(self.page, self.language)
+
+        response = self.client.get(self.page.get_absolute_url(self.language))
+        self.assertContains(response, "<span>Link</span>")
