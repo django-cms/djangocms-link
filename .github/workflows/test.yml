@@ -15,6 +15,8 @@ jobs:
           dj50_cms311.txt,
           dj50_cms41.txt,
           dj51_cms41.txt,
+          dj52_cms41.txt,
+          dj52_cms50.txt,
         ]
         os: [
           ubuntu-20.04,
@@ -27,6 +29,10 @@ jobs:
           - requirements-file: dj51_cms311.txt
             python-version: 3.9
           - requirements-file: dj51_cms41.txt
+            python-version: 3.9
+          - requirements-file: dj52_cms41.txt
+            python-version: 3.9
+          - requirements-file: dj52_cms50.txt
             python-version: 3.9
 
     steps:
