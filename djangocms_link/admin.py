@@ -10,7 +10,7 @@ from django.views.generic.list import BaseListView
 
 from cms import __version__
 from cms.models import Page
-from cms.utils import get_language_from_request
+from cms.utils import get_language_from_request, get_language_list
 
 from . import models
 from .fields import LinkFormField, LinkWidget
@@ -142,10 +142,11 @@ class AdminUrlsView(BaseListView):
 
     def get_queryset(self):
         """Return queryset based on ModelAdmin.get_search_results()."""
+        languages = get_language_list()
         try:
             # django CMS 4.2+
             qs = (
-                PageContent.admin_manager.filter(language=self.language)
+                PageContent.admin_manager.filter(language__in=languages)
                 .filter(
                     Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
                 )
@@ -166,7 +167,7 @@ class AdminUrlsView(BaseListView):
             # django CMS 3.11 - 4.1
             qs = (
                 get_manager(PageContent, current_content=True)
-                .filter(language=self.language, publisher_is_draft=True)
+                .filter(language__in=languages, publisher_is_draft=True)
                 .filter(
                     Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
                 )
