@@ -167,7 +167,7 @@ class AdminUrlsView(BaseListView):
             # django CMS 3.11 - 4.1
             qs = (
                 get_manager(PageContent, current_content=True)
-                .filter(language__in=languages, publisher_is_draft=True)
+                .filter(language__in=languages)
                 .filter(
                     Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
                 )
@@ -181,6 +181,9 @@ class AdminUrlsView(BaseListView):
                     )
                 )
             )
+            if "publisher_draft" in Page._meta.fields_map:
+                # django CMS 3.11
+                qs = qs.filter(publisher_is_draft=True)
             if self.site:
                 qs = qs.filter(node__site_id=self.site)
         return qs
