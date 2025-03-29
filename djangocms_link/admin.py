@@ -166,7 +166,7 @@ class AdminUrlsView(BaseListView):
             # django CMS 3.11 - 4.1
             qs = (
                 get_manager(PageContent, current_content=True)
-                .filter(language=self.language)
+                .filter(language=self.language, publisher_is_draft=True)
                 .filter(
                     Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
                 )
