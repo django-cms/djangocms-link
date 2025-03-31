@@ -3,6 +3,7 @@
 from io import StringIO
 from unittest import skipIf
 
+from django import VERSION as django_version
 from django.core.management import call_command
 from django.test import TestCase, override_settings
 
@@ -38,7 +39,7 @@ class MigrationTestCase(TestCase):
 
 
 @skipIf(
-    __version__[0] > "5" or cms_version < "4",
+    __version__[0] > "5" or cms_version < "4" or django_version >= (5, 2),
     "Migration has already been tested before releasing version 5",
 )
 class MigrationToVersion5(MigratorTestCase):

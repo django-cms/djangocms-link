@@ -303,6 +303,8 @@ class LinkFormField(Field):
         kwargs.pop("encoder", None)  # Passed from LinkField's JSONField parent class
         kwargs.pop("decoder", None)  # but not needed
         super().__init__(*args, **kwargs)
+        if isinstance(self.initial, dict):
+            self.initial = self.prepare_value(self.initial)
 
     def prepare_value(self, value: dict) -> list[str | None]:
         if isinstance(value, list):
@@ -331,7 +333,7 @@ class LinkFormField(Field):
 
         link_type = value[0]
         pos = self._get_pos(link_type)
-        if not pos:  # No link type selected
+        if not pos or not value[pos]:  # No link type selected or no value
             return LinkDict()
         pos_anchor = self._get_pos("anchor")
 

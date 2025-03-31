@@ -28,6 +28,10 @@ jobs:
             python-version: 3.9
           - requirements-file: dj51_cms41.txt
             python-version: 3.9
+          - requirements-file: dj52_cms41.txt
+            python-version: 3.9
+          - requirements-file: dj52_cms50.txt
+            python-version: 3.9
 
     steps:
     - uses: actions/checkout@v4
