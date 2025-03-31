@@ -2,7 +2,14 @@
 Changelog
 =========
 
-5.0.0 (unreleased)
+5.0.1 (2025-03-31)
+==================
+
+* Fixes #233 and removes error message about changes that do not reflec… by @dkoenigroer in https://github.com/django-cms/djangocms-link/pull/235
+* fix: Decode initial value for LinkFormField by @fsbraun in https://github.com/django-cms/djangocms-link/pull/239
+* fix: Not all pages visible in page selector by @fsbraun in https://github.com/django-cms/djangocms-link/pull/240
+
+5.0.0 (2024-11-30)
 ==================
 
 * Major refactor
