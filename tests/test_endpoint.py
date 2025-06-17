@@ -68,7 +68,7 @@ class LinkEndpointTestCase(CMSTestCase):
                     self.assertIn("url", page)
                     _, pk = page["id"].split(":")
                     db_page = Page.objects.get(pk=pk)
-                    self.assertEqual(page["text"], str(db_page))
+                    self.assertEqual(page["text"], str(db_page.get_admin_content("en").title))
         admin.REGISTERED_ADMIN = registered
 
     def test_filter(self):

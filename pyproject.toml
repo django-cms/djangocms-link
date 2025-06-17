@@ -55,6 +55,9 @@ packages = [ "djangocms_link" ]
 [tool.setuptools.dynamic]
 version = { attr = "djangocms_link.__version__" }
 
+[tool.setuptools.package-data]
+djangocms_link = [ "static/", "templates/", "locale/", "LICENSE", "README.rst" ]
+
 [tool.isort]
 line_length = 119
 skip = [
