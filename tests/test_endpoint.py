@@ -59,7 +59,6 @@ class LinkEndpointTestCase(CMSTestCase):
                 self.assertEqual(len(data["results"]), 1)
                 self.assertIn("pagination", data)
                 self.assertEqual(data["pagination"]["more"], False)
-
                 pages = data["results"][0]
                 self.assertEqual(pages["text"], "Pages")
                 for page in pages["children"]:
@@ -68,7 +67,11 @@ class LinkEndpointTestCase(CMSTestCase):
                     self.assertIn("url", page)
                     _, pk = page["id"].split(":")
                     db_page = Page.objects.get(pk=pk)
-                    self.assertEqual(page["text"], str(db_page))
+                    try:
+                        expected = str(db_page.get_admin_content("en").title)
+                    except AttributeError:
+                        expected = str(db_page)
+                    self.assertEqual(page["text"], expected)
         admin.REGISTERED_ADMIN = registered
 
     def test_filter(self):

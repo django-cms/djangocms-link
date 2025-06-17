@@ -121,7 +121,7 @@ class LinkFieldTestCase(TestCase):
         )
 
         self.assertIn(
-            '<option value="cms.page:1" selected>django CMS is fun</option>',
+            f'<option value="cms.page:1" selected>{str(self.page)}</option>',
             rendered_widget,
         )
 

@@ -144,7 +144,7 @@ class AdminUrlsView(BaseListView):
         """Return queryset based on ModelAdmin.get_search_results()."""
         languages = get_language_list()
         try:
-            # django CMS 4.2+
+            # django CMS 5.0+
             qs = (
                 PageContent.admin_manager.filter(language__in=languages)
                 .filter(
