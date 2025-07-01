@@ -6,6 +6,7 @@ from cms.models import Page
 from cms.test_utils.testcases import CMSTestCase
 from cms.utils.urlutils import admin_reverse
 
+from djangocms_link.admin import UNICODE_SPACE
 from djangocms_link.models import Link
 from tests.utils.models import ThirdPartyModel
 
@@ -71,7 +72,7 @@ class LinkEndpointTestCase(CMSTestCase):
                         expected = str(db_page.get_admin_content("en").title)
                     except AttributeError:
                         expected = str(db_page)
-                    self.assertEqual(page["text"], expected)
+                    self.assertEqual(page["text"].strip(UNICODE_SPACE), expected)
         admin.REGISTERED_ADMIN = registered
 
     def test_filter(self):
@@ -162,7 +163,7 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
             if isinstance(registered_admin, ThirdPartyAdmin):
                 break
         else:
-            self.asserFail("ThirdPartyAdmin not found in REGISTERED_ADMIN")
+            self.assertFail("ThirdPartyAdmin not found in REGISTERED_ADMIN")
 
     def test_api_endpoint(self):
         for query_params in ("", "?app_label=1"):
