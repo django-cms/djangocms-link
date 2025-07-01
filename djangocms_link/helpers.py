@@ -28,6 +28,20 @@ def get_rel_obj(internal_link: str) -> models.Model | None:
         return get_manager(model).filter(pk=pk).first()
 
 
+def get_obj_link(obj: models.Model, site_id: int | None) -> str:
+    # Access site id if possible (no db access necessary)
+    if site_id is None:
+        site_id = Site.objects.get_current().id
+    obj_site_id = getattr(
+        obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None)
+    )
+    link = obj.get_absolute_url()  # Can be None
+    if obj_site_id and obj_site_id != site_id:
+        ref_site = Site.objects._get_site_by_id(obj_site_id).domain
+        link = f"//{ref_site}{link}"
+    return link
+
+
 def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
     if not link_field_value:
         return None
@@ -47,18 +61,7 @@ def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
         return None
 
     if hasattr(obj, "get_absolute_url"):
-        # Access site id if possible (no db access necessary)
-        if site_id is None:
-            site_id = Site.objects.get_current().id
-        obj_site_id = getattr(
-            obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None)
-        )
-        link_field_value["__cache__"] = obj.get_absolute_url()  # Can be None
-        if obj_site_id and obj_site_id != site_id:
-            ref_site = Site.objects._get_site_by_id(obj_site_id).domain
-            link_field_value["__cache__"] = (
-                f"//{ref_site}{link_field_value['__cache__']}"
-            )
+        link_field_value["__cache__"] = get_obj_link(obj, site_id)  # Can be None
         if link_field_value["__cache__"]:
             link_field_value["__cache__"] += link_field_value.get("anchor", "")
     elif hasattr(obj, "url"):
