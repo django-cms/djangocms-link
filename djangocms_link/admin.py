@@ -1,9 +1,11 @@
+from __future__ import annotations
+
 from django.apps import apps
 from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import FieldError, PermissionDenied
 from django.db.models import F, Model, OuterRef, Q, QuerySet, Subquery
-from django.http import Http404, JsonResponse
+from django.http import Http404, HttpRequest, JsonResponse
 from django.urls import path
 from django.utils.translation import gettext as _
 from django.views.generic.list import BaseListView
@@ -40,7 +42,7 @@ class AdminUrlsView(BaseListView):
     paginate_by = getattr(settings, "DJANGOCMS_LINK_PAGINATE_BY", 50)
     admin_site = None
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request: HttpRequest, *args, **kwargs) -> JsonResponse:
         """
         Return a JsonResponse with search results as defined in
         serialize_result(), by default:
@@ -70,7 +72,7 @@ class AdminUrlsView(BaseListView):
             }
         )
 
-    def get_page(self):
+    def get_page(self) -> int:
         page_kwarg = self.page_kwarg
         page = self.kwargs.get(page_kwarg) or self.request.GET.get(page_kwarg) or 1
         try:
@@ -99,7 +101,7 @@ class AdminUrlsView(BaseListView):
                 break
         return objects
 
-    def get_reference(self, request):
+    def get_reference(self, request: HttpRequest) -> JsonResponse:
         try:
             model_str, pk = request.GET.get("g").split(":")
             app, model = model_str.split(".")
@@ -138,12 +140,12 @@ class AdminUrlsView(BaseListView):
             results.append(model)
         return results
 
-    def serialize_result(self, obj):
+    def serialize_result(self, obj: Model) -> dict:
         """
         Convert the provided model object to a dictionary that is added to the
         results list.
         """
-        indentation = UNICODE_SPACE * (getattr(obj, "__path_length__", 1) - 1)
+        indentation = UNICODE_SPACE * (max(getattr(obj, "__depth__", 1), 1) - 1)
         return {
             "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
             "text": indentation + getattr(obj, "__link_text__", str(obj)) or str(obj),
@@ -151,7 +153,7 @@ class AdminUrlsView(BaseListView):
             "verbose_name": str(obj._meta.verbose_name).capitalize(),
         }
 
-    def get_queryset(self):
+    def get_queryset(self) -> QuerySet:
         """Return queryset based on ModelAdmin.get_search_results()."""
         languages = get_language_list()
         try:
@@ -174,7 +176,7 @@ class AdminUrlsView(BaseListView):
             )
             if not self.term:
                 qs = qs.annotate(
-                    __path_length__=F("depth")
+                    __depth__=F("depth")
                 )
             if self.site:
                 qs = qs.filter(site_id=self.site)
@@ -201,14 +203,14 @@ class AdminUrlsView(BaseListView):
                 qs = qs.filter(publisher_is_draft=True)
             if not self.term:
                 qs = qs.annotate(
-                    __path_length__=F("node__depth")
+                    __depth__=F("node__depth")
                 )
 
             if self.site:
                 qs = qs.filter(node__site_id=self.site)
         return qs
 
-    def add_admin_querysets(self, qs):
+    def add_admin_querysets(self, qs: list[QuerySet]) -> None:
         for model_admin in REGISTERED_ADMIN:
             try:
                 # hack: GrouperModelAdmin expects a language to be temporarily set
@@ -236,7 +238,7 @@ class AdminUrlsView(BaseListView):
 
         return qs
 
-    def process_request(self, request):
+    def process_request(self, request: HttpRequest) -> tuple[str, str, int | None]:
         """
         Validate request integrity, extract and return request parameters.
         """
@@ -251,7 +253,7 @@ class AdminUrlsView(BaseListView):
         language = get_language_from_request(request)
         return term, language, site
 
-    def has_perm(self, request, obj=None):
+    def has_perm(self, request: HttpRequest, obj=None) -> bool:
         """Check if user has permission to access the related model."""
         if obj is None:
             return True
@@ -273,11 +275,11 @@ class LinkAdmin(admin.ModelAdmin):
         super().__init__(*args, **kwargs)
         self.global_link_url_name = f"{self.opts.app_label}_{self.opts.model_name}_urls"
 
-    def has_module_permission(self, request):  # pragma: no cover
+    def has_module_permission(self, request: HttpRequest) -> bool:  # pragma: no cover
         # Remove from admin
         return False
 
-    def get_urls(self):
+    def get_urls(self) -> list:
         # Only url endpoint public, do not call super().get_urls()
         return [
             path(
@@ -287,7 +289,7 @@ class LinkAdmin(admin.ModelAdmin):
             ),
         ]
 
-    def url_view(self, request):
+    def url_view(self, request: HttpRequest) -> JsonResponse:
         return AdminUrlsView.as_view(admin_site=self.admin_site)(request)
 
 
