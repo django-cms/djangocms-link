@@ -2,7 +2,7 @@ from django.apps import apps
 from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import FieldError, PermissionDenied
-from django.db.models import OuterRef, Q, Subquery
+from django.db.models import F, Model, OuterRef, Q, QuerySet, Subquery
 from django.http import Http404, JsonResponse
 from django.urls import path
 from django.utils.translation import gettext as _
@@ -15,6 +15,9 @@ from cms.utils import get_language_from_request, get_language_list
 from . import models
 from .fields import LinkFormField, LinkWidget
 from .helpers import get_manager
+
+
+UNICODE_SPACE = "\u3000"  # This is a full-width space character (U+3000)
 
 
 _version = int(__version__.split(".")[0])
@@ -78,7 +81,7 @@ class AdminUrlsView(BaseListView):
             )
         return page_number
 
-    def get_paginated_multi_qs(self, qs_list):
+    def get_paginated_multi_qs(self, qs_list: list[QuerySet]) -> list[Model] | QuerySet:
         """
         Paginate multiple querysets and return a result list.
         """
@@ -87,7 +90,14 @@ class AdminUrlsView(BaseListView):
             return qs_list[0]
         # Slize all querysets, evaluate and join them into a list
         max_items = self.get_page() * self.paginate_by
-        return sum((list(qs[:max_items]) for qs in qs_list), start=[])
+        objects = []
+        for qs in qs_list:
+            objects.extend(qs[:max_items - len(objects)])
+            if len(objects) >= max_items:
+                # No need to touch the rest of the querysets
+                # as we have enough items already
+                break
+        return objects
 
     def get_reference(self, request):
         try:
@@ -133,9 +143,10 @@ class AdminUrlsView(BaseListView):
         Convert the provided model object to a dictionary that is added to the
         results list.
         """
+        indentation = UNICODE_SPACE * (getattr(obj, "__path_length__", 1) - 1)
         return {
             "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
-            "text": getattr(obj, "__link_text__", str(obj)) or str(obj),
+            "text": indentation + getattr(obj, "__link_text__", str(obj)) or str(obj),
             "url": obj.get_absolute_url(),
             "verbose_name": str(obj._meta.verbose_name).capitalize(),
         }
@@ -158,9 +169,13 @@ class AdminUrlsView(BaseListView):
                 .annotate(
                     __link_text__=Subquery(
                         qs.filter(page_id=OuterRef("pk")).values("title")[:1]
-                    )
+                    ),
                 )
             )
+            if not self.term:
+                qs = qs.annotate(
+                    __path_length__=F("depth")
+                )
             if self.site:
                 qs = qs.filter(site_id=self.site)
         except (AttributeError, FieldError):
@@ -184,6 +199,11 @@ class AdminUrlsView(BaseListView):
             if "publisher_draft" in Page._meta.fields_map:
                 # django CMS 3.11
                 qs = qs.filter(publisher_is_draft=True)
+            if not self.term:
+                qs = qs.annotate(
+                    __path_length__=F("node__depth")
+                )
+
             if self.site:
                 qs = qs.filter(node__site_id=self.site)
         return qs
@@ -206,12 +226,9 @@ class AdminUrlsView(BaseListView):
                         )
                     elif hasattr(model_admin.model, "sites") and self.site:
                         new_qs = new_qs.filter(sites__id=self.site)
-                new_qs, search_use_distinct = model_admin.get_search_results(
-                    self.request, new_qs, self.term
-                )
+                new_qs, search_use_distinct = model_admin.get_search_results(self.request, new_qs, self.term)
                 if search_use_distinct:  # pragma: no cover
                     new_qs = new_qs.distinct()
-
                 qs.append(new_qs)
             except Exception:  # pragma: no cover
                 # Still report back remaining urls even if one model fails
