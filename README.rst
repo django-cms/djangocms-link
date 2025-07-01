@@ -152,8 +152,18 @@ The default is 50::
     # Show 100 results per "page"
     DJANGOCMS_LINK_PAGINATE_BY = 100
 
-Note, that in the admin paginated search results repeat the modle verbose name.
+Note, that in the admin paginated search results repeat the modle's verbose name.
 
+
+Site-selectors
+..............
+
+For multi-site installations, django CMS Link provides a site selector. It can be
+switched on or off by setting the ``DJANGOCMS_LINK_SITE_SELECTOR`` setting to
+``True`` or ``False``. The default is ``True``::
+
+    # Enable the site selector
+    DJANGOCMS_LINK_SITE_SELECTOR = True
 
 Non-standard hostnames
 ......................
@@ -226,6 +236,21 @@ cached.)::
     obj = MyModel.objects.first()
     url = obj.link.url
 
+Link models
+-----------
+
+The ``to_url`` template tag and the ``get_obj_link`` helper function can be used to
+get the full rul for any Django model instance. This is useful on multi-site installations.
+``to_url`` assumes that the model instance's site is found in its ``site`` property. If the
+model belongs to a different site than the current, it prepends the domain name of that site.
+
+Example::
+
+    {% load djangocms_link_tags %}
+
+    {% if obj %}
+        <a href="{% to_url obj %}">Link to object</a>  {# will include the site domain if needed #}
+    {% endif %}
 
 Running Tests
 -------------
