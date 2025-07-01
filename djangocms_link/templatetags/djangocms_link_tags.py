@@ -1,6 +1,7 @@
 from django import template
+from django.db import models
 
-from djangocms_link.helpers import LinkDict, get_link
+from djangocms_link.helpers import LinkDict, get_link, get_obj_link
 
 
 try:
@@ -16,7 +17,11 @@ register = template.Library()
 
 @register.filter
 def to_url(value):
-    return get_link(value) or ""
+    if isinstance(value, models.Model):
+        return get_obj_link(value) or ""
+    elif isinstance(value, dict):
+        return get_link(value) or ""
+    return ""
 
 
 @register.filter
