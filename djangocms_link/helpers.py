@@ -36,7 +36,7 @@ def get_obj_link(obj: models.Model, site_id: int | None) -> str:
         obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None)
     )
     link = obj.get_absolute_url()  # Can be None
-    if obj_site_id and obj_site_id != site_id:
+    if link and obj_site_id and obj_site_id != site_id:
         ref_site = Site.objects._get_site_by_id(obj_site_id).domain
         link = f"//{ref_site}{link}"
     return link
