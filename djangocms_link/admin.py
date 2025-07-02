@@ -4,7 +4,7 @@ from django.apps import apps
 from django.conf import settings
 from django.contrib import admin
 from django.core.exceptions import FieldError, PermissionDenied
-from django.db.models import F, Model, OuterRef, Q, QuerySet, Subquery
+from django.db.models import F, Model, Prefetch, Q, QuerySet
 from django.http import Http404, HttpRequest, JsonResponse
 from django.urls import path
 from django.utils.translation import gettext as _
@@ -111,7 +111,7 @@ class AdminUrlsView(BaseListView):
                 obj = get_manager(model).get(pk=pk)
                 if model_str == "cms.page":
                     language = get_language_from_request(request)
-                    obj.__link_text__ = obj.get_admin_content(language).title
+                    obj.__link_text__ = obj.get_admin_content(language, fallback=True).title
                 return JsonResponse(self.serialize_result(obj))
 
             if hasattr(model_admin, "get_link_queryset"):
@@ -145,6 +145,10 @@ class AdminUrlsView(BaseListView):
         Convert the provided model object to a dictionary that is added to the
         results list.
         """
+        if isinstance(obj, Page) and hasattr(obj, "prefetched_content"):
+            obj.admin_content_cache = {trans.language: trans for trans in obj.prefetched_content}
+            obj.__link_text__ = obj.get_admin_content(self.language).title
+
         indentation = UNICODE_SPACE * (max(getattr(obj, "__depth__", 1), 1) - 1)
         return {
             "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
@@ -158,7 +162,7 @@ class AdminUrlsView(BaseListView):
         languages = get_language_list()
         try:
             # django CMS 5.0+
-            qs = (
+            content_qs = (
                 PageContent.admin_manager.filter(language__in=languages)
                 .filter(
                     Q(title__icontains=self.term) | Q(menu_title__icontains=self.term)
@@ -166,11 +170,13 @@ class AdminUrlsView(BaseListView):
                 .current_content()
             )
             qs = (
-                Page.objects.filter(pk__in=qs.values_list("page_id", flat=True))
+                Page.objects.filter(pk__in=content_qs.values_list("page_id", flat=True))
                 .order_by("path")
-                .annotate(
-                    __link_text__=Subquery(
-                        qs.filter(page_id=OuterRef("pk")).values("title")[:1]
+                .prefetch_related(
+                    Prefetch(
+                        "pagecontent_set",
+                        to_attr="prefetched_content",
+                        queryset=PageContent.admin_manager.current_content(),
                     ),
                 )
             )
@@ -192,10 +198,12 @@ class AdminUrlsView(BaseListView):
             qs = (
                 Page.objects.filter(pk__in=qs.values_list("page_id", flat=True))
                 .order_by("node__path")
-                .annotate(
-                    __link_text__=Subquery(
-                        qs.filter(page_id=OuterRef("pk")).values("title")[:1]
-                    )
+                .prefetch_related(
+                    Prefetch(
+                        "pagecontent_set",
+                        to_attr="prefetched_content",
+                        queryset=PageContent.admin_manager.current_content(),
+                    ),
                 )
             )
             if "publisher_draft" in Page._meta.fields_map:
