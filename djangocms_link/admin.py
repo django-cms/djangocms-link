@@ -200,9 +200,9 @@ class AdminUrlsView(BaseListView):
                 .order_by("node__path")
                 .prefetch_related(
                     Prefetch(
-                        "pagecontent_set",
+                        "pagecontent_set" if hasattr(Page, "pagecontent_set") else "title_set",
                         to_attr="prefetched_content",
-                        queryset=PageContent.admin_manager.current_content(),
+                        queryset=get_manager(PageContent, current_content=True),
                     ),
                 )
             )
