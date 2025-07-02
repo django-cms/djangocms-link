@@ -28,7 +28,7 @@ class LinkEndpointTestCase(CMSTestCase):
             language="en",
             parent=self.root_page,
         )
-        create_title("fr", "enfant 1", self.root_page.get_children()[0])
+        create_title("fr", "enfant 1", self.root_page.get_child_pages()[0])
 
         create_page(
             title="child 2",
@@ -36,7 +36,7 @@ class LinkEndpointTestCase(CMSTestCase):
             language="en",
             parent=self.root_page,
         )
-        create_title("fr", "enfant 2", self.root_page.get_children()[1])
+        create_title("fr", "enfant 2", self.root_page.get_child_pages()[1])
 
         self.sibling = create_page(
             title="sibling",
