@@ -137,7 +137,7 @@ class LinkEndpointTestCase(CMSTestCase):
 
     def test_get_reference_different_language(self):
         with self.login_user_context(self.get_superuser()):
-            response = self.client.get(self.endpoint + "?g=cms.page:1&language=fr")
+            response = self.client.get(f"{self.endpoint}?g=cms.page:1&language=fr")
             self.assertEqual(response.status_code, 200)
             data = response.json()
 
