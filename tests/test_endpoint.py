@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.contrib.sites.models import Site
 
-from cms.api import create_page
+from cms.api import create_page, create_title
 from cms.models import Page
 from cms.test_utils.testcases import CMSTestCase
 from cms.utils.urlutils import admin_reverse
@@ -13,43 +13,51 @@ from tests.utils.models import ThirdPartyModel
 
 class LinkEndpointTestCase(CMSTestCase):
     def setUp(self):
+        from django.contrib.admin import site
+
         self.root_page = create_page(
             title="root",
             template="page.html",
             language="en",
         )
+        create_title("fr", "racine", self.root_page)
+
         create_page(
             title="child 1",
             template="page.html",
             language="en",
             parent=self.root_page,
         )
+        create_title("fr", "enfant 1", self.root_page.get_children()[0])
+
         create_page(
             title="child 2",
             template="page.html",
             language="en",
             parent=self.root_page,
         )
-        self.subling = create_page(
+        create_title("fr", "enfant 2", self.root_page.get_children()[1])
+
+        self.sibling = create_page(
             title="sibling",
             template="page.html",
             language="en",
         )
-        from django.contrib.admin import site
+        create_title("fr", "frère", self.sibling)
 
         LinkAdmin = site._registry[Link]
         self.endpoint = admin_reverse(LinkAdmin.global_link_url_name)
 
     def tearDown(self):
         self.root_page.delete()
-        self.subling.delete()
+        self.sibling.delete()
 
     def test_api_endpoint(self):
         from djangocms_link import admin
 
         registered = admin.REGISTERED_ADMIN
         admin.REGISTERED_ADMIN = []
-        for query_params in ("", "?app_label=1"):
+        for query_params in ("", "?app_label=1", "?language=fr"):
             with self.subTest(query_params=query_params):
                 with self.login_user_context(self.get_superuser()):
                     response = self.client.get(self.endpoint + query_params)
@@ -69,7 +77,10 @@ class LinkEndpointTestCase(CMSTestCase):
                     _, pk = page["id"].split(":")
                     db_page = Page.objects.get(pk=pk)
                     try:
-                        expected = str(db_page.get_admin_content("en").title)
+                        language = query_params.split("language=")[-1]
+                        if language == query_params:
+                            language = "en"
+                        expected = str(db_page.get_admin_content(language).title)
                     except AttributeError:
                         expected = str(db_page)
                     self.assertEqual(page["text"].strip(UNICODE_SPACE), expected)
@@ -122,6 +133,19 @@ class LinkEndpointTestCase(CMSTestCase):
         self.assertIn("url", data)
         self.assertEqual(data["id"], "cms.page:1")
         self.assertEqual(data["text"], "root")
+        self.assertEqual(data["url"], self.root_page.get_absolute_url())
+
+    def test_get_reference_different_language(self):
+        with self.login_user_context(self.get_superuser()):
+            response = self.client.get(self.endpoint + "?g=cms.page:1&language=fr")
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+
+        self.assertIn("id", data)
+        self.assertIn("text", data)
+        self.assertIn("url", data)
+        self.assertEqual(data["id"], "cms.page:1")
+        self.assertEqual(data["text"], "racine")
         self.assertEqual(data["url"], self.root_page.get_absolute_url())
 
     def test_outdated_reference(self):
