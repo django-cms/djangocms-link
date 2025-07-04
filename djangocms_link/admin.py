@@ -152,7 +152,7 @@ class AdminUrlsView(BaseListView):
         indentation = UNICODE_SPACE * (max(getattr(obj, "__depth__", 1), 1) - 1)
         return {
             "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
-            "text": indentation + getattr(obj, "__link_text__", str(obj)) or str(obj),
+            "text": indentation + (getattr(obj, "__link_text__", str(obj)) or str(obj)),
             "url": obj.get_absolute_url(),
             "verbose_name": str(obj._meta.verbose_name).capitalize(),
         }

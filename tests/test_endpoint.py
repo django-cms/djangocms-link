@@ -1,3 +1,5 @@
+import re
+
 from django.contrib import admin
 from django.contrib.sites.models import Site
 
@@ -78,22 +80,19 @@ class LinkEndpointTestCase(CMSTestCase):
                     db_page = Page.objects.get(pk=pk)
                     try:
                         language = query_params.split("language=")[-1]
-                        if language == query_params:
-                            language = "en"
+                        # No language specified? -> default to 'en'
+                        language = language if language == query_params else "en"
                         expected = str(db_page.get_admin_content(language).title)
                     except AttributeError:
                         expected = str(db_page)
                     self.assertEqual(page["text"].strip(UNICODE_SPACE), expected)
+
                     # Check that the number of leading UNICODE_SPACE characters matches the page depth
-                    page_depth = db_page.depth if hasattr(db_page, "depth") else 0
-                    leading_spaces = 0
-                    text = page["text"]
-                    for char in text:
-                        if char == UNICODE_SPACE:
-                            leading_spaces += 1
-                        else:
-                            break
-                    self.assertEqual(leading_spaces, page_depth, f"Expected {page_depth} leading UNICODE_SPACE chars, got {leading_spaces}")
+                    leading_spaces = re.search(f'[^{UNICODE_SPACE}]', page["text"]).start()
+                    self.assertEqual(
+                        leading_spaces, db_page.depth - 1,
+                        f"Expected {db_page.depth} leading UNICODE_SPACE chars, got {leading_spaces}",
+                    )
         admin.REGISTERED_ADMIN = registered
 
     def test_filter(self):
