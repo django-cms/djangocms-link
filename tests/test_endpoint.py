@@ -84,6 +84,16 @@ class LinkEndpointTestCase(CMSTestCase):
                     except AttributeError:
                         expected = str(db_page)
                     self.assertEqual(page["text"].strip(UNICODE_SPACE), expected)
+                    # Check that the number of leading UNICODE_SPACE characters matches the page depth
+                    page_depth = db_page.depth if hasattr(db_page, "depth") else 0
+                    leading_spaces = 0
+                    text = page["text"]
+                    for char in text:
+                        if char == UNICODE_SPACE:
+                            leading_spaces += 1
+                        else:
+                            break
+                    self.assertEqual(leading_spaces, page_depth, f"Expected {page_depth} leading UNICODE_SPACE chars, got {leading_spaces}")
         admin.REGISTERED_ADMIN = registered
 
     def test_filter(self):
