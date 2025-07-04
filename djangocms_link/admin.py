@@ -3,7 +3,7 @@ from __future__ import annotations
 from django.apps import apps
 from django.conf import settings
 from django.contrib import admin
-from django.core.exceptions import FieldError, PermissionDenied
+from django.core.exceptions import PermissionDenied
 from django.db.models import F, Model, Prefetch, Q, QuerySet
 from django.http import Http404, HttpRequest, JsonResponse
 from django.urls import path
@@ -166,7 +166,7 @@ class AdminUrlsView(BaseListView):
         """Return queryset based on ModelAdmin.get_search_results()."""
         languages = get_language_list()
         try:
-            # django CMS 5.0+
+            # django CMS 4.1/5.0+
             content_qs = (
                 PageContent.admin_manager.filter(language__in=languages)
                 .filter(
@@ -190,9 +190,9 @@ class AdminUrlsView(BaseListView):
                     __depth__=F("depth" if _version >= 5 else "node__depth")
                 )
             if self.site:
-                qs = qs.filter(site_id=self.site)
-        except (AttributeError, FieldError):
-            # django CMS 3.11 - 4.1
+                qs = qs.filter(site_id=self.site) if _version >= 5 else qs.filter(node__site_id=self.site)
+        except (AttributeError,):
+            # django CMS 3.11
             qs = (
                 get_manager(PageContent, current_content=True)
                 .filter(language__in=languages)
