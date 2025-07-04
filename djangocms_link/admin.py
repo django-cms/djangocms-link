@@ -107,11 +107,16 @@ class AdminUrlsView(BaseListView):
             app, model = model_str.split(".")
             model = apps.get_model(app, model)
             model_admin = self.admin_site._registry.get(model)
+            language = get_language_from_request(request)
+
             if model_str == "cms.page" and _version >= 4 or model_admin is None:
                 obj = get_manager(model).get(pk=pk)
                 if model_str == "cms.page":
-                    language = get_language_from_request(request)
                     obj.__link_text__ = obj.get_admin_content(language, fallback=True).title
+                return JsonResponse(self.serialize_result(obj))
+            elif model_str == "cms.page":
+                obj = get_manager(model).get(pk=pk)
+                obj.__link_text__ = obj.get_title(language, fallback=True)
                 return JsonResponse(self.serialize_result(obj))
 
             if hasattr(model_admin, "get_link_queryset"):
@@ -145,7 +150,7 @@ class AdminUrlsView(BaseListView):
         Convert the provided model object to a dictionary that is added to the
         results list.
         """
-        if isinstance(obj, Page) and hasattr(obj, "prefetched_content"):
+        if isinstance(obj, Page) and hasattr(obj, "prefetched_content") and hasattr(obj, "get_admin_content"):
             obj.admin_content_cache = {trans.language: trans for trans in obj.prefetched_content}
             obj.__link_text__ = obj.get_admin_content(self.language).title
 
@@ -171,7 +176,7 @@ class AdminUrlsView(BaseListView):
             )
             qs = (
                 Page.objects.filter(pk__in=content_qs.values_list("page_id", flat=True))
-                .order_by("path")
+                .order_by("path" if _version >= 5 else "node__path")
                 .prefetch_related(
                     Prefetch(
                         "pagecontent_set",
@@ -182,7 +187,7 @@ class AdminUrlsView(BaseListView):
             )
             if not self.term:
                 qs = qs.annotate(
-                    __depth__=F("depth")
+                    __depth__=F("depth" if _version >= 5 else "node__depth")
                 )
             if self.site:
                 qs = qs.filter(site_id=self.site)
@@ -200,9 +205,9 @@ class AdminUrlsView(BaseListView):
                 .order_by("node__path")
                 .prefetch_related(
                     Prefetch(
-                        "pagecontent_set" if hasattr(Page, "pagecontent_set") else "title_set",
+                        "title_set",
                         to_attr="prefetched_content",
-                        queryset=get_manager(PageContent, current_content=True),
+                        queryset=get_manager(PageContent, current_content=True).all(),
                     ),
                 )
             )
