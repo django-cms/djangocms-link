@@ -89,9 +89,10 @@ class LinkEndpointTestCase(CMSTestCase):
 
                     # Check that the number of leading UNICODE_SPACE characters matches the page depth
                     leading_spaces = re.search(f'[^{UNICODE_SPACE}]', page["text"]).start()
+                    depth = getattr(db_page, "depth", db_page.node.depth)
                     self.assertEqual(
-                        leading_spaces, db_page.depth - 1,
-                        f"Expected {db_page.depth} leading UNICODE_SPACE chars, got {leading_spaces}",
+                        leading_spaces, depth - 1,
+                        f"Expected {depth - 1} leading UNICODE_SPACE chars, got {leading_spaces}",
                     )
         admin.REGISTERED_ADMIN = registered
 
