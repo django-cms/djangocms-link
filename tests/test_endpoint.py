@@ -81,7 +81,7 @@ class LinkEndpointTestCase(CMSTestCase):
                     try:
                         language = query_params.split("language=")[-1]
                         # No language specified? -> default to 'en'
-                        language = language if language == query_params else "en"
+                        language = "en" if language == query_params else language
                         expected = str(db_page.get_admin_content(language).title)
                     except AttributeError:
                         expected = str(db_page)
