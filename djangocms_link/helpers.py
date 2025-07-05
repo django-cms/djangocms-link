@@ -11,13 +11,9 @@ except (ModuleNotFoundError, ImportError):  # pragma: no cover
     File = None
 
 
-def get_manager(model: models.Model, current_content: bool = False) -> models.Manager:
+def get_manager(model: models.Model) -> models.Manager:
     if hasattr(model, "admin_manager"):
-        return (
-            model.admin_manager.current_content()
-            if current_content
-            else model.admin_manager
-        )
+        return model.admin_manager
     return model.objects
 
 
@@ -53,14 +49,12 @@ def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
         obj_site_id = getattr(
             obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None)
         )
-        link_field_value["__cache__"] = obj.get_absolute_url()  # Can be None
-        if obj_site_id and obj_site_id != site_id:
+        url = obj.get_absolute_url()  # Can be None
+        if url and obj_site_id and obj_site_id != site_id:
             ref_site = Site.objects._get_site_by_id(obj_site_id).domain
-            link_field_value["__cache__"] = (
-                f"//{ref_site}{link_field_value['__cache__']}"
-            )
-        if link_field_value["__cache__"]:
-            link_field_value["__cache__"] += link_field_value.get("anchor", "")
+            url = f"//{ref_site}{url}"
+        if url:
+            link_field_value["__cache__"] = url + link_field_value.get("anchor", "")
     elif hasattr(obj, "url"):
         link_field_value["__cache__"] = obj.url
     else:
@@ -92,11 +86,11 @@ class LinkDict(dict):
                     self["__cache__"] += anchor
 
     @property
-    def url(self):
+    def url(self) -> str:
         return get_link(self) or ""
 
     @property
-    def type(self):
+    def type(self) -> str:
         for key in ("internal_link", "file_link"):
             if key in self:
                 return key
