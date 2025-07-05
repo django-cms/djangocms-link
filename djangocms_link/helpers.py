@@ -11,9 +11,13 @@ except (ModuleNotFoundError, ImportError):  # pragma: no cover
     File = None
 
 
-def get_manager(model: models.Model) -> models.Manager:
+def get_manager(model: models.Model, current_content: bool = False) -> models.Manager:
     if hasattr(model, "admin_manager"):
-        return model.admin_manager
+        return (
+            model.admin_manager.current_content()
+            if current_content
+            else model.admin_manager
+        )
     return model.objects
 
 
