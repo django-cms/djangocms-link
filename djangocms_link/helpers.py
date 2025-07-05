@@ -28,6 +28,21 @@ def get_rel_obj(internal_link: str) -> models.Model | None:
         return get_manager(model).filter(pk=pk).first()
 
 
+def get_absolute_url(obj: models.Model, site_id: int | None = None, anchor: str | None = None) -> str | None:
+    """Get the absolute URL of a model instance, optionally using a specific site ID."""
+    obj_site_id = getattr(
+        obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None)
+    )
+    url = obj.get_absolute_url()  # Can be None
+    if url:
+        if obj_site_id and obj_site_id != site_id:
+            ref_site = Site.objects._get_site_by_id(obj_site_id).domain
+            url = f"//{ref_site}{url}"
+        return url + (anchor or "")
+    else:
+        return None
+
+
 def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
     if not link_field_value:
         return None
@@ -50,15 +65,7 @@ def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
         # Access site id if possible (no db access necessary)
         if site_id is None:
             site_id = Site.objects.get_current().id
-        obj_site_id = getattr(
-            obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None)
-        )
-        url = obj.get_absolute_url()  # Can be None
-        if url and obj_site_id and obj_site_id != site_id:
-            ref_site = Site.objects._get_site_by_id(obj_site_id).domain
-            url = f"//{ref_site}{url}"
-        if url:
-            link_field_value["__cache__"] = url + link_field_value.get("anchor", "")
+        link_field_value["__cache__"] = get_absolute_url(obj, site_id=site_id, anchor=link_field_value.get("anchor"))
     elif hasattr(obj, "url"):
         link_field_value["__cache__"] = obj.url
     else:
@@ -84,10 +91,8 @@ class LinkDict(dict):
                 self["internal_link"] = (
                     f"{initial._meta.app_label}.{initial._meta.model_name}:{initial.pk}"
                 )
-                self["__cache__"] = initial.get_absolute_url()
-                if anchor:
-                    self["anchor"] = anchor
-                    self["__cache__"] += anchor
+                # Prepopulate cache since we have to object to get the URL
+                self["__cache__"] = get_absolute_url(initial, anchor=anchor)
 
     @property
     def url(self) -> str:
