@@ -2,7 +2,7 @@
 django CMS Link
 ===============
 
-|pypi| |coverage| |python| |django| |djangocms| |djangocms4|
+|PyPiVersion| |coverage| |PyVersion| |DjVersion| |CmsVersion|
 
 **django CMS Link** is a plugin for `django CMS <https://django-cms.org>`_ that
 allows you to add links on your site.
@@ -263,17 +263,22 @@ version 5. The migration is tested but they do remove unused fields from
 the database. If you encounter any issues, please report them on
 `GitHub <https://github.com/django-cms/djangocms-link/issues>`_.
 
-.. |pypi| image:: https://badge.fury.io/py/djangocms-link.svg
-    :target: http://badge.fury.io/py/djangocms-link
 .. |coverage| image:: https://codecov.io/gh/django-cms/djangocms-link/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/django-cms/djangocms-link
 
-.. |python| image:: https://img.shields.io/badge/python-3.10+-blue.svg
-    :target: https://pypi.org/project/djangocms-link/
-.. |django| image:: https://img.shields.io/badge/django-4.2,%205.0,%205.1-blue.svg
-    :target: https://www.djangoproject.com/
-.. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.11%2B-blue.svg
-    :target: https://www.django-cms.org/
-.. |djangocms4| image:: https://img.shields.io/badge/django%20CMS-4-blue.svg
-    :target: https://www.django-cms.org/
+.. |PyPiVersion| image:: https://img.shields.io/pypi/v/djangocms-link.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-link
+    :alt: Latest PyPI version
+
+.. |PyVersion| image:: https://img.shields.io/pypi/pyversions/djangocms-link.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-link
+    :alt: Python versions
+
+.. |DjVersion| image:: https://img.shields.io/pypi/frameworkversions/django/djangocms-link.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-link
+    :alt: Django versions
+
+.. |CmsVersion| image:: https://img.shields.io/pypi/frameworkversions/django-cms/djangocms-link.svg?style=flat-square
+    :target: https://pypi.python.org/pypi/djangocms-link
+    :alt: django CMS versions
 

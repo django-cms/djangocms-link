@@ -7,15 +7,6 @@ HELPER_SETTINGS = {
         "filer",
         "tests.utils",
     ],
-    "CMS_LANGUAGES": {
-        1: [
-            {
-                "code": "en",
-                "name": "English",
-            }
-        ]
-    },
-    "LANGUAGE_CODE": "en",
     "THUMBNAIL_PROCESSORS": (
         "easy_thumbnails.processors.colorspace",
         "easy_thumbnails.processors.autocrop",
