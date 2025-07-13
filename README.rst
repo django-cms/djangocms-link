@@ -2,7 +2,7 @@
 django CMS Link
 ===============
 
-|PyPiVersion| |coverage| |PyVersion| |DjVersion| |CmsVersion|
+|pypi| |coverage| |python| |django| |djangocms|
 
 **django CMS Link** is a plugin for `django CMS <https://django-cms.org>`_ that
 allows you to add links on your site.
@@ -263,22 +263,20 @@ version 5. The migration is tested but they do remove unused fields from
 the database. If you encounter any issues, please report them on
 `GitHub <https://github.com/django-cms/djangocms-link/issues>`_.
 
+.. |pypi| image:: https://badge.fury.io/py/djangocms-link.svg
+    :target: http://badge.fury.io/py/djangocms-link
+
 .. |coverage| image:: https://codecov.io/gh/django-cms/djangocms-link/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/django-cms/djangocms-link
 
-.. |PyPiVersion| image:: https://img.shields.io/pypi/v/djangocms-link.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/djangocms-link
-    :alt: Latest PyPI version
+.. |python| image:: https://img.shields.io/pypi/pyversions/djangocms-link
+    :alt: PyPI - Python Version
+    :target: https://pypi.org/project/djangocms-link/
 
-.. |PyVersion| image:: https://img.shields.io/pypi/pyversions/djangocms-link.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/djangocms-link
-    :alt: Python versions
+.. |django| image:: https://img.shields.io/pypi/frameworkversions/django/djangocms-link
+    :alt: PyPI - Django Versions from Framework Classifiers
+    :target: https://www.djangoproject.com/
 
-.. |DjVersion| image:: https://img.shields.io/pypi/frameworkversions/django/djangocms-link.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/djangocms-link
-    :alt: Django versions
-
-.. |CmsVersion| image:: https://img.shields.io/pypi/frameworkversions/django-cms/djangocms-link.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/djangocms-link
-    :alt: django CMS versions
-
+.. |djangocms| image:: https://img.shields.io/pypi/frameworkversions/django-cms/djangocms-link
+    :alt: PyPI - django CMS Versions from Framework Classifiers
+    :target: https://www.django-cms.org/
