@@ -239,7 +239,7 @@ cached.)::
 Link models
 -----------
 
-The ``to_url`` template tag and the ``get_obj_link`` helper function can be used to
+The ``to_url`` template filter and the ``get_obj_link`` helper function can be used to
 get the full rul for any Django model instance. This is useful on multi-site installations.
 ``to_url`` assumes that the model instance's site is found in its ``site`` property. If the
 model belongs to a different site than the current, it prepends the domain name of that site.
@@ -249,7 +249,7 @@ Example::
     {% load djangocms_link_tags %}
 
     {% if obj %}
-        <a href="{% to_url obj %}">Link to object</a>  {# will include the site domain if needed #}
+        <a href="{{ obj|to_url }}">Link to object</a>  {# will include the site domain if needed #}
     {% endif %}
 
 Running Tests
