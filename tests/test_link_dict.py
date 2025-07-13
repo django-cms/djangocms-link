@@ -97,3 +97,21 @@ class LinkDictTestCase(TestCase):
 
         # Cache not saved to db
         self.assertNotIn("__cache__", link.link)
+
+    def test_get_link_for_obj(self):
+        from cms.api import create_page
+
+        from djangocms_link.helpers import get_obj_link
+
+        page = create_page(
+            title="Test Page",
+            template="page.html",
+            slug="test-page",
+            language="en",
+        )
+
+        link = get_obj_link(page, site_id=None)
+        self.assertEqual(link, page.get_absolute_url())
+
+        link = get_obj_link(page, site_id=2)
+        self.assertEqual(link, f"//example.com{page.get_absolute_url()}")
