@@ -2,7 +2,7 @@
 django CMS Link
 ===============
 
-|pypi| |coverage| |python| |django| |djangocms| |djangocms4|
+|pypi| |coverage| |python| |django| |djangocms|
 
 **django CMS Link** is a plugin for `django CMS <https://django-cms.org>`_ that
 allows you to add links on your site.
@@ -290,15 +290,19 @@ the database. If you encounter any issues, please report them on
 
 .. |pypi| image:: https://badge.fury.io/py/djangocms-link.svg
     :target: http://badge.fury.io/py/djangocms-link
+
 .. |coverage| image:: https://codecov.io/gh/django-cms/djangocms-link/branch/master/graph/badge.svg
     :target: https://codecov.io/gh/django-cms/djangocms-link
 
-.. |python| image:: https://img.shields.io/badge/python-3.10+-blue.svg
+.. |python| image:: https://img.shields.io/pypi/pyversions/djangocms-link
+    :alt: PyPI - Python Version
     :target: https://pypi.org/project/djangocms-link/
-.. |django| image:: https://img.shields.io/badge/django-4.2,%205.0,%205.1-blue.svg
+
+.. |django| image:: https://img.shields.io/pypi/frameworkversions/django/djangocms-link
+    :alt: PyPI - Django Versions from Framework Classifiers
     :target: https://www.djangoproject.com/
-.. |djangocms| image:: https://img.shields.io/badge/django%20CMS-3.11%2B-blue.svg
-    :target: https://www.django-cms.org/
-.. |djangocms4| image:: https://img.shields.io/badge/django%20CMS-4-blue.svg
+
+.. |djangocms| image:: https://img.shields.io/pypi/frameworkversions/django-cms/djangocms-link
+    :alt: PyPI - django CMS Versions from Framework Classifiers
     :target: https://www.django-cms.org/
 
