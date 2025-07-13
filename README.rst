@@ -152,7 +152,7 @@ The default is 50::
     # Show 100 results per "page"
     DJANGOCMS_LINK_PAGINATE_BY = 100
 
-Note, that in the admin paginated search results repeat the modle's verbose name.
+Note, that in the admin paginated search results repeat the model's verbose name.
 
 
 Site-selectors
