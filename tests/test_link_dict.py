@@ -1,4 +1,5 @@
-from django.test import TestCase
+from django.template import Context, Template
+from django.test import TestCase, override_settings
 from django.utils.crypto import get_random_string
 
 from filer.models import File
@@ -98,11 +99,12 @@ class LinkDictTestCase(TestCase):
         # Cache not saved to db
         self.assertNotIn("__cache__", link.link)
 
-    def test_get_link_for_obj(self):
+    def test_get_obj_link_in_template(self):
+        from django.contrib.sites.models import Site
+
         from cms.api import create_page
 
-        from djangocms_link.helpers import get_obj_link
-
+        Site.objects.get_or_create(id=2, domain="mysite.com", name="My Site")
         page = create_page(
             title="Test Page",
             template="page.html",
@@ -110,8 +112,11 @@ class LinkDictTestCase(TestCase):
             language="en",
         )
 
-        link = get_obj_link(page, site_id=None)
-        self.assertEqual(link, page.get_absolute_url())
+        template = Template("""{% load djangocms_link_tags %}{{ page|to_url }}""")
 
-        link = get_obj_link(page, site_id=2)
-        self.assertEqual(link, f"//example.com{page.get_absolute_url()}")
+        rendered = template.render(Context({"page": page}))
+        self.assertEqual(rendered, page.get_absolute_url())
+
+        with override_settings(SITE_ID=2):
+            rendered = template.render(Context({"page": page}))
+        self.assertEqual(rendered, f"//example.com{page.get_absolute_url()}")

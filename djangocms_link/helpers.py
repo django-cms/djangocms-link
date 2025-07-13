@@ -28,7 +28,7 @@ def get_rel_obj(internal_link: str) -> models.Model | None:
         return get_manager(model).filter(pk=pk).first()
 
 
-def get_obj_link(obj: models.Model, site_id: int | None) -> str:
+def get_obj_link(obj: models.Model, site_id: int | None = None) -> str:
     # Access site id if possible (no db access necessary)
     if site_id is None:
         site_id = Site.objects.get_current().id
