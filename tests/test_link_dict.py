@@ -120,3 +120,9 @@ class LinkDictTestCase(TestCase):
         with override_settings(SITE_ID=2):
             rendered = template.render(Context({"page": page}))
         self.assertEqual(rendered, f"//example.com{page.get_absolute_url()}")
+
+        rendered = template.render(Context({"page": None}))  # Illegal value: fail silently
+        self.assertEqual(rendered, "")
+
+        rendered = template.render(Context({"page": LinkDict("tel:+1234567890")}))
+        self.assertEqual(rendered, "tel:+1234567890")
