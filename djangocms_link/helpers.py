@@ -89,17 +89,17 @@ class LinkDict(dict):
                 self["internal_link"] = (
                     f"{initial._meta.app_label}.{initial._meta.model_name}:{initial.pk}"
                 )
+                # Prepopulate cache since we have to object to get the URL
                 self["__cache__"] = initial.get_absolute_url()
-                if anchor:
-                    self["anchor"] = anchor
+                if self["__cache__"] and anchor:
                     self["__cache__"] += anchor
 
     @property
-    def url(self):
+    def url(self) -> str:
         return get_link(self) or ""
 
     @property
-    def type(self):
+    def type(self) -> str:
         for key in ("internal_link", "file_link"):
             if key in self:
                 return key

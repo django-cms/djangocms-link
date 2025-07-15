@@ -64,6 +64,26 @@ class LinkDictTestCase(TestCase):
         self.assertEqual(link2.type, "internal_link")
         self.assertEqual(link3.type, "internal_link")
 
+    def test_no_internal_link(self):
+        obj = ThirdPartyModel.objects.create(
+            name=get_random_string(5), path=""
+        )
+        link1 = LinkDict(
+            {"internal_link": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}"}
+        )
+        link2 = LinkDict(obj)
+        link3 = LinkDict(obj, anchor="#test")
+
+        self.assertEqual(link1.url, "")
+        self.assertEqual(link2.url, "")
+        self.assertEqual(link3.url, "")
+        self.assertEqual(str(link1), "")
+        self.assertEqual(str(link2), "")
+        self.assertEqual(str(link3), "")
+        self.assertEqual(link1.type, "internal_link")
+        self.assertEqual(link2.type, "internal_link")
+        self.assertEqual(link3.type, "internal_link")
+
     def test_link_types(self):
         anchor = LinkDict("#test")
         external = LinkDict("https://www.example.com")

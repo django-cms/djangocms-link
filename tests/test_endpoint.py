@@ -1,54 +1,65 @@
+import re
+
 from django.contrib import admin
 from django.contrib.sites.models import Site
 
-from cms.api import create_page
+from cms.api import create_page, create_title
 from cms.models import Page
 from cms.test_utils.testcases import CMSTestCase
 from cms.utils.urlutils import admin_reverse
 
+from djangocms_link.admin import UNICODE_SPACE
 from djangocms_link.models import Link
 from tests.utils.models import ThirdPartyModel
 
 
 class LinkEndpointTestCase(CMSTestCase):
     def setUp(self):
+        from django.contrib.admin import site
+
         self.root_page = create_page(
             title="root",
             template="page.html",
             language="en",
         )
+        create_title("fr", "racine", self.root_page)
+
         create_page(
             title="child 1",
             template="page.html",
             language="en",
             parent=self.root_page,
         )
+        create_title("fr", "enfant 1", self.root_page.get_child_pages()[0])
+
         create_page(
             title="child 2",
             template="page.html",
             language="en",
             parent=self.root_page,
         )
-        self.subling = create_page(
+        create_title("fr", "enfant 2", self.root_page.get_child_pages()[1])
+
+        self.sibling = create_page(
             title="sibling",
             template="page.html",
             language="en",
         )
-        from django.contrib.admin import site
+        create_title("fr", "frère", self.sibling)
 
         LinkAdmin = site._registry[Link]
         self.endpoint = admin_reverse(LinkAdmin.global_link_url_name)
 
     def tearDown(self):
         self.root_page.delete()
-        self.subling.delete()
+        self.sibling.delete()
 
     def test_api_endpoint(self):
         from djangocms_link import admin
 
         registered = admin.REGISTERED_ADMIN
         admin.REGISTERED_ADMIN = []
-        for query_params in ("", "?app_label=1"):
+        for query_params in ("", "?app_label=1", "?language=fr"):
             with self.subTest(query_params=query_params):
                 with self.login_user_context(self.get_superuser()):
                     response = self.client.get(self.endpoint + query_params)
@@ -68,10 +79,21 @@ class LinkEndpointTestCase(CMSTestCase):
                     _, pk = page["id"].split(":")
                     db_page = Page.objects.get(pk=pk)
                     try:
-                        expected = str(db_page.get_admin_content("en").title)
+                        language = query_params.split("language=")[-1]
+                        # No language specified? -> default to 'en'
+                        language = "en" if language == query_params else language
+                        expected = str(db_page.get_admin_content(language).title)
                     except AttributeError:
                         expected = str(db_page)
-                    self.assertEqual(page["text"], expected)
+                    self.assertEqual(page["text"].strip(UNICODE_SPACE), expected)
+
+                    # Check that the number of leading UNICODE_SPACE characters matches the page depth
+                    leading_spaces = re.search(f'[^{UNICODE_SPACE}]', page["text"]).start()
+                    depth = getattr(db_page, "depth", db_page.node.depth)
+                    self.assertEqual(
+                        leading_spaces, depth - 1,
+                        f"Expected {depth - 1} leading UNICODE_SPACE chars, got {leading_spaces}",
+                    )
         admin.REGISTERED_ADMIN = registered
 
     def test_filter(self):
@@ -123,6 +145,19 @@ class LinkEndpointTestCase(CMSTestCase):
         self.assertEqual(data["text"], "root")
         self.assertEqual(data["url"], self.root_page.get_absolute_url())
 
+    def test_get_reference_different_language(self):
+        with self.login_user_context(self.get_superuser()):
+            response = self.client.get(f"{self.endpoint}?g=cms.page:1&language=fr")
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+
+        self.assertIn("id", data)
+        self.assertIn("text", data)
+        self.assertIn("url", data)
+        self.assertEqual(data["id"], "cms.page:1")
+        self.assertEqual(data["text"], "racine")
+        self.assertEqual(data["url"], self.root_page.get_absolute_url())
+
     def test_outdated_reference(self):
         with self.login_user_context(self.get_superuser()):
             response = self.client.get(self.endpoint + "?g=cms.page:0")
@@ -162,7 +197,7 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
             if isinstance(registered_admin, ThirdPartyAdmin):
                 break
         else:
-            self.asserFail("ThirdPartyAdmin not found in REGISTERED_ADMIN")
+            self.assertFail("ThirdPartyAdmin not found in REGISTERED_ADMIN")
 
     def test_api_endpoint(self):
         for query_params in ("", "?app_label=1"):
@@ -270,6 +305,42 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
         self.assertEqual(data["id"], "utils.thirdpartymodel:1")
         self.assertEqual(data["text"], "First")
         self.assertEqual(data["url"], self.items[0].get_absolute_url())
+
+    def test_pagination(self):
+        from djangocms_link.admin import AdminUrlsView
+
+        old_pagination = AdminUrlsView.paginate_by
+        try:
+            AdminUrlsView.paginate_by = 1
+            with self.login_user_context(self.get_superuser()):
+                response = self.client.get(self.endpoint + "?page=1")
+                self.assertEqual(response.status_code, 200)
+                data = response.json()
+        finally:
+            AdminUrlsView.paginate_by = old_pagination
+
+        self.assertIn("results", data)
+        self.assertEqual(len(data["results"]), 1)
+        self.assertIn("pagination", data)
+        self.assertEqual(data["pagination"]["more"], True)
+
+        destinations = data["results"][0]
+        self.assertEqual(destinations["text"], "Third party models")
+        self.assertEqual(len(destinations["children"]), 1)
+
+    def test_invalid_page_number(self):
+        with self.login_user_context(self.get_superuser()):
+            response = self.client.get(self.endpoint + "?page=999")
+            self.assertEqual(response.status_code, 404)
+
+    def test_missing_permissions(self):
+        with self.login_user_context(self.get_staff_user_with_no_permissions()):
+            response = self.client.get(self.endpoint)
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+
+        # Empty results as the user has no permissions
+        self.assertEqual(data, {"results": [], "pagination": {"more": False}})
 
 
 class LinkEndpointMultiModelTestCase(CMSTestCase):

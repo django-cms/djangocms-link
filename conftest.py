@@ -69,7 +69,23 @@ MIDDLEWARE = [
 ] + CMS_MIDDLEWARE
 SITE_ID = 1
 LANGUAGE_CODE = "en"
-LANGUAGES = (("en", "English"),)
+LANGUAGES = (("en", "English"), ("fr", "French"))
+CMS_LANGUAGES = {
+    1: [
+        {
+            "code": "en",
+            "name": "English",
+            "public": True,
+        },
+        {
+            "code": "fr",
+            "name": "French",
+            "public": True,
+            "fallbacks": ["en"],
+            "hide_untranslated": False,
+        },
+    ]
+}
 STATIC_URL = "/static/"
 MEDIA_URL = "/media/"
 MIGRATION_MODULES = {}

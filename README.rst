@@ -305,4 +305,3 @@ the database. If you encounter any issues, please report them on
 .. |djangocms| image:: https://img.shields.io/pypi/frameworkversions/django-cms/djangocms-link
     :alt: PyPI - django CMS Versions from Framework Classifiers
     :target: https://www.django-cms.org/
-
