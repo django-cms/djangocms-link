@@ -28,24 +28,18 @@ def get_rel_obj(internal_link: str) -> models.Model | None:
         return get_manager(model).filter(pk=pk).first()
 
 
-def get_absolute_url(obj: models.Model, site_id: int | None = None, anchor: str | None = None) -> str | None:
-    """Get the absolute URL of a model instance, optionally using a specific site ID."""
-    # Get the current site ID if not provided
+def get_obj_link(obj: models.Model, site_id: int | None = None) -> str:
+    # Access site id if possible (no db access necessary)
     if site_id is None:
         site_id = Site.objects.get_current().id
-    # Does the object have a site_id attribute?
     obj_site_id = getattr(
         obj, "site_id", getattr(getattr(obj, "node", None), "site_id", None)
     )
-    # Get the absolute URL - can be empty
-    url = obj.get_absolute_url()
-    if url:
-        if obj_site_id and obj_site_id != site_id:
-            ref_site = Site.objects._get_site_by_id(obj_site_id).domain
-            url = f"//{ref_site}{url}"
-        return url + (anchor or "")
-    else:
-        return None
+    link = obj.get_absolute_url()  # Can be None
+    if link and obj_site_id and obj_site_id != site_id:
+        ref_site = Site.objects._get_site_by_id(obj_site_id).domain
+        link = f"//{ref_site}{link}"
+    return link
 
 
 def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
@@ -67,7 +61,9 @@ def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
         return None
 
     if hasattr(obj, "get_absolute_url"):
-        link_field_value["__cache__"] = get_absolute_url(obj, site_id=site_id, anchor=link_field_value.get("anchor"))
+        link_field_value["__cache__"] = get_obj_link(obj, site_id)  # Can be None
+        if link_field_value["__cache__"]:
+            link_field_value["__cache__"] += link_field_value.get("anchor", "")
     elif hasattr(obj, "url"):
         link_field_value["__cache__"] = obj.url
     else:

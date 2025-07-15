@@ -1,4 +1,5 @@
-from django.test import TestCase
+from django.template import Context, Template
+from django.test import TestCase, override_settings
 from django.utils.crypto import get_random_string
 
 from filer.models import File
@@ -117,3 +118,31 @@ class LinkDictTestCase(TestCase):
 
         # Cache not saved to db
         self.assertNotIn("__cache__", link.link)
+
+    def test_get_obj_link_in_template(self):
+        from django.contrib.sites.models import Site
+
+        from cms.api import create_page
+
+        Site.objects.get_or_create(id=2, domain="mysite.com", name="My Site")
+        page = create_page(
+            title="Test Page",
+            template="page.html",
+            slug="test-page",
+            language="en",
+        )
+
+        template = Template("""{% load djangocms_link_tags %}{{ page|to_url }}""")
+
+        rendered = template.render(Context({"page": page}))
+        self.assertEqual(rendered, page.get_absolute_url())
+
+        with override_settings(SITE_ID=2):
+            rendered = template.render(Context({"page": page}))
+        self.assertEqual(rendered, f"//example.com{page.get_absolute_url()}")
+
+        rendered = template.render(Context({"page": None}))  # Illegal value: fail silently
+        self.assertEqual(rendered, "")
+
+        rendered = template.render(Context({"page": LinkDict("tel:+1234567890")}))
+        self.assertEqual(rendered, "tel:+1234567890")
