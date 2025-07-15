@@ -306,6 +306,28 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
         self.assertEqual(data["text"], "First")
         self.assertEqual(data["url"], self.items[0].get_absolute_url())
 
+    def test_pagination(self):
+        from djangocms_link.admin import AdminUrlsView
+
+        old_pagination = AdminUrlsView.paginate_by
+        try:
+            AdminUrlsView.paginate_by = 1
+            with self.login_user_context(self.get_superuser()):
+                response = self.client.get(self.endpoint + "?page=1")
+                self.assertEqual(response.status_code, 200)
+                data = response.json()
+        finally:
+            AdminUrlsView.paginate_by = old_pagination
+
+        self.assertIn("results", data)
+        self.assertEqual(len(data["results"]), 1)
+        self.assertIn("pagination", data)
+        self.assertEqual(data["pagination"]["more"], True)
+
+        destinations = data["results"][0]
+        self.assertEqual(destinations["text"], "Third party models")
+        self.assertEqual(len(destinations["children"]), 1)
+
 
 class LinkEndpointMultiModelTestCase(CMSTestCase):
     def setUp(self):
