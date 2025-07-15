@@ -40,7 +40,7 @@ class AdminUrlsView(BaseListView):
     def get(self, request, *args, **kwargs):
         """
         Return a JsonResponse with search results (query parameter "q") usable by
-        Django admin's autocomplete view. Each item is returned as defined in 
+        Django admin's autocomplete view. Each item is returned as defined in
         serialize_result(), for example:
         {
             "results": [
@@ -58,10 +58,10 @@ class AdminUrlsView(BaseListView):
              ],
              "pagination": {"more": true}
         }
-        
+
         If the endpoint is called with the query parameter "g" (for get), the view will
-        search for the id (e.g., "cms.page:5") and return its entry as defined in 
-        serialize_results(), e.g.: 
+        search for the id (e.g., "cms.page:5") and return its entry as defined in
+        serialize_results(), e.g.:
         {
              "id": "cms.page:5",
              "text": "My first page",
