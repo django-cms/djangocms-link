@@ -90,7 +90,9 @@ class LinkDict(dict):
                     f"{initial._meta.app_label}.{initial._meta.model_name}:{initial.pk}"
                 )
                 # Prepopulate cache since we have to object to get the URL
-                self["__cache__"] = get_absolute_url(initial, anchor=anchor)
+                self["__cache__"] = initial.get_absolute_url()
+                if self["__cache__"] and anchor:
+                    self["__cache__"] += anchor
 
     @property
     def url(self) -> str:
