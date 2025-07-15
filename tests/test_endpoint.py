@@ -328,6 +328,20 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
         self.assertEqual(destinations["text"], "Third party models")
         self.assertEqual(len(destinations["children"]), 1)
 
+    def test_invalid_page_number(self):
+        with self.login_user_context(self.get_superuser()):
+            response = self.client.get(self.endpoint + "?page=999")
+            self.assertEqual(response.status_code, 404)
+
+    def test_missing_permissions(self):
+        with self.login_user_context(self.get_staff_user_with_no_permissions()):
+            response = self.client.get(self.endpoint)
+            self.assertEqual(response.status_code, 200)
+            data = response.json()
+
+        # Empty results as the user has no permissions
+        self.assertEqual(data, {"results": [], "pagination": {"more": False}})
+
 
 class LinkEndpointMultiModelTestCase(CMSTestCase):
     def setUp(self):

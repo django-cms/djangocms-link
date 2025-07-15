@@ -117,7 +117,10 @@ class AdminUrlsView(BaseListView):
         max_items = self.get_page() * self.paginate_by
         objects = []
         for qs in qs_list:
-            objects.extend(qs)
+            for item in qs:
+                if self.has_perm(self.request, item):
+                    objects.append(item)
+
             if len(objects) >= max_items:
                 # No need to touch the rest of the querysets
                 # as we have enough items already
