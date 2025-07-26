@@ -60,7 +60,7 @@ class LinkPlugin(CMSPluginBase):
             language = getattr(obj, "language", None)
         else:
             language = request.GET.get("plugin_language", None)
-        for widget in self.fields["link"].widget.widgets:
+        for widget in form.base_fields["link"].widget.widgets:
             widget.language = language
         return form
 
