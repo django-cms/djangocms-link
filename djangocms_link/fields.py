@@ -375,7 +375,6 @@ class LinkField(JSONField):
         super().__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
-        print("LinkField.formfield", kwargs)
         kwargs.setdefault("form_class", LinkFormField)
         return super().formfield(**kwargs)
 
