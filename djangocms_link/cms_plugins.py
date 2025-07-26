@@ -1,11 +1,37 @@
 from django.contrib.sites.shortcuts import get_current_site
+from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 from cms.plugin_base import CMSPluginBase
 from cms.plugin_pool import plugin_pool
 
+from djangocms_link.fields import LinkFormField
+
 from .helpers import get_link
 from .models import Link
+
+
+def patch(original: callable) -> callable:
+    """
+    Patch the get_form method of CMSPluginBase to ensure that the
+    'language' attribute is set on the link widget's subwidgets in the form.
+    This is necessary for the link field to work correctly with multilingual sites and
+    shows the internal link target in the correct plugin language.
+    """
+    def get_form(self, request, obj: models.Model | None = None, change: bool = False, **kwargs):
+        form = original(self, request, obj=obj, change=change, **kwargs)
+
+        language = getattr(obj, "language", None) if obj else request.GET.get("plugin_language", None)
+        for field in form.base_fields.values():
+            if isinstance(field, LinkFormField):
+                for widget in field.widget.widgets:
+                    widget.language = language
+        return form
+
+    return get_form
+
+
+CMSPluginBase.get_form = patch(CMSPluginBase.get_form)
 
 
 class LinkPlugin(CMSPluginBase):
@@ -52,17 +78,6 @@ class LinkPlugin(CMSPluginBase):
             instance.link, getattr(get_current_site(context["request"]), "id", None)
         )
         return super().render(context, instance, placeholder)
-
-    def get_form(self, request, obj=None, **kwargs):
-        form = super().get_form(request, obj, **kwargs)
-
-        if obj:
-            language = getattr(obj, "language", None)
-        else:
-            language = request.GET.get("plugin_language", None)
-        for widget in form.base_fields["link"].widget.widgets:
-            widget.language = language
-        return form
 
 
 plugin_pool.register_plugin(LinkPlugin)

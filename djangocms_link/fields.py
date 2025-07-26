@@ -10,8 +10,10 @@ from django.contrib.sites.models import Site
 from django.db import models
 from django.db.models import JSONField, ManyToOneRel
 from django.forms import Field, MultiWidget, Select, TextInput, URLInput
+from django.utils.encoding import force_str
 from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import override
 
 from cms.utils.urlutils import admin_reverse
 
@@ -47,25 +49,26 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
         return internal_obj
 
     def optgroups(self, name: str, value: str, attr: str | None = None):
-        default = (None, [], 0)
-        groups = [default]
-        has_selected = False
-        selected_choices = set(value)
-        if not self.is_required and not self.allow_multiple_selected:
-            default[1].append(self.create_option(name, "", "", False, 0))
+        with override(self.language or get_language()):
+            default = (None, [], 0)
+            groups = [default]
+            has_selected = False
+            selected_choices = set(value)
+            if not self.is_required and not self.allow_multiple_selected:
+                default[1].append(self.create_option(name, "", "", False, 0))
 
-        for option_value, option_label in zip(value, self.get_internal_obj(value)):
-            selected = str(option_value) in value and (
-                has_selected is False or self.allow_multiple_selected
-            )
-            has_selected |= selected
-            index = len(default[1])
-            subgroup = default[1]
-            subgroup.append(
-                self.create_option(
-                    name, option_value, option_label, selected_choices, index
+            for option_value, option_label in zip(value, self.get_internal_obj(value)):
+                selected = str(option_value) in value and (
+                    has_selected is False or self.allow_multiple_selected
                 )
-            )
+                has_selected |= selected
+                index = len(default[1])
+                subgroup = default[1]
+                subgroup.append(
+                    self.create_option(
+                        name, option_value, force_str(option_label), selected_choices, index
+                    )
+                )
         return groups
 
     def get_url(self):
