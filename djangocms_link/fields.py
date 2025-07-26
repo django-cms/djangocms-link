@@ -308,9 +308,9 @@ class LinkFormField(Field):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault("help_text", _("Select a link type and provide a link."))
         kwargs.setdefault("initial", {})
+        kwargs.setdefault("widget", LinkWidget(language=kwargs.pop("language", None)))
         kwargs.pop("encoder", None)  # Passed from LinkField's JSONField parent class
         kwargs.pop("decoder", None)  # but not needed
-        self.widget = LinkWidget(language=kwargs.pop("language", None))
         super().__init__(*args, **kwargs)
         if isinstance(self.initial, dict):
             self.initial = self.prepare_value(self.initial)
