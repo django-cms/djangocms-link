@@ -31,8 +31,9 @@ MINIMUM_INPUT_LENGTH = getattr(settings, "DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH", 
 
 
 class LinkAutoCompleteWidget(AutocompleteSelect):
-    def __init__(self, attrs: dict | None = None):
+    def __init__(self, attrs: dict | None = None, language: str | None = None):
         super().__init__(None, None, attrs)
+        self.language = language
 
     def get_internal_obj(self, values: list[str | None]) -> list[models.Model | None]:
         internal_obj = []
@@ -68,7 +69,10 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
         return groups
 
     def get_url(self):
-        return admin_reverse("djangocms_link_link_urls")
+        reverse = admin_reverse("djangocms_link_link_urls")
+        if self.language:
+            return f"{reverse}?language={self.language}"
+        return reverse
 
     def build_attrs(self, base_attrs: dict, extra_attrs: dict | None = None) -> dict:
         """
@@ -233,7 +237,7 @@ class LinkWidget(MultiWidget):
         js = ("djangocms_link/link-widget.js",)
         css = {"all": ("djangocms_link/link-widget.css",)}
 
-    def __init__(self, site_selector: bool | None = None):
+    def __init__(self, site_selector: bool | None = None, language: str | None = None):
         if site_selector is None:
             site_selector = LinkWidget.default_site_selector
 
@@ -242,22 +246,24 @@ class LinkWidget(MultiWidget):
             for key, widget in _available_widgets.items()
             if key == "always" or _mapping[key] in link_types
         ]
-        if site_selector and "internal_link" in allowed_link_types:
+        if "internal_link" in allowed_link_types:
             index = next(
                 i
                 for i, widget in enumerate(widgets)
                 if widget.attrs.get("widget") == "internal_link"
             )
-            widgets.insert(
-                index,
-                SiteAutocompleteSelect(
-                    attrs={
-                        "class": "js-link-site-widget",
-                        "widget": "site",
-                        "data-placeholder": _("Select site"),
-                    },
-                ),
-            )  # Site selector
+            widgets[index].language = language  # Pass on language to the internal link widget
+            if site_selector:
+                widgets.insert(
+                    index,
+                    SiteAutocompleteSelect(
+                        attrs={
+                            "class": "js-link-site-widget",
+                            "widget": "site",
+                            "data-placeholder": _("Select site"),
+                        },
+                    ),
+                )  # Site selector
 
         # Remember which widget expets its content at which position
         self.data_pos = {
@@ -287,7 +293,6 @@ class LinkWidget(MultiWidget):
 
 
 class LinkFormField(Field):
-    widget = LinkWidget
     external_link_validators = [
         ExtendedURLValidator(allowed_link_types=allowed_link_types)
     ]
@@ -302,6 +307,7 @@ class LinkFormField(Field):
         kwargs.setdefault("initial", {})
         kwargs.pop("encoder", None)  # Passed from LinkField's JSONField parent class
         kwargs.pop("decoder", None)  # but not needed
+        self.widget = LinkWidget(language=kwargs.pop("language", None))
         super().__init__(*args, **kwargs)
         if isinstance(self.initial, dict):
             self.initial = self.prepare_value(self.initial)
@@ -366,6 +372,7 @@ class LinkField(JSONField):
         super().__init__(*args, **kwargs)
 
     def formfield(self, **kwargs):
+        print("LinkField.formfield", kwargs)
         kwargs.setdefault("form_class", LinkFormField)
         return super().formfield(**kwargs)
 

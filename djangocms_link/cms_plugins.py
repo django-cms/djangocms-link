@@ -53,5 +53,16 @@ class LinkPlugin(CMSPluginBase):
         )
         return super().render(context, instance, placeholder)
 
+    def get_form(self, request, obj=None, **kwargs):
+        form = super().get_form(request, obj, **kwargs)
+
+        if obj:
+            language = getattr(obj, "language", None)
+        else:
+            language = request.GET.get("plugin_language", None)
+        for widget in self.fields["link"].widget.widgets:
+            widget.language = language
+        return form
+
 
 plugin_pool.register_plugin(LinkPlugin)
