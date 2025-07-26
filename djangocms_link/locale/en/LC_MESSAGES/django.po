@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 14:11+0100\n"
+"POT-Creation-Date: 2025-07-26 23:36+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,123 +17,127 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-#: djangocms_link/apps.py:7
+
+#: admin.py:105
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr ""
+
+#: apps.py:10
 msgid "django CMS Link"
 msgstr ""
 
-#: djangocms_link/cms_plugins.py:15 djangocms_link/models.py:73
+#: cms_plugins.py:41 models.py:70
 msgid "Link"
-msgstr "Link"
+msgstr ""
 
-#: djangocms_link/cms_plugins.py:27
+#: cms_plugins.py:64
 msgid "Advanced settings"
-msgstr "Advanced settings"
+msgstr ""
 
-#: djangocms_link/fields.py:26 djangocms_link/forms.py:15
+#: fields.py:155
 msgid "Internal link"
-msgstr "Internal link"
+msgstr ""
 
-#: djangocms_link/fields.py:27
+#: fields.py:156
 msgid "External link/anchor"
 msgstr ""
 
-#: djangocms_link/fields.py:30
+#: fields.py:159
 msgid "File link"
 msgstr ""
 
-#: djangocms_link/fields.py:169
+#: fields.py:191
 msgid "No destination selected. Use the dropdown to select a destination."
 msgstr ""
 
-#: djangocms_link/fields.py:175
+#: fields.py:198
 msgid "https://example.com or #anchor"
-msgstr "https://example.com or #anchor"
-
-#: djangocms_link/fields.py:177
-msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll "
-"to."
 msgstr ""
 
-#: djangocms_link/fields.py:186
+#: fields.py:200
+msgid ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr ""
+
+#: fields.py:209
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
 msgstr ""
 
-#: djangocms_link/fields.py:188
+#: fields.py:211
 msgid "Select internal destination"
 msgstr ""
 
-#: djangocms_link/fields.py:194
+#: fields.py:217
 msgid "#anchor"
 msgstr ""
 
-#: djangocms_link/fields.py:195
+#: fields.py:218
 msgid "Provide an anchor to scroll to."
 msgstr ""
 
-#: djangocms_link/fields.py:206
+#: fields.py:228
 msgid "Select a file as destination."
 msgstr ""
 
-#: djangocms_link/fields.py:215
+#: fields.py:266
 msgid "Select site"
-msgstr "Select site"
+msgstr ""
 
-#: djangocms_link/fields.py:249
+#: fields.py:309
 msgid "Select a link type and provide a link."
 msgstr ""
 
-#: djangocms_link/models.py:24
+#: models.py:25
 msgid "Default"
 msgstr ""
 
-#: djangocms_link/models.py:41
+#: models.py:38
 msgid "Open in new window"
 msgstr ""
 
-#: djangocms_link/models.py:42
+#: models.py:39
 msgid "Open in same window"
 msgstr ""
 
-#: djangocms_link/models.py:43
+#: models.py:40
 msgid "Delegate to parent"
 msgstr ""
 
-#: djangocms_link/models.py:44
+#: models.py:41
 msgid "Delegate to top"
 msgstr ""
 
-#: djangocms_link/models.py:61
+#: models.py:58
 msgid "Template"
 msgstr ""
 
-#: djangocms_link/models.py:67
+#: models.py:64
 msgid "Display name"
 msgstr ""
 
-#: djangocms_link/models.py:77
+#: models.py:74
 msgid "Target"
 msgstr ""
 
-#: djangocms_link/models.py:83
+#: models.py:80
 msgid "Attributes"
 msgstr ""
 
-#: djangocms_link/models.py:109
+#: models.py:106
 msgid "<link is missing>"
 msgstr ""
 
-#: djangocms_link/models.py:118
+#: models.py:115
 msgid "Link is required."
-msgstr "Link is required."
+msgstr ""
 
-#: djangocms_link/validators.py:50
+#: validators.py:61
 msgid "Enter a valid anchor"
-msgstr "Enter a valid anchor"
+msgstr ""
 
-#: djangocms_link/validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr "Enter a valid phone number"
+msgstr ""
