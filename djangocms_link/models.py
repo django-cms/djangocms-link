@@ -9,6 +9,7 @@ from django.db import models
 from django.utils.encoding import force_str
 from django.utils.translation import gettext
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import override
 
 from cms.models import CMSPlugin
 
@@ -100,7 +101,8 @@ class AbstractLink(CMSPlugin):
         return self.name or str(self.pk)
 
     def get_short_description(self):
-        link = self.get_link()
+        with override(self.language):
+            link = self.get_link()
         if self.name and link:
             return f"{self.name} ({link})"
         return self.name or link or gettext("<link is missing>")
