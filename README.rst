@@ -236,6 +236,13 @@ cached.)::
     obj = MyModel.objects.first()
     url = obj.link.url
 
+A ``LinkField`` used inside a CMS plugins will automatically show internal link targets in
+the language of the plugin (which might differ from the edit dialog's language). This
+follows the principle the all content in the dialog is shown in the object's language.
+
+If you use ``LinkField`` in your own models, the default will be the current language.
+
+
 Link models
 -----------
 
