@@ -73,9 +73,7 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
 
     def get_url(self):
         reverse = admin_reverse("djangocms_link_link_urls")
-        if self.language:
-            return f"{reverse}?language={self.language}"
-        return reverse
+        return f"{reverse}?language={self.language}" if self.language else reverse
 
     def build_attrs(self, base_attrs: dict, extra_attrs: dict | None = None) -> dict:
         """
