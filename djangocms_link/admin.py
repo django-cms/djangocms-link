@@ -139,17 +139,17 @@ class AdminUrlsView(BaseListView):
                 obj = get_manager(model).get(pk=pk)
                 if model_str == "cms.page":
                     obj.__link_text__ = obj.get_admin_content(language, fallback=True).title
-                return JsonResponse(self.serialize_result(obj))
+                return JsonResponse(self.serialize_result(obj) or {})
             elif model_str == "cms.page":
                 obj = get_manager(model).get(pk=pk)
                 obj.__link_text__ = obj.get_title(language, fallback=True)
-                return JsonResponse(self.serialize_result(obj))
+                return JsonResponse(self.serialize_result(obj) or {})
 
             if hasattr(model_admin, "get_link_queryset"):
                 obj = model_admin.get_link_queryset(self.request, None).get(pk=pk)
             else:
                 obj = model_admin.get_queryset(self.request).get(pk=pk)
-            return JsonResponse(self.serialize_result(obj))
+            return JsonResponse(self.serialize_result(obj) or {})
         except Exception as e:
             return JsonResponse({"error": str(e)})
 
@@ -166,7 +166,9 @@ class AdminUrlsView(BaseListView):
                     "text": previous_model.capitalize(),
                     "children": [],
                 }
-            model["children"].append(self.serialize_result(obj))
+            data = self.serialize_result(obj)
+            if data:  # Only append if serialization was successful
+                model["children"].append(data)
         if model:
             results.append(model)
         return results
@@ -181,12 +183,16 @@ class AdminUrlsView(BaseListView):
             obj.__link_text__ = obj.get_admin_content(self.language).title
 
         indentation = UNICODE_SPACE * (max(getattr(obj, "__depth__", 1), 1) - 1)
-        return {
-            "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
-            "text": indentation + (getattr(obj, "__link_text__", str(obj)) or str(obj)),
-            "url": obj.get_absolute_url(),
-            "verbose_name": str(obj._meta.verbose_name).capitalize(),
-        }
+        url = obj.get_absolute_url()
+        text = getattr(obj, "__link_text__", str(obj)) or str(obj)
+        if url and text:
+            return {
+                "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
+                "text": indentation + text,
+                "url": url,
+                "verbose_name": str(obj._meta.verbose_name).capitalize(),
+            }
+        return None
 
     def get_queryset(self) -> QuerySet:
         """Return queryset based on ModelAdmin.get_search_results()."""
