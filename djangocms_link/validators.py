@@ -114,7 +114,7 @@ class ExtendedURLValidator(IntranetURLValidator):
 
 @deconstructible
 class RelativeURLValidator:
-    message = _("Enter a valid realtive link")
+    message = _("Enter a valid relative link")
     code = "invalid"
 
     def __init__(self, allowed_link_types: list = None, **kwargs):
