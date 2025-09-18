@@ -12,7 +12,7 @@
             min-width: unset;
         }
     }
-    .external_link, .internal_link, .file_link, .anchor, .site {
+    .external_link, .relative_link, .internal_link, .file_link, .anchor, .site {
         display: none;
         padding: 0;
         select, input {
@@ -23,7 +23,8 @@
             width: 100% !important;
         }
     }
-    .external_link {
+    .external_link,
+    .relative_link {
         width: 75%;
     }
     .internal_link {
@@ -37,6 +38,7 @@
         margin-top: 0.5em;
     }
     &[data-type="external_link"] .external_link,
+    &[data-type="relative_link"] .relative_link,
     &[data-type="internal_link"] .internal_link,
     &[data-type="internal_link"] .site,
     &[data-type="internal_link"] .anchor

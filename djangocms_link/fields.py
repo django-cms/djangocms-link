@@ -24,7 +24,11 @@ try:
 except (ModuleNotFoundError, ImportError):  # pragma: no cover
     File = None
 
-from djangocms_link.validators import AnchorValidator, ExtendedURLValidator
+from djangocms_link.validators import (
+    AnchorValidator,
+    ExtendedURLValidator,
+    RelativeURLValidator,
+)
 
 
 MINIMUM_INPUT_LENGTH = getattr(settings, "DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH", 0)
@@ -146,6 +150,7 @@ class SiteAutocompleteSelect(AutocompleteSelect):
 # Configure the LinkWidget
 link_types = {
     "internal_link": _("Internal link"),
+    "relative_link": _("Relative link"),
     "external_link": _("External link/anchor"),
 }
 if File:
@@ -155,7 +160,15 @@ if File:
 allowed_link_types = getattr(
     settings,
     "DJANGOCMS_LINK_ALLOWED_LINK_TYPES",
-    ("internal_link", "external_link", "file_link", "anchor", "mailto", "tel"),
+    (
+        "internal_link",
+        "relative_link",
+        "external_link",
+        "file_link",
+        "anchor",
+        "mailto",
+        "tel",
+    ),
 )
 
 # Adjust example uri schemes to allowed link types
@@ -195,6 +208,16 @@ _available_widgets = {
             ).format(example_uri_scheme),
         },
     ),  # External link input
+    "relative_link": TextInput(
+        attrs={
+            "widget": "relative_link",
+            "placeholder": _("/some/path - optionally append #anchor"),
+            "data-help": _(
+                "Provide a relative link. Optionally, add an #anchor "
+                "(including the #) to scroll to."
+            ).format(example_uri_scheme),
+        },
+    ),  # Relative link input
     "internal_link": LinkAutoCompleteWidget(
         attrs={
             "widget": "internal_link",
@@ -291,6 +314,9 @@ class LinkFormField(Field):
     external_link_validators = [
         ExtendedURLValidator(allowed_link_types=allowed_link_types)
     ]
+    relative_link_validators = [
+        RelativeURLValidator(allowed_link_types=allowed_link_types)
+    ]
     internal_link_validators = []
     file_link_validators = []
     anchor_validators = [AnchorValidator()]
@@ -314,6 +340,10 @@ class LinkFormField(Field):
             pos = self._get_pos("external_link")
             multi_value[0] = "external_link"
             multi_value[pos] = value["external_link"]
+        elif "relative_link" in value:
+            pos = self._get_pos("relative_link")
+            multi_value[0] = "relative_link"
+            multi_value[pos] = value["relative_link"]
         elif "internal_link" in value:
             pos = self._get_pos("internal_link")
             anchor_pos = self._get_pos("anchor")

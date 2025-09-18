@@ -23,6 +23,13 @@ class LinkModelTestCase(TestCase):
             target=TARGET_CHOICES[0][0],
             attributes="{'data-type', 'link'}",
         )
+        self.relative_link = Link.objects.create(
+            template="default",
+            name="My Link",
+            link={"relative_link": "/some/path#some_id"},
+            target=TARGET_CHOICES[0][0],
+            attributes="{'data-type', 'link'}",
+        )
         self.external_link = Link.objects.create(
             template="default",
             name="My Link",
@@ -65,7 +72,7 @@ class LinkModelTestCase(TestCase):
 
     def test_link_instance(self):
         instances = Link.objects.all()
-        self.assertEqual(instances.count(), 6)  # 4 instances created in setUp
+        self.assertEqual(instances.count(), 7)  # 7 instances created in setUp
 
         instance = Link.objects.first()
         self.assertEqual(instance.template, "default")
@@ -98,6 +105,9 @@ class LinkModelTestCase(TestCase):
         )
         self.assertEqual(self.file_link.get_link(), self.file.url)
         self.assertEqual(
+            self.relative_link.get_link(), "/some/path#some_id"
+        )
+        self.assertEqual(
             self.external_link.get_link(), "https://www.django-cms.org/#some_id"
         )
         self.assertEqual(self.phone_link.get_link(), "tel:+0123456789")
@@ -111,6 +121,9 @@ class LinkModelTestCase(TestCase):
             to_url(self.internal_link.link), self.page.get_absolute_url() + "#some_id"
         )
         self.assertEqual(to_url(self.file_link.link), self.file.url)
+        self.assertEqual(
+            to_url(self.relative_link.link), "/some/path#some_id"
+        )
         self.assertEqual(
             to_url(self.external_link.link), "https://www.django-cms.org/#some_id"
         )
@@ -129,6 +142,10 @@ class LinkModelTestCase(TestCase):
                 "internal_link": f"cms.page:{self.page.pk}",
                 "__cache__": self.page.get_absolute_url(),
             }
+        )
+        self.assertEqual(
+            to_link("/some/path#some_id"),
+            {"relative_link": "/some/path#some_id"},
         )
         self.assertEqual(
             to_link("https://www.django-cms.org/#some_id"),
