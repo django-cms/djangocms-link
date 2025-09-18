@@ -31,6 +31,17 @@ class LinkDictTestCase(TestCase):
         self.assertEqual(link1.type, "external_link")
         self.assertEqual(link2.type, "external_link")
 
+    def test_relative_link(self):
+        link1 = LinkDict({"relative_link": "/some/path"})
+        link2 = LinkDict("/other/path")
+
+        self.assertEqual(link1.url, "/some/path")
+        self.assertEqual(link2.url, "/other/path")
+        self.assertEqual(str(link1), "/some/path")
+        self.assertEqual(str(link2), "/other/path")
+        self.assertEqual(link1.type, "relative_link")
+        self.assertEqual(link2.type, "relative_link")
+
     def test_file_link(self):
         file = File.objects.create(file=get_random_string(5))
         link1 = LinkDict({"file_link": file.pk})

@@ -110,3 +110,32 @@ class ExtendedURLValidator(IntranetURLValidator):
         ):
             return EmailValidator()(value[7:])
         return super().__call__(value)
+
+
+@deconstructible
+class RelativeURLValidator:
+    message = _("Enter a valid realtive link")
+    code = "invalid"
+
+    def __init__(self, allowed_link_types: list = None, **kwargs):
+        self.allowed_link_types = allowed_link_types
+        super().__init__(**kwargs)
+
+    def __call__(self, value: str):
+        if not isinstance(value, str) or len(value) > URLValidator.max_length:
+            raise ValidationError(self.message, code=self.code, params={"value": value})
+        if URLValidator.unsafe_chars.intersection(value):
+            raise ValidationError(self.message, code=self.code, params={"value": value})
+        if (
+            value.startswith("/") and (
+                self.allowed_link_types is not None
+                and "relative_link" not in self.allowed_link_types
+            )
+            or not value.startswith("/")
+        ):
+            raise ValidationError(
+                self.message,
+                code=self.code,
+                params={"value": value},
+            )
+        return value

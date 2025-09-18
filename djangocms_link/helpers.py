@@ -49,6 +49,8 @@ def get_link(link_field_value: dict, site_id: int | None = None) -> str | None:
         if link_field_value["external_link"].startswith("tel:"):
             return link_field_value["external_link"].replace(" ", "")
         return link_field_value["external_link"] or None
+    elif "relative_link" in link_field_value:
+        return link_field_value["relative_link"] or None
 
     if "__cache__" in link_field_value:
         return link_field_value["__cache__"] or None
@@ -82,7 +84,10 @@ class LinkDict(dict):
             if isinstance(initial, dict):
                 self.update(initial)
             elif isinstance(initial, str):
-                self["external_link"] = initial
+                if initial.startswith("/"):
+                    self["relative_link"] = initial
+                else:
+                    self["external_link"] = initial
             elif isinstance(initial, File):
                 self["file_link"] = initial.pk
             elif isinstance(initial, models.Model):
@@ -100,7 +105,7 @@ class LinkDict(dict):
 
     @property
     def type(self) -> str:
-        for key in ("internal_link", "file_link"):
+        for key in ("relative_link", "internal_link", "file_link"):
             if key in self:
                 return key
         if "external_link" in self:
