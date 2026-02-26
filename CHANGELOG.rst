@@ -2,6 +2,17 @@
 Changelog
 =========
 
+5.1.1 (2026-02-26)
+==================
+
+* fix: Fail silently on uninstalled models or apps
+
+5.1.0 (2025-06-16)
+==================
+
+* feat: Indent page titles according to tree structure by @fsbraun in https://github.com/django-cms/djangocms-link/pull/246
+* feat: allow model objects as a parameter of `to_url` template tag by @fsbraun in https://github.com/django-cms/djangocms-link/pull/245
+
 5.0.1 (2025-03-31)
 ==================
 

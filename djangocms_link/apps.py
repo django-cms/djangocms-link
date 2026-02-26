@@ -40,9 +40,9 @@ class DjangoCmsLinkConfig(AppConfig):
                         raise ImproperlyConfigured(
                             f"{model.__name__} needs to implement get_absolute_url method"
                         )
-                    admin = admin.site._registry[model]
-                    if admin not in admins:
-                        admins.append(admin)
+                    model_admin = admin.site._registry[model]
+                    if model_admin not in admins:
+                        admins.append(model_admin)
                 elif not isinstance(model, ModelAdmin):  # pragma: no cover
                     raise ImproperlyConfigured(
                         'DJANGOCMS_LINK_LINKABLE_MODELS must be a list of string "app_label.model_name"'
