@@ -10,7 +10,11 @@ from django.views.static import serve
 admin.autodiscover()
 
 urlpatterns = [
-    re_path(r"^media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT, "show_indexes": True}),  # NOQA
+    re_path(
+        r"^media/(?P<path>.*)$",
+        serve,
+        {"document_root": settings.MEDIA_ROOT, "show_indexes": True},
+    ),  # NOQA
     re_path(r"^jsi18n/(?P<packages>\S+?)/$", JavaScriptCatalog.as_view()),  # NOQA
 ]
 i18n_urls = [

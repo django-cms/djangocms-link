@@ -125,10 +125,11 @@ class LinkModelTestCase(TestCase):
 
         self.assertEqual(to_link(self.file), {"file_link": self.file.pk})
         self.assertEqual(
-            to_link(self.page), {
+            to_link(self.page),
+            {
                 "internal_link": f"cms.page:{self.page.pk}",
                 "__cache__": self.page.get_absolute_url(),
-            }
+            },
         )
         self.assertEqual(
             to_link("https://www.django-cms.org/#some_id"),

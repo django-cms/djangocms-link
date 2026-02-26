@@ -100,8 +100,13 @@ class LinkFieldTestCase(TestCase):
         class LinkForm(forms.Form):
             link_field = LinkFormField(required=False)
 
-        form = LinkForm(initial={"link_field": {"internal_link": f"cms.page:{self.page.id}"}})
-        self.assertEqual(form["link_field"].value(), ["internal_link", None, f"cms.page:{self.page.id}", "", None])
+        form = LinkForm(
+            initial={"link_field": {"internal_link": f"cms.page:{self.page.id}"}}
+        )
+        self.assertEqual(
+            form["link_field"].value(),
+            ["internal_link", None, f"cms.page:{self.page.id}", "", None],
+        )
 
     def test_form_field_initial_works_external(self):
         class LinkForm(forms.Form):
@@ -109,7 +114,9 @@ class LinkFieldTestCase(TestCase):
 
         some_string = "https://example.com"
         form = LinkForm(initial={"link_field": {"external_link": some_string}})
-        self.assertEqual(form["link_field"].value(), ["external_link", some_string, None, None, None])
+        self.assertEqual(
+            form["link_field"].value(), ["external_link", some_string, None, None, None]
+        )
 
     def test_widget_renders_selection(self):
         widget = LinkWidget()

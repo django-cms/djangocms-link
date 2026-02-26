@@ -23,9 +23,7 @@ class LinkableModelsTestCase(TestCase):
 
                 # Verify that the admin was registered
                 self.assertEqual(len(link_admin.REGISTERED_ADMIN), 1)
-                self.assertEqual(
-                    link_admin.REGISTERED_ADMIN[0].model, ThirdPartyModel
-                )
+                self.assertEqual(link_admin.REGISTERED_ADMIN[0].model, ThirdPartyModel)
         finally:
             # Restore original value
             link_admin.REGISTERED_ADMIN = original_registered
@@ -77,9 +75,7 @@ class LinkableModelsTestCase(TestCase):
 
                 # Verify that the admin was only registered once
                 self.assertEqual(len(link_admin.REGISTERED_ADMIN), 1)
-                self.assertEqual(
-                    link_admin.REGISTERED_ADMIN[0].model, ThirdPartyModel
-                )
+                self.assertEqual(link_admin.REGISTERED_ADMIN[0].model, ThirdPartyModel)
         finally:
             # Restore original value
             link_admin.REGISTERED_ADMIN = original_registered
@@ -97,7 +93,9 @@ class LinkableModelsTestCase(TestCase):
             # Create a test model without get_absolute_url
             # Import a model that doesn't have get_absolute_url
             with override_settings(
-                DJANGOCMS_LINKABLE_MODELS=["sites.site"]  # Site model doesn't have get_absolute_url
+                DJANGOCMS_LINKABLE_MODELS=[
+                    "sites.site"
+                ]  # Site model doesn't have get_absolute_url
             ):
                 app_config = DjangoCmsLinkConfig("djangocms_link", link_admin)
                 with self.assertRaises(ImproperlyConfigured) as cm:

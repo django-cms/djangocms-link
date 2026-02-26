@@ -65,9 +65,7 @@ class LinkDictTestCase(TestCase):
         self.assertEqual(link3.type, "internal_link")
 
     def test_no_internal_link(self):
-        obj = ThirdPartyModel.objects.create(
-            name=get_random_string(5), path=""
-        )
+        obj = ThirdPartyModel.objects.create(name=get_random_string(5), path="")
         link1 = LinkDict(
             {"internal_link": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}"}
         )
@@ -108,9 +106,7 @@ class LinkDictTestCase(TestCase):
         obj = ThirdPartyModel.objects.create(
             name=get_random_string(5), path=get_random_string(5)
         )
-        link = Link.objects.create(
-            link=LinkDict(obj)
-        )
+        link = Link.objects.create(link=LinkDict(obj))
         self.assertEqual(link.link.url, link.link["__cache__"])  # populates cache
         link.save()
 
@@ -141,7 +137,9 @@ class LinkDictTestCase(TestCase):
             rendered = template.render(Context({"page": page}))
         self.assertEqual(rendered, f"//example.com{page.get_absolute_url()}")
 
-        rendered = template.render(Context({"page": None}))  # Illegal value: fail silently
+        rendered = template.render(
+            Context({"page": None})
+        )  # Illegal value: fail silently
         self.assertEqual(rendered, "")
 
         rendered = template.render(Context({"page": LinkDict("tel:+1234567890")}))
