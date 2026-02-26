@@ -1,4 +1,3 @@
-from django.contrib import admin
 from django.test import TestCase, override_settings
 
 from djangocms_link.apps import DjangoCmsLinkConfig
