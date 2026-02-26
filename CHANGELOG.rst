@@ -2,6 +2,12 @@
 Changelog
 =========
 
+5.1.1 (2025-04-01)
+==================
+
+* fix: Fail silently on uninstalled models or apps
+
+
 5.0.1 (2025-03-31)
 ==================
 
