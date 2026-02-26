@@ -11,7 +11,7 @@ Changelog
 ==================
 
 * feat: Indent page titles according to tree structure by @fsbraun in https://github.com/django-cms/djangocms-link/pull/246
-* feat: allow model objects as parameter of `to_url` template tag. by @fsbraun in https://github.com/django-cms/djangocms-link/pull/245
+* feat: allow model objects as a parameter of `to_url` template tag by @fsbraun in https://github.com/django-cms/djangocms-link/pull/245
 
 5.0.1 (2025-03-31)
 ==================
