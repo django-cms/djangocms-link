@@ -70,7 +70,7 @@ class AbstractLink(CMSPlugin):
         verbose_name=_("Link"),
     )
     # advanced options
-    target = models.CharField(
+    link_target = models.CharField(
         verbose_name=_("Target"),
         choices=TARGET_CHOICES,
         blank=True,
@@ -79,7 +79,7 @@ class AbstractLink(CMSPlugin):
     attributes = AttributesField(
         verbose_name=_("Attributes"),
         blank=True,
-        excluded_keys=["href", "target"],
+        excluded_keys=["href", "link_target"],
     )
 
     # Add an app namespace to related_name to avoid field name clashes
