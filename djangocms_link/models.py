@@ -79,7 +79,7 @@ class AbstractLink(CMSPlugin):
     attributes = AttributesField(
         verbose_name=_("Attributes"),
         blank=True,
-        excluded_keys=["href", "link_target"],
+        excluded_keys=["href", "target"],
     )
 
     # Add an app namespace to related_name to avoid field name clashes
