@@ -20,42 +20,42 @@ class LinkModelTestCase(TestCase):
             template="default",
             name="My Link",
             link={"internal_link": f"cms.page:{self.page.pk}", "anchor": "#some_id"},
-            target=TARGET_CHOICES[0][0],
+            link_target=TARGET_CHOICES[0][0],
             attributes="{'data-type', 'link'}",
         )
         self.external_link = Link.objects.create(
             template="default",
             name="My Link",
             link={"external_link": "https://www.django-cms.org/#some_id"},
-            target=TARGET_CHOICES[0][0],
+            link_target=TARGET_CHOICES[0][0],
             attributes="{'data-type', 'link'}",
         )
         self.phone_link = Link.objects.create(
             template="default",
             name="My Link",
             link={"external_link": "tel:+01 234 567 89"},
-            target=TARGET_CHOICES[0][0],
+            link_target=TARGET_CHOICES[0][0],
             attributes="{'data-type', 'link'}",
         )
         self.mail_link = Link.objects.create(
             template="default",
             name="My Link",
             link={"external_link": "mailto:test@email.com"},
-            target=TARGET_CHOICES[0][0],
+            link_target=TARGET_CHOICES[0][0],
             attributes="{'data-type', 'link'}",
         )
         self.anchor_link = Link.objects.create(
             template="default",
             name="My Link",
             link={"external_link": "#some_id"},
-            target=TARGET_CHOICES[0][0],
+            link_target=TARGET_CHOICES[0][0],
             attributes="{'data-type', 'link'}",
         )
         self.file_link = Link.objects.create(
             template="default",
             name="My Link",
             link={"file_link": self.file.pk},
-            target=TARGET_CHOICES[0][0],
+            link_target=TARGET_CHOICES[0][0],
             attributes="{'data-type', 'link'}",
         )
 
@@ -70,7 +70,7 @@ class LinkModelTestCase(TestCase):
         instance = Link.objects.first()
         self.assertEqual(instance.template, "default")
         self.assertEqual(instance.name, "My Link")
-        self.assertEqual(instance.target, "_blank")
+        self.assertEqual(instance.link_target, "_blank")
         self.assertEqual(instance.attributes, "{'data-type', 'link'}")
 
         # test strings
