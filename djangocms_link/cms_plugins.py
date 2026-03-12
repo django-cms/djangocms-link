@@ -28,7 +28,7 @@ class LinkPlugin(CMSPluginBase):
                 "fields": (
                     "name",
                     "link",
-                    "target",
+                    "link_target",
                 )
             },
         ),

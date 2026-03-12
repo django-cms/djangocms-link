@@ -3,6 +3,8 @@ Enables the user to add a "Link" plugin that displays a link
 using the HTML <a> tag.
 """
 
+import warnings
+
 from django.conf import settings
 from django.core.exceptions import ValidationError
 from django.db import models
@@ -70,12 +72,32 @@ class AbstractLink(CMSPlugin):
         verbose_name=_("Link"),
     )
     # advanced options
-    target = models.CharField(
+    link_target = models.CharField(
         verbose_name=_("Target"),
         choices=TARGET_CHOICES,
         blank=True,
         max_length=255,
     )
+
+    # Keep 'target' for backwards compatibility.
+    @property
+    def target(self):
+        warnings.warn(
+            "djangocms_link.AbstractLink.target is deprecated. Use djangocms_link.AbstractLink.link_target instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        return self.link_target
+
+    @target.setter
+    def target(self, value):
+        warnings.warn(
+            "djangocms_link.AbstractLink.target is deprecated. Use djangocms_link.AbstractLink.link_target instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        self.link_target = value
+
     attributes = AttributesField(
         verbose_name=_("Attributes"),
         blank=True,
