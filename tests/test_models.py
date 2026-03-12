@@ -147,3 +147,14 @@ class LinkModelTestCase(TestCase):
         # now we allow the link to be empty
         instance.link_is_optional = True
         instance.clean()
+
+    def test_target_maps_to_link_target(self):
+        instance = self.internal_link
+
+        # Test getter
+        instance.link_target = "_blank"
+        self.assertEqual(instance.target, "_blank")
+
+        # Test setter
+        instance.target = "_self"
+        self.assertEqual(instance.link_target, "_self")
