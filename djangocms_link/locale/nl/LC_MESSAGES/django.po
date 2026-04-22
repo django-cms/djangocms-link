@@ -7,15 +7,16 @@
 # Angelo Dini <angelo.dini@divio.ch>, 2016
 # Evelijn Saaltink <evelijnsaaltink@gmail.com>, 2016
 # Heimen Stoffels <vistausss@fastmail.com>, 2019
+# Stefan van den Eertwegh <stefan@corebyte.nl>, 2025
 # 
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 14:11+0100\n"
+"POT-Creation-Date: 2025-07-26 23:36+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
-"Last-Translator: Heimen Stoffels <vistausss@fastmail.com>, 2019\n"
+"Last-Translator: Stefan van den Eertwegh <stefan@corebyte.nl>, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/divio/teams/58664/nl/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,123 +24,133 @@ msgstr ""
 "Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: djangocms_link/apps.py:7
-msgid "django CMS Link"
+#: admin.py:105
+msgid "Page is not “last”, nor can it be converted to an int."
 msgstr ""
+"Pagina is niet de “laatste” en kan ook niet worden omgezet naar een int."
 
-#: djangocms_link/cms_plugins.py:15 djangocms_link/models.py:73
+#: apps.py:10
+msgid "django CMS Link"
+msgstr "django CMS Link"
+
+#: cms_plugins.py:41 models.py:70
 msgid "Link"
 msgstr "Link"
 
-#: djangocms_link/cms_plugins.py:27
+#: cms_plugins.py:64
 msgid "Advanced settings"
 msgstr "Geavanceerde instellingen"
 
-#: djangocms_link/fields.py:26 djangocms_link/forms.py:15
+#: fields.py:155
 msgid "Internal link"
 msgstr "Interne link"
 
-#: djangocms_link/fields.py:27
+#: fields.py:156
 msgid "External link/anchor"
-msgstr ""
+msgstr "Externe link/anchor"
 
-#: djangocms_link/fields.py:30
+#: fields.py:159
 msgid "File link"
 msgstr "Bestandslink"
 
-#: djangocms_link/fields.py:169
+#: fields.py:191
 msgid "No destination selected. Use the dropdown to select a destination."
 msgstr ""
+"Geen bestemming geselecteerd. Gebruik de dropdown om een bestemming te "
+"selecteren."
 
-#: djangocms_link/fields.py:175
+#: fields.py:198
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com of #anchor"
 
-#: djangocms_link/fields.py:177
+#: fields.py:200
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
 msgstr ""
+"Geef een link naar een externe URL, inclusief het schema, zoals {}. Voeg "
+"eventueel een #anker (inclusief #) toe om naartoe te scrollen."
 
-#: djangocms_link/fields.py:186
+#: fields.py:209
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
 msgstr ""
+"Selecteer uit beschikbare interne bestemmingen. Voeg optioneel een anker toe"
+" om naartoe te scrollen."
 
-#: djangocms_link/fields.py:188
+#: fields.py:211
 msgid "Select internal destination"
-msgstr ""
+msgstr "Selecteer interne bestemming"
 
-#: djangocms_link/fields.py:194
+#: fields.py:217
 msgid "#anchor"
-msgstr ""
+msgstr "#anker"
 
-#: djangocms_link/fields.py:195
+#: fields.py:218
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "Zorg voor een anker waar naartoe gescrolld kan worden."
 
-#: djangocms_link/fields.py:206
+#: fields.py:228
 msgid "Select a file as destination."
-msgstr ""
+msgstr "Selecteer een bestand als bestemming."
 
-#: djangocms_link/fields.py:215
+#: fields.py:266
 msgid "Select site"
-msgstr ""
+msgstr "Selecteer site"
 
-#: djangocms_link/fields.py:249
+#: fields.py:309
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "Selecteer een link type en voorzie deze van een link."
 
-#: djangocms_link/models.py:24
+#: models.py:25
 msgid "Default"
 msgstr "Standaard"
 
-#: djangocms_link/models.py:41
+#: models.py:38
 msgid "Open in new window"
 msgstr "Openen in nieuw venster"
 
-#: djangocms_link/models.py:42
+#: models.py:39
 msgid "Open in same window"
 msgstr "Openen in hetzelfde venster"
 
-#: djangocms_link/models.py:43
+#: models.py:40
 msgid "Delegate to parent"
 msgstr "Naar ouder delegeren"
 
-#: djangocms_link/models.py:44
+#: models.py:41
 msgid "Delegate to top"
 msgstr "Naar bovenkant delegeren"
 
-#: djangocms_link/models.py:61
+#: models.py:58
 msgid "Template"
 msgstr "Sjabloon"
 
-#: djangocms_link/models.py:67
+#: models.py:64
 msgid "Display name"
 msgstr "Getoonde naam"
 
-#: djangocms_link/models.py:77
+#: models.py:74
 msgid "Target"
 msgstr "Doel"
 
-#: djangocms_link/models.py:83
+#: models.py:80
 msgid "Attributes"
 msgstr "Eigenschappen"
 
-#: djangocms_link/models.py:109
+#: models.py:106
 msgid "<link is missing>"
 msgstr "<link is missing>"
 
-#: djangocms_link/models.py:118
+#: models.py:115
 msgid "Link is required."
-msgstr ""
+msgstr "Link is verreist."
 
-#: djangocms_link/validators.py:50
+#: validators.py:61
 msgid "Enter a valid anchor"
-msgstr ""
+msgstr "Type een geldig anker"
 
-#: djangocms_link/validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "Type een geldig telefoonnummer"
