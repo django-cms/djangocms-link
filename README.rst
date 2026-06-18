@@ -5,49 +5,34 @@ django CMS Link
 |pypi| |coverage| |python| |django| |djangocms|
 
 **django CMS Link** is a plugin for `django CMS <https://django-cms.org>`_ that
-allows you to add links on your site.
+lets you add links to your site — to other pages, external URLs, files, phone
+numbers, email addresses, and more.
 
-This plugin supports child plugins. If you add an other plugin as a
-child it will take this content instead of the link name as the content of the link.
+The plugin supports child plugins: if you add another plugin as a child, its
+content is used as the link's content instead of the link name.
 
 This addon is compatible with `Divio Cloud <http://divio.com>`_.
 
 .. image:: preview.gif
 
 
-Contributing
+Requirements
 ============
 
-This is a an open-source project. We'll be delighted to receive your
-feedback in the form of issues and pull requests. Before submitting your
-pull request, please review our `contribution guidelines
-<http://docs.django-cms.org/en/latest/contributing/index.html>`_.
-
-We're grateful to all contributors who have helped create and maintain this package.
-Contributors are listed at the `contributors <https://github.com/divio/djangocms-link/graphs/contributors>`_
-section.
-
-One of the easiest contributions you can make is helping to translate this addon on
-`Transifex <https://www.transifex.com/projects/p/djangocms-link/>`_.
-
-
-Documentation
-=============
-
-See ``REQUIREMENTS`` in the `setup.py <https://github.com/divio/djangocms-link/blob/master/setup.py>`_
-file for additional dependencies:
-
-django CMS Link has a weak dependency on django Filer. If
+django CMS Link has a weak dependency on django Filer: if
 `django Filer <http://django-filer.readthedocs.io/en/latest/installation.html>`_
-is installed and configured appropriately, django CMS Link will allow linking
-files.
+is installed and configured, you will also be able to link to files.
 
 * Django Filer 1.7 or higher
-* djangocms-atrributes-field 1.0 or higher
+* djangocms-attributes-field 1.0 or higher
+
+See ``REQUIREMENTS`` in the `setup.py
+<https://github.com/divio/djangocms-link/blob/master/setup.py>`_ file for the
+full list of dependencies.
 
 
 Installation
-------------
+============
 
 For a manual install:
 
@@ -57,10 +42,10 @@ For a manual install:
 
 
 Configuration
--------------
+=============
 
 Link templates
-..............
+--------------
 
 Note that the provided templates are very minimal by design. You are encouraged
 to adapt and override them to your project's requirements.
@@ -81,7 +66,7 @@ copying the ``default`` folder inside that directory and renaming it to
 ``feature``.
 
 Link types
-...........
+----------
 
 By default, django CMS Link provides three major link types: internal, external,
 and file link (if django-filer is installed).
@@ -102,11 +87,11 @@ the type of links accepted. The default is::
     ]
 
 Linkable models
-...............
+---------------
 
 *Added in version 5:*
 
-By default, django CMS Link will autodetect which Django or Django CMS models it
+By default, django CMS Link will autodetect which Django or django CMS models it
 can create internal links to. To make a model appear in the list of internal
 links, you need to
 
@@ -122,7 +107,7 @@ in the ``DJANGOCMS_LINKABLE_MODELS`` setting using dotted strings::
         'myapp.mymodel',
     ]
 
-Attention: ``Page`` objects are always linkable.
+Note: ``Page`` objects are always linkable.
 
 django CMS Link will use the model admin's ``get_queryset`` method to retrieve
 the list of objects. If you want to add custom filters, sorting or site
@@ -135,7 +120,7 @@ handling, you can add a ``get_link_queryset`` method to the model admin::
             return qs.filter(is_public=True)
 
 Large search-sets
-..................
+-----------------
 
 If you have a large number of internally linkable models, you can use the
 ``DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH`` setting to require a minimum number of
@@ -152,11 +137,10 @@ The default is 50::
     # Show 100 results per "page"
     DJANGOCMS_LINK_PAGINATE_BY = 100
 
-Note, that in the admin paginated search results repeat the model's verbose name.
-
+Note that in the admin, paginated search results repeat the model's verbose name.
 
 Site-selectors
-..............
+--------------
 
 For multi-site installations, django CMS Link provides a site selector. It can be
 switched on or off by setting the ``DJANGOCMS_LINK_SITE_SELECTOR`` setting to
@@ -166,7 +150,7 @@ switched on or off by setting the ``DJANGOCMS_LINK_SITE_SELECTOR`` setting to
     DJANGOCMS_LINK_SITE_SELECTOR = True
 
 Non-standard hostnames
-......................
+----------------------
 
 To support environments where non-standard URLs would otherwise work, this
 project supports the defining of an additional RegEx pattern for validating the
@@ -179,7 +163,7 @@ For example:
     # RFC1123 Pattern:
     DJANGOCMS_LINK_INTRANET_HOSTNAME_PATTERN = r'[a-z,0-9,-]{1,15}'
 
-Either of these might accept a URL such as:
+This might accept a URL such as:
 
 .. code-block:: html
 
@@ -189,7 +173,7 @@ If left undefined, the normal Django URLValidator will be used.
 
 
 Link fields
------------
+===========
 
 *Added in version 5:*
 
@@ -210,8 +194,8 @@ widget. This allows you to use the link field in your own models or admin forms.
 ``djangocms_link.helpers.LinkDict``, a direct subclass of ``dict``.
 (An empty link will be ``{}``.)
 
-To render the link field in a template, convert the ``LinkDict`` to string,
-use the ``LinkDict`` property ``url`` or the new template tag ``to_url``.
+To render the link field in a template, convert the ``LinkDict`` to a string,
+use the ``LinkDict`` property ``url``, or use the new template tag ``to_url``.
 The ``type`` property returns the link type::
 
     {# Variant 1 #}
@@ -228,21 +212,22 @@ The ``type`` property returns the link type::
         <a href="{{ obj.link.url }}">External link</a>
     {% endif %}
 
-
-To turn the ``LinkField``'s ``LinkDict`` dictionary into a URL in python code,
+To turn the ``LinkField``'s ``LinkDict`` dictionary into a URL in Python code,
 use the ``url`` property. (It will hit the database if needed. Results are
 cached.)::
 
     obj = MyModel.objects.first()
     url = obj.link.url
 
-Link models
------------
 
-The ``to_url`` template filter and the ``get_obj_link`` helper function can be used to
-get the full url for any Django model instance. This is useful on multi-site installations.
-``to_url`` assumes that the model instance's site is found in its ``site`` property. If the
-model belongs to a different site than the current, it prepends the domain name of that site.
+Link models
+===========
+
+The ``to_url`` template filter and the ``get_obj_link`` helper function can be
+used to get the full URL for any Django model instance. This is useful on
+multi-site installations. ``to_url`` assumes that the model instance's site is
+found in its ``site`` property. If the model belongs to a different site than the
+current one, it prepends the domain name of that site.
 
 Example::
 
@@ -252,8 +237,9 @@ Example::
         <a href="{{ obj|to_url }}">Link to object</a>  {# will include the site domain if needed #}
     {% endif %}
 
-Running Tests
--------------
+
+Running tests
+=============
 
 You can run tests by executing::
 
@@ -264,29 +250,46 @@ You can run tests by executing::
 
 
 Upgrading from version 4 or lower
----------------------------------
+=================================
 
 django CMS Link 5 is a rewrite of the plugin. If you are updating from
 version 4 or lower, you will notice
 
 * the **new re-usable link widget**, greatly simplifying the user interface
 * an **improved management of multi-site situations**, essentially avoiding the
-  unnecessary additon of the host name to the URL in plugin instances that
-  are not in a page placeholder (such as links on aliases or static placeholder)
-* a **re-usable admin endpoint** for querying available links which can be used
-  by other apps such as djangocms-text.
-* Links are generated by template tags or template filters instead of the
+  unnecessary addition of the host name to the URL in plugin instances that
+  are not in a page placeholder (such as links on aliases or static placeholders)
+* a **re-usable admin endpoint** for querying available links, which can be used
+  by other apps such as djangocms-text
+* links are now generated by template tags or template filters instead of the
   model's ``get_link()`` method. This allows multiple links in future models. The
   ``get_link()`` method on the plugin's model is still available for backwards
   compatibility.
 
-Migrations should automatically existing plugin instances to the new model
-fields.
+Migrations should automatically convert existing plugin instances to the new
+model fields.
 
-**WARNING:** We strongly recommend to backup your database before updating to
-version 5. The migration is tested but they do remove unused fields from
+**WARNING:** We strongly recommend backing up your database before updating to
+version 5. The migration is tested, but it does remove unused fields from
 the database. If you encounter any issues, please report them on
 `GitHub <https://github.com/django-cms/djangocms-link/issues>`_.
+
+
+Contributing
+============
+
+This is an open-source project. We'll be delighted to receive your
+feedback in the form of issues and pull requests. Before submitting your
+pull request, please review our `contribution guidelines
+<http://docs.django-cms.org/en/latest/contributing/index.html>`_.
+
+We're grateful to all contributors who have helped create and maintain this package.
+Contributors are listed in the `contributors
+<https://github.com/divio/djangocms-link/graphs/contributors>`_ section.
+
+One of the easiest contributions you can make is helping to translate this addon on
+`Transifex <https://www.transifex.com/projects/p/djangocms-link/>`_.
+
 
 .. |pypi| image:: https://badge.fury.io/py/djangocms-link.svg
     :target: http://badge.fury.io/py/djangocms-link
