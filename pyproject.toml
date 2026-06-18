@@ -1,6 +1,5 @@
 [build-system]
 build-backend = "setuptools.build_meta"
-
 requires = [ "setuptools", "setuptools-scm" ]
 
 [project]
@@ -15,7 +14,6 @@ authors = [
   { name = "Divio AG", email = "info@divio.ch" },
 ]
 requires-python = ">=3.9"
-
 classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
@@ -39,6 +37,7 @@ classifiers = [
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
   "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: 3.14",
   "Topic :: Internet :: WWW/HTTP",
   "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
   "Topic :: Software Development",
@@ -53,12 +52,8 @@ urls.Homepage = "https://github.com/django-cms/djangocms-link"
 
 [tool.setuptools]
 packages = [ "djangocms_link" ]
-
-[tool.setuptools.dynamic]
-version = { attr = "djangocms_link.__version__" }
-
-[tool.setuptools.package-data]
-djangocms_link = [ "static/**/*", "templates/**/*", "locale/**/*", "LICENSE", "README.rst" ]
+package-data.djangocms_link = [ "LICENSE", "locale/**/*", "README.rst", "static/**/*", "templates/**/*" ]
+dynamic.version = { attr = "djangocms_link.__version__" }
 
 [tool.ruff]
 exclude = [
@@ -67,19 +62,9 @@ exclude = [
 
 [tool.isort]
 line_length = 119
-skip = [
-  "manage.py",
-  "*migrations*",
-  ".tox",
-  ".eggs",
-  ".env",
-  ".venv",
-  "data",
-]
-include_trailing_comma = true
 multi_line_output = 5
+include_trailing_comma = true
 lines_after_imports = 2
-default_section = "THIRDPARTY"
 sections = [
   "FUTURE",
   "STDLIB",
@@ -89,7 +74,17 @@ sections = [
   "FIRSTPARTY",
   "LOCALFOLDER",
 ]
+default_section = "THIRDPARTY"
 known_first_party = "djangocms_link"
+skip = [
+  "*migrations*",
+  ".eggs",
+  ".env",
+  ".tox",
+  ".venv",
+  "data",
+  "manage.py",
+]
 known_cms = [ "cms", "menus" ]
 known_django = "django"
 
@@ -112,23 +107,21 @@ exclude = [
   "tmp",
 ]
 
-[tool.coverage.run]
-branch = true
-source = [ "djangocms_link" ]
-omit = [
+[tool.coverage]
+run.branch = true
+run.omit = [
   "migrations/*",
   "tests/*",
 ]
-
-[tool.coverage.report]
-exclude_lines = [
-  "pragma: no cover",
+run.source = [ "djangocms_link" ]
+report.exclude_lines = [
   "def __repr__",
+  "if __name__ == .__main__.:",
+  "if 0:",
   "if self.debug:",
   "if settings.DEBUG",
+  "pragma: no cover",
   "raise AssertionError",
   "raise NotImplementedError",
-  "if 0:",
-  "if __name__ == .__main__.:",
 ]
-ignore_errors = true
+report.ignore_errors = true
