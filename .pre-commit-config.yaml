@@ -15,7 +15,7 @@ repos:
         args: ["--py310-plus"]
         language_version: python3.13
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: '1.30.0'
+    rev: '1.31.1'
     hooks:
       - id: django-upgrade
         args: [--target-version, "5.2"]
@@ -38,6 +38,6 @@ repos:
       - id: isort
 
   - repo: https://github.com/tox-dev/pyproject-fmt
-    rev: v2.23.0
+    rev: v2.25.1
     hooks:
     - id: pyproject-fmt
