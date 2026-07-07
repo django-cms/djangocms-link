@@ -200,8 +200,6 @@ class AdminUrlsView(BaseListView):
                 if content:
                     obj.__link_text__ = content.title
                     link_language = content.language
-            elif hasattr(obj, "get_title"):
-                obj.__link_text__ = obj.get_title(self.language, fallback=True)
 
         indentation = UNICODE_SPACE * (max(getattr(obj, "__depth__", 1), 1) - 1)
         url = self.get_absolute_url(obj, link_language)
