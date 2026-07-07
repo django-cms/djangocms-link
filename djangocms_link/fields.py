@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import json
 
 from django.apps import apps
@@ -243,7 +244,7 @@ class LinkWidget(MultiWidget):
             site_selector = LinkWidget.default_site_selector
 
         widgets = [
-            widget
+            copy.deepcopy(widget)
             for key, widget in _available_widgets.items()
             if key == "always" or _mapping[key] in link_types
         ]
@@ -253,7 +254,6 @@ class LinkWidget(MultiWidget):
                 for i, widget in enumerate(widgets)
                 if widget.attrs.get("widget") == "internal_link"
             )
-            widgets[index].language = language  # Pass on language to the internal link widget
             if site_selector:
                 widgets.insert(
                     index,
@@ -271,6 +271,12 @@ class LinkWidget(MultiWidget):
             widget.attrs.get("widget"): i for i, widget in enumerate(widgets)
         }
         super().__init__(widgets)
+        self.set_language(language)
+
+    def set_language(self, language: str | None) -> None:
+        for widget in self.widgets:
+            if isinstance(widget, LinkAutoCompleteWidget):
+                widget.language = language
 
     def get_context(self, name: str, value: str | None, attrs: dict) -> dict:
         if not self.is_required:

@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import copy
+
 from django.contrib.sites.shortcuts import get_current_site
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -24,10 +26,10 @@ def patch(original: callable) -> callable:
         form = original(self, request, obj=obj, change=change, **kwargs)
 
         language = getattr(obj, "language", None) if obj else request.GET.get("plugin_language", None)
+        form.base_fields = copy.deepcopy(form.base_fields)
         for field in form.base_fields.values():
             if isinstance(field, LinkFormField):
-                for widget in field.widget.widgets:
-                    widget.language = language
+                field.widget.set_language(language)
         return form
 
     return get_form
