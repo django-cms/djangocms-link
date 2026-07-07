@@ -2,169 +2,145 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Angelo Dini <angelo.dini@divio.ch>, 2016
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 13:38+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Angelo Dini <angelo.dini@divio.ch>, 2016\n"
 "Language-Team: Norwegian (https://app.transifex.com/divio/teams/58664/no/)\n"
+"Language: no\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: no\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:7
-msgid "django CMS Link"
-msgstr ""
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "Siden er ikke “last”, og den kan heller ikke konverteres til et heltall."
 
-#: cms_plugins.py:15 models.py:73
+#: apps.py:10
+msgid "django CMS Link"
+msgstr "django CMS-lenke"
+
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
 msgstr "Lenke"
 
-#: cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
-msgstr ""
+msgstr "Avanserte innstillinger"
 
-#: fields.py:26 forms.py:15
+#: fields.py:154
 msgid "Internal link"
-msgstr ""
+msgstr "Intern lenke"
 
-#: fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "Ekstern lenke/anker"
 
-#: fields.py:30
+#: fields.py:158
 msgid "File link"
-msgstr ""
+msgstr "Fillenke"
 
-#: fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "Ingen destinasjon valgt. Bruk nedtrekksmenyen for å velge en destinasjon."
 
-#: fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com eller #anker"
 
-#: fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
-msgstr ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr "Oppgi en lenke til en ekstern URL, inkludert skjema som {}. Legg eventuelt til et #anker (inkludert #) å rulle til."
 
-#: fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "Velg blant tilgjengelige interne destinasjoner. Legg eventuelt til et anker å rulle til."
 
-#: fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "Velg intern destinasjon"
 
-#: fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#anker"
 
-#: fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "Oppgi et anker å rulle til."
 
-#: fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "Velg en fil som destinasjon."
 
-#: fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "Velg nettsted"
 
-#: fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "Velg en lenketype og oppgi en lenke."
 
-#: models.py:24
+#: models.py:28
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: models.py:41
 msgid "Open in new window"
-msgstr ""
+msgstr "Åpne i nytt vindu"
 
 #: models.py:42
 msgid "Open in same window"
-msgstr ""
+msgstr "Åpne i samme vindu"
 
 #: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "Deleger til overordnet"
 
 #: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "Deleger til toppen"
 
 #: models.py:61
 msgid "Template"
-msgstr ""
+msgstr "Mal"
 
 #: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "Visningsnavn"
 
 #: models.py:77
 msgid "Target"
-msgstr ""
+msgstr "Mål"
 
-#: models.py:83
+#: models.py:103
 msgid "Attributes"
-msgstr ""
+msgstr "Attributter"
 
-#: models.py:109
+#: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<lenke mangler>"
 
-#: models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "Lenke er påkrevd."
 
-#: validators.py:50
-msgid "Enter a valid anchor."
-msgstr ""
+#: validators.py:61
+msgid "Enter a valid anchor"
+msgstr "Skriv inn et gyldig anker"
 
-#: validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
-
-#~ msgid "Link settings"
-#~ msgstr ""
-
-#~ msgid "If provided, overrides the external link."
-#~ msgstr ""
-
-#~ msgid "If provided links a file from the filer app."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Appends the value only after the internal or external link. Do <em>not</em> "
-#~ "include a preceding \"#\" symbol."
-#~ msgstr ""
-
-#~ msgid "Email address"
-#~ msgstr ""
-
-#~ msgid "Phone"
-#~ msgstr ""
-
-#~ msgid "Only one of {0} or {1} may be given."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
-#~ msgstr ""
+msgstr "Skriv inn et gyldig telefonnummer"

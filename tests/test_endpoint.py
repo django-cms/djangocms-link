@@ -84,7 +84,7 @@ class LinkEndpointTestCase(CMSTestCase):
                         language = "en" if language == query_params else language
                         expected = str(db_page.get_admin_content(language).title)
                     except AttributeError:
-                        expected = str(db_page)
+                        expected = str(db_page.get_title(language, fallback=True))
                     self.assertEqual(page["text"].strip(UNICODE_SPACE), expected)
 
                     # Check that the number of leading UNICODE_SPACE characters matches the page depth
@@ -124,6 +124,38 @@ class LinkEndpointTestCase(CMSTestCase):
         self.assertIn("pagination", data)
         self.assertEqual(data["pagination"]["more"], False)
 
+    def test_language_selector_includes_requested_language_and_fallback(self):
+        french_page = create_page(
+            title="French only",
+            template="page.html",
+            language="fr",
+        )
+        english_page = create_page(
+            title="English only",
+            template="page.html",
+            language="en",
+        )
+        french_url = french_page.get_absolute_url("fr")
+        english_url = english_page.get_absolute_url("en")
+        try:
+            with self.login_user_context(self.get_superuser()):
+                response = self.client.get(self.endpoint + "?language=fr")
+                self.assertEqual(response.status_code, 200)
+                data = response.json()
+        finally:
+            french_page.delete()
+            english_page.delete()
+
+        pages = data["results"][0]["children"]
+        page_by_id = {page["id"]: page for page in pages}
+
+        french_result = page_by_id[f"cms.page:{french_page.pk}"]
+        english_result = page_by_id[f"cms.page:{english_page.pk}"]
+        self.assertEqual(french_result["text"], "French only")
+        self.assertEqual(french_result["url"], french_url)
+        self.assertEqual(english_result["text"], "English only")
+        self.assertEqual(english_result["url"], english_url)
+
     def test_site_selector(self):
         with self.login_user_context(self.get_superuser()):
             response = self.client.get(self.endpoint + "?app_label=2")
@@ -159,7 +191,7 @@ class LinkEndpointTestCase(CMSTestCase):
         self.assertIn("url", data)
         self.assertEqual(data["id"], "cms.page:1")
         self.assertEqual(data["text"], "racine")
-        self.assertEqual(data["url"], self.root_page.get_absolute_url())
+        self.assertEqual(data["url"], self.root_page.get_absolute_url("fr"))
 
     def test_outdated_reference(self):
         with self.login_user_context(self.get_superuser()):

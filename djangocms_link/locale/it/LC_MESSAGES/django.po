@@ -2,142 +2,146 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # yakky <i.spalletti@nephila.it>, 2019
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 14:11+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: yakky <i.spalletti@nephila.it>, 2019\n"
 "Language-Team: Italian (https://app.transifex.com/divio/teams/58664/it/)\n"
+"Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: it\n"
-"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
 
-#: djangocms_link/apps.py:7
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "La pagina non è “last” né può essere convertita in un intero."
+
+#: apps.py:10
 msgid "django CMS Link"
-msgstr ""
+msgstr "Link django CMS"
 
-#: djangocms_link/cms_plugins.py:15 djangocms_link/models.py:73
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
 msgstr "Collegamento"
 
-#: djangocms_link/cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
 msgstr "Impostazioni avanzate"
 
-#: djangocms_link/fields.py:26 djangocms_link/forms.py:15
+#: fields.py:154
 msgid "Internal link"
 msgstr "Collegamento interno"
 
-#: djangocms_link/fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "Link esterno/ancora"
 
-#: djangocms_link/fields.py:30
+#: fields.py:158
 msgid "File link"
 msgstr "Collegamento a file"
 
-#: djangocms_link/fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "Nessuna destinazione selezionata. Usa il menu a discesa per selezionare una destinazione."
 
-#: djangocms_link/fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com o #ancora"
 
-#: djangocms_link/fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
-msgstr ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr "Fornisci un link a un URL esterno, includendo lo schema come {}. Facoltativamente, aggiungi un #ancora (incluso #) a cui scorrere."
 
-#: djangocms_link/fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "Seleziona tra le destinazioni interne disponibili. Facoltativamente, aggiungi un’ancora a cui scorrere."
 
-#: djangocms_link/fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "Seleziona destinazione interna"
 
-#: djangocms_link/fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#ancora"
 
-#: djangocms_link/fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "Fornisci un’ancora a cui scorrere."
 
-#: djangocms_link/fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "Seleziona un file come destinazione."
 
-#: djangocms_link/fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "Seleziona sito"
 
-#: djangocms_link/fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "Seleziona un tipo di link e fornisci un link."
 
-#: djangocms_link/models.py:24
+#: models.py:28
 msgid "Default"
 msgstr "Default"
 
-#: djangocms_link/models.py:41
+#: models.py:41
 msgid "Open in new window"
 msgstr "Apri in una nuova finestra"
 
-#: djangocms_link/models.py:42
+#: models.py:42
 msgid "Open in same window"
 msgstr "Apri nella stessa finestra"
 
-#: djangocms_link/models.py:43
+#: models.py:43
 msgid "Delegate to parent"
 msgstr "Apri nella finestra superiore"
 
-#: djangocms_link/models.py:44
+#: models.py:44
 msgid "Delegate to top"
 msgstr "Apri nella finestra principale"
 
-#: djangocms_link/models.py:61
+#: models.py:61
 msgid "Template"
 msgstr "Template"
 
-#: djangocms_link/models.py:67
+#: models.py:67
 msgid "Display name"
 msgstr "Testo mostrato"
 
-#: djangocms_link/models.py:77
+#: models.py:77
 msgid "Target"
 msgstr "Apertura"
 
-#: djangocms_link/models.py:83
+#: models.py:103
 msgid "Attributes"
 msgstr "Attributi"
 
-#: djangocms_link/models.py:109
+#: models.py:130
 msgid "<link is missing>"
 msgstr "<link is missing>"
 
-#: djangocms_link/models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "Il link è obbligatorio."
 
-#: djangocms_link/validators.py:50
+#: validators.py:61
 msgid "Enter a valid anchor"
-msgstr ""
+msgstr "Inserisci un’ancora valida"
 
-#: djangocms_link/validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "Inserisci un numero di telefono valido"

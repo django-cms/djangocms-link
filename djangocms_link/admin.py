@@ -8,6 +8,7 @@ from django.db.models import F, Model, Prefetch, Q, QuerySet
 from django.http import Http404, HttpRequest, JsonResponse
 from django.urls import path
 from django.utils.translation import gettext as _
+from django.utils.translation import override
 from django.views.generic.list import BaseListView
 
 from cms import __version__
@@ -138,22 +139,23 @@ class AdminUrlsView(BaseListView):
             model = apps.get_model(app, model)
             model_admin = self.admin_site._registry.get(model)
             language = get_language_from_request(request)
+            self.language = language
 
             if model_str == "cms.page" and _version >= 4 or model_admin is None:
                 obj = get_manager(model).get(pk=pk)
                 if model_str == "cms.page":
                     obj.__link_text__ = obj.get_admin_content(language, fallback=True).title
-                return JsonResponse(self.serialize_result(obj))
+                return JsonResponse(self.serialize_result(obj) or {})
             elif model_str == "cms.page":
                 obj = get_manager(model).get(pk=pk)
                 obj.__link_text__ = obj.get_title(language, fallback=True)
-                return JsonResponse(self.serialize_result(obj))
+                return JsonResponse(self.serialize_result(obj) or {})
 
             if hasattr(model_admin, "get_link_queryset"):
                 obj = model_admin.get_link_queryset(self.request, None).get(pk=pk)
             else:
                 obj = model_admin.get_queryset(self.request).get(pk=pk)
-            return JsonResponse(self.serialize_result(obj))
+            return JsonResponse(self.serialize_result(obj) or {})
         except Exception as e:
             return JsonResponse({"error": str(e)})
 
@@ -170,7 +172,9 @@ class AdminUrlsView(BaseListView):
                     "text": previous_model.capitalize(),
                     "children": [],
                 }
-            model["children"].append(self.serialize_result(obj))
+            data = self.serialize_result(obj)
+            if data:  # Only append if serialization was successful
+                model["children"].append(data)
         if model:
             results.append(model)
         return results
@@ -180,17 +184,46 @@ class AdminUrlsView(BaseListView):
         Convert the provided model object to a dictionary that is added to the
         results list.
         """
-        if isinstance(obj, Page) and hasattr(obj, "prefetched_content") and hasattr(obj, "get_admin_content"):
-            obj.admin_content_cache = {trans.language: trans for trans in obj.prefetched_content}
-            obj.__link_text__ = obj.get_admin_content(self.language).title
+        link_language = getattr(obj, "__link_language__", getattr(self, "language", None))
+        if isinstance(obj, Page):
+            if hasattr(obj, "get_admin_content"):
+                if hasattr(obj, "prefetched_content"):
+                    obj.admin_content_cache = {
+                        trans.language: trans for trans in obj.prefetched_content
+                    }
+                content = obj.get_admin_content(self.language, fallback=True)
+                if content:
+                    obj.__link_text__ = content.title
+                    link_language = content.language
+            elif hasattr(obj, "get_title_obj"):
+                content = obj.get_title_obj(self.language, fallback=True)
+                if content:
+                    obj.__link_text__ = content.title
+                    link_language = content.language
 
         indentation = UNICODE_SPACE * (max(getattr(obj, "__depth__", 1), 1) - 1)
-        return {
-            "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
-            "text": indentation + (getattr(obj, "__link_text__", str(obj)) or str(obj)),
-            "url": obj.get_absolute_url(),
-            "verbose_name": str(obj._meta.verbose_name).capitalize(),
-        }
+        url = self.get_absolute_url(obj, link_language)
+        text = getattr(obj, "__link_text__", str(obj)) or str(obj)
+        if url and text:
+            return {
+                "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
+                "text": indentation + text,
+                "url": url,
+                "verbose_name": str(obj._meta.verbose_name).capitalize(),
+            }
+        return None
+
+    def get_absolute_url(self, obj: Model, language: str | None = None) -> str:
+        if isinstance(obj, Page):
+            try:
+                return obj.get_absolute_url(language=language)
+            except TypeError:
+                try:
+                    return obj.get_absolute_url(language)
+                except TypeError:
+                    with override(language):
+                        return obj.get_absolute_url()
+        return obj.get_absolute_url()
 
     def get_queryset(self) -> QuerySet:
         """Return queryset based on ModelAdmin.get_search_results()."""

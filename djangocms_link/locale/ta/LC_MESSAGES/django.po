@@ -2,142 +2,145 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Angelo Dini <angelo.dini@divio.ch>, 2016
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 14:11+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Angelo Dini <angelo.dini@divio.ch>, 2016\n"
 "Language-Team: Tamil (https://app.transifex.com/divio/teams/58664/ta/)\n"
+"Language: ta\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ta\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: djangocms_link/apps.py:7
-msgid "django CMS Link"
-msgstr ""
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "பக்கம் “last” அல்ல, மேலும் அதை முழு எண்ணாக மாற்ற முடியாது."
 
-#: djangocms_link/cms_plugins.py:15 djangocms_link/models.py:73
+#: apps.py:10
+msgid "django CMS Link"
+msgstr "django CMS இணைப்பு"
+
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
 msgstr "தொடுப்பு"
 
-#: djangocms_link/cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
-msgstr ""
+msgstr "மேம்பட்ட அமைப்புகள்"
 
-#: djangocms_link/fields.py:26 djangocms_link/forms.py:15
+#: fields.py:154
 msgid "Internal link"
-msgstr ""
+msgstr "உள் இணைப்பு"
 
-#: djangocms_link/fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "வெளி இணைப்பு/நங்கூரம்"
 
-#: djangocms_link/fields.py:30
+#: fields.py:158
 msgid "File link"
-msgstr ""
+msgstr "கோப்பு இணைப்பு"
 
-#: djangocms_link/fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "இலக்கு எதுவும் தேர்ந்தெடுக்கப்படவில்லை. இலக்கைத் தேர்வுசெய்ய கீழ்தோன்றலைப் பயன்படுத்தவும்."
 
-#: djangocms_link/fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com அல்லது #anchor"
 
-#: djangocms_link/fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
-msgstr ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr "வெளி URL-க்கு இணைப்பை வழங்கவும், {} போன்ற திட்டத்தையும் சேர்த்து. விருப்பமாக, உருட்டிச் செல்ல #anchor (# உட்பட) சேர்க்கவும்."
 
-#: djangocms_link/fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "கிடைக்கும் உள் இலக்குகளில் இருந்து தேர்ந்தெடுக்கவும். விருப்பமாக, உருட்டிச் செல்ல ஒரு நங்கூரத்தைச் சேர்க்கவும்."
 
-#: djangocms_link/fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "உள் இலக்கைத் தேர்ந்தெடுக்கவும்"
 
-#: djangocms_link/fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#anchor"
 
-#: djangocms_link/fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "உருட்டிச் செல்ல ஒரு நங்கூரத்தை வழங்கவும்."
 
-#: djangocms_link/fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "இலக்காக ஒரு கோப்பைத் தேர்ந்தெடுக்கவும்."
 
-#: djangocms_link/fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "தளத்தைத் தேர்ந்தெடுக்கவும்"
 
-#: djangocms_link/fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "இணைப்பு வகையைத் தேர்ந்தெடுத்து இணைப்பை வழங்கவும்."
 
-#: djangocms_link/models.py:24
+#: models.py:28
 msgid "Default"
-msgstr ""
+msgstr "இயல்புநிலை"
 
-#: djangocms_link/models.py:41
+#: models.py:41
 msgid "Open in new window"
-msgstr ""
+msgstr "புதிய சாளரத்தில் திற"
 
-#: djangocms_link/models.py:42
+#: models.py:42
 msgid "Open in same window"
-msgstr ""
+msgstr "அதே சாளரத்தில் திற"
 
-#: djangocms_link/models.py:43
+#: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "பெற்றோருக்கு ஒப்படை"
 
-#: djangocms_link/models.py:44
+#: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "மேல்மட்டத்துக்கு ஒப்படை"
 
-#: djangocms_link/models.py:61
+#: models.py:61
 msgid "Template"
-msgstr ""
+msgstr "வார்ப்புரு"
 
-#: djangocms_link/models.py:67
+#: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "காட்டும் பெயர்"
 
-#: djangocms_link/models.py:77
+#: models.py:77
 msgid "Target"
-msgstr ""
+msgstr "இலக்கு"
 
-#: djangocms_link/models.py:83
+#: models.py:103
 msgid "Attributes"
-msgstr ""
+msgstr "பண்புக்கூறுகள்"
 
-#: djangocms_link/models.py:109
+#: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<இணைப்பு இல்லை>"
 
-#: djangocms_link/models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "இணைப்பு அவசியம்."
 
-#: djangocms_link/validators.py:50
+#: validators.py:61
 msgid "Enter a valid anchor"
-msgstr ""
+msgstr "சரியான நங்கூரத்தை உள்ளிடவும்"
 
-#: djangocms_link/validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "சரியான தொலைபேசி எண்ணை உள்ளிடவும்"
