@@ -84,7 +84,7 @@ class LinkEndpointTestCase(CMSTestCase):
                         language = "en" if language == query_params else language
                         expected = str(db_page.get_admin_content(language).title)
                     except AttributeError:
-                        expected = str(db_page)
+                        expected = str(db_page.get_title(language, fallback=True))
                     self.assertEqual(page["text"].strip(UNICODE_SPACE), expected)
 
                     # Check that the number of leading UNICODE_SPACE characters matches the page depth

@@ -186,11 +186,17 @@ class AdminUrlsView(BaseListView):
         """
         link_language = getattr(obj, "__link_language__", getattr(self, "language", None))
         if isinstance(obj, Page):
-            if hasattr(obj, "prefetched_content") and hasattr(obj, "get_admin_content"):
-                obj.admin_content_cache = {
-                    trans.language: trans for trans in obj.prefetched_content
-                }
+            if hasattr(obj, "get_admin_content"):
+                if hasattr(obj, "prefetched_content"):
+                    obj.admin_content_cache = {
+                        trans.language: trans for trans in obj.prefetched_content
+                    }
                 content = obj.get_admin_content(self.language, fallback=True)
+                if content:
+                    obj.__link_text__ = content.title
+                    link_language = content.language
+            elif hasattr(obj, "get_title_obj"):
+                content = obj.get_title_obj(self.language, fallback=True)
                 if content:
                     obj.__link_text__ = content.title
                     link_language = content.language
