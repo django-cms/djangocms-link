@@ -2,6 +2,20 @@
 Changelog
 =========
 
+5.2.0 (2026-07-07)
+==================
+
+* feat: Reactivated localizations
+* feat: Rename Link model `target` attribute to `link_target` by @dnlzrgz in https://github.com/django-cms/djangocms-link/pull/257
+* fix: Optimized multi-qs evaluation for search fields by @fsbraun in https://github.com/django-cms/djangocms-link/pull/261
+* fix: Show internal links in the language of the plugin by @fsbraun in https://github.com/django-cms/djangocms-link/pull/250
+
+**New Contributors**
+
+* @dnlzrgz made their first contribution in https://github.com/django-cms/djangocms-link/pull/257
+* @vinitkumar made their first contribution in https://github.com/django-cms/djangocms-link/pull/258
+
+
 5.1.1 (2026-02-26)
 ==================
 
