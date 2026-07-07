@@ -28,15 +28,11 @@ document.addEventListener('DOMContentLoaded' , () => {
 
     // If site widget changes, clear internal link widget
     for (let item of document.querySelectorAll('.js-link-site-widget')) {
-        console.warn(item);
         django.jQuery(item).on('change', e => {
             const site_select2 = django.jQuery(e.target);
             const internal_link_select2 = site_select2.closest('.link-widget').find('[widget="internal_link"]');
             internal_link_select2.attr('data-app-label', site_select2.val());
             internal_link_select2.val(null).trigger('change');
-        });
-        item.addEventListener("change", (e) => {
-            console.warn(e.target.closest('.link-widget').querySelector('[widget="internal_link"]'));
         });
     }
 });
