@@ -331,6 +331,34 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
         self.assertEqual(destinations["text"], "Third party models")
         self.assertEqual(len(destinations["children"]), 1)
 
+    def test_multi_queryset_pagination_stops_after_page_limit(self):
+        from djangocms_link.admin import AdminUrlsView
+
+        class TrackingIterable:
+            def __init__(self):
+                self.iterated = 0
+
+            def __iter__(self):
+                for item in self.items:
+                    self.iterated += 1
+                    yield item
+
+        first_qs = TrackingIterable()
+        first_qs.items = self.items
+        second_qs = TrackingIterable()
+        second_qs.items = self.items
+        view = AdminUrlsView()
+        view.request = None
+        view.paginate_by = 1
+        view.kwargs = {"page": 1}
+        view.has_perm = lambda request, obj=None: True
+
+        objects = view.get_paginated_multi_qs([first_qs, second_qs])
+
+        self.assertEqual(objects, list(self.items[:2]))
+        self.assertEqual(first_qs.iterated, 2)
+        self.assertEqual(second_qs.iterated, 0)
+
     def test_invalid_page_number(self):
         with self.login_user_context(self.get_superuser()):
             response = self.client.get(self.endpoint + "?page=999")

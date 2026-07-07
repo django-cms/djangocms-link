@@ -13,6 +13,7 @@ from django.views.generic.list import BaseListView
 from cms import __version__
 from cms.models import Page
 from cms.utils import get_language_from_request, get_language_list
+from cms.utils.i18n import get_fallback_languages
 
 from . import models
 from .fields import LinkFormField, LinkWidget
@@ -113,15 +114,18 @@ class AdminUrlsView(BaseListView):
         if len(qs_list) == 1:
             # Only one qs, just use regular pagination
             return qs_list[0]
-        # Slize all querysets, evaluate and join them into a list
+        # Slice all querysets, evaluate and join them into a list.
+        # Collect one extra item so Django's paginator can detect has_next().
         max_items = self.get_page() * self.paginate_by
         objects = []
         for qs in qs_list:
             for item in qs:
                 if self.has_perm(self.request, item):
                     objects.append(item)
+                    if len(objects) > max_items:
+                        break
 
-            if len(objects) >= max_items:
+            if len(objects) > max_items:
                 # No need to touch the rest of the querysets
                 # as we have enough items already
                 break
@@ -191,6 +195,7 @@ class AdminUrlsView(BaseListView):
     def get_queryset(self) -> QuerySet:
         """Return queryset based on ModelAdmin.get_search_results()."""
         languages = get_language_list()
+        display_languages = self.get_display_languages()
         try:
             # django CMS 4.1/5.0+
             content_qs = (
@@ -207,7 +212,9 @@ class AdminUrlsView(BaseListView):
                     Prefetch(
                         "pagecontent_set",
                         to_attr="prefetched_content",
-                        queryset=PageContent.admin_manager.current_content(),
+                        queryset=PageContent.admin_manager.filter(
+                            language__in=display_languages
+                        ).current_content(),
                     ),
                 )
             )
@@ -233,7 +240,9 @@ class AdminUrlsView(BaseListView):
                     Prefetch(
                         "title_set",
                         to_attr="prefetched_content",
-                        queryset=get_manager(PageContent, current_content=True).all(),
+                        queryset=get_manager(
+                            PageContent, current_content=True
+                        ).filter(language__in=display_languages),
                     ),
                 )
             )
@@ -248,6 +257,11 @@ class AdminUrlsView(BaseListView):
             if self.site:
                 qs = qs.filter(node__site_id=self.site)
         return qs
+
+    def get_display_languages(self) -> list[str]:
+        languages = [self.language]
+        languages.extend(get_fallback_languages(self.language, self.site))
+        return list(dict.fromkeys(languages))
 
     def add_admin_querysets(self, qs: list[QuerySet]) -> None:
         for model_admin in REGISTERED_ADMIN:
