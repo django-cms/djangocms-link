@@ -24,8 +24,11 @@ def get_manager(model: models.Model, current_content: bool = False) -> models.Ma
 def get_rel_obj(internal_link: str) -> models.Model | None:
     if ":" in internal_link:
         model, pk = internal_link.split(":", 1)
-        model = apps.get_model(*model.split(".", 1))
-        return get_manager(model).filter(pk=pk).first()
+        try:
+            model = apps.get_model(*model.split(".", 1))
+            return get_manager(model).filter(pk=pk).first()
+        except (LookupError, ValueError):
+            return None
 
 
 def get_obj_link(obj: models.Model, site_id: int | None = None) -> str:
