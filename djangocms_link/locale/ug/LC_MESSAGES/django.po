@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 # 
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
@@ -19,124 +18,124 @@ msgstr ""
 
 #: apps.py:7
 msgid "django CMS Link"
-msgstr ""
+msgstr "django CMS ئۇلانمىسى"
 
 #: cms_plugins.py:15 models.py:73
 msgid "Link"
-msgstr ""
+msgstr "ئۇلانما"
 
 #: cms_plugins.py:27
 msgid "Advanced settings"
-msgstr ""
+msgstr "ئىلغار تەڭشەكلەر"
 
 #: fields.py:26 forms.py:15
 msgid "Internal link"
-msgstr ""
+msgstr "ئىچكى ئۇلانما"
 
 #: fields.py:27
 msgid "External link/anchor"
-msgstr ""
+msgstr "تاشقى ئۇلانما/لەڭگەر"
 
 #: fields.py:30
 msgid "File link"
-msgstr ""
+msgstr "ھۆججەت ئۇلانمىسى"
 
 #: fields.py:169
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "نىشان تاللانمىدى. نىشان تاللاش ئۈچۈن تارتما تىزىملىكنى ئىشلىتىڭ."
 
 #: fields.py:175
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com ياكى #anchor"
 
 #: fields.py:177
 msgid ""
 "Provide a link to an external URL, including the schema such as 'https://', "
 "'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
 " to."
-msgstr ""
+msgstr "تاشقى URL غا ئۇلانما كىرگۈزۈڭ، 'https://'، 'tel:' ياكى 'mailto:' قاتارلىق لايىھەنىمۇ ئۆز ئىچىگە ئالسۇن. ئىختىيارىي ھالدا سىيرىلىدىغان #anchor (# بىلەن) قوشۇڭ."
 
 #: fields.py:186
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "بار بولغان ئىچكى نىشانلاردىن تاللاڭ. ئىختىيارىي ھالدا سىيرىلىدىغان لەڭگەر قوشۇڭ."
 
 #: fields.py:188
 msgid "Select internal destination"
-msgstr ""
+msgstr "ئىچكى نىشاننى تاللاڭ"
 
 #: fields.py:194
 msgid "#anchor"
-msgstr ""
+msgstr "#anchor"
 
 #: fields.py:195
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "سىيرىلىدىغان لەڭگەرنى كىرگۈزۈڭ."
 
 #: fields.py:206
 msgid "Select a file as destination."
-msgstr ""
+msgstr "نىشان سۈپىتىدە ھۆججەت تاللاڭ."
 
 #: fields.py:215
 msgid "Select site"
-msgstr ""
+msgstr "تور بېكەتنى تاللاڭ"
 
 #: fields.py:249
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "ئۇلانما تۈرىنى تاللاپ ئۇلانما كىرگۈزۈڭ."
 
 #: models.py:24
 msgid "Default"
-msgstr ""
+msgstr "كۆڭۈلدىكى"
 
 #: models.py:41
 msgid "Open in new window"
-msgstr ""
+msgstr "يېڭى كۆزنەكتە ئېچىش"
 
 #: models.py:42
 msgid "Open in same window"
-msgstr ""
+msgstr "ئوخشاش كۆزنەكتە ئېچىش"
 
 #: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "ئاتا بۆلەككە ھاۋالە قىلىش"
 
 #: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "ئەڭ ئۈستىگە ھاۋالە قىلىش"
 
 #: models.py:61
 msgid "Template"
-msgstr ""
+msgstr "قېلىپ"
 
 #: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "كۆرسىتىش نامى"
 
 #: models.py:77
 msgid "Target"
-msgstr ""
+msgstr "نىشان"
 
 #: models.py:83
 msgid "Attributes"
-msgstr ""
+msgstr "خاسلىقلار"
 
 #: models.py:109
 msgid "<link is missing>"
-msgstr ""
+msgstr "<ئۇلانما كەم>"
 
 #: models.py:118
 msgid "Link is required."
-msgstr ""
+msgstr "ئۇلانما زۆرۈر."
 
 #: validators.py:50
 msgid "Enter a valid anchor."
-msgstr ""
+msgstr "ئىناۋەتلىك لەڭگەر كىرگۈزۈڭ."
 
 #: validators.py:84
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "ئىناۋەتلىك تېلېفون نومۇرى كىرگۈزۈڭ"
 
 #~ msgid "Link settings"
 #~ msgstr ""

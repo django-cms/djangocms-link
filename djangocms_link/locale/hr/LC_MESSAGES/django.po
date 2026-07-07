@@ -2,142 +2,146 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Aleks Acimovic, 2022
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 14:11+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Aleks Acimovic, 2022\n"
 "Language-Team: Croatian (https://app.transifex.com/divio/teams/58664/hr/)\n"
+"Language: hr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hr\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-#: djangocms_link/apps.py:7
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "Stranica nije “last” niti se može pretvoriti u cijeli broj."
+
+#: apps.py:10
 msgid "django CMS Link"
-msgstr ""
+msgstr "django CMS poveznica"
 
-#: djangocms_link/cms_plugins.py:15 djangocms_link/models.py:73
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
 msgstr "Poveznica"
 
-#: djangocms_link/cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
 msgstr "Napredne postavke"
 
-#: djangocms_link/fields.py:26 djangocms_link/forms.py:15
+#: fields.py:154
 msgid "Internal link"
 msgstr "Interna poveznica"
 
-#: djangocms_link/fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "Vanjska poveznica/sidro"
 
-#: djangocms_link/fields.py:30
+#: fields.py:158
 msgid "File link"
 msgstr "Poveznica na datoteku"
 
-#: djangocms_link/fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "Nije odabrano odredište. Upotrijebite padajući izbornik za odabir odredišta."
 
-#: djangocms_link/fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com ili #sidro"
 
-#: djangocms_link/fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
-msgstr ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr "Unesite poveznicu na vanjski URL, uključujući shemu kao što je {}. Po želji dodajte #sidro (uključujući #) na koje se treba pomaknuti."
 
-#: djangocms_link/fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "Odaberite među dostupnim internim odredištima. Po želji dodajte sidro na koje se treba pomaknuti."
 
-#: djangocms_link/fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "Odaberi interno odredište"
 
-#: djangocms_link/fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#sidro"
 
-#: djangocms_link/fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "Unesite sidro na koje se treba pomaknuti."
 
-#: djangocms_link/fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "Odaberite datoteku kao odredište."
 
-#: djangocms_link/fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "Odaberi web-mjesto"
 
-#: djangocms_link/fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "Odaberite vrstu poveznice i unesite poveznicu."
 
-#: djangocms_link/models.py:24
+#: models.py:28
 msgid "Default"
 msgstr "Zadano"
 
-#: djangocms_link/models.py:41
+#: models.py:41
 msgid "Open in new window"
 msgstr "Otvori u novom prozoru"
 
-#: djangocms_link/models.py:42
+#: models.py:42
 msgid "Open in same window"
 msgstr "Otvori u istom prozoru"
 
-#: djangocms_link/models.py:43
+#: models.py:43
 msgid "Delegate to parent"
 msgstr "Delegiraj roditelju"
 
-#: djangocms_link/models.py:44
+#: models.py:44
 msgid "Delegate to top"
 msgstr "Delegiraj na vrh"
 
-#: djangocms_link/models.py:61
+#: models.py:61
 msgid "Template"
 msgstr "Predložak"
 
-#: djangocms_link/models.py:67
+#: models.py:67
 msgid "Display name"
 msgstr "Naziv za prikaz"
 
-#: djangocms_link/models.py:77
+#: models.py:77
 msgid "Target"
 msgstr "Odredište"
 
-#: djangocms_link/models.py:83
+#: models.py:103
 msgid "Attributes"
 msgstr "Atributi"
 
-#: djangocms_link/models.py:109
+#: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<poveznica nedostaje>"
 
-#: djangocms_link/models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "Poveznica je obavezna."
 
-#: djangocms_link/validators.py:50
+#: validators.py:61
 msgid "Enter a valid anchor"
-msgstr ""
+msgstr "Unesite valjano sidro"
 
-#: djangocms_link/validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "Unesite valjani telefonski broj"

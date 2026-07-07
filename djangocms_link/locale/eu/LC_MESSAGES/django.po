@@ -2,169 +2,145 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Angelo Dini <angelo.dini@divio.ch>, 2016
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 13:38+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Angelo Dini <angelo.dini@divio.ch>, 2016\n"
 "Language-Team: Basque (https://app.transifex.com/divio/teams/58664/eu/)\n"
+"Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: eu\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:7
-msgid "django CMS Link"
-msgstr ""
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "Orria ez da “last”, eta ezin da zenbaki oso bihurtu."
 
-#: cms_plugins.py:15 models.py:73
+#: apps.py:10
+msgid "django CMS Link"
+msgstr "django CMS esteka"
+
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
 msgstr "Esteka"
 
-#: cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
-msgstr ""
+msgstr "Ezarpen aurreratuak"
 
-#: fields.py:26 forms.py:15
+#: fields.py:154
 msgid "Internal link"
-msgstr ""
+msgstr "Barne esteka"
 
-#: fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "Kanpoko esteka/aingura"
 
-#: fields.py:30
+#: fields.py:158
 msgid "File link"
-msgstr ""
+msgstr "Fitxategi-esteka"
 
-#: fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "Ez da helbururik hautatu. Erabili goitibeherakoa helburu bat hautatzeko."
 
-#: fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com edo #aingura"
 
-#: fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
-msgstr ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr "Eman kanpoko URL baterako esteka, {} bezalako eskema barne. Aukeran, gehitu #aingura (# barne) hara korritzeko."
 
-#: fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "Hautatu erabilgarri dauden barne-helburuen artean. Aukeran, gehitu aingura bat hara korritzeko."
 
-#: fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "Hautatu barne helburua"
 
-#: fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#aingura"
 
-#: fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "Eman korritzeko aingura bat."
 
-#: fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "Hautatu fitxategi bat helburu gisa."
 
-#: fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "Hautatu gunea"
 
-#: fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "Hautatu esteka mota bat eta eman esteka bat."
 
-#: models.py:24
+#: models.py:28
 msgid "Default"
-msgstr ""
+msgstr "Lehenetsia"
 
 #: models.py:41
 msgid "Open in new window"
-msgstr ""
+msgstr "Ireki leiho berrian"
 
 #: models.py:42
 msgid "Open in same window"
-msgstr ""
+msgstr "Ireki leiho berean"
 
 #: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "Delegatu gurasora"
 
 #: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "Delegatu goikora"
 
 #: models.py:61
 msgid "Template"
-msgstr ""
+msgstr "Txantiloia"
 
 #: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "Bistaratzeko izena"
 
 #: models.py:77
 msgid "Target"
-msgstr ""
+msgstr "Helburua"
 
-#: models.py:83
+#: models.py:103
 msgid "Attributes"
-msgstr ""
+msgstr "Atributuak"
 
-#: models.py:109
+#: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<esteka falta da>"
 
-#: models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "Esteka beharrezkoa da."
 
-#: validators.py:50
-msgid "Enter a valid anchor."
-msgstr ""
+#: validators.py:61
+msgid "Enter a valid anchor"
+msgstr "Sartu baliozko aingura bat"
 
-#: validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
-
-#~ msgid "Link settings"
-#~ msgstr ""
-
-#~ msgid "If provided, overrides the external link."
-#~ msgstr ""
-
-#~ msgid "If provided links a file from the filer app."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Appends the value only after the internal or external link. Do <em>not</em> "
-#~ "include a preceding \"#\" symbol."
-#~ msgstr ""
-
-#~ msgid "Email address"
-#~ msgstr ""
-
-#~ msgid "Phone"
-#~ msgstr ""
-
-#~ msgid "Only one of {0} or {1} may be given."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
-#~ msgstr ""
+msgstr "Sartu baliozko telefono-zenbaki bat"

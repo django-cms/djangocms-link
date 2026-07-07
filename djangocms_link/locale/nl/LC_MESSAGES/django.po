@@ -2,29 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Angelo Dini <angelo.dini@divio.ch>, 2016
 # Evelijn Saaltink <evelijnsaaltink@gmail.com>, 2016
 # Heimen Stoffels <vistausss@fastmail.com>, 2019
 # Stefan van den Eertwegh <stefan@corebyte.nl>, 2025
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-26 23:36+0200\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Stefan van den Eertwegh <stefan@corebyte.nl>, 2025\n"
 "Language-Team: Dutch (https://app.transifex.com/divio/teams/58664/nl/)\n"
+"Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: nl\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: admin.py:105
+#: admin.py:107
 msgid "Page is not “last”, nor can it be converted to an int."
 msgstr ""
 "Pagina is niet de “laatste” en kan ook niet worden omgezet naar een int."
@@ -33,37 +33,38 @@ msgstr ""
 msgid "django CMS Link"
 msgstr "django CMS Link"
 
-#: cms_plugins.py:41 models.py:70
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
 msgstr "Link"
 
-#: cms_plugins.py:64
+#: cms_plugins.py:66
 msgid "Advanced settings"
 msgstr "Geavanceerde instellingen"
 
-#: fields.py:155
+#: fields.py:154
 msgid "Internal link"
 msgstr "Interne link"
 
-#: fields.py:156
+#: fields.py:155
 msgid "External link/anchor"
 msgstr "Externe link/anchor"
 
-#: fields.py:159
+#: fields.py:158
 msgid "File link"
 msgstr "Bestandslink"
 
-#: fields.py:191
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
 msgstr ""
 "Geen bestemming geselecteerd. Gebruik de dropdown om een bestemming te "
 "selecteren."
 
-#: fields.py:198
+#: fields.py:197
 msgid "https://example.com or #anchor"
 msgstr "https://example.com of #anchor"
 
-#: fields.py:200
+#: fields.py:199
+#, python-brace-format
 msgid ""
 "Provide a link to an external URL, including the schema such as {}. "
 "Optionally, add an #anchor (including the #) to scroll to."
@@ -71,79 +72,79 @@ msgstr ""
 "Geef een link naar een externe URL, inclusief het schema, zoals {}. Voeg "
 "eventueel een #anker (inclusief #) toe om naartoe te scrollen."
 
-#: fields.py:209
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
 msgstr ""
-"Selecteer uit beschikbare interne bestemmingen. Voeg optioneel een anker toe"
-" om naartoe te scrollen."
+"Selecteer uit beschikbare interne bestemmingen. Voeg optioneel een anker toe "
+"om naartoe te scrollen."
 
-#: fields.py:211
+#: fields.py:210
 msgid "Select internal destination"
 msgstr "Selecteer interne bestemming"
 
-#: fields.py:217
+#: fields.py:216
 msgid "#anchor"
 msgstr "#anker"
 
-#: fields.py:218
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
 msgstr "Zorg voor een anker waar naartoe gescrolld kan worden."
 
-#: fields.py:228
+#: fields.py:227
 msgid "Select a file as destination."
 msgstr "Selecteer een bestand als bestemming."
 
-#: fields.py:266
+#: fields.py:264
 msgid "Select site"
 msgstr "Selecteer site"
 
-#: fields.py:309
+#: fields.py:313
 msgid "Select a link type and provide a link."
 msgstr "Selecteer een link type en voorzie deze van een link."
 
-#: models.py:25
+#: models.py:28
 msgid "Default"
 msgstr "Standaard"
 
-#: models.py:38
+#: models.py:41
 msgid "Open in new window"
 msgstr "Openen in nieuw venster"
 
-#: models.py:39
+#: models.py:42
 msgid "Open in same window"
 msgstr "Openen in hetzelfde venster"
 
-#: models.py:40
+#: models.py:43
 msgid "Delegate to parent"
 msgstr "Naar ouder delegeren"
 
-#: models.py:41
+#: models.py:44
 msgid "Delegate to top"
 msgstr "Naar bovenkant delegeren"
 
-#: models.py:58
+#: models.py:61
 msgid "Template"
 msgstr "Sjabloon"
 
-#: models.py:64
+#: models.py:67
 msgid "Display name"
 msgstr "Getoonde naam"
 
-#: models.py:74
+#: models.py:77
 msgid "Target"
 msgstr "Doel"
 
-#: models.py:80
+#: models.py:103
 msgid "Attributes"
 msgstr "Eigenschappen"
 
-#: models.py:106
+#: models.py:130
 msgid "<link is missing>"
 msgstr "<link is missing>"
 
-#: models.py:115
+#: models.py:139
 msgid "Link is required."
 msgstr "Link is verreist."
 

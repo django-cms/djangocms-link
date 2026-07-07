@@ -2,143 +2,149 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Angelo Dini <angelo.dini@divio.ch>, 2016
 # Ville-Eemeli Käkelä <ville-eemeli.kakela@bitfactor.fi>, 2018
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 14:11+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
-"Last-Translator: Ville-Eemeli Käkelä <ville-eemeli.kakela@bitfactor.fi>, 2018\n"
+"Last-Translator: Ville-Eemeli Käkelä <ville-eemeli.kakela@bitfactor.fi>, "
+"2018\n"
 "Language-Team: Finnish (https://app.transifex.com/divio/teams/58664/fi/)\n"
+"Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fi\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: djangocms_link/apps.py:7
-msgid "django CMS Link"
-msgstr ""
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "Sivu ei ole “last”, eikä sitä voi muuntaa kokonaisluvuksi."
 
-#: djangocms_link/cms_plugins.py:15 djangocms_link/models.py:73
+#: apps.py:10
+msgid "django CMS Link"
+msgstr "django CMS Linkki"
+
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
 msgstr "Linkki"
 
-#: djangocms_link/cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
-msgstr ""
+msgstr "Lisäasetukset"
 
-#: djangocms_link/fields.py:26 djangocms_link/forms.py:15
+#: fields.py:154
 msgid "Internal link"
 msgstr "Sisäinen linkki"
 
-#: djangocms_link/fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "Ulkoinen linkki/ankkuri"
 
-#: djangocms_link/fields.py:30
+#: fields.py:158
 msgid "File link"
-msgstr ""
+msgstr "Tiedostolinkki"
 
-#: djangocms_link/fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "Kohdetta ei ole valittu. Valitse kohde pudotusvalikosta."
 
-#: djangocms_link/fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com tai #ankkuri"
 
-#: djangocms_link/fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
 msgstr ""
+"Anna linkki ulkoiseen URL-osoitteeseen ja sisällytä skeema, kuten {}. Voit "
+"halutessasi lisätä #ankkurin (# mukaan lukien), johon vieritetään."
 
-#: djangocms_link/fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "Valitse käytettävissä olevista sisäisistä kohteista. Voit halutessasi lisätä ankkurin, johon vieritetään."
 
-#: djangocms_link/fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "Valitse sisäinen kohde"
 
-#: djangocms_link/fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#ankkuri"
 
-#: djangocms_link/fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "Anna ankkuri, johon vieritetään."
 
-#: djangocms_link/fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "Valitse tiedosto kohteeksi."
 
-#: djangocms_link/fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "Valitse sivusto"
 
-#: djangocms_link/fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "Valitse linkkityyppi ja anna linkki."
 
-#: djangocms_link/models.py:24
+#: models.py:28
 msgid "Default"
 msgstr "Oletus"
 
-#: djangocms_link/models.py:41
+#: models.py:41
 msgid "Open in new window"
 msgstr "Avaa uuteen ikkunaan"
 
-#: djangocms_link/models.py:42
+#: models.py:42
 msgid "Open in same window"
 msgstr "Avaa samaan ikkunaan"
 
-#: djangocms_link/models.py:43
+#: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "Välitä ylemmälle ikkunalle"
 
-#: djangocms_link/models.py:44
+#: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "Välitä ylimmälle ikkunalle"
 
-#: djangocms_link/models.py:61
+#: models.py:61
 msgid "Template"
 msgstr "Asettelupohja"
 
-#: djangocms_link/models.py:67
+#: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "Näyttönimi"
 
-#: djangocms_link/models.py:77
+#: models.py:77
 msgid "Target"
 msgstr "Kohde"
 
-#: djangocms_link/models.py:83
+#: models.py:103
 msgid "Attributes"
-msgstr ""
+msgstr "Attribuutit"
 
-#: djangocms_link/models.py:109
+#: models.py:130
 msgid "<link is missing>"
 msgstr "<link is missing>"
 
-#: djangocms_link/models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "Linkki on pakollinen."
 
-#: djangocms_link/validators.py:50
+#: validators.py:61
 msgid "Enter a valid anchor"
-msgstr ""
+msgstr "Anna kelvollinen ankkuri"
 
-#: djangocms_link/validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "Anna kelvollinen puhelinnumero"

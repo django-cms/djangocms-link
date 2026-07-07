@@ -2,165 +2,141 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 13:38+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Language-Team: Korean (https://app.transifex.com/divio/teams/58664/ko/)\n"
+"Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: apps.py:7
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "페이지가 “last”가 아니며 정수로 변환할 수도 없습니다."
+
+#: apps.py:10
 msgid "django CMS Link"
-msgstr ""
+msgstr "django CMS 링크"
 
-#: cms_plugins.py:15 models.py:73
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
-msgstr ""
+msgstr "링크"
 
-#: cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
-msgstr ""
+msgstr "고급 설정"
 
-#: fields.py:26 forms.py:15
+#: fields.py:154
 msgid "Internal link"
-msgstr ""
+msgstr "내부 링크"
 
-#: fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "외부 링크/앵커"
 
-#: fields.py:30
+#: fields.py:158
 msgid "File link"
-msgstr ""
+msgstr "파일 링크"
 
-#: fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "대상이 선택되지 않았습니다. 드롭다운을 사용하여 대상을 선택하세요."
 
-#: fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com 또는 #anchor"
 
-#: fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
-msgstr ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr "외부 URL에 대한 링크를 {} 같은 스키마를 포함하여 입력하세요. 선택적으로 스크롤할 #anchor(# 포함)를 추가할 수 있습니다."
 
-#: fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "사용 가능한 내부 대상 중에서 선택하세요. 선택적으로 스크롤할 앵커를 추가할 수 있습니다."
 
-#: fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "내부 대상 선택"
 
-#: fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#anchor"
 
-#: fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "스크롤할 앵커를 입력하세요."
 
-#: fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "대상으로 파일을 선택하세요."
 
-#: fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "사이트 선택"
 
-#: fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "링크 유형을 선택하고 링크를 입력하세요."
 
-#: models.py:24
+#: models.py:28
 msgid "Default"
-msgstr ""
+msgstr "기본값"
 
 #: models.py:41
 msgid "Open in new window"
-msgstr ""
+msgstr "새 창에서 열기"
 
 #: models.py:42
 msgid "Open in same window"
-msgstr ""
+msgstr "같은 창에서 열기"
 
 #: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "상위에 위임"
 
 #: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "최상위에 위임"
 
 #: models.py:61
 msgid "Template"
-msgstr ""
+msgstr "템플릿"
 
 #: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "표시 이름"
 
 #: models.py:77
 msgid "Target"
-msgstr ""
+msgstr "대상"
 
-#: models.py:83
+#: models.py:103
 msgid "Attributes"
-msgstr ""
+msgstr "속성"
 
-#: models.py:109
+#: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<링크가 없습니다>"
 
-#: models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "링크는 필수입니다."
 
-#: validators.py:50
-msgid "Enter a valid anchor."
-msgstr ""
+#: validators.py:61
+msgid "Enter a valid anchor"
+msgstr "유효한 앵커를 입력하세요"
 
-#: validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
-
-#~ msgid "Link settings"
-#~ msgstr ""
-
-#~ msgid "If provided, overrides the external link."
-#~ msgstr ""
-
-#~ msgid "If provided links a file from the filer app."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Appends the value only after the internal or external link. Do <em>not</em> "
-#~ "include a preceding \"#\" symbol."
-#~ msgstr ""
-
-#~ msgid "Email address"
-#~ msgstr ""
-
-#~ msgid "Phone"
-#~ msgstr ""
-
-#~ msgid "Only one of {0} or {1} may be given."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
-#~ msgstr ""
+msgstr "유효한 전화번호를 입력하세요"

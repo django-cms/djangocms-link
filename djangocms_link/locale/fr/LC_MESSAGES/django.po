@@ -2,28 +2,29 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # a270031086f2a0d3514bc0cb507b48f6, 2019
 # Florian Delizy <florian.delizy@gmail.com>, 2021
 # Fabian Braun <fsbraun@gmx.de>, 2025
-# 
+#
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-26 23:36+0200\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Fabian Braun <fsbraun@gmx.de>, 2025\n"
 "Language-Team: French (https://app.transifex.com/divio/teams/58664/fr/)\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
-"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n == 0 || n == 1) ? 0 : n != 0 && n % "
+"1000000 == 0 ? 1 : 2;\n"
 
-#: admin.py:105
+#: admin.py:107
 msgid "Page is not “last”, nor can it be converted to an int."
 msgstr "La page n'est pas «last», et ne peut pas être convertie en entier."
 
@@ -31,46 +32,47 @@ msgstr "La page n'est pas «last», et ne peut pas être convertie en entier."
 msgid "django CMS Link"
 msgstr "django CMS Lien"
 
-#: cms_plugins.py:41 models.py:70
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
 msgstr "Lien"
 
-#: cms_plugins.py:64
+#: cms_plugins.py:66
 msgid "Advanced settings"
 msgstr "Réglages avancés"
 
-#: fields.py:155
+#: fields.py:154
 msgid "Internal link"
 msgstr "Lien interne"
 
-#: fields.py:156
+#: fields.py:155
 msgid "External link/anchor"
 msgstr "Lien externe/ancre"
 
-#: fields.py:159
+#: fields.py:158
 msgid "File link"
 msgstr "Lien vers le fichier"
 
-#: fields.py:191
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
 msgstr ""
 "Aucune destination sélectionnée. Utilisez le menu déroulant pour "
 "sélectionner une destination."
 
-#: fields.py:198
+#: fields.py:197
 msgid "https://example.com or #anchor"
 msgstr "https://example.com ou #ancre"
 
-#: fields.py:200
+#: fields.py:199
+#, python-brace-format
 msgid ""
 "Provide a link to an external URL, including the schema such as {}. "
 "Optionally, add an #anchor (including the #) to scroll to."
 msgstr ""
 "Fournissez un lien vers une URL externe, y compris le schéma tel que {}. "
-"Vous pouvez également ajouter une #ancre (y compris le #) pour faire défiler"
-" jusqu'à celle-ci."
+"Vous pouvez également ajouter une #ancre (y compris le #) pour faire défiler "
+"jusqu'à celle-ci."
 
-#: fields.py:209
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
@@ -78,71 +80,71 @@ msgstr ""
 "Sélectionnez parmi les destinations internes disponibles. Vous pouvez "
 "également ajouter une ancre pour faire défiler jusqu'à celle-ci."
 
-#: fields.py:211
+#: fields.py:210
 msgid "Select internal destination"
 msgstr "Sélectionnez une destination interne"
 
-#: fields.py:217
+#: fields.py:216
 msgid "#anchor"
 msgstr "#ancre"
 
-#: fields.py:218
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
 msgstr "Fournissez une ancre pour faire défiler jusqu'à celle-ci."
 
-#: fields.py:228
+#: fields.py:227
 msgid "Select a file as destination."
 msgstr "Sélectionnez un fichier comme destination."
 
-#: fields.py:266
+#: fields.py:264
 msgid "Select site"
 msgstr "Sélectionnez le site"
 
-#: fields.py:309
+#: fields.py:313
 msgid "Select a link type and provide a link."
 msgstr "Sélectionnez un type de lien et fournissez un lien."
 
-#: models.py:25
+#: models.py:28
 msgid "Default"
 msgstr "Défaut"
 
-#: models.py:38
+#: models.py:41
 msgid "Open in new window"
 msgstr "Ouvrir dans une nouvelle fenêtre"
 
-#: models.py:39
+#: models.py:42
 msgid "Open in same window"
 msgstr "Ouvrir dans la même fenêtre"
 
-#: models.py:40
+#: models.py:43
 msgid "Delegate to parent"
 msgstr "Déléguer au parent"
 
-#: models.py:41
+#: models.py:44
 msgid "Delegate to top"
 msgstr "Délégué au sommet"
 
-#: models.py:58
+#: models.py:61
 msgid "Template"
 msgstr "Modèle"
 
-#: models.py:64
+#: models.py:67
 msgid "Display name"
 msgstr "Afficher un nom"
 
-#: models.py:74
+#: models.py:77
 msgid "Target"
 msgstr "Cible"
 
-#: models.py:80
+#: models.py:103
 msgid "Attributes"
 msgstr "Les attributs"
 
-#: models.py:106
+#: models.py:130
 msgid "<link is missing>"
 msgstr "<link is missing>"
 
-#: models.py:115
+#: models.py:139
 msgid "Link is required."
 msgstr "Le lien est requis."
 
