@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import copy
 import json
 
 from django.apps import apps
@@ -10,8 +11,10 @@ from django.contrib.sites.models import Site
 from django.db import models
 from django.db.models import JSONField, ManyToOneRel
 from django.forms import Field, MultiWidget, Select, TextInput, URLInput
+from django.utils.encoding import force_str
 from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
+from django.utils.translation import override
 
 from cms.utils.urlutils import admin_reverse
 
@@ -31,8 +34,9 @@ MINIMUM_INPUT_LENGTH = getattr(settings, "DJANGOCMS_LINK_MINIMUM_INPUT_LENGTH", 
 
 
 class LinkAutoCompleteWidget(AutocompleteSelect):
-    def __init__(self, attrs: dict | None = None):
+    def __init__(self, attrs: dict | None = None, language: str | None = None):
         super().__init__(None, None, attrs)
+        self.language = language
 
     def get_internal_obj(self, values: list[str | None]) -> list[models.Model | None]:
         internal_obj = []
@@ -46,29 +50,31 @@ class LinkAutoCompleteWidget(AutocompleteSelect):
         return internal_obj
 
     def optgroups(self, name: str, value: str, attr: str | None = None):
-        default = (None, [], 0)
-        groups = [default]
-        has_selected = False
-        selected_choices = set(value)
-        if not self.is_required and not self.allow_multiple_selected:
-            default[1].append(self.create_option(name, "", "", False, 0))
+        with override(self.language or get_language()):
+            default = (None, [], 0)
+            groups = [default]
+            has_selected = False
+            selected_choices = set(value)
+            if not self.is_required and not self.allow_multiple_selected:
+                default[1].append(self.create_option(name, "", "", False, 0))
 
-        for option_value, option_label in zip(value, self.get_internal_obj(value)):
-            selected = str(option_value) in value and (
-                has_selected is False or self.allow_multiple_selected
-            )
-            has_selected |= selected
-            index = len(default[1])
-            subgroup = default[1]
-            subgroup.append(
-                self.create_option(
-                    name, option_value, option_label, selected_choices, index
+            for option_value, option_label in zip(value, self.get_internal_obj(value)):
+                selected = str(option_value) in value and (
+                    has_selected is False or self.allow_multiple_selected
                 )
-            )
+                has_selected |= selected
+                index = len(default[1])
+                subgroup = default[1]
+                subgroup.append(
+                    self.create_option(
+                        name, option_value, force_str(option_label), selected_choices, index
+                    )
+                )
         return groups
 
     def get_url(self):
-        return admin_reverse("djangocms_link_link_urls")
+        reverse = admin_reverse("djangocms_link_link_urls")
+        return f"{reverse}?language={self.language}" if self.language else reverse
 
     def build_attrs(self, base_attrs: dict, extra_attrs: dict | None = None) -> dict:
         """
@@ -233,37 +239,44 @@ class LinkWidget(MultiWidget):
         js = ("djangocms_link/link-widget.js",)
         css = {"all": ("djangocms_link/link-widget.css",)}
 
-    def __init__(self, site_selector: bool | None = None):
+    def __init__(self, site_selector: bool | None = None, language: str | None = None):
         if site_selector is None:
             site_selector = LinkWidget.default_site_selector
 
         widgets = [
-            widget
+            copy.deepcopy(widget)
             for key, widget in _available_widgets.items()
             if key == "always" or _mapping[key] in link_types
         ]
-        if site_selector and "internal_link" in allowed_link_types:
+        if "internal_link" in allowed_link_types:
             index = next(
                 i
                 for i, widget in enumerate(widgets)
                 if widget.attrs.get("widget") == "internal_link"
             )
-            widgets.insert(
-                index,
-                SiteAutocompleteSelect(
-                    attrs={
-                        "class": "js-link-site-widget",
-                        "widget": "site",
-                        "data-placeholder": _("Select site"),
-                    },
-                ),
-            )  # Site selector
+            if site_selector:
+                widgets.insert(
+                    index,
+                    SiteAutocompleteSelect(
+                        attrs={
+                            "class": "js-link-site-widget",
+                            "widget": "site",
+                            "data-placeholder": _("Select site"),
+                        },
+                    ),
+                )  # Site selector
 
         # Remember which widget expets its content at which position
         self.data_pos = {
             widget.attrs.get("widget"): i for i, widget in enumerate(widgets)
         }
         super().__init__(widgets)
+        self.set_language(language)
+
+    def set_language(self, language: str | None) -> None:
+        for widget in self.widgets:
+            if isinstance(widget, LinkAutoCompleteWidget):
+                widget.language = language
 
     def get_context(self, name: str, value: str | None, attrs: dict) -> dict:
         if not self.is_required:
@@ -287,7 +300,6 @@ class LinkWidget(MultiWidget):
 
 
 class LinkFormField(Field):
-    widget = LinkWidget
     external_link_validators = [
         ExtendedURLValidator(allowed_link_types=allowed_link_types)
     ]
@@ -300,6 +312,7 @@ class LinkFormField(Field):
     def __init__(self, *args, **kwargs):
         kwargs.setdefault("help_text", _("Select a link type and provide a link."))
         kwargs.setdefault("initial", {})
+        kwargs.setdefault("widget", LinkWidget(language=kwargs.pop("language", None)))
         kwargs.pop("encoder", None)  # Passed from LinkField's JSONField parent class
         kwargs.pop("decoder", None)  # but not needed
         super().__init__(*args, **kwargs)

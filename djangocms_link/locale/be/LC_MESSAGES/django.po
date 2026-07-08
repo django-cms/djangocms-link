@@ -2,165 +2,143 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 13:38+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Language-Team: Belarusian (https://app.transifex.com/divio/teams/58664/be/)\n"
+"Language: be\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: be\n"
-"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || (n%100>=11 && n%100<=14)? 2 : 3);\n"
+"Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
+"(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: apps.py:7
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "Старонка не з’яўляецца “last” і не можа быць пераўтворана ў цэлы лік."
+
+#: apps.py:10
 msgid "django CMS Link"
-msgstr ""
+msgstr "Спасылка django CMS"
 
-#: cms_plugins.py:15 models.py:73
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
-msgstr ""
+msgstr "Спасылка"
 
-#: cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
-msgstr ""
+msgstr "Дадатковыя налады"
 
-#: fields.py:26 forms.py:15
+#: fields.py:154
 msgid "Internal link"
-msgstr ""
+msgstr "Унутраная спасылка"
 
-#: fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "Знешняя спасылка/якар"
 
-#: fields.py:30
+#: fields.py:158
 msgid "File link"
-msgstr ""
+msgstr "Спасылка на файл"
 
-#: fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "Прызначэнне не выбрана. Выкарыстайце выпадны спіс, каб выбраць прызначэнне."
 
-#: fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com або #якар"
 
-#: fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
-msgstr ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr "Укажыце спасылку на знешні URL, уключаючы схему, напрыклад {}. Пры жаданні дадайце #якар (разам з #), да якога трэба пракруціць."
 
-#: fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "Выберыце з даступных унутраных прызначэнняў. Пры жаданні дадайце якар для пракруткі."
 
-#: fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "Выбраць унутранае прызначэнне"
 
-#: fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#якар"
 
-#: fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "Укажыце якар для пракруткі."
 
-#: fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "Выберыце файл як прызначэнне."
 
-#: fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "Выбраць сайт"
 
-#: fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "Выберыце тып спасылкі і ўкажыце спасылку."
 
-#: models.py:24
+#: models.py:28
 msgid "Default"
-msgstr ""
+msgstr "Прадвызначана"
 
 #: models.py:41
 msgid "Open in new window"
-msgstr ""
+msgstr "Адкрыць у новым акне"
 
 #: models.py:42
 msgid "Open in same window"
-msgstr ""
+msgstr "Адкрыць у тым жа акне"
 
 #: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "Дэлегаваць бацькоўскаму"
 
 #: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "Дэлегаваць верхняму"
 
 #: models.py:61
 msgid "Template"
-msgstr ""
+msgstr "Шаблон"
 
 #: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "Адлюстроўваемая назва"
 
 #: models.py:77
 msgid "Target"
-msgstr ""
+msgstr "Мэта"
 
-#: models.py:83
+#: models.py:103
 msgid "Attributes"
-msgstr ""
+msgstr "Атрыбуты"
 
-#: models.py:109
+#: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<спасылка адсутнічае>"
 
-#: models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "Спасылка абавязковая."
 
-#: validators.py:50
-msgid "Enter a valid anchor."
-msgstr ""
+#: validators.py:61
+msgid "Enter a valid anchor"
+msgstr "Увядзіце дапушчальны якар"
 
-#: validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
-
-#~ msgid "Link settings"
-#~ msgstr ""
-
-#~ msgid "If provided, overrides the external link."
-#~ msgstr ""
-
-#~ msgid "If provided links a file from the filer app."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Appends the value only after the internal or external link. Do <em>not</em> "
-#~ "include a preceding \"#\" symbol."
-#~ msgstr ""
-
-#~ msgid "Email address"
-#~ msgstr ""
-
-#~ msgid "Phone"
-#~ msgstr ""
-
-#~ msgid "Only one of {0} or {1} may be given."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
-#~ msgstr ""
+msgstr "Увядзіце дапушчальны нумар тэлефона"

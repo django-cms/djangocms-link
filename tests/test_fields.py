@@ -132,6 +132,22 @@ class LinkFieldTestCase(TestCase):
             rendered_widget,
         )
 
+    def test_widget_language_is_not_shared_between_instances(self):
+        first_widget = LinkWidget(language="en")
+        second_widget = LinkWidget(language="fr")
+
+        def internal_widget(widget):
+            return next(
+                subwidget
+                for subwidget in widget.widgets
+                if subwidget.attrs.get("widget") == "internal_link"
+            )
+
+        self.assertEqual(internal_widget(first_widget).language, "en")
+        self.assertEqual(internal_widget(second_widget).language, "fr")
+        self.assertIn("?language=en", internal_widget(first_widget).get_url())
+        self.assertIn("?language=fr", internal_widget(second_widget).get_url())
+
     def test_widget_renders_site_selector(self):
         widget = LinkWidget(site_selector=True)
         pre_select_page = len(widget.widgets) * [None]

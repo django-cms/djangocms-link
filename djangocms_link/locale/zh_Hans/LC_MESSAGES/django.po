@@ -2,52 +2,51 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-10-27 13:38+0100\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
-"Language-Team: English (United States) (https://app.transifex.com/divio/teams/58664/en_US/)\n"
+"Language-Team: Chinese Simplified (https://app.transifex.com/divio/teams/58664/zh-Hans/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: en_US\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: zh_Hans\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
 #: apps.py:7
 msgid "django CMS Link"
-msgstr ""
+msgstr "django CMS 链接"
 
 #: cms_plugins.py:15 models.py:73
 msgid "Link"
-msgstr ""
+msgstr "链接"
 
 #: cms_plugins.py:27
 msgid "Advanced settings"
-msgstr ""
+msgstr "高级设置"
 
 #: fields.py:26 forms.py:15
 msgid "Internal link"
-msgstr ""
+msgstr "内部链接"
 
 #: fields.py:27
 msgid "External link/anchor"
-msgstr ""
+msgstr "外部链接/锚点"
 
 #: fields.py:30
 msgid "File link"
-msgstr ""
+msgstr "文件链接"
 
 #: fields.py:169
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "未选择目标。请使用下拉菜单选择目标。"
 
 #: fields.py:175
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com 或 #anchor"
 
 #: fields.py:177
 msgid ""
@@ -55,88 +54,90 @@ msgid ""
 "'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
 " to."
 msgstr ""
+"提供外部 URL 链接，并包含协议，例如 'https://'、'tel:' 或 'mailto:'。也可以"
+"添加 #anchor（包含 #）以滚动到指定位置。"
 
 #: fields.py:186
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "从可用的内部目标中选择。也可以添加一个用于滚动定位的锚点。"
 
 #: fields.py:188
 msgid "Select internal destination"
-msgstr ""
+msgstr "选择内部目标"
 
 #: fields.py:194
 msgid "#anchor"
-msgstr ""
+msgstr "#anchor"
 
 #: fields.py:195
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "提供一个用于滚动定位的锚点。"
 
 #: fields.py:206
 msgid "Select a file as destination."
-msgstr ""
+msgstr "选择一个文件作为目标。"
 
 #: fields.py:215
 msgid "Select site"
-msgstr ""
+msgstr "选择站点"
 
 #: fields.py:249
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "选择链接类型并提供链接。"
 
 #: models.py:24
 msgid "Default"
-msgstr ""
+msgstr "默认"
 
 #: models.py:41
 msgid "Open in new window"
-msgstr ""
+msgstr "在新窗口中打开"
 
 #: models.py:42
 msgid "Open in same window"
-msgstr ""
+msgstr "在同一窗口中打开"
 
 #: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "委派给父窗口"
 
 #: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "委派给顶层窗口"
 
 #: models.py:61
 msgid "Template"
-msgstr ""
+msgstr "模板"
 
 #: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "显示名称"
 
 #: models.py:77
 msgid "Target"
-msgstr ""
+msgstr "目标"
 
 #: models.py:83
 msgid "Attributes"
-msgstr ""
+msgstr "属性"
 
 #: models.py:109
 msgid "<link is missing>"
-msgstr ""
+msgstr "<链接缺失>"
 
 #: models.py:118
 msgid "Link is required."
-msgstr ""
+msgstr "链接为必填项。"
 
 #: validators.py:50
 msgid "Enter a valid anchor."
-msgstr ""
+msgstr "请输入有效的锚点。"
 
 #: validators.py:84
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "请输入有效的电话号码"
 
 #~ msgid "Link settings"
 #~ msgstr ""

@@ -2,169 +2,145 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
+#
 # Translators:
 # Angelo Dini <angelo.dini@divio.ch>, 2016
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 13:38+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Last-Translator: Angelo Dini <angelo.dini@divio.ch>, 2016\n"
 "Language-Team: Bengali (https://app.transifex.com/divio/teams/58664/bn/)\n"
+"Language: bn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: bn\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: apps.py:7
-msgid "django CMS Link"
-msgstr ""
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "পৃষ্ঠা “last” নয়, এবং এটিকে পূর্ণসংখ্যায় রূপান্তর করা যায় না।"
 
-#: cms_plugins.py:15 models.py:73
+#: apps.py:10
+msgid "django CMS Link"
+msgstr "django CMS লিংক"
+
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
 msgstr "লিংক"
 
-#: cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
-msgstr ""
+msgstr "উন্নত সেটিংস"
 
-#: fields.py:26 forms.py:15
+#: fields.py:154
 msgid "Internal link"
-msgstr ""
+msgstr "অভ্যন্তরীণ লিংক"
 
-#: fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "বাহ্যিক লিংক/অ্যাঙ্কর"
 
-#: fields.py:30
+#: fields.py:158
 msgid "File link"
-msgstr ""
+msgstr "ফাইল লিংক"
 
-#: fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "কোনো গন্তব্য নির্বাচন করা হয়নি। গন্তব্য নির্বাচন করতে ড্রপডাউন ব্যবহার করুন।"
 
-#: fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com অথবা #anchor"
 
-#: fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
-msgstr ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr "বাহ্যিক URL-এ একটি লিংক দিন, {}-এর মতো স্কিমসহ। ঐচ্ছিকভাবে স্ক্রল করার জন্য #anchor (#-সহ) যোগ করুন।"
 
-#: fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "উপলব্ধ অভ্যন্তরীণ গন্তব্য থেকে নির্বাচন করুন। ঐচ্ছিকভাবে স্ক্রল করার জন্য একটি অ্যাঙ্কর যোগ করুন।"
 
-#: fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "অভ্যন্তরীণ গন্তব্য নির্বাচন করুন"
 
-#: fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#anchor"
 
-#: fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "স্ক্রল করার জন্য একটি অ্যাঙ্কর দিন।"
 
-#: fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "গন্তব্য হিসেবে একটি ফাইল নির্বাচন করুন।"
 
-#: fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "সাইট নির্বাচন করুন"
 
-#: fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "একটি লিংকের ধরন নির্বাচন করুন এবং লিংক দিন।"
 
-#: models.py:24
+#: models.py:28
 msgid "Default"
-msgstr ""
+msgstr "ডিফল্ট"
 
 #: models.py:41
 msgid "Open in new window"
-msgstr ""
+msgstr "নতুন উইন্ডোতে খুলুন"
 
 #: models.py:42
 msgid "Open in same window"
-msgstr ""
+msgstr "একই উইন্ডোতে খুলুন"
 
 #: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "প্যারেন্টে ডেলিগেট করুন"
 
 #: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "শীর্ষে ডেলিগেট করুন"
 
 #: models.py:61
 msgid "Template"
-msgstr ""
+msgstr "টেমপ্লেট"
 
 #: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "প্রদর্শিত নাম"
 
 #: models.py:77
 msgid "Target"
-msgstr ""
+msgstr "টার্গেট"
 
-#: models.py:83
+#: models.py:103
 msgid "Attributes"
-msgstr ""
+msgstr "অ্যাট্রিবিউট"
 
-#: models.py:109
+#: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<লিংক অনুপস্থিত>"
 
-#: models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "লিংক আবশ্যক।"
 
-#: validators.py:50
-msgid "Enter a valid anchor."
-msgstr ""
+#: validators.py:61
+msgid "Enter a valid anchor"
+msgstr "একটি বৈধ অ্যাঙ্কর লিখুন"
 
-#: validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
-
-#~ msgid "Link settings"
-#~ msgstr ""
-
-#~ msgid "If provided, overrides the external link."
-#~ msgstr ""
-
-#~ msgid "If provided links a file from the filer app."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Appends the value only after the internal or external link. Do <em>not</em> "
-#~ "include a preceding \"#\" symbol."
-#~ msgstr ""
-
-#~ msgid "Email address"
-#~ msgstr ""
-
-#~ msgid "Phone"
-#~ msgstr ""
-
-#~ msgid "Only one of {0} or {1} may be given."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
-#~ msgstr ""
+msgstr "একটি বৈধ ফোন নম্বর লিখুন"

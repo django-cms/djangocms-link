@@ -2,165 +2,141 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-# 
-#, fuzzy
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-27 13:38+0100\n"
+"POT-Creation-Date: 2026-07-07 18:09+0200\n"
 "PO-Revision-Date: 2016-09-15 09:08+0000\n"
 "Language-Team: Thai (https://app.transifex.com/divio/teams/58664/th/)\n"
+"Language: th\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: th\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: apps.py:7
+#: admin.py:107
+msgid "Page is not “last”, nor can it be converted to an int."
+msgstr "หน้าไม่ใช่ “last” และไม่สามารถแปลงเป็นจำนวนเต็มได้"
+
+#: apps.py:10
 msgid "django CMS Link"
-msgstr ""
+msgstr "ลิงก์ django CMS"
 
-#: cms_plugins.py:15 models.py:73
+#: cms_plugins.py:43 models.py:73
 msgid "Link"
-msgstr ""
+msgstr "ลิงก์"
 
-#: cms_plugins.py:27
+#: cms_plugins.py:66
 msgid "Advanced settings"
-msgstr ""
+msgstr "การตั้งค่าขั้นสูง"
 
-#: fields.py:26 forms.py:15
+#: fields.py:154
 msgid "Internal link"
-msgstr ""
+msgstr "ลิงก์ภายใน"
 
-#: fields.py:27
+#: fields.py:155
 msgid "External link/anchor"
-msgstr ""
+msgstr "ลิงก์ภายนอก/จุดยึด"
 
-#: fields.py:30
+#: fields.py:158
 msgid "File link"
-msgstr ""
+msgstr "ลิงก์ไฟล์"
 
-#: fields.py:169
+#: fields.py:190
 msgid "No destination selected. Use the dropdown to select a destination."
-msgstr ""
+msgstr "ยังไม่ได้เลือกปลายทาง ใช้เมนูแบบเลื่อนลงเพื่อเลือกปลายทาง"
 
-#: fields.py:175
+#: fields.py:197
 msgid "https://example.com or #anchor"
-msgstr ""
+msgstr "https://example.com หรือ #anchor"
 
-#: fields.py:177
+#: fields.py:199
+#, python-brace-format
 msgid ""
-"Provide a link to an external URL, including the schema such as 'https://', "
-"'tel:', or 'mailto:'. Optionally, add an #anchor (including the #) to scroll"
-" to."
-msgstr ""
+"Provide a link to an external URL, including the schema such as {}. "
+"Optionally, add an #anchor (including the #) to scroll to."
+msgstr "ระบุลิงก์ไปยัง URL ภายนอก รวมถึงสคีมา เช่น {} และอาจเพิ่ม #anchor (รวม #) เพื่อเลื่อนไปยังตำแหน่งนั้น"
 
-#: fields.py:186
+#: fields.py:208
 msgid ""
 "Select from available internal destinations. Optionally, add an anchor to "
 "scroll to."
-msgstr ""
+msgstr "เลือกจากปลายทางภายในที่มีอยู่ และอาจเพิ่มจุดยึดเพื่อเลื่อนไปยังตำแหน่งนั้น"
 
-#: fields.py:188
+#: fields.py:210
 msgid "Select internal destination"
-msgstr ""
+msgstr "เลือกปลายทางภายใน"
 
-#: fields.py:194
+#: fields.py:216
 msgid "#anchor"
-msgstr ""
+msgstr "#anchor"
 
-#: fields.py:195
+#: fields.py:217
 msgid "Provide an anchor to scroll to."
-msgstr ""
+msgstr "ระบุจุดยึดเพื่อเลื่อนไปยังตำแหน่งนั้น"
 
-#: fields.py:206
+#: fields.py:227
 msgid "Select a file as destination."
-msgstr ""
+msgstr "เลือกไฟล์เป็นปลายทาง"
 
-#: fields.py:215
+#: fields.py:264
 msgid "Select site"
-msgstr ""
+msgstr "เลือกไซต์"
 
-#: fields.py:249
+#: fields.py:313
 msgid "Select a link type and provide a link."
-msgstr ""
+msgstr "เลือกประเภทลิงก์และระบุลิงก์"
 
-#: models.py:24
+#: models.py:28
 msgid "Default"
-msgstr ""
+msgstr "ค่าเริ่มต้น"
 
 #: models.py:41
 msgid "Open in new window"
-msgstr ""
+msgstr "เปิดในหน้าต่างใหม่"
 
 #: models.py:42
 msgid "Open in same window"
-msgstr ""
+msgstr "เปิดในหน้าต่างเดียวกัน"
 
 #: models.py:43
 msgid "Delegate to parent"
-msgstr ""
+msgstr "มอบหมายให้พาเรนต์"
 
 #: models.py:44
 msgid "Delegate to top"
-msgstr ""
+msgstr "มอบหมายให้ระดับบนสุด"
 
 #: models.py:61
 msgid "Template"
-msgstr ""
+msgstr "เทมเพลต"
 
 #: models.py:67
 msgid "Display name"
-msgstr ""
+msgstr "ชื่อที่แสดง"
 
 #: models.py:77
 msgid "Target"
-msgstr ""
+msgstr "เป้าหมาย"
 
-#: models.py:83
+#: models.py:103
 msgid "Attributes"
-msgstr ""
+msgstr "แอตทริบิวต์"
 
-#: models.py:109
+#: models.py:130
 msgid "<link is missing>"
-msgstr ""
+msgstr "<ไม่มีลิงก์>"
 
-#: models.py:118
+#: models.py:139
 msgid "Link is required."
-msgstr ""
+msgstr "จำเป็นต้องระบุลิงก์"
 
-#: validators.py:50
-msgid "Enter a valid anchor."
-msgstr ""
+#: validators.py:61
+msgid "Enter a valid anchor"
+msgstr "ป้อนจุดยึดที่ถูกต้อง"
 
-#: validators.py:84
+#: validators.py:104
 msgid "Enter a valid phone number"
-msgstr ""
-
-#~ msgid "Link settings"
-#~ msgstr ""
-
-#~ msgid "If provided, overrides the external link."
-#~ msgstr ""
-
-#~ msgid "If provided links a file from the filer app."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "Appends the value only after the internal or external link. Do <em>not</em> "
-#~ "include a preceding \"#\" symbol."
-#~ msgstr ""
-
-#~ msgid "Email address"
-#~ msgstr ""
-
-#~ msgid "Phone"
-#~ msgstr ""
-
-#~ msgid "Only one of {0} or {1} may be given."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "%(anchor_field_verbose_name)s is not allowed together with %(field_name)s"
-#~ msgstr ""
+msgstr "ป้อนหมายเลขโทรศัพท์ที่ถูกต้อง"
