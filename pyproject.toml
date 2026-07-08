@@ -27,6 +27,7 @@ classifiers = [
   "Framework :: Django CMS :: 4.0",
   "Framework :: Django CMS :: 4.1",
   "Framework :: Django CMS :: 5.0",
+  "Framework :: Django CMS :: 5.1",
   "Intended Audience :: Developers",
   "License :: OSI Approved :: BSD License",
   "Operating System :: OS Independent",
