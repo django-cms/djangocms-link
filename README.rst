@@ -23,12 +23,13 @@ django CMS Link has a weak dependency on django Filer: if
 `django Filer <http://django-filer.readthedocs.io/en/latest/installation.html>`_
 is installed and configured, you will also be able to link to files.
 
-* Django Filer 1.7 or higher
+* django CMS 3.11 or higher
 * djangocms-attributes-field 1.0 or higher
+* django Filer (optional, for file links)
 
-See ``REQUIREMENTS`` in the `setup.py
-<https://github.com/divio/djangocms-link/blob/master/setup.py>`_ file for the
-full list of dependencies.
+See ``dependencies`` in the `pyproject.toml
+<https://github.com/django-cms/djangocms-link/blob/master/pyproject.toml>`_ file
+for the full list of dependencies.
 
 
 Installation
@@ -144,7 +145,7 @@ Site-selectors
 
 For multi-site installations, django CMS Link provides a site selector. It can be
 switched on or off by setting the ``DJANGOCMS_LINK_SITE_SELECTOR`` setting to
-``True`` or ``False``. The default is ``True``::
+``True`` or ``False``. The default is ``False``::
 
     # Enable the site selector
     DJANGOCMS_LINK_SITE_SELECTOR = True
@@ -232,8 +233,9 @@ Link models
 The ``to_url`` template filter and the ``get_obj_link`` helper function can be
 used to get the full URL for any Django model instance. This is useful on
 multi-site installations. ``to_url`` assumes that the model instance's site is
-found in its ``site`` property. If the model belongs to a different site than the
-current one, it prepends the domain name of that site.
+found in its ``site_id`` attribute (falling back to ``node.site_id``). If the
+model belongs to a different site than the current one, it prepends the domain
+name of that site.
 
 Example::
 
@@ -291,7 +293,7 @@ pull request, please review our `contribution guidelines
 
 We're grateful to all contributors who have helped create and maintain this package.
 Contributors are listed in the `contributors
-<https://github.com/divio/djangocms-link/graphs/contributors>`_ section.
+<https://github.com/django-cms/djangocms-link/graphs/contributors>`_ section.
 
 One of the easiest contributions you can make is helping to translate this addon on
 `Transifex <https://www.transifex.com/projects/p/djangocms-link/>`_.
