@@ -18,7 +18,7 @@ classifiers = [
   "Development Status :: 5 - Production/Stable",
   "Environment :: Web Environment",
   "Framework :: Django",
-  "Framework :: Django :: 5.2",  
+  "Framework :: Django :: 5.2",
   "Framework :: Django :: 6.0",
   "Framework :: Django :: 6.1",
   "Framework :: Django CMS",
@@ -55,6 +55,35 @@ packages = [ "djangocms_link" ]
 package-data.djangocms_link = [ "LICENSE", "locale/**/*", "README.rst", "static/**/*", "templates/**/*" ]
 dynamic.version = { attr = "djangocms_link.__version__" }
 
+[tool.ruff]
+line-length = 119
+extend-exclude = [
+  "**/migrations/**",
+  ".env",
+  "data",
+  "docs",
+  "tmp",
+]
+lint.select = [
+  "E",
+  "F",
+  "I",
+  "W",
+]
+lint.isort.known-first-party = [ "djangocms_link" ]
+lint.isort.lines-after-imports = 2
+lint.isort.section-order = [
+  "future",
+  "standard-library",
+  "django",
+  "cms",
+  "third-party",
+  "first-party",
+  "local-folder",
+]
+lint.isort.sections.cms = [ "cms", "menus" ]
+lint.isort.sections.django = [ "django" ]
+
 [tool.coverage]
 run.branch = true
 run.omit = [
@@ -73,38 +102,3 @@ report.exclude_lines = [
   "raise NotImplementedError",
 ]
 report.ignore_errors = true
-
-[tool.ruff]
-line-length = 119
-extend-exclude = [
-  "**/migrations/**",
-  ".env",
-  "data",
-  "tmp",
-  "docs",
-]
-
-[tool.ruff.lint]
-select = [
-  "E",
-  "W",
-  "F",
-  "I",
-]
-
-[tool.ruff.lint.isort]
-known-first-party = ["djangocms_link"]
-lines-after-imports = 2
-section-order = [
-  "future",
-  "standard-library",
-  "django",
-  "cms",
-  "third-party",
-  "first-party",
-  "local-folder",
-]
-
-[tool.ruff.lint.isort.sections]
-django = ["django"]
-cms = ["cms", "menus"]
