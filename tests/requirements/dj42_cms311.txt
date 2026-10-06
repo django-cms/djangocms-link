@@ -2,3 +2,4 @@
 
 Django>=4.2,<5.0
 django-cms>=3.11,<4.0
+django-test-migrations<1.7  # 1.7 requires Django 5.2+
