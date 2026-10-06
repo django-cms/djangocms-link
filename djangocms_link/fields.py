@@ -12,9 +12,8 @@ from django.db import models
 from django.db.models import JSONField, ManyToOneRel
 from django.forms import Field, MultiWidget, Select, TextInput, URLInput
 from django.utils.encoding import force_str
-from django.utils.translation import get_language
+from django.utils.translation import get_language, override
 from django.utils.translation import gettext_lazy as _
-from django.utils.translation import override
 
 from cms.utils.urlutils import admin_reverse
 
