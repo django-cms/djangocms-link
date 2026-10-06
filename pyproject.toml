@@ -55,58 +55,6 @@ packages = [ "djangocms_link" ]
 package-data.djangocms_link = [ "LICENSE", "locale/**/*", "README.rst", "static/**/*", "templates/**/*" ]
 dynamic.version = { attr = "djangocms_link.__version__" }
 
-[tool.ruff]
-exclude = [
-  "djangocms_link/migrations/*",
-]
-
-[tool.isort]
-line_length = 119
-multi_line_output = 5
-include_trailing_comma = true
-lines_after_imports = 2
-sections = [
-  "FUTURE",
-  "STDLIB",
-  "DJANGO",
-  "CMS",
-  "THIRDPARTY",
-  "FIRSTPARTY",
-  "LOCALFOLDER",
-]
-default_section = "THIRDPARTY"
-known_first_party = "djangocms_link"
-skip = [
-  "*migrations*",
-  ".eggs",
-  ".env",
-  ".tox",
-  ".venv",
-  "data",
-  "manage.py",
-]
-known_cms = [ "cms", "menus" ]
-known_django = "django"
-
-[tool.flake8]
-max-line-length = 119
-exclude = [
-  "*.egg-info",
-  ".eggs",
-  ".env",
-  ".git",
-  ".settings",
-  ".tox",
-  ".venv",
-  "build",
-  "data",
-  "dist",
-  "docs",
-  "*migrations*",
-  "requirements",
-  "tmp",
-]
-
 [tool.coverage]
 run.branch = true
 run.omit = [
@@ -125,3 +73,38 @@ report.exclude_lines = [
   "raise NotImplementedError",
 ]
 report.ignore_errors = true
+
+[tool.ruff]
+line-length = 119
+extend-exclude = [
+  "**/migrations/**",
+  ".env",
+  "data",
+  "tmp",
+  "docs",
+]
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "W",
+  "F",
+  "I",
+]
+
+[tool.ruff.lint.isort]
+known-first-party = ["djangocms_link"]
+lines-after-imports = 2
+section-order = [
+  "future",
+  "standard-library",
+  "django",
+  "cms",
+  "third-party",
+  "first-party",
+  "local-folder",
+]
+
+[tool.ruff.lint.isort.sections]
+django = ["django"]
+cms = ["cms", "menus"]
