@@ -86,12 +86,12 @@ lint.isort.sections.cms = [ "cms", "menus" ]
 lint.isort.sections.django = [ "django" ]
 
 [tool.coverage]
-run.branch = true
+run.source = [ "djangocms_link" ]
 run.omit = [
   "migrations/*",
   "tests/*",
 ]
-run.source = [ "djangocms_link" ]
+run.branch = true
 report.exclude_lines = [
   "def __repr__",
   "if __name__ == .__main__.:",
