@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from contextlib import closing
+
 from django.apps import apps
 from django.conf import settings
 from django.contrib import admin
@@ -120,19 +122,18 @@ class AdminUrlsView(BaseListView):
         batch_size = self.paginate_by + 1
         objects = []
         for qs in qs_list:
-            offset = 0
-            while True:
-                # Bound both row loading and related-object prefetches. Keep
-                # fetching batches when object permissions exclude results.
-                batch = list(qs[offset:offset + batch_size])
-                for item in batch:
+            ordering = qs.query.order_by or (
+                qs.model._meta.ordering if qs.query.default_ordering else ()
+            ) or ()
+            qs = qs.order_by(*ordering, "pk")
+            # Use one query per model, with bounded prefetch batches. A single
+            # cursor avoids offset scans and shifting rows between batch queries.
+            with closing(qs.iterator(chunk_size=batch_size)) as objects_iter:
+                for item in objects_iter:
                     if self.has_perm(self.request, item):
                         objects.append(item)
                         if len(objects) > max_items:
                             return objects
-                if len(batch) < batch_size:
-                    break
-                offset += batch_size
         return objects
 
     def get_reference(self, request: HttpRequest) -> JsonResponse:

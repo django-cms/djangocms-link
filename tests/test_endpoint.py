@@ -454,6 +454,58 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
 
         self.assertEqual(objects, list(self.items[:3]))
 
+    def test_multi_queryset_pagination_scans_denied_rows_with_one_query(self):
+        view = AdminUrlsView()
+        view.request = None
+        view.paginate_by = 1
+        view.kwargs = {"page": 1}
+        view.has_perm = lambda request, obj=None: False
+
+        with self.assertNumQueries(1):
+            objects = view.get_paginated_multi_qs([
+                ThirdPartyModel.objects.all(), ThirdPartyModel.objects.none(),
+            ])
+
+        self.assertEqual(objects, [])
+
+    def test_multi_queryset_pagination_preserves_ordering_with_pk_tiebreaker(self):
+        view = AdminUrlsView()
+        view.request = None
+        view.paginate_by = 1
+        view.kwargs = {"page": 2}
+        view.has_perm = lambda request, obj=None: True
+        ThirdPartyModel.objects.filter(pk__in=[obj.pk for obj in self.items[1:]]).update(name="Same")
+        for ordering in ((), ("-name",)):
+            for default_ordering in ((), ("-name",)):
+                with self.subTest(ordering=ordering, default_ordering=default_ordering):
+                    with patch.object(ThirdPartyModel._meta, "ordering", default_ordering):
+                        qs = ThirdPartyModel.objects.all()
+                        if ordering:
+                            qs = qs.order_by(*ordering)
+                        objects = view.get_paginated_multi_qs([qs, ThirdPartyModel.objects.none()])
+
+                    expected = self.items[1:] if ordering or default_ordering else self.items[:3]
+                    self.assertEqual(objects, list(expected))
+
+    def test_multi_queryset_pagination_does_not_skip_after_deletion(self):
+        view = AdminUrlsView()
+        view.request = None
+        view.paginate_by = 1
+        view.kwargs = {"page": 1}
+        deleted_pk = self.items[0].pk
+
+        def has_perm(request, obj=None):
+            if obj.pk == self.items[1].pk:
+                ThirdPartyModel.objects.filter(pk=deleted_pk).delete()
+            return obj.pk not in {deleted_pk, self.items[1].pk}
+
+        view.has_perm = has_perm
+        objects = view.get_paginated_multi_qs([
+            ThirdPartyModel.objects.order_by("pk"), ThirdPartyModel.objects.none(),
+        ])
+
+        self.assertEqual(objects, list(self.items[2:]))
+
     def test_serialization_only_uses_string_when_link_text_is_empty(self):
         view = AdminUrlsView()
         obj = self.items[0]
