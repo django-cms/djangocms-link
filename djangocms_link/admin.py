@@ -164,6 +164,9 @@ class AdminUrlsView(BaseListView):
         model = {}
         previous_model = None
         for obj in context["object_list"]:
+            data = self.serialize_result(obj)
+            if not data:
+                continue
             if obj._meta.verbose_name_plural != previous_model or not model:
                 if model:  # Don't add the initial empty model
                     results.append(model)
@@ -172,9 +175,7 @@ class AdminUrlsView(BaseListView):
                     "text": previous_model.capitalize(),
                     "children": [],
                 }
-            data = self.serialize_result(obj)
-            if data:  # Only append if serialization was successful
-                model["children"].append(data)
+            model["children"].append(data)
         if model:
             results.append(model)
         return results
