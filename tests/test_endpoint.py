@@ -1,16 +1,25 @@
 import re
+from unittest import skipIf
+from unittest.mock import patch
 
 from django.contrib import admin
 from django.contrib.sites.models import Site
 
-from cms.api import create_page, create_title
+from cms import __version__
+from cms.api import create_page
 from cms.models import Page
 from cms.test_utils.testcases import CMSTestCase
 from cms.utils.urlutils import admin_reverse
 
-from djangocms_link.admin import UNICODE_SPACE
+from djangocms_link.admin import UNICODE_SPACE, AdminUrlsView
 from djangocms_link.models import Link
 from tests.utils.models import ThirdPartyModel
+
+
+try:
+    from cms.api import create_page_content as create_title
+except ImportError:
+    from cms.api import create_title
 
 
 class LinkEndpointTestCase(CMSTestCase):
@@ -54,6 +63,40 @@ class LinkEndpointTestCase(CMSTestCase):
         self.root_page.delete()
         self.sibling.delete()
 
+    @skipIf(hasattr(Page, "get_admin_content"), "CMS 3.11 title cache")
+    def test_prefetched_titles_need_no_serialization_queries(self):
+        page = create_page("English only", "page.html", "en")
+        for language in ("en", "fr"):
+            with self.subTest(language=language):
+                view = AdminUrlsView()
+                view.term, view.language, view.site = "", language, None
+                obj = view.get_queryset().get(pk=page.pk)
+
+                with self.assertNumQueries(0):
+                    result = view.serialize_result(obj)
+
+                self.assertEqual(result["text"].strip(UNICODE_SPACE), "English only")
+                self.assertIn("/en/", result["url"])
+
+    @skipIf(int(__version__.split(".")[0]) < 5, "CMS 5.x URL prefetch")
+    def test_prefetched_pages_need_no_serialization_queries(self):
+        page = create_page("English only", "page.html", "en")
+        for language in ("en", "fr"):
+            with self.subTest(language=language):
+                view = AdminUrlsView()
+                view.term, view.language, view.site = "", language, None
+                with self.assertNumQueries(3):
+                    objects = list(view.get_queryset())
+
+                with self.assertNumQueries(0):
+                    results = {obj.pk: view.serialize_result(obj) for obj in objects}
+
+                self.assertEqual(len(results), 5)
+                self.assertEqual(results[page.pk]["text"].strip(UNICODE_SPACE), "English only")
+                self.assertIn("/en/", results[page.pk]["url"])
+                self.assertEqual(results[self.sibling.pk]["text"], "frère" if language == "fr" else "sibling")
+                self.assertIn(f"/{language}/", results[self.sibling.pk]["url"])
+
     def test_api_endpoint(self):
         from djangocms_link import admin
 
@@ -91,7 +134,7 @@ class LinkEndpointTestCase(CMSTestCase):
                     leading_spaces = re.search(
                         f"[^{UNICODE_SPACE}]", page["text"]
                     ).start()
-                    depth = getattr(db_page, "depth", db_page.node.depth)
+                    depth = db_page.depth if hasattr(db_page, "depth") else db_page.node.depth
                     self.assertEqual(
                         leading_spaces,
                         depth - 1,
@@ -364,32 +407,116 @@ class LinkEndpointThirdPartyTestCase(CMSTestCase):
         self.assertEqual(len(destinations["children"]), 1)
 
     def test_multi_queryset_pagination_stops_after_page_limit(self):
-        from djangocms_link.admin import AdminUrlsView
-
-        class TrackingIterable:
-            def __init__(self):
-                self.iterated = 0
-
-            def __iter__(self):
-                for item in self.items:
-                    self.iterated += 1
-                    yield item
-
-        first_qs = TrackingIterable()
-        first_qs.items = self.items
-        second_qs = TrackingIterable()
-        second_qs.items = self.items
+        first_qs = ThirdPartyModel.objects.order_by("pk")
+        second_qs = ThirdPartyModel.objects.order_by("pk")
         view = AdminUrlsView()
         view.request = None
         view.paginate_by = 1
         view.kwargs = {"page": 1}
         view.has_perm = lambda request, obj=None: True
 
-        objects = view.get_paginated_multi_qs([first_qs, second_qs])
+        with patch.object(ThirdPartyModel, "from_db", wraps=ThirdPartyModel.from_db) as from_db:
+            with self.assertNumQueries(1):
+                objects = view.get_paginated_multi_qs([first_qs, second_qs])
 
         self.assertEqual(objects, list(self.items[:2]))
-        self.assertEqual(first_qs.iterated, 2)
-        self.assertEqual(second_qs.iterated, 0)
+        self.assertEqual(from_db.call_count, 2)
+        self.assertIsNone(first_qs._result_cache)
+        self.assertIsNone(second_qs._result_cache)
+
+    def test_multi_queryset_pagination_skips_denied_objects_across_batches(self):
+        view = AdminUrlsView()
+        view.request = None
+        view.paginate_by = 1
+        view.kwargs = {"page": 1}
+        view.has_perm = lambda request, obj=None: obj.pk in {self.items[1].pk, self.items[3].pk}
+        qs = ThirdPartyModel.objects.order_by("pk").prefetch_related("site")
+
+        objects = view.get_paginated_multi_qs([qs, ThirdPartyModel.objects.none()])
+
+        self.assertEqual(objects, [self.items[1], self.items[3]])
+        with self.assertNumQueries(0):
+            self.assertEqual(objects[0].site, self.items[1].site)
+            self.assertIsNone(objects[1].site)
+
+    def test_multi_queryset_pagination_continues_into_next_queryset(self):
+        view = AdminUrlsView()
+        view.request = None
+        view.paginate_by = 1
+        view.kwargs = {"page": 2}
+        view.has_perm = lambda request, obj=None: True
+        qs_list = [
+            ThirdPartyModel.objects.filter(pk=self.items[0].pk),
+            ThirdPartyModel.objects.exclude(pk=self.items[0].pk).order_by("pk"),
+        ]
+
+        objects = view.get_paginated_multi_qs(qs_list)
+
+        self.assertEqual(objects, list(self.items[:3]))
+
+    def test_multi_queryset_pagination_scans_denied_rows_with_one_query(self):
+        view = AdminUrlsView()
+        view.request = None
+        view.paginate_by = 1
+        view.kwargs = {"page": 1}
+        view.has_perm = lambda request, obj=None: False
+
+        with self.assertNumQueries(1):
+            objects = view.get_paginated_multi_qs([
+                ThirdPartyModel.objects.all(), ThirdPartyModel.objects.none(),
+            ])
+
+        self.assertEqual(objects, [])
+
+    def test_multi_queryset_pagination_preserves_ordering_with_pk_tiebreaker(self):
+        view = AdminUrlsView()
+        view.request = None
+        view.paginate_by = 1
+        view.kwargs = {"page": 2}
+        view.has_perm = lambda request, obj=None: True
+        ThirdPartyModel.objects.filter(pk__in=[obj.pk for obj in self.items[1:]]).update(name="Same")
+        for ordering in ((), ("-name",)):
+            for default_ordering in ((), ("-name",)):
+                with self.subTest(ordering=ordering, default_ordering=default_ordering):
+                    with patch.object(ThirdPartyModel._meta, "ordering", default_ordering):
+                        qs = ThirdPartyModel.objects.all()
+                        if ordering:
+                            qs = qs.order_by(*ordering)
+                        objects = view.get_paginated_multi_qs([qs, ThirdPartyModel.objects.none()])
+
+                    expected = self.items[1:] if ordering or default_ordering else self.items[:3]
+                    self.assertEqual(objects, list(expected))
+
+    def test_multi_queryset_pagination_does_not_skip_after_deletion(self):
+        view = AdminUrlsView()
+        view.request = None
+        view.paginate_by = 1
+        view.kwargs = {"page": 1}
+        deleted_pk = self.items[0].pk
+
+        def has_perm(request, obj=None):
+            if obj.pk == self.items[1].pk:
+                ThirdPartyModel.objects.filter(pk=deleted_pk).delete()
+            return obj.pk not in {deleted_pk, self.items[1].pk}
+
+        view.has_perm = has_perm
+        objects = view.get_paginated_multi_qs([
+            ThirdPartyModel.objects.order_by("pk"), ThirdPartyModel.objects.none(),
+        ])
+
+        self.assertEqual(objects, list(self.items[2:]))
+
+    def test_serialization_only_uses_string_when_link_text_is_empty(self):
+        view = AdminUrlsView()
+        obj = self.items[0]
+        obj.__link_text__ = "Custom title"
+        with patch.object(ThirdPartyModel, "__str__", return_value="Fallback title") as to_string:
+            self.assertEqual(view.serialize_result(obj)["text"], "Custom title")
+            to_string.assert_not_called()
+
+            obj.__link_text__ = ""
+            self.assertEqual(view.serialize_result(obj)["text"], "Fallback title")
+            to_string.assert_called_once_with()
 
     def test_invalid_page_number(self):
         with self.login_user_context(self.get_superuser()):

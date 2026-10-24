@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from contextlib import closing
+
 from django.apps import apps
 from django.conf import settings
 from django.contrib import admin
@@ -115,21 +117,23 @@ class AdminUrlsView(BaseListView):
         if len(qs_list) == 1:
             # Only one qs, just use regular pagination
             return qs_list[0]
-        # Slice all querysets, evaluate and join them into a list.
         # Collect one extra item so Django's paginator can detect has_next().
         max_items = self.get_page() * self.paginate_by
+        batch_size = self.paginate_by + 1
         objects = []
         for qs in qs_list:
-            for item in qs:
-                if self.has_perm(self.request, item):
-                    objects.append(item)
-                    if len(objects) > max_items:
-                        break
-
-            if len(objects) > max_items:
-                # No need to touch the rest of the querysets
-                # as we have enough items already
-                break
+            ordering = qs.query.order_by or (
+                qs.model._meta.ordering if qs.query.default_ordering else ()
+            ) or ()
+            qs = qs.order_by(*ordering, "pk")
+            # Use one query per model, with bounded prefetch batches. A single
+            # cursor avoids offset scans and shifting rows between batch queries.
+            with closing(qs.iterator(chunk_size=batch_size)) as objects_iter:
+                for item in objects_iter:
+                    if self.has_perm(self.request, item):
+                        objects.append(item)
+                        if len(objects) > max_items:
+                            return objects
         return objects
 
     def get_reference(self, request: HttpRequest) -> JsonResponse:
@@ -197,6 +201,12 @@ class AdminUrlsView(BaseListView):
                     obj.__link_text__ = content.title
                     link_language = content.language
             elif hasattr(obj, "get_title_obj"):
+                if hasattr(obj, "prefetched_content"):
+                    # Cache missing languages too, so fallback does not reload titles.
+                    obj.title_cache = dict.fromkeys(self.get_display_languages())
+                    obj.title_cache.update({
+                        trans.language: trans for trans in obj.prefetched_content
+                    })
                 content = obj.get_title_obj(self.language, fallback=True)
                 if content:
                     obj.__link_text__ = content.title
@@ -204,7 +214,7 @@ class AdminUrlsView(BaseListView):
 
         indentation = UNICODE_SPACE * (max(getattr(obj, "__depth__", 1), 1) - 1)
         url = self.get_absolute_url(obj, link_language)
-        text = getattr(obj, "__link_text__", str(obj)) or str(obj)
+        text = getattr(obj, "__link_text__", None) or str(obj)
         if url and text:
             return {
                 "id": f"{obj._meta.app_label}.{obj._meta.model_name}:{obj.pk}",
@@ -252,6 +262,8 @@ class AdminUrlsView(BaseListView):
                     ),
                 )
             )
+            if _version >= 5:
+                qs = qs.prefetch_related("urls")
             if not self.term:
                 qs = qs.annotate(
                     __depth__=F("depth" if _version >= 5 else "node__depth")
