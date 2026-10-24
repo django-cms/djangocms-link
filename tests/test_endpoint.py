@@ -437,3 +437,36 @@ class LinkEndpointMultiModelTestCase(CMSTestCase):
         self.assertEqual(len(data["results"]), 2)
         self.assertEqual(data["results"][0]["text"], "Pages")
         self.assertEqual(data["results"][1]["text"], "Third party models")
+
+    def test_filter_omits_models_without_matches(self):
+        for term, heading in (("root", "Pages"), ("First", "Third party models")):
+            with self.subTest(term=term):
+                with self.login_user_context(self.get_superuser()):
+                    response = self.client.get(self.endpoint, {"term": term})
+
+                self.assertEqual(response.status_code, 200)
+                data = response.json()
+                self.assertEqual([group["text"] for group in data["results"]], [heading])
+                self.assertEqual(len(data["results"][0]["children"]), 1)
+                self.assertFalse(data["pagination"]["more"])
+
+    def test_omits_models_without_usable_links(self):
+        ThirdPartyModel.objects.update(path="")
+
+        with self.login_user_context(self.get_superuser()):
+            response = self.client.get(self.endpoint)
+
+        self.assertEqual(response.status_code, 200)
+        data = response.json()
+        self.assertEqual([group["text"] for group in data["results"]], ["Pages"])
+        self.assertEqual(len(data["results"][0]["children"]), 1)
+        self.assertFalse(data["pagination"]["more"])
+
+    def test_empty_results_when_matches_have_no_usable_links(self):
+        ThirdPartyModel.objects.update(path="")
+
+        with self.login_user_context(self.get_superuser()):
+            response = self.client.get(self.endpoint, {"term": "First"})
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {"results": [], "pagination": {"more": False}})
