@@ -20,22 +20,17 @@ repos:
       - id: django-upgrade
         args: [--target-version, "5.2"]
 
-  - repo: https://github.com/PyCQA/flake8
-    rev: 7.3.0
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.16.10
     hooks:
-      - id: flake8
-        additional_dependencies: [Flake8-pyproject]
+      - id: ruff-check
+        args: [--fix]
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v6.0.0
     hooks:
       - id: check-merge-conflict
       - id: mixed-line-ending
-
-  - repo: https://github.com/pycqa/isort
-    rev: 9.0.0a3
-    hooks:
-      - id: isort
 
   - repo: https://github.com/tox-dev/pyproject-fmt
     rev: v2.25.1
